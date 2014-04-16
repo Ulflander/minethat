@@ -1,0 +1,55 @@
+<html>
+    <head>
+
+        <link rel="stylesheet" href="/css/app.css">
+
+    </head>
+    <body>
+        <div class="wrapper">
+
+            <section class="table">
+                <h3>Subscribers <span class="count"><%= data.count %></span></h3>
+                <table class="subscribers">
+                    <thead>
+                        <tr>
+                            <th>Email</th>
+                            <th>Referer campaign</th>
+                            <th>Referer domain</th>
+                            <th>Browser &amp; OS</th>
+                            <th>Device</th>
+                            <th>Date</th>
+                            <th>Unsubscribed</th>
+                        </tr>
+                    </thead>
+                    <% for(var i=0; i < data.docs.length; i++) {%>
+                        <tr data-item-id="<%= data.docs[i]._id %>">
+                            <td><%= data.docs[i].email %></td>
+                            <td><%= data.docs[i].ref_campaign || 'Unknown' %></td>
+                            <td><%= data.docs[i].ref_domain || 'Unknown' %></td>
+                            <td><%= data.docs[i].browser ? 
+                                data.docs[i].browser + ' / ' + data.docs[i].os :
+                                 'Unknown' %></td>
+                            <td><%= data.docs[i].device || 'Unknown' %></td>
+                            <td><%= data.docs[i].ts_created %></td>
+                            <td><%= data.docs[i].unactivated || false %></td>
+                        </tr>
+                    <% } %>
+                    
+                    <% if (data.hasNext || data.hasPrevious) { %>
+                        <div class="paginate">
+
+                            <% if (data.hasPrevious) { %>
+                                <a class="previous" href="?page=<%= data.page - 1 %>">Previous</a>
+                            <% } %>
+                            <% if (data.hasNext) { %>
+                                <a class="next" href="?page=<%= data.page + 1 %>">Next</a>
+                            <% } %>
+                        </div>
+                    <% } %>
+                </table>
+            </section>
+
+
+        </div>
+    </body>
+</html>

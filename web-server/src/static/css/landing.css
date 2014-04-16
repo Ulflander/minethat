@@ -1,0 +1,55 @@
+body {
+  font-size: 1.2em; }
+
+.wrapper {
+  width: 580px;
+  margin: 0px auto 0; }
+
+header {
+  text-align: center;
+  margin-bottom: 0px; }
+
+section p {
+  margin-top: 40px; }
+section .cta {
+  text-align: center; }
+
+.subscription {
+  text-align: center; }
+
+#subscribed ul {
+  list-style-type: none;
+  text-align: center; }
+#subscribed li {
+  display: inline-block;
+  padding: 0 40px; }
+  #subscribed li i {
+    font-size: 40px; }
+  #subscribed li span {
+    display: none; }
+
+footer {
+  margin-top: 80px;
+  font-size: 12px;
+  color: #cdcdcd; }
+  footer ul {
+    list-style-type: none;
+    padding: 0;
+    text-align: center; }
+  footer li {
+    display: inline-block;
+    width: auto;
+    padding: 0 10px; }
+  footer a, footer a:active, footer a:hover, footer a:visited {
+    color: #cdcdcd; }
+
+@media screen and (max-width: 700px) {
+  .wrapper {
+    width: 80%;
+    margin: 0 0 0 10%;
+    font-size: 0.9em; }
+  header {
+    height: 150px;
+    background: url(../img/logo-square.png) no-repeat center center; }
+  img[itemprop=logo] {
+    display: none; } }

@@ -1,0 +1,68 @@
+::-webkit-input-placeholder {
+  /* WebKit browsers */
+  color: #cdcdcd; }
+
+:-moz-placeholder {
+  /* Mozilla Firefox 4 to 18 */
+  color: #cdcdcd; }
+
+::-moz-placeholder {
+  /* Mozilla Firefox 19+ */
+  color: #cdcdcd; }
+
+:-ms-input-placeholder {
+  /* Internet Explorer 10+ */
+  color: #cdcdcd; }
+
+.input-wrap {
+  margin-bottom: 20px;
+  position: relative; }
+  .input-wrap .message {
+    position: absolute;
+    right: 0px;
+    top: 0px; }
+  .input-wrap .error {
+    border-radius: 2px; }
+
+.input {
+  display: block;
+  background: #fff;
+  width: 100%;
+  border-radius: 2px;
+  border: 1px solid #cdcdcd;
+  padding: 8px 10px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  color: #3F3F3F; }
+
+.input:focus {
+  border-color: #3F3F3F;
+  color: #3F3F3F; }
+
+.input-wrap.invalid .input {
+  border-color: #ec4000; }
+
+.button {
+  background: #ddd;
+  color: #3F3F3F;
+  border-radius: 2px;
+  border: 0;
+  padding: 12px 20px;
+  font-weight: 200;
+  text-decoration: none; }
+
+.button:hover, .button:focus {
+  background: #3F3F3F; }
+
+.cta .button {
+  background: #1180dd;
+  color: #fff;
+  text-shadow: 1px 1px #085290; }
+  .cta .button .main {
+    font-size: 26px; }
+  .cta .button .secondary {
+    margin-top: 5px;
+    font-size: 12px; }
+.cta .button:hover, .cta .button:focus {
+  background: #116cb9; }

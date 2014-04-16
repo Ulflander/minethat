@@ -1,0 +1,14 @@
+@relation texts
+
+@attribute categoryClass {facts,analysis}
+@attribute text String
+
+@data
+facts,'Bob marley died at 36, in 1981. He lived all his life in Jamaica.'
+facts,'The United States, the European Union, Ukraine and Russia are expected to undertake formal discussions Thursday in Geneva, five weeks before May 25 elections are to take place in Ukraine.'
+analysis,'If there was ever any question that the security situation in the world is constantly changing, these past five years provide undeniable evidence.'
+facts,'My name is Maria Johns and I live in Paris, Texas.'
+facts,'My name is Maria Johns and I live in Paris, Texas.'
+facts,'My name is Maria Johns and I live in Paris, Texas.'
+facts,'My name is Maria Johns and I live in Paris, Texas.'
+facts,'My name is Maria Johns and I live in Paris, Texas.'

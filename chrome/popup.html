@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Minethat</title>
+        <link type="text/css" rel="stylesheet" href="css/popup.css" media="all">
+    </head>
+    <body>
+        <div class="popup_wrapper" id="loading">
+            <span>Loading...</span>
+        </div>
+
+        <div class="popup_wrapper" id="main">
+            <button id="minethat_page">Mine that page</button>
+            <div id="status"></div>
+            <button id="trainthat_page">Train that page</button>
+
+            <input type = "radio"
+                name = "train_type"
+                id = "facts"
+                value = "facts"
+                checked = "checked" />
+
+            <label for = "facts">Facts</label>
+            
+            <input type = "radio"
+                name = "train_type"
+                id = "analysis"
+                value = "analysis" />
+            <label for = "analysis">Analysis</label>
+        </div>
+    </body>
+
+    <script src="vendors/chunk.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/popup.js"></script>
+
+</html>

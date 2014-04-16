@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.ulflander.mining.processors.extract.TokenRegExpGuesserTest
+-------------------------------------------------------------------------------
+Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.711 sec - in com.ulflander.mining.processors.extract.TokenRegExpGuesserTest

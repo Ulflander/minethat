@@ -1,0 +1,1 @@
+﻿This document contains some English text. And that’s great.

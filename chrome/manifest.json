@@ -1,0 +1,18 @@
+{
+  "manifest_version": 2,
+
+  "name": "Minethat Chrome extension",
+  "description": "This extension sends a web page or text selection to Minethat web service",
+  "version": "1.0",
+  "browser_action": {
+    "default_icon": "img/icon.png",
+    "default_popup": "popup.html",
+    "default_title": "Minethat"
+  },
+  "permissions": [
+    "storage",
+    "tabs",
+    "http://*/"
+  ],
+  "options_page": "options.html"
+}

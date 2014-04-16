@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.ulflander.mining.processors.extract.POSTaggerTest
+-------------------------------------------------------------------------------
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.739 sec - in com.ulflander.mining.processors.extract.POSTaggerTest

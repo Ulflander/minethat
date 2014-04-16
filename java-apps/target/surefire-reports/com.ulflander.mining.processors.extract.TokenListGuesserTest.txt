@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.ulflander.mining.processors.extract.TokenListGuesserTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.466 sec - in com.ulflander.mining.processors.extract.TokenListGuesserTest

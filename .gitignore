@@ -1,0 +1,8 @@
+.DS_Store
+chrome/node_modules/
+chunk/node_modules/
+web-server/node_modules/
+datasets/ignored/
+java-apps/.idea/
+java-apps/.surefire*
+

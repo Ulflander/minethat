@@ -1,0 +1,21 @@
+{
+  "name": "minethat-chrome-extension",
+  "version": "0.0.0",
+  "description": "",
+  "main": "manifest.json",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp-clean": "~0.2.4",
+    "gulp-concat": "~2.1.7",
+    "gulp-jshint": "~1.5.0",
+    "gulp": "~3.5.5",
+    "gulp-rename": "~1.2.0",
+    "gulp-uglify": "~0.2.1",
+    "gulp-filesize": "0.0.6",
+    "gulp-closure-compiler": "^0.2.0"
+  }
+}

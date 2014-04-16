@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="5.6">
+<file name="/Users/Ulflander/Development/Minethat/java-apps/src/main/java/com/ulflander/application/Conf.java">
+</file>
+<file name="/Users/Ulflander/Development/Minethat/java-apps/src/main/java/com/ulflander/application/ConfReader.java">
+</file>
+<file name="/Users/Ulflander/Development/Minethat/java-apps/src/main/java/com/ulflander/application/Env.java">
+</file>
+<file name="/Users/Ulflander/Development/Minethat/java-apps/src/main/java/com/ulflander/application/model/Chapter.java">
+</file>
+<file name="/Users/Ulflander/Development/Minethat/java-apps/src/main/java/com/ulflander/application/model/customer/Customer.java">
+</file>
+<file name="/Users/Ulflander/Development/Minethat/java-apps/src/main/java/com/ulflander/application/model/customer/package-info.java">
+</file>
+<file name="/Users/Ulflander/Development/Minethat/java-apps/src/main/java/com/ulflander/application/model/Document.java">
+</file>
+<file name="/Users/Ulflander/Development/Minethat/java-apps/src/main/java/com/ulflander/application/model/DocumentStatus.java">
+</file>
+<file name="/Users/Ulflander/Development/Minethat/java-apps/src/main/java/com/ulflander/application/model/Edge.java">
+</file>
+<file name="/Users/Ulflander/Development/Minethat/java-apps/src/main/java/com/ulflander/application/model/Entity.java">
+</file>
+<file name="/Users/Ulflander/Development/Minethat/java-apps/src/main/java/com/ulflander/application/model/Heading.java">
+</file>
+<file name="/Users/Ulflander/Development/Minethat/java-apps/src/main/java/com/ulflander/application/model/HeadingLevel.java">
+</file>
+<file name="/Users/Ulflander/Development/Minethat/java-apps/src/main/java/com/ulflander/application/model/Job.java">
+</file>
+<file name="/Users/Ulflander/Development/Minethat/java-apps/src/main/java/com/ulflander/application/model/JobDocumentType.java">
+</file>
+<file name="/Users/Ulflander/Development/Minethat/java-apps/src/main/java/com/ulflander/application/model/JobFactory.java">
+</file>
+<file name="/Users/Ulflander/Development/Minethat/java-apps/src/main/java/com/ulflander/application/model/JobGateway.java">
+</file>
+<file name="/Users/Ulflander/Development/Minethat/java-apps/src/main/java/com/ulflander/application/model/JobProcessor.java">
+</file>
+<file name="/Users/Ulflander/Development/Minethat/java-apps/src/main/java/com/ulflander/application/model/JobProcessorOption.java">
+</file>
+<file name="/Users/Ulflander/Development/Minethat/java-apps/src/main/java/com/ulflander/application/model/JobStatus.java">
+</file>
+<file name="/Users/Ulflander/Development/Minethat/java-apps/src/main/java/com/ulflander/application/model/JobTarget.java">
+</file>
+<file name="/Users/Ulflander/Development/Minethat/java-apps/src/main/java/com/ulflander/application/model/Language.java">
+</file>
+<file name="/Users/Ulflander/Development/Minethat/java-apps/src/main/java/com/ulflander/application/model/ListItem.java">
+</file>
+<file name="/Users/Ulflander/Development/Minethat/java-apps/src/main/java/com/ulflander/application/model/package-info.java">
+</file>
+<file name="/Users/Ulflander/Development/Minethat/java-apps/src/main/java/com/ulflander/application/model/Paragraph.java">
+</file>
+<file name="/Users/Ulflander/Development/Minethat/java-apps/src/main/java/com/ulflander/application/model/Sentence.java">
+</file>
+<file name="/Users/Ulflander/Development/Minethat/java-apps/src/main/java/com/ulflander/application/model/Storable.java">
+</file>
+<file name="/Users/Ulflander/Development/Minethat/java-apps/src/main/java/com/ulflander/application/model/storage/DocumentStorage.java">
+</file>
+<file name="/Users/Ulflander/Development/Minethat/java-apps/src/main/java/com/ulflander/application/model/storage/GsonTypeAdapter.java">
+</file>
+<file name="/Users/Ulflander/Development/Minethat/java-apps/src/main/java/com/ulflander/application/model/storage/JobStorage.java">
+</file>
+<file name="/Users/Ulflander/Development/Minethat/java-apps/src/main/java/com/ulflander/application/model/storage/package-info.java">
+</file>
+<file name="/Users/Ulflander/Development/Minethat/java-apps/src/main/java/com/ulflander/application/model/storage/Storage.java">
+</file>
+<file name="/Users/Ulflander/Development/Minethat/java-apps/src/main/java/com/ulflander/application/model/Text.java">
+</file>
+<file name="/Users/Ulflander/Development/Minethat/java-apps/src/main/java/com/ulflander/application/model/TextLength.java">
+</file>
+<file name="/Users/Ulflander/Development/Minethat/java-apps/src/main/java/com/ulflander/application/model/Token.java">
+</file>
+<file name="/Users/Ulflander/Development/Minethat/java-apps/src/main/java/com/ulflander/application/model/TokenType.java">
+</file>
+<file name="/Users/Ulflander/Development/Minethat/java-apps/src/main/java/com/ulflander/application/package-info.java">
+</file>
+<file name="/Users/Ulflander/Development/Minethat/java-apps/src/main/java/com/ulflander/application/services/email/IMAP4Gmail.java">
+</file>
+<file name="/Users/Ulflander/Development/Minethat/java-apps/src/main/java/com/ulflander/application/services/email/IMAPConnection.java">
+</file>
+<file name="/Users/Ulflander/Development/Minethat/java-apps/src/main/java/com/ulflander/application/services/email/IMAPEmail.java">
+</file>
+<file name="/Users/Ulflander/Development/Minethat/java-apps/src/main/java/com/ulflander/application/services/email/package-info.java">
+</file>
+<file name="/Users/Ulflander/Development/Minethat/java-apps/src/main/java/com/ulflander/application/services/ExtractorService.java">
+</file>
+<file name="/Users/Ulflander/Development/Minethat/java-apps/src/main/java/com/ulflander/application/services/MailInputService.java">
+</file>
+<file name="/Users/Ulflander/Development/Minethat/java-apps/src/main/java/com/ulflander/application/services/MinerService.java">
+</file>
+<file name="/Users/Ulflander/Development/Minethat/java-apps/src/main/java/com/ulflander/application/services/package-info.java">
+</file>
+<file name="/Users/Ulflander/Development/Minethat/java-apps/src/main/java/com/ulflander/application/services/RabbitService.java">
+</file>
+<file name="/Users/Ulflander/Development/Minethat/java-apps/src/main/java/com/ulflander/application/services/Service.java">
+</file>
+<file name="/Users/Ulflander/Development/Minethat/java-apps/src/main/java/com/ulflander/application/services/ServiceException.java">
+</file>
+<file name="/Users/Ulflander/Development/Minethat/java-apps/src/main/java/com/ulflander/application/utils/cache/Cache.java">
+</file>
+<file name="/Users/Ulflander/Development/Minethat/java-apps/src/main/java/com/ulflander/application/utils/cache/package-info.java">
+</file>
+<file name="/Users/Ulflander/Development/Minethat/java-apps/src/main/java/com/ulflander/application/utils/EnInflector.java">
+</file>
+<file name="/Users/Ulflander/Development/Minethat/java-apps/src/main/java/com/ulflander/application/utils/MongoAccessor.java">
+</file>
+<file name="/Users/Ulflander/Development/Minethat/java-apps/src/main/java/com/ulflander/application/utils/package-info.java">
+</file>
+<file name="/Users/Ulflander/Development/Minethat/java-apps/src/main/java/com/ulflander/application/utils/UlfFileUtils.java">
+</file>
+<file name="/Users/Ulflander/Development/Minethat/java-apps/src/main/java/com/ulflander/application/utils/UlfHashUtils.java">
+</file>
+<file name="/Users/Ulflander/Development/Minethat/java-apps/src/main/java/com/ulflander/application/utils/UlfNetworkUtils.java">
+</file>
+<file name="/Users/Ulflander/Development/Minethat/java-apps/src/main/java/com/ulflander/application/utils/UlfResourceUtils.java">
+</file>
+<file name="/Users/Ulflander/Development/Minethat/java-apps/src/main/java/com/ulflander/application/utils/UlfStringUtils.java">
+</file>
+<file name="/Users/Ulflander/Development/Minethat/java-apps/src/main/java/com/ulflander/application/utils/UlfTimer.java">
+</file>
+<file name="/Users/Ulflander/Development/Minethat/java-apps/src/main/java/com/ulflander/MinethatTestService.java">
+</file>
+<file name="/Users/Ulflander/Development/Minethat/java-apps/src/main/java/com/ulflander/mining/ExtractionException.java">
+</file>
+<file name="/Users/Ulflander/Development/Minethat/java-apps/src/main/java/com/ulflander/mining/FileExtractor.java">
+</file>
+<file name="/Users/Ulflander/Development/Minethat/java-apps/src/main/java/com/ulflander/mining/nlp/package-info.java">
+</file>
+<file name="/Users/Ulflander/Development/Minethat/java-apps/src/main/java/com/ulflander/mining/nlp/PennPOSTag.java">
+</file>
+<file name="/Users/Ulflander/Development/Minethat/java-apps/src/main/java/com/ulflander/mining/package-info.java">
+</file>
+<file name="/Users/Ulflander/Development/Minethat/java-apps/src/main/java/com/ulflander/mining/Patterns.java">
+</file>
+<file name="/Users/Ulflander/Development/Minethat/java-apps/src/main/java/com/ulflander/mining/ProcessingExecutor.java">
+</file>
+<file name="/Users/Ulflander/Development/Minethat/java-apps/src/main/java/com/ulflander/mining/processors/augment/BasicTextStat.java">
+</file>
+<file name="/Users/Ulflander/Development/Minethat/java-apps/src/main/java/com/ulflander/mining/processors/augment/classifiers/package-info.java">
+</file>
+<file name="/Users/Ulflander/Development/Minethat/java-apps/src/main/java/com/ulflander/mining/processors/augment/classifiers/WekaClassifier.java">
+</file>
+<file name="/Users/Ulflander/Development/Minethat/java-apps/src/main/java/com/ulflander/mining/processors/augment/geoloc/MaxMindIPExtraction.java">
+</file>
+<file name="/Users/Ulflander/Development/Minethat/java-apps/src/main/java/com/ulflander/mining/processors/augment/geoloc/MaxMindIPExtractionResult.java">
+</file>
+<file name="/Users/Ulflander/Development/Minethat/java-apps/src/main/java/com/ulflander/mining/processors/augment/geoloc/package-info.java">
+</file>
+<file name="/Users/Ulflander/Development/Minethat/java-apps/src/main/java/com/ulflander/mining/processors/augment/package-info.java">
+</file>
+<file name="/Users/Ulflander/Development/Minethat/java-apps/src/main/java/com/ulflander/mining/processors/augment/social/package-info.java">
+</file>
+<file name="/Users/Ulflander/Development/Minethat/java-apps/src/main/java/com/ulflander/mining/processors/augment/social/SharedCountResult.java">
+</file>
+<file name="/Users/Ulflander/Development/Minethat/java-apps/src/main/java/com/ulflander/mining/processors/augment/social/SocialStats.java">
+</file>
+<file name="/Users/Ulflander/Development/Minethat/java-apps/src/main/java/com/ulflander/mining/processors/extract/DocumentCleaner.java">
+</file>
+<file name="/Users/Ulflander/Development/Minethat/java-apps/src/main/java/com/ulflander/mining/processors/extract/DocumentSplitter.java">
+</file>
+<file name="/Users/Ulflander/Development/Minethat/java-apps/src/main/java/com/ulflander/mining/processors/extract/en/EnTokenSingularization.java">
+</file>
+<file name="/Users/Ulflander/Development/Minethat/java-apps/src/main/java/com/ulflander/mining/processors/extract/en/package-info.java">
+</file>
+<file name="/Users/Ulflander/Development/Minethat/java-apps/src/main/java/com/ulflander/mining/processors/extract/LanguageDetector.java">
+</file>
+<file name="/Users/Ulflander/Development/Minethat/java-apps/src/main/java/com/ulflander/mining/processors/extract/OpenNLPTokenizer.java">
+</file>
+<file name="/Users/Ulflander/Development/Minethat/java-apps/src/main/java/com/ulflander/mining/processors/extract/package-info.java">
+</file>
+<file name="/Users/Ulflander/Development/Minethat/java-apps/src/main/java/com/ulflander/mining/processors/extract/POSTagger.java">
+</file>
+<file name="/Users/Ulflander/Development/Minethat/java-apps/src/main/java/com/ulflander/mining/processors/extract/RawArticleCleaner.java">
+</file>
+<file name="/Users/Ulflander/Development/Minethat/java-apps/src/main/java/com/ulflander/mining/processors/extract/TokenCleaner.java">
+</file>
+<file name="/Users/Ulflander/Development/Minethat/java-apps/src/main/java/com/ulflander/mining/processors/extract/TokenGuessConsolidation.java">
+</file>
+<file name="/Users/Ulflander/Development/Minethat/java-apps/src/main/java/com/ulflander/mining/processors/extract/TokenListGuesser.java">
+</file>
+<file name="/Users/Ulflander/Development/Minethat/java-apps/src/main/java/com/ulflander/mining/processors/extract/TokenRegExpGuesser.java">
+</file>
+<file name="/Users/Ulflander/Development/Minethat/java-apps/src/main/java/com/ulflander/mining/processors/ILocalizedProcessor.java">
+</file>
+<file name="/Users/Ulflander/Development/Minethat/java-apps/src/main/java/com/ulflander/mining/processors/load/JSONFile.java">
+</file>
+<file name="/Users/Ulflander/Development/Minethat/java-apps/src/main/java/com/ulflander/mining/processors/load/package-info.java">
+</file>
+<file name="/Users/Ulflander/Development/Minethat/java-apps/src/main/java/com/ulflander/mining/processors/LoadProcessor.java">
+</file>
+<file name="/Users/Ulflander/Development/Minethat/java-apps/src/main/java/com/ulflander/mining/processors/package-info.java">
+</file>
+<file name="/Users/Ulflander/Development/Minethat/java-apps/src/main/java/com/ulflander/mining/processors/preset/BasicTextStatPreset.java">
+</file>
+<file name="/Users/Ulflander/Development/Minethat/java-apps/src/main/java/com/ulflander/mining/processors/preset/IPreset.java">
+</file>
+<file name="/Users/Ulflander/Development/Minethat/java-apps/src/main/java/com/ulflander/mining/processors/preset/package-info.java">
+</file>
+<file name="/Users/Ulflander/Development/Minethat/java-apps/src/main/java/com/ulflander/mining/processors/Processor.java">
+</file>
+<file name="/Users/Ulflander/Development/Minethat/java-apps/src/main/java/com/ulflander/mining/processors/ProcessorDepthControl.java">
+</file>
+<file name="/Users/Ulflander/Development/Minethat/java-apps/src/main/java/com/ulflander/mining/processors/ProcessorFactory.java">
+</file>
+<file name="/Users/Ulflander/Development/Minethat/java-apps/src/main/java/com/ulflander/mining/processors/ProcessorsRequirements.java">
+</file>
+<file name="/Users/Ulflander/Development/Minethat/java-apps/src/main/java/com/ulflander/mining/processors/Requires.java">
+</file>
+<file name="/Users/Ulflander/Development/Minethat/java-apps/src/main/java/com/ulflander/mining/rdf/model/package-info.java">
+</file>
+<file name="/Users/Ulflander/Development/Minethat/java-apps/src/main/java/com/ulflander/mining/rdf/model/Person.java">
+</file>
+<file name="/Users/Ulflander/Development/Minethat/java-apps/src/main/java/com/ulflander/mining/rdf/package-info.java">
+</file>
+<file name="/Users/Ulflander/Development/Minethat/java-apps/src/main/java/com/ulflander/mining/rdf/RDFModel.java">
+</file>
+<file name="/Users/Ulflander/Development/Minethat/java-apps/src/main/java/com/ulflander/mining/rdf/utils/ModelFactory.java">
+</file>
+<file name="/Users/Ulflander/Development/Minethat/java-apps/src/main/java/com/ulflander/mining/rdf/utils/package-info.java">
+</file>
+<file name="/Users/Ulflander/Development/Minethat/java-apps/src/main/java/com/ulflander/mining/TextCleaner.java">
+</file>
+<file name="/Users/Ulflander/Development/Minethat/java-apps/src/main/java/com/ulflander/mining/TextExtractor.java">
+</file>
+<file name="/Users/Ulflander/Development/Minethat/java-apps/src/main/java/com/ulflander/package-info.java">
+</file>
+<file name="/Users/Ulflander/Development/Minethat/java-apps/src/main/resources/com/cybozu/labs/langdetect/messages.properties">
+</file>
+</checkstyle>
