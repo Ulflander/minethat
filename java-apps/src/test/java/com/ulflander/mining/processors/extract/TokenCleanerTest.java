@@ -12,6 +12,9 @@ public class TokenCleanerTest extends AbstractTest {
     public void TokenCleanerSimpleTest () {
         s.addProcessor("extract.DocumentCleaner");
         s.addProcessor("extract.DocumentSplitter");
+        s.addProcessor("extract.LanguageDetector");
+        s.addProcessor("extract.DocumentTokenizer");
+        s.addProcessor("extract.TokenCounter");
         s.addProcessor("extract.TokenCleaner");
         s.submit(d);
 
@@ -27,6 +30,9 @@ public class TokenCleanerTest extends AbstractTest {
 
         s.addProcessor("extract.DocumentCleaner");
         s.addProcessor("extract.DocumentSplitter");
+        s.addProcessor("extract.LanguageDetector");
+        s.addProcessor("extract.DocumentTokenizer");
+        s.addProcessor("extract.TokenCounter");
         s.addProcessor("extract.TokenCleaner");
         s.submit(d);
 

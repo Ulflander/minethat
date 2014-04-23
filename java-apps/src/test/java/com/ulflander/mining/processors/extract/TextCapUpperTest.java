@@ -12,6 +12,9 @@ public class TextCapUpperTest extends AbstractTest {
     public void setupProcessors () {
         s.addProcessor("extract.DocumentCleaner");
         s.addProcessor("extract.DocumentSplitter");
+        s.addProcessor("extract.LanguageDetector");
+        s.addProcessor("extract.DocumentTokenizer");
+        s.addProcessor("extract.TokenCounter");
         s.addProcessor("extract.TokenCleaner");
     }
 

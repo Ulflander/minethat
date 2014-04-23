@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.ulflander.application.services.email.IMAP4GmailTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.185 sec - in com.ulflander.application.services.email.IMAP4GmailTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 9.678 sec - in com.ulflander.application.services.email.IMAP4GmailTest

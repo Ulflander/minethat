@@ -70,6 +70,15 @@
                     job.meta = req.body.meta;
                 }
 
+                if (!!req.body.target && req.body.target === 'TRAIN') {
+                    if (!req.body || !req.body.classes) {
+                        return responder.json_error(req, res, 500, 'miss_param');
+                    }
+
+                    job.target = 'TRAIN';
+                    job.classes = req.body.classes;
+                }
+
                 job.save(function (err) {
                     if(!err) {
                         submit.publish(job._id);

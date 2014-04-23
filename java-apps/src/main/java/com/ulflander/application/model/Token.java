@@ -82,6 +82,87 @@ public class Token extends Text {
     }
 
     /**
+     * Add all given scores.
+     *
+     * @param scores Scores to add
+     */
+    public final void score(final HashMap<TokenType, Integer> scores) {
+        for (TokenType tt : scores.keySet()) {
+            score(tt, scores.get(tt));
+        }
+    }
+
+    /**
+     * Consolidate a score, only if score exists, and consolidates also
+     * sibbling tokens, decreasing score until radius is reached or score is
+     * zero.
+     *
+     * @param tt Token type
+     * @param i Score to add
+     * @param radius radius
+     */
+    public final void consolidate(final TokenType tt,
+                                  final int i,
+                                  final int radius) {
+        consolidate(tt, i);
+
+        if (i == 0 || radius == 0) {
+            return;
+        }
+
+        if (hasNext()) {
+            getNext().consolidate(tt, i - 1, radius - 1);
+        }
+
+        if (hasPrevious()) {
+            getPrevious().consolidate(tt, i - 1, radius - 1);
+        }
+
+    }
+
+    /**
+     * Add a score, only if score is equals to zero.
+     *
+     * @param tt Token type
+     * @param i Score to add
+     */
+    public final void infer(final TokenType tt, final int i) {
+        if (typeScores.containsKey(tt)) {
+            return;
+        }
+
+        typeScores.put(tt, i);
+    }
+
+    /**
+     * Add a score, only if score is equals to zero, and also infer
+     * sibbling tokens, decreasing score until radius is reached or score is
+     * zero.
+     *
+     * @param tt Token type
+     * @param i Score to add
+     * @param radius radius
+     */
+    public final void infer(final TokenType tt,
+                                  final int i,
+                                  final int radius) {
+        infer(tt, i);
+
+        if (i == 0 || radius == 0) {
+            return;
+        }
+
+        if (hasNext()) {
+            getNext().infer(tt, i - 1, radius - 1);
+        }
+
+        if (hasPrevious()) {
+            getPrevious().infer(tt, i - 1, radius - 1);
+        }
+
+    }
+
+    /**
      * Consolidate a score, only if score exists.
      *
      * @param tt Token type
@@ -106,6 +187,17 @@ public class Token extends Text {
 
         for (TokenType tt : scores.keySet()) {
             consolidate(tt, i);
+        }
+    }
+
+    /**
+     * Discriminate a token type (remove from scores).
+     *
+     * @param tt Token type
+     */
+    public final void discriminate(final TokenType tt) {
+        if (typeScores.containsKey(tt)) {
+            typeScores.remove(tt);
         }
     }
 

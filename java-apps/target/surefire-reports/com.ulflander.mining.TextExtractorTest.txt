@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.ulflander.mining.TextExtractorTest
 -------------------------------------------------------------------------------
-Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.243 sec - in com.ulflander.mining.TextExtractorTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.753 sec - in com.ulflander.mining.TextExtractorTest

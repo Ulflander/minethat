@@ -44,6 +44,12 @@ public final class Patterns {
             Pattern.compile("^.+@.+\\.[a-zA-Z]+$");
 
     /**
+     * Pattern to check capitalization.
+     */
+    public static final Pattern TOKEN_REC_CAPITALIZED =
+            Pattern.compile("^[A-Z][a-z]+$");
+
+    /**
      * Pattern to recognize a twitter username.
      */
     public static final Pattern TOKEN_REC_TWITTER_USER =
@@ -54,6 +60,18 @@ public final class Patterns {
      */
     public static final Pattern TOKEN_REC_HASHTAG =
             Pattern.compile("^#[a-zA-Z0-9_]+$");
+
+    /**
+     * Pattern to recognize a hashTag.
+     */
+    public static final Pattern TOKEN_REC_NUMBER =
+            Pattern.compile("^[0-9]+$");
+
+    /**
+     * Pattern to recognize a money amount.
+     */
+    public static final Pattern TOKEN_REC_MONEY_AMOUNT =
+            Pattern.compile("^[0-9\\.,$€£kmb]+$");
 
     /**
      * Pattern to recognize an IPV4 address.

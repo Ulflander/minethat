@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.ulflander.application.UlfNetworkUtilsTest
 -------------------------------------------------------------------------------
-Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.26 sec - in com.ulflander.application.UlfNetworkUtilsTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.993 sec - in com.ulflander.application.UlfNetworkUtilsTest

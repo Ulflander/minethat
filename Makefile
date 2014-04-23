@@ -94,6 +94,10 @@ build: test java-build
 # Test and rebuild everything, init stuff, finally start services
 start: init test build
 
+# Run corpora for java apps
+run-corpora:
+	@./corpora/corpora -r "$(CURR_ROOT)/datasets/corpora/" -v
+
 .PHONY: \
 	requires \
     java-test \

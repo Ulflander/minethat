@@ -75,7 +75,8 @@ public class EnTokenSingularization extends Processor
      */
     @Override
     public final void extractToken(final Token token) {
-        if (token.getType() != TokenType.WORD) {
+        if (token.getType() != TokenType.WORD
+            && token.getType() != TokenType.KEYWORD) {
             return;
         }
 

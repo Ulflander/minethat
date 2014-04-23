@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.ulflander.mining.processors.extract.EnTokenSingularizationTest" time="0.212" tests="4" errors="0" skipped="0" failures="0">
+<testsuite name="com.ulflander.mining.processors.extract.EnTokenSingularizationTest" time="5.834" tests="4" errors="0" skipped="0" failures="3">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Libraries"/>
@@ -17,7 +17,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.os.patch.level" value="unknown"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
-    <property name="user.dir" value="/Users/Ulflander/Development/Minethat/java-apps"/>
+    <property name="user.dir" value="/Users/Ulflander/Development/minethat/java-apps"/>
     <property name="java.runtime.version" value="1.6.0_65-b14-462-11M4609"/>
     <property name="java.awt.graphicsenv" value="apple.awt.CGraphicsEnvironment"/>
     <property name="java.endorsed.dirs" value="/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home/lib/endorsed"/>
@@ -65,8 +65,66 @@
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase name="TokenSingularizationSimpleTest" classname="com.ulflander.mining.processors.extract.EnTokenSingularizationTest" time="0.085"/>
-  <testcase name="TokenSingularizationIsPluralTest" classname="com.ulflander.mining.processors.extract.EnTokenSingularizationTest" time="0.081"/>
-  <testcase name="TokenSingularizationPeopleTest" classname="com.ulflander.mining.processors.extract.EnTokenSingularizationTest" time="0.029"/>
-  <testcase name="TokenSingularizationNotPluralTest" classname="com.ulflander.mining.processors.extract.EnTokenSingularizationTest" time="0.017"/>
+  <testcase name="TokenSingularizationSimpleTest" classname="com.ulflander.mining.processors.extract.EnTokenSingularizationTest" time="5.779">
+    <failure message="First token should have singular &apos;word&apos; expected:&lt;word[]&gt; but was:&lt;word[s]&gt;" type="org.junit.ComparisonFailure"><![CDATA[org.junit.ComparisonFailure: First token should have singular 'word' expected:<word[]> but was:<word[s]>
+	at org.junit.Assert.assertEquals(Assert.java:115)
+	at com.ulflander.mining.processors.extract.EnTokenSingularizationTest.TokenSingularizationSimpleTest(EnTokenSingularizationTest.java:31)
+]]></failure>
+    <system-out><![CDATA[2014-04-18 16:09:39,269 ERROR The database is not already authenticated so you must supply a username and password for the MongoDB provider.
+2014-04-18 16:09:39,273 ERROR NoSQL provider not specified for appender [databaseAppender].
+2014-04-18 16:09:39,294 ERROR Null object returned for NoSql in Appenders
+16:09:39.395 [main] TRACE com.ulflander.application.Conf - Reading configuration for environment local
+16:09:39.397 [main] DEBUG com.ulflander.application.ConfReader - Loading configuration from /Users/Ulflander/Development/minethat/conf/conf.local.sh
+16:09:39.422 [main] DEBUG com.ulflander.MinethatTestService - Minethat starting...
+16:09:39.528 [main] TRACE com.ulflander.mining.ProcessingExecutor -   - DOCUMENT ANALYSIS STARTED: words movies horses uses theses houses w...
+16:09:39.560 [main] TRACE com.ulflander.mining.ProcessingExecutor -   |  Processing DocumentCleaner: Clean and harmonize some chars on raw text before any treatment (line breaks chars, spaces chars, ...)
+16:09:39.566 [main] TRACE com.ulflander.mining.ProcessingExecutor -   |  Processing DocumentSplitter: Split a document raw string to chapters, paragraphs, sentences and tokens
+16:09:40.017 [main] TRACE com.ulflander.mining.ProcessingExecutor -   |  Processing LanguageDetector: Detects language of a document on the global document, then on each sentences. Uses https://code.google.com/p/language-detection/
+16:09:40.333 [main] TRACE com.ulflander.mining.ProcessingExecutor -   |  Processing DocumentTokenizer: Tokenize each sentence, using different strategies depending on language.
+16:09:40.383 [main] TRACE com.ulflander.mining.ProcessingExecutor -   |  Processing TokenCounter: Populates token counters with real numbers
+16:09:40.385 [main] TRACE com.ulflander.mining.ProcessingExecutor -   |  Processing TokenCleaner: Clean tokens by removing some chars at the beginning or the end of the raw string
+16:09:40.387 [main] WARN  com.ulflander.mining.processors.ProcessorsRequirements - Processor extract.TokenRegExpGuesser requires extract.TokenCorpusGuesser
+16:09:40.387 [main] ERROR com.ulflander.mining.ProcessingExecutor - Processor [extract.TokenRegExpGuesser] called but requirements not met
+16:09:40.387 [main] TRACE com.ulflander.mining.ProcessingExecutor -   - DOCUMENT ANALYSIS ENDED: Done in 859ms
+]]></system-out>
+  </testcase>
+  <testcase name="TokenSingularizationIsPluralTest" classname="com.ulflander.mining.processors.extract.EnTokenSingularizationTest" time="0.009">
+    <failure message="Second token should be considered as plural expected:&lt;true&gt; but was:&lt;false&gt;" type="java.lang.AssertionError"><![CDATA[java.lang.AssertionError: Second token should be considered as plural expected:<true> but was:<false>
+	at org.junit.Assert.fail(Assert.java:88)
+	at org.junit.Assert.failNotEquals(Assert.java:743)
+	at org.junit.Assert.assertEquals(Assert.java:118)
+	at com.ulflander.mining.processors.extract.EnTokenSingularizationTest.TokenSingularizationIsPluralTest(EnTokenSingularizationTest.java:47)
+]]></failure>
+    <system-out><![CDATA[16:09:40.452 [main] DEBUG com.ulflander.MinethatTestService - Minethat starting...
+16:09:40.452 [main] TRACE com.ulflander.mining.ProcessingExecutor -   - DOCUMENT ANALYSIS STARTED: Word words is plural
+16:09:40.452 [main] TRACE com.ulflander.mining.ProcessingExecutor -   |  Processing DocumentCleaner: Clean and harmonize some chars on raw text before any treatment (line breaks chars, spaces chars, ...)
+16:09:40.453 [main] TRACE com.ulflander.mining.ProcessingExecutor -   |  Processing DocumentSplitter: Split a document raw string to chapters, paragraphs, sentences and tokens
+16:09:40.453 [main] TRACE com.ulflander.mining.ProcessingExecutor -   |  Processing LanguageDetector: Detects language of a document on the global document, then on each sentences. Uses https://code.google.com/p/language-detection/
+16:09:40.455 [main] TRACE com.ulflander.mining.ProcessingExecutor -   |  Processing DocumentTokenizer: Tokenize each sentence, using different strategies depending on language.
+16:09:40.456 [main] TRACE com.ulflander.mining.ProcessingExecutor -   |  Processing TokenCounter: Populates token counters with real numbers
+16:09:40.456 [main] TRACE com.ulflander.mining.ProcessingExecutor -   |  Processing TokenCleaner: Clean tokens by removing some chars at the beginning or the end of the raw string
+16:09:40.456 [main] WARN  com.ulflander.mining.processors.ProcessorsRequirements - Processor extract.TokenRegExpGuesser requires extract.TokenCorpusGuesser
+16:09:40.456 [main] ERROR com.ulflander.mining.ProcessingExecutor - Processor [extract.TokenRegExpGuesser] called but requirements not met
+16:09:40.456 [main] TRACE com.ulflander.mining.ProcessingExecutor -   - DOCUMENT ANALYSIS ENDED: Done in 4ms
+]]></system-out>
+  </testcase>
+  <testcase name="TokenSingularizationPeopleTest" classname="com.ulflander.mining.processors.extract.EnTokenSingularizationTest" time="0.024">
+    <failure message="First token &apos;People&apos; should have singular &apos;person&apos; expected:&lt;pe[rson]&gt; but was:&lt;pe[ople]&gt;" type="org.junit.ComparisonFailure"><![CDATA[org.junit.ComparisonFailure: First token 'People' should have singular 'person' expected:<pe[rson]> but was:<pe[ople]>
+	at org.junit.Assert.assertEquals(Assert.java:115)
+	at com.ulflander.mining.processors.extract.EnTokenSingularizationTest.TokenSingularizationPeopleTest(EnTokenSingularizationTest.java:67)
+]]></failure>
+    <system-out><![CDATA[16:09:40.458 [main] DEBUG com.ulflander.MinethatTestService - Minethat starting...
+16:09:40.458 [main] TRACE com.ulflander.mining.ProcessingExecutor -   - DOCUMENT ANALYSIS STARTED: People is plural of person
+16:09:40.458 [main] TRACE com.ulflander.mining.ProcessingExecutor -   |  Processing DocumentCleaner: Clean and harmonize some chars on raw text before any treatment (line breaks chars, spaces chars, ...)
+16:09:40.475 [main] TRACE com.ulflander.mining.ProcessingExecutor -   |  Processing DocumentSplitter: Split a document raw string to chapters, paragraphs, sentences and tokens
+16:09:40.476 [main] TRACE com.ulflander.mining.ProcessingExecutor -   |  Processing LanguageDetector: Detects language of a document on the global document, then on each sentences. Uses https://code.google.com/p/language-detection/
+16:09:40.478 [main] TRACE com.ulflander.mining.ProcessingExecutor -   |  Processing DocumentTokenizer: Tokenize each sentence, using different strategies depending on language.
+16:09:40.479 [main] TRACE com.ulflander.mining.ProcessingExecutor -   |  Processing TokenCounter: Populates token counters with real numbers
+16:09:40.479 [main] TRACE com.ulflander.mining.ProcessingExecutor -   |  Processing TokenCleaner: Clean tokens by removing some chars at the beginning or the end of the raw string
+16:09:40.480 [main] WARN  com.ulflander.mining.processors.ProcessorsRequirements - Processor extract.TokenRegExpGuesser requires extract.TokenCorpusGuesser
+16:09:40.480 [main] ERROR com.ulflander.mining.ProcessingExecutor - Processor [extract.TokenRegExpGuesser] called but requirements not met
+16:09:40.480 [main] TRACE com.ulflander.mining.ProcessingExecutor -   - DOCUMENT ANALYSIS ENDED: Done in 22ms
+]]></system-out>
+  </testcase>
+  <testcase name="TokenSingularizationNotPluralTest" classname="com.ulflander.mining.processors.extract.EnTokenSingularizationTest" time="0.022"/>
 </testsuite>

@@ -13,7 +13,7 @@ import org.apache.commons.lang3.StringUtils;
  * @since 2/21/14
  */
 @Requires(processors = {
-    "extract.DocumentSplitter"
+    "extract.DocumentTokenizer"
 })
 public class TokenCleaner extends Processor {
 

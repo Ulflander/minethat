@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.ulflander.mining.processors.ProcessorTest" time="0.214" tests="3" errors="0" skipped="0" failures="0">
+<testsuite name="com.ulflander.mining.processors.ProcessorTest" time="4.53" tests="3" errors="0" skipped="0" failures="1">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Libraries"/>
@@ -17,7 +17,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.os.patch.level" value="unknown"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
-    <property name="user.dir" value="/Users/Ulflander/Development/Minethat/java-apps"/>
+    <property name="user.dir" value="/Users/Ulflander/Development/minethat/java-apps"/>
     <property name="java.runtime.version" value="1.6.0_65-b14-462-11M4609"/>
     <property name="java.awt.graphicsenv" value="apple.awt.CGraphicsEnvironment"/>
     <property name="java.endorsed.dirs" value="/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home/lib/endorsed"/>
@@ -65,7 +65,25 @@
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase name="LanguageSpecificProcessorTest" classname="com.ulflander.mining.processors.ProcessorTest" time="0.069"/>
-  <testcase name="DuplicateProcessorTest" classname="com.ulflander.mining.processors.ProcessorTest" time="0"/>
-  <testcase name="GoodLanguageSpecificProcessorTest" classname="com.ulflander.mining.processors.ProcessorTest" time="0.145"/>
+  <testcase name="LanguageSpecificProcessorTest" classname="com.ulflander.mining.processors.ProcessorTest" time="4.497"/>
+  <testcase name="DuplicateProcessorTest" classname="com.ulflander.mining.processors.ProcessorTest" time="0.002"/>
+  <testcase name="GoodLanguageSpecificProcessorTest" classname="com.ulflander.mining.processors.ProcessorTest" time="0.031">
+    <failure message="Processor dedicated to english language should run on english text expected:&lt;true&gt; but was:&lt;false&gt;" type="java.lang.AssertionError"><![CDATA[java.lang.AssertionError: Processor dedicated to english language should run on english text expected:<true> but was:<false>
+	at org.junit.Assert.fail(Assert.java:88)
+	at org.junit.Assert.failNotEquals(Assert.java:743)
+	at org.junit.Assert.assertEquals(Assert.java:118)
+	at com.ulflander.mining.processors.ProcessorTest.GoodLanguageSpecificProcessorTest(ProcessorTest.java:51)
+]]></failure>
+    <system-out><![CDATA[16:10:00.226 [main] DEBUG com.ulflander.MinethatTestService - Minethat starting...
+16:10:00.227 [main] TRACE com.ulflander.mining.ProcessingExecutor -   - DOCUMENT ANALYSIS STARTED: This text is obviously written in englis...
+16:10:00.227 [main] TRACE com.ulflander.mining.ProcessingExecutor -   |  Processing DocumentCleaner: Clean and harmonize some chars on raw text before any treatment (line breaks chars, spaces chars, ...)
+16:10:00.228 [main] TRACE com.ulflander.mining.ProcessingExecutor -   |  Processing DocumentSplitter: Split a document raw string to chapters, paragraphs, sentences and tokens
+16:10:00.228 [main] TRACE com.ulflander.mining.ProcessingExecutor -   |  Processing LanguageDetector: Detects language of a document on the global document, then on each sentences. Uses https://code.google.com/p/language-detection/
+16:10:00.236 [main] TRACE com.ulflander.mining.ProcessingExecutor -   |  Processing DocumentTokenizer: Tokenize each sentence, using different strategies depending on language.
+16:10:00.244 [main] TRACE com.ulflander.mining.ProcessingExecutor -   |  Processing TokenCleaner: Clean tokens by removing some chars at the beginning or the end of the raw string
+16:10:00.247 [main] WARN  com.ulflander.mining.processors.ProcessorsRequirements - Processor extract.TokenRegExpGuesser requires extract.TokenCorpusGuesser
+16:10:00.250 [main] ERROR com.ulflander.mining.ProcessingExecutor - Processor [extract.TokenRegExpGuesser] called but requirements not met
+16:10:00.250 [main] TRACE com.ulflander.mining.ProcessingExecutor -   - DOCUMENT ANALYSIS ENDED: Done in 23ms
+]]></system-out>
+  </testcase>
 </testsuite>

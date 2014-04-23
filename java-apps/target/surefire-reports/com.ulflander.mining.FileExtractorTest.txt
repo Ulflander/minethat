@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.ulflander.mining.FileExtractorTest
 -------------------------------------------------------------------------------
-Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 8.944 sec - in com.ulflander.mining.FileExtractorTest
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 15.535 sec - in com.ulflander.mining.FileExtractorTest

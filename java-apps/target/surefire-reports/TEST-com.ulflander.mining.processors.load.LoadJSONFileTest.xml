@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.ulflander.mining.processors.load.LoadJSONFileTest" time="0.797" tests="1" errors="0" skipped="0" failures="0">
+<testsuite name="com.ulflander.mining.processors.load.LoadJSONFileTest" time="5.662" tests="1" errors="0" skipped="0" failures="1">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Libraries"/>
@@ -17,7 +17,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.os.patch.level" value="unknown"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
-    <property name="user.dir" value="/Users/Ulflander/Development/Minethat/java-apps"/>
+    <property name="user.dir" value="/Users/Ulflander/Development/minethat/java-apps"/>
     <property name="java.runtime.version" value="1.6.0_65-b14-462-11M4609"/>
     <property name="java.awt.graphicsenv" value="apple.awt.CGraphicsEnvironment"/>
     <property name="java.endorsed.dirs" value="/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home/lib/endorsed"/>
@@ -65,5 +65,29 @@
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase name="Test" classname="com.ulflander.mining.processors.load.LoadJSONFileTest" time="0.797"/>
+  <testcase name="Test" classname="com.ulflander.mining.processors.load.LoadJSONFileTest" time="5.662">
+    <failure message="A JSON file should be saved expected:&lt;true&gt; but was:&lt;false&gt;" type="java.lang.AssertionError"><![CDATA[java.lang.AssertionError: A JSON file should be saved expected:<true> but was:<false>
+	at org.junit.Assert.fail(Assert.java:88)
+	at org.junit.Assert.failNotEquals(Assert.java:743)
+	at org.junit.Assert.assertEquals(Assert.java:118)
+	at com.ulflander.mining.processors.load.LoadJSONFileTest.Test(LoadJSONFileTest.java:30)
+]]></failure>
+    <system-out><![CDATA[2014-04-18 16:09:56,394 ERROR The database is not already authenticated so you must supply a username and password for the MongoDB provider.
+2014-04-18 16:09:56,411 ERROR NoSQL provider not specified for appender [databaseAppender].
+2014-04-18 16:09:56,412 ERROR Null object returned for NoSql in Appenders
+16:09:56.450 [main] TRACE com.ulflander.application.Conf - Reading configuration for environment local
+16:09:56.470 [main] DEBUG com.ulflander.application.ConfReader - Loading configuration from /Users/Ulflander/Development/minethat/conf/conf.local.sh
+16:09:56.473 [main] DEBUG com.ulflander.MinethatTestService - Minethat starting...
+16:09:56.640 [main] TRACE com.ulflander.mining.ProcessingExecutor -   - DOCUMENT ANALYSIS STARTED: This english test moslty test that my IP...
+16:09:56.670 [main] TRACE com.ulflander.mining.ProcessingExecutor -   |  Processing DocumentCleaner: Clean and harmonize some chars on raw text before any treatment (line breaks chars, spaces chars, ...)
+16:09:56.673 [main] TRACE com.ulflander.mining.ProcessingExecutor -   |  Processing DocumentSplitter: Split a document raw string to chapters, paragraphs, sentences and tokens
+16:09:57.129 [main] TRACE com.ulflander.mining.ProcessingExecutor -   |  Processing LanguageDetector: Detects language of a document on the global document, then on each sentences. Uses https://code.google.com/p/language-detection/
+16:09:57.388 [main] TRACE com.ulflander.mining.ProcessingExecutor -   |  Processing DocumentTokenizer: Tokenize each sentence, using different strategies depending on language.
+16:09:57.405 [main] TRACE com.ulflander.mining.ProcessingExecutor -   |  Processing TokenCounter: Populates token counters with real numbers
+16:09:57.413 [main] TRACE com.ulflander.mining.ProcessingExecutor -   |  Processing TokenCleaner: Clean tokens by removing some chars at the beginning or the end of the raw string
+16:09:57.416 [main] WARN  com.ulflander.mining.processors.ProcessorsRequirements - Processor extract.TokenRegExpGuesser requires extract.TokenCorpusGuesser
+16:09:57.417 [main] ERROR com.ulflander.mining.ProcessingExecutor - Processor [extract.TokenRegExpGuesser] called but requirements not met
+16:09:57.417 [main] TRACE com.ulflander.mining.ProcessingExecutor -   - DOCUMENT ANALYSIS ENDED: Done in 778ms
+]]></system-out>
+  </testcase>
 </testsuite>

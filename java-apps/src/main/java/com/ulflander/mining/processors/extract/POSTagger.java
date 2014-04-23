@@ -1,7 +1,6 @@
 package com.ulflander.mining.processors.extract;
 
 import com.ulflander.application.Conf;
-import com.ulflander.application.model.Document;
 import com.ulflander.application.model.Language;
 import com.ulflander.application.model.Sentence;
 import com.ulflander.mining.processors.ILocalizedProcessor;
@@ -86,16 +85,6 @@ public class POSTagger extends Processor implements ILocalizedProcessor {
     }
 
     /**
-     * Doc result.
-     */
-    private String docResult;
-
-    @Override
-    public final void extractDocument(final Document doc) {
-        docResult = "";
-    }
-
-    /**
      * Run processor on a Sentence.
      *
      * @param sentence Sentence to run processor on
@@ -109,13 +98,7 @@ public class POSTagger extends Processor implements ILocalizedProcessor {
             return;
         }
         String tagged = tagger.tagString(sentence.getRaw());
-        docResult += tagged + ".";
-
-    }
-
-    @Override
-    public final void onProcessed(final Document doc) {
-        System.out.println(docResult);
+        sentence.setRawPartOfSpeech(tagged);
     }
 
     /**

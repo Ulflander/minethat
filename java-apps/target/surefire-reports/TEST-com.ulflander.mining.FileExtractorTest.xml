@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.ulflander.mining.FileExtractorTest" time="8.935" tests="7" errors="0" skipped="0" failures="0">
+<testsuite name="com.ulflander.mining.FileExtractorTest" time="15.369" tests="7" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Libraries"/>
@@ -17,7 +17,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.os.patch.level" value="unknown"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
-    <property name="user.dir" value="/Users/Ulflander/Development/Minethat/java-apps"/>
+    <property name="user.dir" value="/Users/Ulflander/Development/minethat/java-apps"/>
     <property name="java.runtime.version" value="1.6.0_65-b14-462-11M4609"/>
     <property name="java.awt.graphicsenv" value="apple.awt.CGraphicsEnvironment"/>
     <property name="java.endorsed.dirs" value="/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home/lib/endorsed"/>
@@ -65,11 +65,11 @@
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase name="parseRTFTest" classname="com.ulflander.mining.FileExtractorTest" time="2.014"/>
-  <testcase name="parseHtmlTest" classname="com.ulflander.mining.FileExtractorTest" time="0.585"/>
-  <testcase name="parseMdTest" classname="com.ulflander.mining.FileExtractorTest" time="0.154"/>
-  <testcase name="parseDocTest" classname="com.ulflander.mining.FileExtractorTest" time="1.143"/>
-  <testcase name="parseDocxTest" classname="com.ulflander.mining.FileExtractorTest" time="3.462"/>
-  <testcase name="parsePDFTest" classname="com.ulflander.mining.FileExtractorTest" time="1.571"/>
-  <testcase name="parseTxtTest" classname="com.ulflander.mining.FileExtractorTest" time="0.006"/>
+  <testcase name="parseRTFTest" classname="com.ulflander.mining.FileExtractorTest" time="6.823"/>
+  <testcase name="parseHtmlTest" classname="com.ulflander.mining.FileExtractorTest" time="0.574"/>
+  <testcase name="parseMdTest" classname="com.ulflander.mining.FileExtractorTest" time="0.007"/>
+  <testcase name="parseDocTest" classname="com.ulflander.mining.FileExtractorTest" time="1.088"/>
+  <testcase name="parseDocxTest" classname="com.ulflander.mining.FileExtractorTest" time="3.463"/>
+  <testcase name="parsePDFTest" classname="com.ulflander.mining.FileExtractorTest" time="3.388"/>
+  <testcase name="parseTxtTest" classname="com.ulflander.mining.FileExtractorTest" time="0.026"/>
 </testsuite>

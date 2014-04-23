@@ -5,7 +5,6 @@ import com.ulflander.application.Conf;
 import com.ulflander.application.Env;
 import com.ulflander.application.model.storage.DocumentStorage;
 import com.ulflander.application.utils.MongoAccessor;
-import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -55,12 +54,6 @@ public class DocumentStorageTest extends AbstractTest {
                 testContent, doc.getRaw());
     }
 
-
-
-    @After
-    public void dropDB() {
-        MongoAccessor.drop();
-    }
 
 
 }

@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.ulflander.mining.processors.extract.DocumentSplitterChainingTest
 -------------------------------------------------------------------------------
-Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.165 sec - in com.ulflander.mining.processors.extract.DocumentSplitterChainingTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.726 sec - in com.ulflander.mining.processors.extract.DocumentSplitterChainingTest

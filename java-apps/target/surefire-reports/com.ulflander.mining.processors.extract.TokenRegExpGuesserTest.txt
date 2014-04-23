@@ -1,4 +1,44 @@
 -------------------------------------------------------------------------------
 Test set: com.ulflander.mining.processors.extract.TokenRegExpGuesserTest
 -------------------------------------------------------------------------------
-Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.711 sec - in com.ulflander.mining.processors.extract.TokenRegExpGuesserTest
+Tests run: 10, Failures: 5, Errors: 0, Skipped: 0, Time elapsed: 6.899 sec <<< FAILURE! - in com.ulflander.mining.processors.extract.TokenRegExpGuesserTest
+EmailTokenTypeTest(com.ulflander.mining.processors.extract.TokenRegExpGuesserTest)  Time elapsed: 6.476 sec  <<< FAILURE!
+java.lang.AssertionError: Simple sentence of 4 words with email should return email as fourth token kind expected:<2> but was:<0>
+	at org.junit.Assert.fail(Assert.java:88)
+	at org.junit.Assert.failNotEquals(Assert.java:743)
+	at org.junit.Assert.assertEquals(Assert.java:118)
+	at org.junit.Assert.assertEquals(Assert.java:555)
+	at com.ulflander.mining.processors.extract.TokenRegExpGuesserTest.EmailTokenTypeTest(TokenRegExpGuesserTest.java:88)
+
+HashTagTokenTypeTest(com.ulflander.mining.processors.extract.TokenRegExpGuesserTest)  Time elapsed: 0.007 sec  <<< FAILURE!
+java.lang.AssertionError: Simple sentence of 4 words with hashtag should return hashtag as fourth token kind expected:<2> but was:<0>
+	at org.junit.Assert.fail(Assert.java:88)
+	at org.junit.Assert.failNotEquals(Assert.java:743)
+	at org.junit.Assert.assertEquals(Assert.java:118)
+	at org.junit.Assert.assertEquals(Assert.java:555)
+	at com.ulflander.mining.processors.extract.TokenRegExpGuesserTest.HashTagTokenTypeTest(TokenRegExpGuesserTest.java:98)
+
+twitterUsernameTokenTypeTest(com.ulflander.mining.processors.extract.TokenRegExpGuesserTest)  Time elapsed: 0.008 sec  <<< FAILURE!
+java.lang.AssertionError: Simple sentence of 4 words with twitter username should return twitter username as fourth token kind expected:<2> but was:<0>
+	at org.junit.Assert.fail(Assert.java:88)
+	at org.junit.Assert.failNotEquals(Assert.java:743)
+	at org.junit.Assert.assertEquals(Assert.java:118)
+	at org.junit.Assert.assertEquals(Assert.java:555)
+	at com.ulflander.mining.processors.extract.TokenRegExpGuesserTest.twitterUsernameTokenTypeTest(TokenRegExpGuesserTest.java:118)
+
+IPTokenTypeTest(com.ulflander.mining.processors.extract.TokenRegExpGuesserTest)  Time elapsed: 0.014 sec  <<< FAILURE!
+java.lang.AssertionError: Simple sentence of 4 words with IP should return IP as fourth token kind expected:<2> but was:<0>
+	at org.junit.Assert.fail(Assert.java:88)
+	at org.junit.Assert.failNotEquals(Assert.java:743)
+	at org.junit.Assert.assertEquals(Assert.java:118)
+	at org.junit.Assert.assertEquals(Assert.java:555)
+	at com.ulflander.mining.processors.extract.TokenRegExpGuesserTest.IPTokenTypeTest(TokenRegExpGuesserTest.java:52)
+
+HashTagComplexTokenTypeTest(com.ulflander.mining.processors.extract.TokenRegExpGuesserTest)  Time elapsed: 0.024 sec  <<< FAILURE!
+java.lang.AssertionError: Simple sentence of 4 words with hashtag should return hashtag as fourth token kind expected:<2> but was:<0>
+	at org.junit.Assert.fail(Assert.java:88)
+	at org.junit.Assert.failNotEquals(Assert.java:743)
+	at org.junit.Assert.assertEquals(Assert.java:118)
+	at org.junit.Assert.assertEquals(Assert.java:555)
+	at com.ulflander.mining.processors.extract.TokenRegExpGuesserTest.HashTagComplexTokenTypeTest(TokenRegExpGuesserTest.java:108)
+

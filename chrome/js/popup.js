@@ -34,8 +34,9 @@
                 }
             });
 
-            document.getElementById('minethat_page')
-                .addEventListener('click', chunk('popup.onMineClick'));
+
+            $('#minethat_page').on('click', chunk('popup.onMineClick'));
+            $('#trainthat_page').on('click', chunk('popup.onTrainClick'));
         },
 
         /**
@@ -43,35 +44,51 @@
          * 
          * @return {[type]} [description]
          */
-        submit: function () {
+        submit: function (cb) {
             chrome.tabs.query ({
                 'active': true, 
                 'windowId': chrome.windows.WINDOW_ID_CURRENT
             },
             function (tabs) {
                 if(!!tabs[0].url) {
-                    chunk('api').submit(source, tabs[0].url);
+                    cb(tabs[0].url);
+                } else {
+                    cb(false);
                 }
             });
         },
 
         onMineClick: function () {
-            chunk.get('popup').submit();
+            chunk('popup').submit(function (tab_url) {
+                if (!!tab_url) {
+                    chunk('api').submit(source, tab_url);
+                } else {
+                    chunk('popup').status('Didnt got URL');
+                }
+            });
         },
 
         onTrainClick: function () {
+            chunk('popup').submit(function (tab_url) {
+                if (!tab_url) {
+                    chunk('popup').status('Didnt got URL');
+                    return;
+                }
+
+                var classe = $('[name=train_type]:checked').val();
+                chunk('api').train(source, tab_url, classe);
+            });
         },
         
         status: function (msg) {
-            document.getElementById('status').innerText = msg;
+            $('#status').innerText = msg;
         }
 
     });
 
     
-    document.addEventListener('DOMContentLoaded', function () {
-        chunk
-            .conf({
+    $(function () {
+        chunk.conf({
                 api_server: localStorage.minethat_server
             })
             .start();

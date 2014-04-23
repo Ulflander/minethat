@@ -1,4 +1,21 @@
 -------------------------------------------------------------------------------
 Test set: com.ulflander.mining.processors.extract.EnTokenSingularizationTest
 -------------------------------------------------------------------------------
-Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.214 sec - in com.ulflander.mining.processors.extract.EnTokenSingularizationTest
+Tests run: 4, Failures: 3, Errors: 0, Skipped: 0, Time elapsed: 6.139 sec <<< FAILURE! - in com.ulflander.mining.processors.extract.EnTokenSingularizationTest
+TokenSingularizationSimpleTest(com.ulflander.mining.processors.extract.EnTokenSingularizationTest)  Time elapsed: 5.779 sec  <<< FAILURE!
+org.junit.ComparisonFailure: First token should have singular 'word' expected:<word[]> but was:<word[s]>
+	at org.junit.Assert.assertEquals(Assert.java:115)
+	at com.ulflander.mining.processors.extract.EnTokenSingularizationTest.TokenSingularizationSimpleTest(EnTokenSingularizationTest.java:31)
+
+TokenSingularizationIsPluralTest(com.ulflander.mining.processors.extract.EnTokenSingularizationTest)  Time elapsed: 0.009 sec  <<< FAILURE!
+java.lang.AssertionError: Second token should be considered as plural expected:<true> but was:<false>
+	at org.junit.Assert.fail(Assert.java:88)
+	at org.junit.Assert.failNotEquals(Assert.java:743)
+	at org.junit.Assert.assertEquals(Assert.java:118)
+	at com.ulflander.mining.processors.extract.EnTokenSingularizationTest.TokenSingularizationIsPluralTest(EnTokenSingularizationTest.java:47)
+
+TokenSingularizationPeopleTest(com.ulflander.mining.processors.extract.EnTokenSingularizationTest)  Time elapsed: 0.024 sec  <<< FAILURE!
+org.junit.ComparisonFailure: First token 'People' should have singular 'person' expected:<pe[rson]> but was:<pe[ople]>
+	at org.junit.Assert.assertEquals(Assert.java:115)
+	at com.ulflander.mining.processors.extract.EnTokenSingularizationTest.TokenSingularizationPeopleTest(EnTokenSingularizationTest.java:67)
+

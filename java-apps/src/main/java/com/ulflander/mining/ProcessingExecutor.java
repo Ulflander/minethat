@@ -16,7 +16,6 @@ import com.ulflander.mining.processors.Processor;
 import com.ulflander.mining.processors.ProcessorFactory;
 import com.ulflander.mining.processors.preset.BasicTextStatPreset;
 import com.ulflander.mining.processors.preset.IPreset;
-import org.apache.commons.lang3.StringUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -144,7 +143,7 @@ public class ProcessingExecutor {
                 processor = ProcessorFactory.get(jobProcessor.getName());
             } catch (Exception e) {
                 LOGGER.error("Processor not found: "
-                    + jobProcessor.getName());
+                    + jobProcessor.getName(), e);
                 continue;
             }
 
@@ -174,7 +173,7 @@ public class ProcessingExecutor {
 
             if (job.getTarget() == JobTarget.TRAIN) {
                 document.ensureProperty("meta", "job_training_classes",
-                        StringUtils.join(job.getClasses(), ","));
+                        job.getClasses());
             }
 
             if (job.getType() == JobDocumentType.URL) {

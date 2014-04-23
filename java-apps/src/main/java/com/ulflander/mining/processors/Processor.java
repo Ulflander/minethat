@@ -104,12 +104,10 @@ public abstract class Processor {
 
         extractDocument(doc);
 
-        if (getDepthControl() == ProcessorDepthControl.DOCUMENT) {
-            return;
-        }
-
-        for (Chapter chapter : doc.getChapters()) {
-            extract(chapter);
+        if (getDepthControl() != ProcessorDepthControl.DOCUMENT) {
+            for (Chapter chapter : doc.getChapters()) {
+                extract(chapter);
+            }
         }
 
         onProcessed(doc);

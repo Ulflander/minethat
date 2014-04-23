@@ -16,8 +16,10 @@ public class TokenListGuesserTest extends AbstractTest {
         s.addProcessor("extract.DocumentCleaner");
         s.addProcessor("extract.DocumentSplitter");
         s.addProcessor("extract.LanguageDetector");
+        s.addProcessor("extract.DocumentTokenizer");
+        s.addProcessor("extract.TokenCounter");
         s.addProcessor("extract.TokenCleaner");
-        s.addProcessor("extract.TokenListGuesser");
+        s.addProcessor("extract.TokenCorpusGuesser");
         d.setRaw("My name is Maria Johns and I live in Paris, Texas.");
     }
 

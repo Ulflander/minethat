@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.ulflander.mining.processors.extract.MaxMindFreeIPGeolocTest" time="2.207" tests="3" errors="0" skipped="0" failures="0">
+<testsuite name="com.ulflander.mining.processors.extract.MaxMindFreeIPGeolocTest" time="5.775" tests="3" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Libraries"/>
@@ -17,7 +17,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.os.patch.level" value="unknown"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
-    <property name="user.dir" value="/Users/Ulflander/Development/Minethat/java-apps"/>
+    <property name="user.dir" value="/Users/Ulflander/Development/minethat/java-apps"/>
     <property name="java.runtime.version" value="1.6.0_65-b14-462-11M4609"/>
     <property name="java.awt.graphicsenv" value="apple.awt.CGraphicsEnvironment"/>
     <property name="java.endorsed.dirs" value="/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home/lib/endorsed"/>
@@ -65,7 +65,7 @@
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase name="LocalIPTest" classname="com.ulflander.mining.processors.extract.MaxMindFreeIPGeolocTest" time="2.207"/>
-  <testcase name="RealIPCityTest" classname="com.ulflander.mining.processors.extract.MaxMindFreeIPGeolocTest" time="0"/>
-  <testcase name="RealIPResponseTest" classname="com.ulflander.mining.processors.extract.MaxMindFreeIPGeolocTest" time="0"/>
+  <testcase name="LocalIPTest" classname="com.ulflander.mining.processors.extract.MaxMindFreeIPGeolocTest" time="5.743"/>
+  <testcase name="RealIPCityTest" classname="com.ulflander.mining.processors.extract.MaxMindFreeIPGeolocTest" time="0.019"/>
+  <testcase name="RealIPResponseTest" classname="com.ulflander.mining.processors.extract.MaxMindFreeIPGeolocTest" time="0.013"/>
 </testsuite>

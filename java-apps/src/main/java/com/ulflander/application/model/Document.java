@@ -18,7 +18,6 @@ import java.util.Set;
  */
 public class Document extends Text implements Storable {
 
-
     /**
      * Minimum content length to create an excerpt.
      */
@@ -40,7 +39,7 @@ public class Document extends Text implements Storable {
     private HashMap<Language, Integer> languages;
 
     /**
-     *
+     * Document properties.
      */
     private HashMap<String, HashMap<String, Object>> properties =
             new HashMap<String, HashMap<String, Object>>();
@@ -83,6 +82,11 @@ public class Document extends Text implements Storable {
      * Does doc exists in database.
      */
     private Boolean exists = false;
+
+    /**
+     * Frequency of tokens.
+     */
+    private HashMap<Token, Integer> frequency;
 
 
     /**
@@ -243,7 +247,9 @@ public class Document extends Text implements Storable {
     @Override
     public final void whileSetRaw() {
         chapters = new ArrayList<Chapter>();
-        history = new ArrayList<String>();
+        if (history == null) {
+            history = new ArrayList<String>();
+        }
     }
 
     /**
@@ -531,6 +537,24 @@ public class Document extends Text implements Storable {
         this.exists = e;
     }
 
+
+    /**
+     * Get tokens frequencies.
+     *
+     * @return Tokens frequencies
+     */
+    public final HashMap<Token, Integer> getFrequency() {
+        return frequency;
+    }
+
+    /**
+     * Set tokens frequencies.
+     *
+     * @param tf Tokens frequencies
+     */
+    public final void setFrequency(final HashMap<Token, Integer> tf) {
+        this.frequency = tf;
+    }
 
 
 }

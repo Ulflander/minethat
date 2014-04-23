@@ -25,6 +25,7 @@
         '/app/job/:id': ['get', 'jobs.one'],
 
         '/app/documents': ['get', 'documents.all'],
+        '/app/document': ['get', 'documents.one'],
 
 
         ///////////////////////

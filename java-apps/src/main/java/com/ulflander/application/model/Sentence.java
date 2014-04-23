@@ -1,7 +1,5 @@
 package com.ulflander.application.model;
 
-import com.google.gson.annotations.Expose;
-
 import java.util.ArrayList;
 
 /**
@@ -24,9 +22,13 @@ public class Sentence extends Text {
     private Sentence next;
 
     /**
+     * POS Tagging.
+     */
+    private String rawPartOfSpeech;
+
+    /**
      * List of tokens contained in the sentence.
      */
-    @Expose
     private ArrayList<Token> tokens = new ArrayList<Token>();
 
     /**
@@ -44,8 +46,6 @@ public class Sentence extends Text {
     public Sentence(final String raw) {
         super(raw);
     }
-
-
 
     /**
      * Get previous sentence in paragraph.
@@ -125,6 +125,19 @@ public class Sentence extends Text {
     }
 
     /**
+     * Generates a clean sentence string from clean tokens.
+     *
+     * @return Clean sentence
+     */
+    public final String generateClean() {
+        String result = "";
+        for (Token t: tokens) {
+            result += " " + t.getClean();
+        }
+        return result.substring(1);
+    }
+
+    /**
      * Get number of tokens in sentence.
      *
      * @return Number of tokens in sentence
@@ -135,4 +148,24 @@ public class Sentence extends Text {
         }
         return tokens.size();
     }
+
+    /**
+     * Get raw POS tagging result.
+     *
+     * @return Raw POS tagging result
+     */
+    public final String getRawPartOfSpeech() {
+        return rawPartOfSpeech;
+    }
+
+    /**
+     * Set raw POS tagging result.
+     *
+     * @param pos Raw POS tagging result
+     */
+    public final void setRawPartOfSpeech(final String pos) {
+        this.rawPartOfSpeech = pos;
+    }
+
+
 }

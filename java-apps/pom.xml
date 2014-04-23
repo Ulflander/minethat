@@ -174,7 +174,7 @@
                 <version>2.16</version>
                 <configuration>
                     <forkCount>5</forkCount>
-                    <reuseForks>true</reuseForks>
+                    <reuseForks>false</reuseForks>
                     <runOrder>failedfirst</runOrder>
                 </configuration>
             </plugin>

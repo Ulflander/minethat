@@ -6,7 +6,6 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.HashSet;
 
 /**
  * A model holds information about documents to be processed,
@@ -96,7 +95,7 @@ public class Job implements Serializable, Storable {
     /**
      * If target is training, requires one or more classes.
      */
-    private HashSet<String> classes = new HashSet<String>();
+    private String classes = new String();
 
 
 
@@ -342,7 +341,7 @@ public class Job implements Serializable, Storable {
      *
      * @return Job training classes
      */
-    public final HashSet<String> getClasses() {
+    public final String getClasses() {
         return classes;
     }
 
@@ -351,7 +350,7 @@ public class Job implements Serializable, Storable {
      *
      * @param cs Job training classes
      */
-    public final void setClasses(final HashSet<String> cs) {
+    public final void setClasses(final String cs) {
         this.classes = cs;
     }
 

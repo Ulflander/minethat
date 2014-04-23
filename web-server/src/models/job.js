@@ -32,7 +32,12 @@
                 author: String,
                 organization: String
             },
-            email: String
+            email: String,
+            target: {
+                type: String,
+                default: 'MINE'
+            },
+            classes: String
         }));
 
         return Job;

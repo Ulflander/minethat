@@ -1,4 +1,32 @@
 -------------------------------------------------------------------------------
 Test set: com.ulflander.mining.processors.augment.BasicTextStatTest
 -------------------------------------------------------------------------------
-Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.053 sec - in com.ulflander.mining.processors.augment.BasicTextStatTest
+Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 8.417 sec <<< FAILURE! - in com.ulflander.mining.processors.augment.BasicTextStatTest
+BasicTest(com.ulflander.mining.processors.augment.BasicTextStatTest)  Time elapsed: 7.187 sec  <<< ERROR!
+java.lang.OutOfMemoryError: Java heap space
+	at java.util.Arrays.copyOf(Arrays.java:2882)
+	at java.lang.AbstractStringBuilder.expandCapacity(AbstractStringBuilder.java:100)
+	at java.lang.AbstractStringBuilder.append(AbstractStringBuilder.java:390)
+	at java.lang.StringBuilder.append(StringBuilder.java:119)
+	at com.ulflander.application.utils.UlfFileUtils.read(UlfFileUtils.java:77)
+	at com.ulflander.application.utils.UlfFileUtils.read(UlfFileUtils.java:48)
+	at com.ulflander.mining.processors.extract.TokenCorpusGuesser.init(TokenCorpusGuesser.java:124)
+	at com.ulflander.mining.processors.ProcessorFactory.get(ProcessorFactory.java:68)
+	at com.ulflander.mining.ProcessingExecutor.process(ProcessingExecutor.java:143)
+	at com.ulflander.MinethatTestService.submit(MinethatTestService.java:123)
+	at com.ulflander.mining.processors.augment.BasicTextStatTest.BasicTest(BasicTextStatTest.java:29)
+
+toStringTest(com.ulflander.mining.processors.augment.BasicTextStatTest)  Time elapsed: 1.062 sec  <<< ERROR!
+java.lang.OutOfMemoryError: Java heap space
+	at java.util.Arrays.copyOf(Arrays.java:2882)
+	at java.lang.AbstractStringBuilder.expandCapacity(AbstractStringBuilder.java:100)
+	at java.lang.AbstractStringBuilder.append(AbstractStringBuilder.java:390)
+	at java.lang.StringBuilder.append(StringBuilder.java:119)
+	at com.ulflander.application.utils.UlfFileUtils.read(UlfFileUtils.java:77)
+	at com.ulflander.application.utils.UlfFileUtils.read(UlfFileUtils.java:48)
+	at com.ulflander.mining.processors.extract.TokenCorpusGuesser.init(TokenCorpusGuesser.java:124)
+	at com.ulflander.mining.processors.ProcessorFactory.get(ProcessorFactory.java:68)
+	at com.ulflander.mining.ProcessingExecutor.process(ProcessingExecutor.java:143)
+	at com.ulflander.MinethatTestService.submit(MinethatTestService.java:123)
+	at com.ulflander.mining.processors.augment.BasicTextStatTest.toStringTest(BasicTextStatTest.java:38)
+

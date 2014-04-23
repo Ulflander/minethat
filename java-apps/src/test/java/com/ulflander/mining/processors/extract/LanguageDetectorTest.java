@@ -3,7 +3,7 @@ package com.ulflander.mining.processors.extract;
 
 import com.ulflander.AbstractTest;
 import com.ulflander.application.model.Language;
-import junit.framework.Assert;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -13,9 +13,11 @@ public class LanguageDetectorTest extends AbstractTest {
     public void setupProcessors () {
         s.addProcessor("extract.DocumentCleaner");
         s.addProcessor("extract.DocumentSplitter");
+        s.addProcessor("extract.LanguageDetector");
+        s.addProcessor("extract.DocumentTokenizer");
+        s.addProcessor("extract.TokenCounter");
         s.addProcessor("extract.TokenCleaner");
         s.addProcessor("extract.TokenRegExpGuesser");
-        s.addProcessor("extract.LanguageDetector");
     }
 
     @Test

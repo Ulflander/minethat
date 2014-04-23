@@ -1,4 +1,18 @@
 -------------------------------------------------------------------------------
 Test set: com.ulflander.mining.processors.extract.TokenListGuesserTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.466 sec - in com.ulflander.mining.processors.extract.TokenListGuesserTest
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 8.33 sec <<< FAILURE! - in com.ulflander.mining.processors.extract.TokenListGuesserTest
+personPartTest(com.ulflander.mining.processors.extract.TokenListGuesserTest)  Time elapsed: 8.053 sec  <<< ERROR!
+java.lang.OutOfMemoryError: Java heap space
+	at java.util.Arrays.copyOf(Arrays.java:2882)
+	at java.lang.AbstractStringBuilder.expandCapacity(AbstractStringBuilder.java:100)
+	at java.lang.AbstractStringBuilder.append(AbstractStringBuilder.java:390)
+	at java.lang.StringBuilder.append(StringBuilder.java:119)
+	at com.ulflander.application.utils.UlfFileUtils.read(UlfFileUtils.java:77)
+	at com.ulflander.application.utils.UlfFileUtils.read(UlfFileUtils.java:48)
+	at com.ulflander.mining.processors.extract.TokenCorpusGuesser.init(TokenCorpusGuesser.java:124)
+	at com.ulflander.mining.processors.ProcessorFactory.get(ProcessorFactory.java:68)
+	at com.ulflander.mining.ProcessingExecutor.process(ProcessingExecutor.java:143)
+	at com.ulflander.MinethatTestService.submit(MinethatTestService.java:123)
+	at com.ulflander.mining.processors.extract.TokenListGuesserTest.personPartTest(TokenListGuesserTest.java:31)
+

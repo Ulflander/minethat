@@ -25,18 +25,23 @@ public final class BasicTextStatPreset implements IPreset {
         ArrayList<JobProcessor> procs = new ArrayList<JobProcessor>();
 
         procs.add(new JobProcessor("extract.DocumentCleaner"));
+        procs.add(new JobProcessor("extract.en.EnCommonAcronymsCleaner"));
         procs.add(new JobProcessor("extract.DocumentSplitter"));
         procs.add(new JobProcessor("extract.LanguageDetector"));
         procs.add(new JobProcessor("extract.POSTagger"));
-
+        procs.add(new JobProcessor("extract.DocumentTokenizer"));
+        procs.add(new JobProcessor("extract.TokenCounter"));
         procs.add(new JobProcessor("extract.TokenCleaner"));
+        procs.add(new JobProcessor("extract.en.EnTokenSingularization"));
+        procs.add(new JobProcessor("extract.TokenCorpusGuesser"));
         procs.add(new JobProcessor("extract.TokenRegExpGuesser"));
-        procs.add(new JobProcessor("extract.TokenListGuesser"));
-        procs.add(new JobProcessor("extract.TokenGuessConsolidation"));
+        procs.add(new JobProcessor("extract.en.ENTokenPOSConsolidation"));
+        procs.add(new JobProcessor("extract.TokenSiblingsConsolidation"));
+        procs.add(new JobProcessor("extract.TokenInferConsolidation"));
+        procs.add(new JobProcessor("extract.TokenFrequency"));
 
         procs.add(new JobProcessor("augment.BasicTextStat"));
         procs.add(new JobProcessor("augment.social.SocialStats"));
-        procs.add(new JobProcessor("augment.classifiers.WekaClassifier"));
         procs.add(new JobProcessor("augment.geoloc.MaxMindIPExtraction"));
 
 

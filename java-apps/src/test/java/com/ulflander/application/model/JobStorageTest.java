@@ -4,7 +4,6 @@ import com.ulflander.application.Conf;
 import com.ulflander.application.Env;
 import com.ulflander.application.model.storage.JobStorage;
 import com.ulflander.application.utils.MongoAccessor;
-import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -53,20 +52,6 @@ public class JobStorageTest {
 
 
     @Test
-    public void testRemoveGetGoodValue() {
-
-        Job job = new Job();
-        job.setCustomerId(Conf.getDefaultCID());
-        String id = JobStorage.insert(job);
-
-        Job returned = JobStorage.get(id);
-
-        Assert.assertEquals("Job retrieved should have good id",
-            Conf.getDefaultCID(), returned.getCustomerId());
-    }
-
-
-    @Test
     public void testAutoUpdateJobStatus() {
 
         Job job = new Job();
@@ -100,6 +85,8 @@ public class JobStorageTest {
 
         job.setStatus(JobStatus.FAILED);
         JobStorage.update(job);
+
+        System.out.println(id);
 
         Job returned = JobStorage.get(id);
 
@@ -141,12 +128,6 @@ public class JobStorageTest {
         Assert.assertEquals("Job retrieved should have one proc",
                 1, returned.getProcessors().size());
 
-    }
-
-
-    @After
-    public void dropDB() {
-        MongoAccessor.drop();
     }
 
 

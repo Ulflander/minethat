@@ -15,14 +15,29 @@ public enum TokenType {
     WORD,
 
     /**
-     * A keyword: word with numerous citations.
+     * A conjunction, preposition...
+     */
+    OPERATOR,
+
+    /**
+     * A keyword: an important word.
      */
     KEYWORD,
+
+    /**
+     *  A comma ",".
+     */
+    COMMA,
 
     /**
      * A verb.
      */
     VERB,
+
+    /**
+     * A number (1, 3.141592).
+     */
+    NUMERIC,
 
     /**
      * An email address.
@@ -65,6 +80,11 @@ public enum TokenType {
     DATE,
 
     /**
+     * A date (30/06/1982, 12-30-2014, November 1974...).
+     */
+    DATE_PART,
+
+    /**
      * A time (13h37, 12pm...).
      */
     TIME,
@@ -80,19 +100,10 @@ public enum TokenType {
     LOCATION,
 
     /**
-     * A city.
+     * A location part.
      */
-    LOCATION_CITY,
+    LOCATION_PART,
 
-    /**
-     * A region.
-     */
-    LOCATION_REGION,
-
-    /**
-     * A country.
-     */
-    LOCATION_COUNTRY,
 
     /**
      * An organization.
@@ -128,11 +139,6 @@ public enum TokenType {
      * A version number (v1.1, 1.5.263541, ...).
      */
     VERSION_NUMBER,
-
-    /**
-     * A number (1, 3.141592).
-     */
-    NUMBER,
 
     /**
      * A credit card number.

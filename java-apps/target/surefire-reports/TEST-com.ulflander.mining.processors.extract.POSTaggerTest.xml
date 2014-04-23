@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.ulflander.mining.processors.extract.POSTaggerTest" time="2.738" tests="2" errors="0" skipped="0" failures="0">
+<testsuite name="com.ulflander.mining.processors.extract.POSTaggerTest" time="15.839" tests="2" errors="2" skipped="0" failures="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Libraries"/>
@@ -17,7 +17,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.os.patch.level" value="unknown"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
-    <property name="user.dir" value="/Users/Ulflander/Development/Minethat/java-apps"/>
+    <property name="user.dir" value="/Users/Ulflander/Development/minethat/java-apps"/>
     <property name="java.runtime.version" value="1.6.0_65-b14-462-11M4609"/>
     <property name="java.awt.graphicsenv" value="apple.awt.CGraphicsEnvironment"/>
     <property name="java.endorsed.dirs" value="/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home/lib/endorsed"/>
@@ -65,6 +65,64 @@
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase name="basicTest" classname="com.ulflander.mining.processors.extract.POSTaggerTest" time="2.308"/>
-  <testcase name="multilingualTest" classname="com.ulflander.mining.processors.extract.POSTaggerTest" time="0.43"/>
+  <testcase name="basicTest" classname="com.ulflander.mining.processors.extract.POSTaggerTest" time="13.208">
+    <error message="Java heap space" type="java.lang.OutOfMemoryError">java.lang.OutOfMemoryError: Java heap space
+	at java.util.Arrays.copyOf(Arrays.java:2882)
+	at java.lang.AbstractStringBuilder.expandCapacity(AbstractStringBuilder.java:100)
+	at java.lang.AbstractStringBuilder.append(AbstractStringBuilder.java:390)
+	at java.lang.StringBuilder.append(StringBuilder.java:119)
+	at com.ulflander.application.utils.UlfFileUtils.read(UlfFileUtils.java:77)
+	at com.ulflander.application.utils.UlfFileUtils.read(UlfFileUtils.java:48)
+	at com.ulflander.mining.processors.extract.TokenCorpusGuesser.init(TokenCorpusGuesser.java:124)
+	at com.ulflander.mining.processors.ProcessorFactory.get(ProcessorFactory.java:68)
+	at com.ulflander.mining.ProcessingExecutor.process(ProcessingExecutor.java:143)
+	at com.ulflander.MinethatTestService.submit(MinethatTestService.java:123)
+	at com.ulflander.mining.processors.extract.POSTaggerTest.basicTest(POSTaggerTest.java:48)
+</error>
+    <system-out><![CDATA[2014-04-18 16:09:46,285 ERROR The database is not already authenticated so you must supply a username and password for the MongoDB provider.
+2014-04-18 16:09:46,294 ERROR NoSQL provider not specified for appender [databaseAppender].
+2014-04-18 16:09:46,296 ERROR Null object returned for NoSql in Appenders
+16:09:46.378 [main] TRACE com.ulflander.application.Conf - Reading configuration for environment local
+16:09:46.385 [main] DEBUG com.ulflander.application.ConfReader - Loading configuration from /Users/Ulflander/Development/minethat/conf/conf.local.sh
+16:09:46.389 [main] DEBUG com.ulflander.MinethatTestService - Minethat starting...
+16:09:46.520 [main] TRACE com.ulflander.mining.ProcessingExecutor -   - DOCUMENT ANALYSIS STARTED: Pierre E. Gentil, 61 years old, will joi...
+16:09:46.550 [main] TRACE com.ulflander.mining.ProcessingExecutor -   |  Processing DocumentCleaner: Clean and harmonize some chars on raw text before any treatment (line breaks chars, spaces chars, ...)
+16:09:46.606 [main] TRACE com.ulflander.mining.ProcessingExecutor -   |  Processing EnCommonAcronymsCleaner: Replace common english acronyms
+16:09:46.676 [main] TRACE com.ulflander.mining.ProcessingExecutor -   |  Processing DocumentSplitter: Split a document raw string to chapters, paragraphs, sentences and tokens
+16:09:47.349 [main] TRACE com.ulflander.mining.ProcessingExecutor -   |  Processing LanguageDetector: Detects language of a document on the global document, then on each sentences. Uses https://code.google.com/p/language-detection/
+16:09:47.688 [main] TRACE com.ulflander.mining.ProcessingExecutor -   |  Processing POSTagger: POSTagger is a Part-Of-Speech extractor based on Stanford POSTagger.
+16:09:50.437 [main] TRACE com.ulflander.mining.ProcessingExecutor -   |  Processing DocumentTokenizer: Tokenize each sentence, using different strategies depending on language.
+16:09:50.524 [main] TRACE com.ulflander.mining.ProcessingExecutor -   |  Processing TokenCounter: Populates token counters with real numbers
+16:09:50.590 [main] TRACE com.ulflander.mining.ProcessingExecutor -   |  Processing TokenCleaner: Clean tokens by removing some chars at the beginning or the end of the raw string
+]]></system-out>
+    <system-err><![CDATA[Reading POS tagger model from /Users/Ulflander/Development/minethat/datasets/postagger-models/french.tagger ... done [1.3 sec].
+Reading POS tagger model from /Users/Ulflander/Development/minethat/datasets/postagger-models/wsj-0-18-left3words-nodistsim.tagger ... done [0.6 sec].
+]]></system-err>
+  </testcase>
+  <testcase name="entitiesTest" classname="com.ulflander.mining.processors.extract.POSTaggerTest" time="2.631">
+    <error message="Java heap space" type="java.lang.OutOfMemoryError">java.lang.OutOfMemoryError: Java heap space
+	at java.util.Arrays.copyOf(Arrays.java:2882)
+	at java.lang.AbstractStringBuilder.expandCapacity(AbstractStringBuilder.java:100)
+	at java.lang.AbstractStringBuilder.append(AbstractStringBuilder.java:390)
+	at java.lang.StringBuilder.append(StringBuilder.java:119)
+	at com.ulflander.application.utils.UlfFileUtils.read(UlfFileUtils.java:77)
+	at com.ulflander.application.utils.UlfFileUtils.read(UlfFileUtils.java:48)
+	at com.ulflander.mining.processors.extract.TokenCorpusGuesser.init(TokenCorpusGuesser.java:124)
+	at com.ulflander.mining.processors.ProcessorFactory.get(ProcessorFactory.java:68)
+	at com.ulflander.mining.ProcessingExecutor.process(ProcessingExecutor.java:143)
+	at com.ulflander.MinethatTestService.submit(MinethatTestService.java:123)
+	at com.ulflander.mining.processors.extract.POSTaggerTest.entitiesTest(POSTaggerTest.java:56)
+</error>
+    <system-out><![CDATA[16:09:55.083 [main] DEBUG com.ulflander.MinethatTestService - Minethat starting...
+16:09:55.086 [main] TRACE com.ulflander.mining.ProcessingExecutor -   - DOCUMENT ANALYSIS STARTED: U.S. rebukes Iran’s U.N. envoy pick over...
+16:09:55.087 [main] TRACE com.ulflander.mining.ProcessingExecutor -   |  Processing DocumentCleaner: Clean and harmonize some chars on raw text before any treatment (line breaks chars, spaces chars, ...)
+16:09:55.088 [main] TRACE com.ulflander.mining.ProcessingExecutor -   |  Processing EnCommonAcronymsCleaner: Replace common english acronyms
+16:09:55.091 [main] TRACE com.ulflander.mining.ProcessingExecutor -   |  Processing DocumentSplitter: Split a document raw string to chapters, paragraphs, sentences and tokens
+16:09:55.122 [main] TRACE com.ulflander.mining.ProcessingExecutor -   |  Processing LanguageDetector: Detects language of a document on the global document, then on each sentences. Uses https://code.google.com/p/language-detection/
+16:09:55.131 [main] TRACE com.ulflander.mining.ProcessingExecutor -   |  Processing POSTagger: POSTagger is a Part-Of-Speech extractor based on Stanford POSTagger.
+16:09:55.176 [main] TRACE com.ulflander.mining.ProcessingExecutor -   |  Processing DocumentTokenizer: Tokenize each sentence, using different strategies depending on language.
+16:09:55.189 [main] TRACE com.ulflander.mining.ProcessingExecutor -   |  Processing TokenCounter: Populates token counters with real numbers
+16:09:55.190 [main] TRACE com.ulflander.mining.ProcessingExecutor -   |  Processing TokenCleaner: Clean tokens by removing some chars at the beginning or the end of the raw string
+]]></system-out>
+  </testcase>
 </testsuite>

@@ -1,5 +1,6 @@
 /*jslint browser: true, node:true*/
 
+
 (function (ctx) {
     "use strict";
 
@@ -85,6 +86,20 @@
             return null;
         }
 
+        if (n.indexOf('.') > -1) {
+            var f = n.split('.');
+            n = f[0];
+            f = f[1];
+            if (!mods[n] || !mods[n].hasOwnProperty(f)) {
+                if (!!vb) {
+                    console.warn("Module property not found: " + n);
+                }
+                return null;
+            }
+
+            return mods[n][f];
+        }
+
         if (!mods[n]) {
             if (!!vb) {
                 console.warn("Module not found: " + n);
@@ -92,12 +107,6 @@
             return null;
         }
 
-        if (n.indexOf('.') > -1) {
-            var f = n.split('.');
-            n = f[0];
-            f = f[1];
-            return mods[n][f];
-        }
 
         return mods[n];
     };

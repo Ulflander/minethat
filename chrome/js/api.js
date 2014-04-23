@@ -1,15 +1,17 @@
 /*jslint browser:true*/
 /*globals modular*/
 
+
 (function () {
     "use strict";
 
     chunk ('api', {
-        submit: function (html_string, url, callback) {
+
+        call: function (api_url, content, callback) {
             var xhr = new XMLHttpRequest();
 
             xhr.open("POST", chunk.conf('api_server') + 
-                            "/api/v1/submit/html_string", true);
+                            "/api/v1/" + api_url, true);
 
             xhr.setRequestHeader("Content-Type", "application/json");
 
@@ -26,13 +28,27 @@
                 }
             };
 
+            xhr.send(JSON.stringify(content));
+        },
 
-            xhr.send(JSON.stringify({
+        submit: function (html_string, url, callback) {
+            chunk('api').call('submit/html_string', {
                 content: html_string,
                 meta: {
                     url: url
                 }
-            }));
+            }, callback);
+        },
+
+        train: function (html_string, url, classes, callback) {
+            chunk('api').call('submit/html_string', {
+                content: html_string,
+                meta: {
+                    url: url
+                },
+                target: 'TRAIN',
+                classes: classes
+            }, callback);
         }
     });
 }());

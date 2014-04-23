@@ -13,6 +13,8 @@ public class EnTokenSingularizationTest extends AbstractTest {
         s.addProcessor("extract.DocumentCleaner");
         s.addProcessor("extract.DocumentSplitter");
         s.addProcessor("extract.LanguageDetector");
+        s.addProcessor("extract.DocumentTokenizer");
+        s.addProcessor("extract.TokenCounter");
         s.addProcessor("extract.TokenCleaner");
         s.addProcessor("extract.TokenRegExpGuesser");
         s.addProcessor("extract.en.EnTokenSingularization");

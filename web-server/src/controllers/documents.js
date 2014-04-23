@@ -15,7 +15,7 @@
         },
 
         one: function (req, res) {
-            
+            responder.html(req, res, 'documents/document');
         }
 
     };

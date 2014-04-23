@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.ulflander.mining.processors.extract.TokenListGuesserTest" time="4.255" tests="1" errors="0" skipped="0" failures="0">
+<testsuite name="com.ulflander.mining.processors.extract.TokenListGuesserTest" time="8.053" tests="1" errors="1" skipped="0" failures="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Libraries"/>
@@ -17,7 +17,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.os.patch.level" value="unknown"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
-    <property name="user.dir" value="/Users/Ulflander/Development/Minethat/java-apps"/>
+    <property name="user.dir" value="/Users/Ulflander/Development/minethat/java-apps"/>
     <property name="java.runtime.version" value="1.6.0_65-b14-462-11M4609"/>
     <property name="java.awt.graphicsenv" value="apple.awt.CGraphicsEnvironment"/>
     <property name="java.endorsed.dirs" value="/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home/lib/endorsed"/>
@@ -65,5 +65,33 @@
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase name="personPartTest" classname="com.ulflander.mining.processors.extract.TokenListGuesserTest" time="4.255"/>
+  <testcase name="personPartTest" classname="com.ulflander.mining.processors.extract.TokenListGuesserTest" time="8.053">
+    <error message="Java heap space" type="java.lang.OutOfMemoryError">java.lang.OutOfMemoryError: Java heap space
+	at java.util.Arrays.copyOf(Arrays.java:2882)
+	at java.lang.AbstractStringBuilder.expandCapacity(AbstractStringBuilder.java:100)
+	at java.lang.AbstractStringBuilder.append(AbstractStringBuilder.java:390)
+	at java.lang.StringBuilder.append(StringBuilder.java:119)
+	at com.ulflander.application.utils.UlfFileUtils.read(UlfFileUtils.java:77)
+	at com.ulflander.application.utils.UlfFileUtils.read(UlfFileUtils.java:48)
+	at com.ulflander.mining.processors.extract.TokenCorpusGuesser.init(TokenCorpusGuesser.java:124)
+	at com.ulflander.mining.processors.ProcessorFactory.get(ProcessorFactory.java:68)
+	at com.ulflander.mining.ProcessingExecutor.process(ProcessingExecutor.java:143)
+	at com.ulflander.MinethatTestService.submit(MinethatTestService.java:123)
+	at com.ulflander.mining.processors.extract.TokenListGuesserTest.personPartTest(TokenListGuesserTest.java:31)
+</error>
+    <system-out><![CDATA[2014-04-18 16:09:51,283 ERROR The database is not already authenticated so you must supply a username and password for the MongoDB provider.
+2014-04-18 16:09:51,299 ERROR NoSQL provider not specified for appender [databaseAppender].
+2014-04-18 16:09:51,301 ERROR Null object returned for NoSql in Appenders
+16:09:51.401 [main] TRACE com.ulflander.application.Conf - Reading configuration for environment local
+16:09:51.406 [main] DEBUG com.ulflander.application.ConfReader - Loading configuration from /Users/Ulflander/Development/minethat/conf/conf.local.sh
+16:09:51.413 [main] DEBUG com.ulflander.MinethatTestService - Minethat starting...
+16:09:51.483 [main] TRACE com.ulflander.mining.ProcessingExecutor -   - DOCUMENT ANALYSIS STARTED: My name is Maria Johns and I live in Par...
+16:09:51.510 [main] TRACE com.ulflander.mining.ProcessingExecutor -   |  Processing DocumentCleaner: Clean and harmonize some chars on raw text before any treatment (line breaks chars, spaces chars, ...)
+16:09:51.513 [main] TRACE com.ulflander.mining.ProcessingExecutor -   |  Processing DocumentSplitter: Split a document raw string to chapters, paragraphs, sentences and tokens
+16:09:52.112 [main] TRACE com.ulflander.mining.ProcessingExecutor -   |  Processing LanguageDetector: Detects language of a document on the global document, then on each sentences. Uses https://code.google.com/p/language-detection/
+16:09:52.304 [main] TRACE com.ulflander.mining.ProcessingExecutor -   |  Processing DocumentTokenizer: Tokenize each sentence, using different strategies depending on language.
+16:09:52.318 [main] TRACE com.ulflander.mining.ProcessingExecutor -   |  Processing TokenCounter: Populates token counters with real numbers
+16:09:52.320 [main] TRACE com.ulflander.mining.ProcessingExecutor -   |  Processing TokenCleaner: Clean tokens by removing some chars at the beginning or the end of the raw string
+]]></system-out>
+  </testcase>
 </testsuite>

@@ -1,17 +1,15 @@
 package com.ulflander.mining.processors.extract;
 
-import com.ulflander.mining.Patterns;
 import com.ulflander.application.model.Chapter;
 import com.ulflander.application.model.Document;
 import com.ulflander.application.model.Paragraph;
 import com.ulflander.application.model.Sentence;
-import com.ulflander.application.model.Token;
+import com.ulflander.mining.Patterns;
 import com.ulflander.mining.processors.Processor;
 import com.ulflander.mining.processors.ProcessorDepthControl;
 import com.ulflander.mining.processors.Requires;
 
 import java.text.BreakIterator;
-import java.util.Scanner;
 
 /**
  * Processor that split a document into chapters, and paragraphs.
@@ -51,10 +49,7 @@ public class DocumentSplitter extends Processor {
      */
     @Override
     public final void extractDocument(final Document doc) {
-        int total = toChapters(doc);
-
-        // Once we 'll get number of words overall to define length of document
-        doc.setTotalToken(total);
+        toChapters(doc);
     }
 
     /**
@@ -64,17 +59,14 @@ public class DocumentSplitter extends Processor {
      *
      *
      * @param doc Document to split
-     * @return Number of tokens found in document
      */
-    public final int toChapters(final Document doc) {
+    public final void toChapters(final Document doc) {
         if (doc.getRaw().equals("")) {
-            return 0;
+            return;
         }
         // TODO : split to chapter
         Chapter chapter = new Chapter(doc.getRaw());
-        int total = toParagraphs(doc, chapter);
-        chapter.setTotalToken(total);
-        return total;
+        toParagraphs(doc, chapter);
     }
 
     /**
@@ -86,12 +78,11 @@ public class DocumentSplitter extends Processor {
      *
      * @param doc Document being splitted
      * @param chapter Chapter to split
-     * @return Number of tokens found in chapter
      */
-    public final int toParagraphs(final Document doc,
+    public final void toParagraphs(final Document doc,
                                   final Chapter chapter) {
         if (chapter.getRaw().equals("")) {
-            return 0;
+            return;
         }
 
         String[] paragraphs =
@@ -112,8 +103,7 @@ public class DocumentSplitter extends Processor {
             }
             prev = paragraph;
 
-            paragraph.setTotalToken(toSentences(chapter, paragraph));
-            total += paragraph.getTotalToken();
+            toSentences(chapter, paragraph);
         }
 
         if (chapter.getParagraphsSize() > 0
@@ -121,7 +111,7 @@ public class DocumentSplitter extends Processor {
             doc.appendChapter(chapter);
         }
 
-        return total;
+        return;
     }
 
     /**
@@ -132,12 +122,11 @@ public class DocumentSplitter extends Processor {
      *
      * @param chapter Chapter being splitted
      * @param paragraph Paragraph to split
-     * @return Number of tokens found in paragraph
      */
-    public final int toSentences(final Chapter chapter,
+    public final void toSentences(final Chapter chapter,
                                  final Paragraph paragraph) {
         if (paragraph.getRaw().equals("")) {
-            return 0;
+            return;
         }
 
         String raw = paragraph.getRaw();
@@ -162,56 +151,16 @@ public class DocumentSplitter extends Processor {
 
             prev = sentence;
             index = bi.current();
-            sentence.setTotalToken(toTokens(paragraph, sentence));
-            total += sentence.getTotalToken();
+
+            if (!paragraph.getSentences().contains(sentence)) {
+                paragraph.appendSentence(sentence);
+            }
         }
 
         if (paragraph.getSentencesSize() > 0
             && !chapter.getParagraphs().contains(paragraph)) {
             chapter.appendParagraph(paragraph);
         }
-
-        return total;
     }
 
-    /**
-     * Split a sentence to tokens and append sentence to
-     * paragraph if there are some tokens.
-     * <p/>
-     * Uses java.util.Scanner tokenization
-     *
-     * @param paragraph Paragraph being splitted
-     * @param sentence Sentence to split
-     * @return Number of tokens found in sentence
-     */
-    public final int toTokens(final Paragraph paragraph,
-                              final Sentence sentence) {
-        if (sentence.getRaw().equals("")) {
-            return 0;
-        }
-
-        Scanner tokenize = new Scanner(sentence.getRaw());
-        Token prev = null;
-        int total = 0;
-
-        while (tokenize.hasNext()) {
-            Token t = new Token(tokenize.next());
-            sentence.appendToken(t);
-
-            if (prev != null) {
-                prev.setNext(t);
-                t.setPrevious(prev);
-            }
-
-            prev = t;
-            total += 1;
-        }
-
-        if (sentence.getTokensSize() > 0
-            && !paragraph.getSentences().contains(sentence)) {
-            paragraph.appendSentence(sentence);
-        }
-
-        return total;
-    }
 }

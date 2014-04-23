@@ -280,7 +280,6 @@ public enum PennPOSTag {
             }
         }
 
-        throw new IllegalArgumentException("Unknown part of speech: '"
-                                            + value + "'.");
+        return PennPOSTag.U;
     }
 }
