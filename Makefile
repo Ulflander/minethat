@@ -8,6 +8,7 @@ NODE_SOURCE = $(NODE_SERVICE)/src
 NODE_MODULES = $(NODE_SERVICE)/node_modules
 GCLOSURE = lib/gclosure-compiler.jar
 JAVA_OPTS = "-Xms1024m -Xmx1024m -XX:PermSize=256m -XX:MaxPermSize=256m"
+JAVA_H = /Library/Java/JavaVirtualMachines/jdk1.7.0_51.jdk/Contents/Home
 
 # Show makefile usage
 help:
@@ -43,7 +44,8 @@ java-doc:
 
 # Build java tools
 java-build: java-doc
-	@cd java-apps && export JAVA_TOOL_OPTIONS=-Dfile.encoding=UTF-8 && mvn clean package \
+	@cd java-apps && export JAVA_HOME="$(JAVA_H)" \
+		&& export JAVA_TOOL_OPTIONS=-Dfile.encoding=UTF-8 && mvn clean package \
 		-Dlog4j.configuration=../conf/log4j.local.xml || (if [ "$(U_NAME)" = "Darwin" ]; \
 		then say "Java build failed"; fi; exit 1)
 	@chmod +x java-apps/dist/bin/mail_service
@@ -96,7 +98,7 @@ start: init test build
 
 # Run corpora for java apps
 run-corpora:
-	@./corpora/corpora -r "$(CURR_ROOT)/datasets/corpora/" -v
+	@./corpora/corpora -r "$(CURR_ROOT)/datasets/corpora/"
 
 .PHONY: \
 	requires \

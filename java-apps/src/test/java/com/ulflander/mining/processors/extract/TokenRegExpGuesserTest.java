@@ -1,7 +1,7 @@
 package com.ulflander.mining.processors.extract;
 
 import com.ulflander.AbstractTest;
-import com.ulflander.application.model.TokenType;
+import com.ulflander.app.model.TokenType;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -12,11 +12,14 @@ public class TokenRegExpGuesserTest extends AbstractTest {
     @Before
     public void setupProcessors () {
         s.addProcessor("extract.DocumentCleaner");
+        s.addProcessor("extract.en.EnCommonAcronymsCleaner");
         s.addProcessor("extract.DocumentSplitter");
         s.addProcessor("extract.LanguageDetector");
+        s.addProcessor("extract.POSTagger");
         s.addProcessor("extract.DocumentTokenizer");
         s.addProcessor("extract.TokenCounter");
         s.addProcessor("extract.TokenCleaner");
+        s.addProcessor("extract.TokenCorpusGuesser");
         s.addProcessor("extract.TokenRegExpGuesser");
         d.setRaw("My IP is 192.168.0.0");
     }
@@ -50,7 +53,7 @@ public class TokenRegExpGuesserTest extends AbstractTest {
     public void IPTokenTypeTest () {
         s.submit(d);
         Assert.assertEquals("Simple sentence of 4 words with IP should return IP as fourth token kind",
-                2, d.getTokenAt(0, 0, 0, 3).getScore(TokenType.IPV4));
+                5, d.getTokenAt(0, 0, 0, 3).getScore(TokenType.IPV4));
     }
 
     @Test
@@ -87,7 +90,7 @@ public class TokenRegExpGuesserTest extends AbstractTest {
         s.submit(d);
         Assert.assertEquals("Simple sentence of 4 words with email" +
                 " should return email as fourth token kind",
-                2, d.getTokenAt(0, 0, 0, 3).getScore(TokenType.EMAIL));
+                5, d.getTokenAt(0, 0, 0, 3).getScore(TokenType.EMAIL));
     }
 
 
@@ -97,7 +100,7 @@ public class TokenRegExpGuesserTest extends AbstractTest {
         s.submit(d);
         Assert.assertEquals("Simple sentence of 4 words with hashtag" +
                 " should return hashtag as fourth token kind",
-                2, d.getTokenAt(0, 0, 0, 3).getScore(TokenType.HASHTAG));
+                5, d.getTokenAt(0, 0, 0, 3).getScore(TokenType.HASHTAG));
     }
 
 
@@ -107,7 +110,7 @@ public class TokenRegExpGuesserTest extends AbstractTest {
         s.submit(d);
         Assert.assertEquals("Simple sentence of 4 words with hashtag" +
                 " should return hashtag as fourth token kind",
-                2, d.getTokenAt(0, 0, 0, 3).getScore(TokenType.HASHTAG));
+                5, d.getTokenAt(0, 0, 0, 3).getScore(TokenType.HASHTAG));
     }
 
 
@@ -117,6 +120,6 @@ public class TokenRegExpGuesserTest extends AbstractTest {
         s.submit(d);
         Assert.assertEquals("Simple sentence of 4 words with twitter username" +
                 " should return twitter username as fourth token kind",
-                2, d.getTokenAt(0, 0, 0, 3).getScore(TokenType.TWITTER_USERNAME));
+                5, d.getTokenAt(0, 0, 0, 3).getScore(TokenType.TWITTER_USERNAME));
     }
 }

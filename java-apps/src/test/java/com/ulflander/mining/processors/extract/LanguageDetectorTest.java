@@ -2,7 +2,7 @@ package com.ulflander.mining.processors.extract;
 
 
 import com.ulflander.AbstractTest;
-import com.ulflander.application.model.Language;
+import com.ulflander.app.model.Language;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;

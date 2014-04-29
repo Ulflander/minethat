@@ -1,9 +1,9 @@
 package com.ulflander.mining.processors.augment.social;
 
 import com.google.gson.Gson;
-import com.ulflander.application.Conf;
-import com.ulflander.application.model.Document;
-import com.ulflander.application.utils.UlfNetworkUtils;
+import com.ulflander.app.Conf;
+import com.ulflander.app.model.Document;
+import com.ulflander.utils.UlfNetworkUtils;
 import com.ulflander.mining.processors.Processor;
 import com.ulflander.mining.processors.ProcessorDepthControl;
 import org.apache.logging.log4j.LogManager;

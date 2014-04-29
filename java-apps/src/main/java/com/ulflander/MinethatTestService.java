@@ -1,11 +1,11 @@
 package com.ulflander;
 
-import com.ulflander.application.Conf;
-import com.ulflander.application.model.Job;
+import com.ulflander.app.Conf;
+import com.ulflander.app.model.Job;
 import com.ulflander.mining.ProcessingExecutor;
-import com.ulflander.application.model.JobFactory;
-import com.ulflander.application.model.Document;
-import com.ulflander.application.services.Service;
+import com.ulflander.app.model.JobFactory;
+import com.ulflander.app.model.Document;
+import com.ulflander.app.services.Service;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 

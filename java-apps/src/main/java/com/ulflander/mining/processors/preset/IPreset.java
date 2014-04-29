@@ -1,6 +1,6 @@
 package com.ulflander.mining.processors.preset;
 
-import com.ulflander.application.model.JobProcessor;
+import com.ulflander.app.model.JobProcessor;
 
 import java.util.ArrayList;
 

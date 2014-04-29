@@ -1,7 +1,7 @@
 package com.ulflander.mining;
 
 import com.ulflander.AbstractTest;
-import com.ulflander.application.model.Document;
+import com.ulflander.app.model.Document;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -19,7 +19,7 @@ public class TextExtractorTest extends AbstractTest {
 
         URL url = Thread.currentThread()
             .getContextClassLoader()
-            .getResource("com/ulflander/application/model/FileExtractorTest.txt");
+            .getResource("com/ulflander/app/model/FileExtractorTest.txt");
 
 
         Document d = TextExtractor.fromFile(new File(url.getPath()));

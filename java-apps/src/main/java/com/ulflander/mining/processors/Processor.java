@@ -1,11 +1,11 @@
 package com.ulflander.mining.processors;
 
 
-import com.ulflander.application.model.Chapter;
-import com.ulflander.application.model.Document;
-import com.ulflander.application.model.Paragraph;
-import com.ulflander.application.model.Sentence;
-import com.ulflander.application.model.Token;
+import com.ulflander.app.model.Chapter;
+import com.ulflander.app.model.Document;
+import com.ulflander.app.model.Paragraph;
+import com.ulflander.app.model.Sentence;
+import com.ulflander.app.model.Token;
 
 /**
  * Abstract processor.
@@ -37,6 +37,10 @@ public abstract class Processor {
 
     /**
      * Set processor depth control.
+     *
+     * Depth control let you decide if a processor run over any token object
+     * of the document, or at another level like sentence or document. Default
+     * is set to token.
      *
      * @param dc Max depth
      */

@@ -1,20 +1,20 @@
 package com.ulflander.mining;
 
-import com.ulflander.application.Conf;
-import com.ulflander.application.model.Document;
-import com.ulflander.application.model.DocumentStatus;
-import com.ulflander.application.model.Job;
-import com.ulflander.application.model.JobDocumentType;
-import com.ulflander.application.model.JobProcessor;
-import com.ulflander.application.model.JobStatus;
-import com.ulflander.application.model.JobTarget;
-import com.ulflander.application.model.Language;
-import com.ulflander.application.model.storage.DocumentStorage;
-import com.ulflander.application.utils.UlfTimer;
+import com.ulflander.app.Conf;
+import com.ulflander.app.model.Document;
+import com.ulflander.app.model.DocumentStatus;
+import com.ulflander.app.model.Job;
+import com.ulflander.app.model.JobDocumentType;
+import com.ulflander.app.model.JobProcessor;
+import com.ulflander.app.model.JobStatus;
+import com.ulflander.app.model.JobTarget;
+import com.ulflander.app.model.Language;
+import com.ulflander.app.model.storage.DocumentStorage;
+import com.ulflander.mining.processors.preset.BasicPreset;
+import com.ulflander.utils.UlfTimer;
 import com.ulflander.mining.processors.ILocalizedProcessor;
 import com.ulflander.mining.processors.Processor;
 import com.ulflander.mining.processors.ProcessorFactory;
-import com.ulflander.mining.processors.preset.BasicTextStatPreset;
 import com.ulflander.mining.processors.preset.IPreset;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -128,7 +128,7 @@ public class ProcessingExecutor {
             LOGGER.warn("No processors given with model " + job.getId()
                     + ", using default processors stack");
 
-            IPreset preset = new BasicTextStatPreset();
+            IPreset preset = new BasicPreset();
             procs = preset.getProcessors();
         }
 

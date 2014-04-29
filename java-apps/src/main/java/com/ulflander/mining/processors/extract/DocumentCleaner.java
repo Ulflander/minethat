@@ -1,6 +1,6 @@
 package com.ulflander.mining.processors.extract;
 
-import com.ulflander.application.model.Document;
+import com.ulflander.app.model.Document;
 import com.ulflander.mining.processors.Processor;
 import com.ulflander.mining.processors.ProcessorDepthControl;
 

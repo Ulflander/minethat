@@ -1,8 +1,8 @@
 package com.ulflander.mining.processors.augment;
 
-import com.ulflander.application.model.Chapter;
-import com.ulflander.application.model.Document;
-import com.ulflander.application.model.Paragraph;
+import com.ulflander.app.model.Chapter;
+import com.ulflander.app.model.Document;
+import com.ulflander.app.model.Paragraph;
 import com.ulflander.mining.processors.Processor;
 import com.ulflander.mining.processors.ProcessorDepthControl;
 import com.ulflander.mining.processors.Requires;

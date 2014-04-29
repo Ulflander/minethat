@@ -25,7 +25,7 @@ import java.io.InputStream;
 /**
  * File extractor uses Apache Tika to extract text content and metadata
  * from a file, except for PDF where it uses Tika for metadata and PDFbox
- * for text extraction.
+ * for text extraction as results were far better.
  *
  * @author Ulflander <xlaumonier@gmail.com>
  * @since 2/24/14
@@ -133,6 +133,7 @@ public final class FileExtractor {
             is = new BufferedInputStream(new FileInputStream(f));
         } catch (FileNotFoundException e) {
             LOGGER.error("File not found on file text extraction", e);
+            return;
         }
 
         extract(is);

@@ -1,8 +1,8 @@
 package com.ulflander.mining.processors.extract;
 
-import com.ulflander.application.Conf;
-import com.ulflander.application.model.Language;
-import com.ulflander.application.model.Sentence;
+import com.ulflander.app.Conf;
+import com.ulflander.app.model.Language;
+import com.ulflander.app.model.Sentence;
 import com.ulflander.mining.processors.ILocalizedProcessor;
 import com.ulflander.mining.processors.Processor;
 import com.ulflander.mining.processors.ProcessorDepthControl;

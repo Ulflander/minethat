@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: com.ulflander.mining.processors.extract.LanguageDetectorTest
--------------------------------------------------------------------------------
-Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 6.44 sec - in com.ulflander.mining.processors.extract.LanguageDetectorTest

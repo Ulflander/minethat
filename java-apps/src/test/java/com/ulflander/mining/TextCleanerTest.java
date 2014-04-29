@@ -1,5 +1,6 @@
 package com.ulflander.mining;
 
+import com.ulflander.utils.UlfStringUtils;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -11,7 +12,7 @@ public class TextCleanerTest {
     @Test
     public void testTrimLinesTab() {
 
-        String result = TextCleaner.trimLines("\t<bold>text</bold>");
+        String result = UlfStringUtils.trimLines("\t<bold>text</bold>");
 
         Assert.assertEquals("Clean HTML shoudn't contain any indentation",
             "<bold>text</bold>", result);
@@ -20,7 +21,7 @@ public class TextCleanerTest {
     @Test
     public void testTrimLinesTabSpace() {
 
-        String result = TextCleaner.trimLines("\t    <bold>text</bold>    ");
+        String result = UlfStringUtils.trimLines("\t    <bold>text</bold>    ");
 
         Assert.assertEquals("Clean HTML shoudn't contain any indentation",
             "<bold>text</bold>", result);
@@ -29,7 +30,7 @@ public class TextCleanerTest {
     @Test
     public void testTrimLinesTabSpaceInside() {
 
-        String result = TextCleaner.trimLines("    <bold>text    text</bold>");
+        String result = UlfStringUtils.trimLines("    <bold>text    text</bold>");
 
         Assert.assertEquals("Clean HTML shoudn't remove 4 space in the line",
             "<bold>text    text</bold>", result);

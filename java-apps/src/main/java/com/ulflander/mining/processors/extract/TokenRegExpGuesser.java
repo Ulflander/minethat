@@ -1,10 +1,12 @@
 package com.ulflander.mining.processors.extract;
 
-import com.ulflander.application.model.Token;
-import com.ulflander.application.model.TokenType;
+import com.ulflander.app.model.Language;
+import com.ulflander.app.model.Token;
+import com.ulflander.app.model.TokenType;
 import com.ulflander.mining.Patterns;
 import com.ulflander.mining.processors.Processor;
 import com.ulflander.mining.processors.Requires;
+import com.ulflander.utils.UlfStringUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -29,7 +31,7 @@ public class TokenRegExpGuesser extends Processor {
     /**
      * Low score for token types found by regexps.
      */
-    private static final int LOW_REGEXP_SCORE = 1;
+    private static final int LOW_REGEXP_SCORE = 2;
 
     /**
      * Maximum value of a decimal that could be a month.
@@ -45,6 +47,16 @@ public class TokenRegExpGuesser extends Processor {
      * Maximum value of a decimal that could be a year.
      */
     private static final int MAX_YEAR = 2050;
+
+    /**
+     * Minimum value of a decimal that is probably a year.
+     */
+    private static final int MIN_PROBABLE_YEAR = 1995;
+
+    /**
+     * Maximum value of a decimal that is probably a year.
+     */
+    private static final int MAX_PROBABLE_YEAR = 2015;
 
     /**
      * Logger.
@@ -164,28 +176,70 @@ public class TokenRegExpGuesser extends Processor {
      */
     public final void isMoneyAmount(final Token token) {
 
-        if (test(Patterns.TOKEN_REC_NUMBER, token.getRaw())) {
+        /*
+            First if only a number, we give a very low score
+         */
+        if (test(Patterns.TOKEN_REC_NUMBER, token.getRaw())
+            || token.getType() == TokenType.NUMERIC) {
             token.score(TokenType.MONEY_AMOUNT, LOW_REGEXP_SCORE);
+
+        /*
+            If number + chars that could be some money currencies or
+            quantifiers, a normal score.
+         */
         } else if (test(Patterns.TOKEN_REC_MONEY_AMOUNT, token.getRaw())) {
-            token.score(TokenType.MONEY_AMOUNT, DEFAULT_REGEXP_SCORE);
+                token.score(TokenType.MONEY_AMOUNT, DEFAULT_REGEXP_SCORE);
+
+        /*
+            If only a currency char, low score.
+         */
+        } else if (test(Patterns.TOKEN_REC_MONEY_CURRENCY_CHARS,
+                token.getRaw())) {
+            token.score(TokenType.MONEY_AMOUNT, LOW_REGEXP_SCORE);
         }
     }
 
 
     /**
      * Check whether given token is capitalized. If it is then it increase
-     * some token type scores.
+     * some token type scores (mainly named entities: persons, organizations...)
      *
      * @param token Token to check
      */
     public final void isCapitalized(final Token token) {
 
-        if (test(Patterns.TOKEN_REC_CAPITALIZED, token.getRaw())) {
+        String str = token.getRaw();
+
+        /*
+            Capitalization rule can't apply if most of the
+            token is uppercased: it has no meaning anymore, we seek
+            here strict capitalization.
+         */
+        if (UlfStringUtils.isMostlyUppercase(str)) {
+            return;
+        }
+
+        /*
+            If token is capitalized, we consider all concepts
+            as reinforced.
+         */
+        if (test(Patterns.TOKEN_REC_CAPITALIZED, str)) {
             token.consolidate(TokenType.PERSON, LOW_REGEXP_SCORE);
             token.consolidate(TokenType.PERSON_PART, LOW_REGEXP_SCORE);
             token.consolidate(TokenType.LOCATION, LOW_REGEXP_SCORE);
             token.consolidate(TokenType.LOCATION_PART, LOW_REGEXP_SCORE);
             token.consolidate(TokenType.ORGANIZATION, LOW_REGEXP_SCORE);
+
+        /*
+            If not capitalized, then less chances that they are named
+            entities.
+         */
+        } else {
+            token.consolidate(TokenType.PERSON, -LOW_REGEXP_SCORE);
+            token.consolidate(TokenType.PERSON_PART, -LOW_REGEXP_SCORE);
+            token.consolidate(TokenType.LOCATION, -LOW_REGEXP_SCORE);
+            token.consolidate(TokenType.LOCATION_PART, -LOW_REGEXP_SCORE);
+            token.consolidate(TokenType.ORGANIZATION, -LOW_REGEXP_SCORE);
         }
     }
 
@@ -196,17 +250,55 @@ public class TokenRegExpGuesser extends Processor {
      */
     public final void isDate(final Token token) {
 
+        /*
+            If a number
+         */
         if (test(Patterns.TOKEN_REC_NUMBER, token.getRaw())) {
 
             int val = Integer.valueOf(token.getRaw());
-            if (val > 0 && val < MAX_MONTH) {
+            /*
+                and could be a month: low score of 1 ( there's a high
+                probability to find numbers between 1 && 31 for money amounts as
+                well or any other quantification).
+             */
+            if (val > 0 && val <= MAX_MONTH) {
                 token.score(TokenType.DATE_PART, 1);
             }
-            if (val > MIN_YEAR && val < MAX_YEAR) {
+
+            /*
+                For years, there is a bit more chance that numbers between
+                1901 and 2050 are actually a year.
+             */
+            if (val >= MIN_YEAR && val <= MAX_YEAR) {
                 token.score(TokenType.DATE_PART, 2);
             }
 
+            /*
+                For years, there is a bit more chance that numbers between
+                1901 and 2050 are actually a year.
+             */
+            if (val >= MIN_PROBABLE_YEAR && val <= MAX_PROBABLE_YEAR) {
+                token.score(TokenType.DATE_PART, 2);
+            }
+
+        /*
+            If like an hour.
+         */
+        } else if (test(Patterns.TOKEN_REC_HOUR, token.getRaw())) {
+            token.score(TokenType.DATE_PART, 2);
+
+        /*
+            AM/PM
+         */
+        } else if (current().getLanguage() == Language.EN) {
+            String c = token.getClean();
+
+            if (c.equals("am") || c.equals("pm")) {
+                token.score(TokenType.DATE_PART, 2);
+            }
         }
+
+
     }
 
 

@@ -1,7 +1,7 @@
 package com.ulflander.mining.processors.extract;
 
 import com.ulflander.AbstractTest;
-import com.ulflander.application.model.TextLength;
+import com.ulflander.app.model.TextLength;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -15,6 +15,14 @@ public class DocumentSplitterTest extends AbstractTest {
         s.addProcessor("extract.LanguageDetector");
         s.addProcessor("extract.DocumentTokenizer");
         s.addProcessor("extract.TokenCounter");
+    }
+
+    @Test
+    public void SpecialCaseNamesWithUniqueCapitalLetterTest () {
+        d.setRaw("A sentence containing Edward E. Johns name should not count for two sentences.");
+        s.submit(d);
+        Assert.assertEquals("First paragraph should return one sentence", 1, d.getParagraphAt(0,0).getSentencesSize());
+
     }
 
 
@@ -68,7 +76,7 @@ public class DocumentSplitterTest extends AbstractTest {
         Assert.assertEquals("Simple sentence of 4 words should return only one chapter", 1, d.getChaptersSize());
         Assert.assertEquals("Simple sentence of 4 words should return only one paragraph from one chapter", 1, d.getChapterAt(0).getParagraphsSize());
         Assert.assertEquals("Simple sentence of 4 words should return only one sentence from one paragraph", 1, d.getParagraphAt(0, 0).getSentencesSize());
-        Assert.assertEquals("Simple sentence of 4 words should return four com.ulflander.application.tokens from one sentence", 4, d.getSentenceAt(0, 0, 0).getTokensSize());
+        Assert.assertEquals("Simple sentence of 4 words should return four com.ulflander.app.tokens from one sentence", 4, d.getSentenceAt(0, 0, 0).getTokensSize());
     }
 
 

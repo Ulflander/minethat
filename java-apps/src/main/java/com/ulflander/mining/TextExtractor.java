@@ -1,9 +1,10 @@
 package com.ulflander.mining;
 
-import com.ulflander.application.model.Document;
-import com.ulflander.application.model.Job;
-import com.ulflander.application.model.JobDocumentType;
-import com.ulflander.application.utils.UlfNetworkUtils;
+import com.ulflander.app.model.Document;
+import com.ulflander.app.model.Job;
+import com.ulflander.app.model.JobDocumentType;
+import com.ulflander.utils.UlfNetworkUtils;
+import com.ulflander.utils.UlfStringUtils;
 import de.l3s.boilerpipe.BoilerpipeProcessingException;
 import de.l3s.boilerpipe.extractors.CanolaExtractor;
 import org.apache.logging.log4j.LogManager;
@@ -13,6 +14,9 @@ import java.io.File;
 
 /**
  * Class that create a document given various inputs: URL, raw string, file.
+ *
+ * Lot of different strategies/libraries are used depending on the kind of
+ * method called.
  *
  * @author Ulflander <xlaumonier@gmail.com>
  * @since 2/24/14
@@ -38,7 +42,7 @@ public final class TextExtractor {
     /**
      * Create a document from given Job, depending of type of Job.
      *
-     * @see com.ulflander.application.model.JobDocumentType
+     * @see com.ulflander.app.model.JobDocumentType
      * @param job Job document
      * @return Processable document
      * @throws ExtractionException In case content is empty or an error occured
@@ -88,7 +92,7 @@ public final class TextExtractor {
     /**
      * Get URL content, then use <fromHTMLString> method to extract text.
      *
-     * @see com.ulflander.application.utils.UlfNetworkUtils
+     * @see com.ulflander.utils.UlfNetworkUtils
      * @param url URL to load
      * @return Document populated with text retrieved from URL
      * @throws ExtractionException In case content is empty or an error occured
@@ -113,19 +117,26 @@ public final class TextExtractor {
     /**
      * Populate a new document with given string -
      * extract content using Boilerpipe.
-     * Extractor used is CanolaExtractor (v1.2.0). Note that v1.2.0 is used
-     * but is not available on Maven.
      *
-     * We then:
+     * Extractor used is CanolaExtractor (v1.2.0). Note that v1.2.0 is used
+     * but is not available on Maven, it's available as local maven library
+     * and can be installed using Makefile.
+     *
+     * Once text is extract, we execute the following:
      * - Clean multiple spaces
      * - Transform new lines to double new lines, so paragraph detection
-     * of DocumentSplitter processor can work.
-     * - And finally use <fromString> method onto the resulting string.
+     * of DocumentSplitter processor can work
+     * - Use fromString method onto the resulting string
+     * - Populate doc with metadata from HTML if found
      *
      * Possible improvement here would be to add multiple strategies for text
      * extraction, and try to compare quality of results, keeping only the
      * "best match".
      *
+     * Doc meta extraction is done using the MetaExtractor class and Jsoup.
+     *
+     * @see de.l3s.boilerpipe.extractors.CanolaExtractor
+     * @see com.ulflander.mining.MetaExtractor
      * @param str String to process
      * @return Document populated with text retrieved from URL
      * @throws ExtractionException In case content is empty
@@ -142,10 +153,12 @@ public final class TextExtractor {
                     + e.getMessage());
         }
 
-        fullText = TextCleaner.cleanSpaces(fullText);
+        fullText = UlfStringUtils.cleanSpaces(fullText);
         fullText = fullText.replaceAll("\n", "\n\n");
 
-        return fromString(fullText);
+        Document doc = fromString(fullText);
+        MetaExtractor.extract(doc, str);
+        return doc;
     }
 
 
@@ -182,7 +195,7 @@ public final class TextExtractor {
             throw new ExtractionException("Content is null");
         }
 
-        String s = TextCleaner.trimLines(str);
+        String s = UlfStringUtils.trimLines(str);
 
         if (s.equals("")) {
             if (fallback != null) {

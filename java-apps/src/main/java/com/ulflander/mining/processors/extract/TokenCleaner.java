@@ -1,7 +1,7 @@
 package com.ulflander.mining.processors.extract;
 
 import com.ulflander.mining.Patterns;
-import com.ulflander.application.model.Token;
+import com.ulflander.app.model.Token;
 import com.ulflander.mining.processors.Processor;
 import com.ulflander.mining.processors.Requires;
 import org.apache.commons.lang3.StringUtils;

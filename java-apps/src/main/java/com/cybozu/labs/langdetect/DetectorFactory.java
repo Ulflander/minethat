@@ -2,7 +2,7 @@ package com.cybozu.labs.langdetect;
 
 import com.cybozu.labs.langdetect.util.LangProfile;
 import com.google.gson.Gson;
-import com.ulflander.application.utils.UlfResourceUtils;
+import com.ulflander.utils.UlfResourceUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 

@@ -10,11 +10,11 @@
 <a class="jxr_linenumber" name="L2" href="#L2">2</a>   
 <a class="jxr_linenumber" name="L3" href="#L3">3</a>   <strong class="jxr_keyword">import</strong> com.cybozu.labs.langdetect.Detector;
 <a class="jxr_linenumber" name="L4" href="#L4">4</a>   <strong class="jxr_keyword">import</strong> com.cybozu.labs.langdetect.DetectorFactory;
-<a class="jxr_linenumber" name="L5" href="#L5">5</a>   <strong class="jxr_keyword">import</strong> com.ulflander.application.model.Chapter;
-<a class="jxr_linenumber" name="L6" href="#L6">6</a>   <strong class="jxr_keyword">import</strong> com.ulflander.application.model.Document;
-<a class="jxr_linenumber" name="L7" href="#L7">7</a>   <strong class="jxr_keyword">import</strong> com.ulflander.application.model.Language;
-<a class="jxr_linenumber" name="L8" href="#L8">8</a>   <strong class="jxr_keyword">import</strong> com.ulflander.application.model.Paragraph;
-<a class="jxr_linenumber" name="L9" href="#L9">9</a>   <strong class="jxr_keyword">import</strong> com.ulflander.application.model.Sentence;
+<a class="jxr_linenumber" name="L5" href="#L5">5</a>   <strong class="jxr_keyword">import</strong> com.ulflander.app.model.Chapter;
+<a class="jxr_linenumber" name="L6" href="#L6">6</a>   <strong class="jxr_keyword">import</strong> com.ulflander.app.model.Document;
+<a class="jxr_linenumber" name="L7" href="#L7">7</a>   <strong class="jxr_keyword">import</strong> com.ulflander.app.model.Language;
+<a class="jxr_linenumber" name="L8" href="#L8">8</a>   <strong class="jxr_keyword">import</strong> com.ulflander.app.model.Paragraph;
+<a class="jxr_linenumber" name="L9" href="#L9">9</a>   <strong class="jxr_keyword">import</strong> com.ulflander.app.model.Sentence;
 <a class="jxr_linenumber" name="L10" href="#L10">10</a>  <strong class="jxr_keyword">import</strong> com.ulflander.mining.processors.Processor;
 <a class="jxr_linenumber" name="L11" href="#L11">11</a>  <strong class="jxr_keyword">import</strong> com.ulflander.mining.processors.ProcessorDepthControl;
 <a class="jxr_linenumber" name="L12" href="#L12">12</a>  <strong class="jxr_keyword">import</strong> com.ulflander.mining.processors.Requires;
@@ -80,7 +80,7 @@
 <a class="jxr_linenumber" name="L72" href="#L72">72</a>  <em class="jxr_javadoccomment">     * @param doc Document to run processor on</em>
 <a class="jxr_linenumber" name="L73" href="#L73">73</a>  <em class="jxr_javadoccomment">     */</em>
 <a class="jxr_linenumber" name="L74" href="#L74">74</a>      @Override
-<a class="jxr_linenumber" name="L75" href="#L75">75</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">void</strong> extractDocument(<strong class="jxr_keyword">final</strong> <a href="../../../../../com/ulflander/application/model/Document.html">Document</a> doc) {
+<a class="jxr_linenumber" name="L75" href="#L75">75</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">void</strong> extractDocument(<strong class="jxr_keyword">final</strong> <a href="../../../../../com/ulflander/app/model/Document.html">Document</a> doc) {
 <a class="jxr_linenumber" name="L76" href="#L76">76</a>  
 <a class="jxr_linenumber" name="L77" href="#L77">77</a>          <a href="../../../../../com/cybozu/labs/langdetect/Language.html">Language</a> lang = detect(doc.getRaw());
 <a class="jxr_linenumber" name="L78" href="#L78">78</a>          HashMap&lt;Language, Integer&gt; languages = <strong class="jxr_keyword">new</strong> HashMap&lt;Language, Integer&gt;();
@@ -111,7 +111,7 @@
 <a class="jxr_linenumber" name="L103" href="#L103">103</a> <em class="jxr_javadoccomment">     * @param sentence Sentence to evaluate</em>
 <a class="jxr_linenumber" name="L104" href="#L104">104</a> <em class="jxr_javadoccomment">     * @param languages Languages summary to populate</em>
 <a class="jxr_linenumber" name="L105" href="#L105">105</a> <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="L106" href="#L106">106</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">void</strong> detectSentence(<strong class="jxr_keyword">final</strong> <a href="../../../../../com/ulflander/application/model/Sentence.html">Sentence</a> sentence,
+<a class="jxr_linenumber" name="L106" href="#L106">106</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">void</strong> detectSentence(<strong class="jxr_keyword">final</strong> <a href="../../../../../com/ulflander/app/model/Sentence.html">Sentence</a> sentence,
 <a class="jxr_linenumber" name="L107" href="#L107">107</a>                                <strong class="jxr_keyword">final</strong> HashMap&lt;Language, Integer&gt; languages) {
 <a class="jxr_linenumber" name="L108" href="#L108">108</a>         <a href="../../../../../com/cybozu/labs/langdetect/Language.html">Language</a> lang = detect(sentence.getRaw());
 <a class="jxr_linenumber" name="L109" href="#L109">109</a>         sentence.setLanguage(lang);
@@ -128,7 +128,7 @@
 <a class="jxr_linenumber" name="L120" href="#L120">120</a> <em class="jxr_javadoccomment">     *</em>
 <a class="jxr_linenumber" name="L121" href="#L121">121</a> <em class="jxr_javadoccomment">     * @param str String to evaluate</em>
 <a class="jxr_linenumber" name="L122" href="#L122">122</a> <em class="jxr_javadoccomment">     * @return Language found (may be Language.UNKNOWN)</em>
-<a class="jxr_linenumber" name="L123" href="#L123">123</a> <em class="jxr_javadoccomment">     * @see com.ulflander.application.model.Language</em>
+<a class="jxr_linenumber" name="L123" href="#L123">123</a> <em class="jxr_javadoccomment">     * @see com.ulflander.app.model.Language</em>
 <a class="jxr_linenumber" name="L124" href="#L124">124</a> <em class="jxr_javadoccomment">     */</em>
 <a class="jxr_linenumber" name="L125" href="#L125">125</a>     <strong class="jxr_keyword">private</strong> <a href="../../../../../com/cybozu/labs/langdetect/Language.html">Language</a> detect(<strong class="jxr_keyword">final</strong> String str) {
 <a class="jxr_linenumber" name="L126" href="#L126">126</a> 

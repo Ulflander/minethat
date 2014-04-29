@@ -1,7 +1,7 @@
 package com.ulflander.mining.processors;
 
 import com.ulflander.AbstractTest;
-import com.ulflander.application.model.DocumentStatus;
+import com.ulflander.app.model.DocumentStatus;
 import org.junit.Assert;
 import org.junit.Test;
 

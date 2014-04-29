@@ -1,7 +1,7 @@
 package com.ulflander.mining.processors.load;
 
 import com.ulflander.AbstractTest;
-import com.ulflander.application.utils.UlfFileUtils;
+import com.ulflander.utils.UlfFileUtils;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Test;
@@ -18,6 +18,7 @@ public class LoadJSONFileTest extends AbstractTest {
         s.addProcessor("extract.DocumentTokenizer");
         s.addProcessor("extract.TokenCounter");
         s.addProcessor("extract.TokenCleaner");
+        s.addProcessor("extract.TokenCorpusGuesser");
         s.addProcessor("extract.TokenRegExpGuesser");
         s.addProcessor("extract.en.EnTokenSingularization");
         s.addProcessor("augment.BasicTextStat");

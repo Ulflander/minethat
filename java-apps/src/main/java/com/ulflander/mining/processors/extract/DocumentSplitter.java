@@ -1,9 +1,9 @@
 package com.ulflander.mining.processors.extract;
 
-import com.ulflander.application.model.Chapter;
-import com.ulflander.application.model.Document;
-import com.ulflander.application.model.Paragraph;
-import com.ulflander.application.model.Sentence;
+import com.ulflander.app.model.Chapter;
+import com.ulflander.app.model.Document;
+import com.ulflander.app.model.Paragraph;
+import com.ulflander.app.model.Sentence;
 import com.ulflander.mining.Patterns;
 import com.ulflander.mining.processors.Processor;
 import com.ulflander.mining.processors.ProcessorDepthControl;
@@ -21,6 +21,16 @@ import java.text.BreakIterator;
     "extract.DocumentCleaner"
 })
 public class DocumentSplitter extends Processor {
+
+    /**
+     * Three.
+     */
+    private static final int THREE = 3;
+
+    /**
+     * Four.
+     */
+    private static final int FOUR = 4;
 
     /**
      * Initialize the processor.
@@ -117,7 +127,7 @@ public class DocumentSplitter extends Processor {
     /**
      * Split a paragraph to sentences and append paragraph
      * to chapter if there are some sentences.
-     * <p/>
+     *
      * Uses java.text.BreakIterator
      *
      * @param chapter Chapter being splitted
@@ -129,28 +139,54 @@ public class DocumentSplitter extends Processor {
             return;
         }
 
+
         String raw = paragraph.getRaw();
         BreakIterator bi = BreakIterator.getSentenceInstance();
+
+        /*
+            Paragraph shouldn't have any new lines.
+            We replace new lines by "."
+         */
+        raw = raw.replaceAll("\\n", ". ");
+
         bi.setText(raw);
         int index = 0;
-        int total = 0;
+        int curr = 0;
         Sentence prev = null;
 
         while (bi.next() != BreakIterator.DONE) {
+            curr = bi.current();
+
+            /*
+                Check special use case where we got a unique
+                letter before the breack iterator. It's very likely
+                a kind of reduction like in "John E. Adams".
+             */
+            String s = raw.substring(curr - FOUR, curr - THREE);
+            if ((s.equals(" ") || s.equals(".")) && curr < raw.length()) {
+                continue;
+            }
+
+            /*
+                Create the sentence
+             */
             Sentence sentence =
-                new Sentence(raw.substring(index, bi.current()));
+                new Sentence(raw.substring(index, curr));
 
             if (sentence.getRaw().equals("")) {
                 continue;
             }
 
+            /*
+                And set connections with next/previous.
+             */
             if (prev != null) {
                 prev.setNext(sentence);
                 sentence.setPrevious(prev);
             }
 
             prev = sentence;
-            index = bi.current();
+            index = curr;
 
             if (!paragraph.getSentences().contains(sentence)) {
                 paragraph.appendSentence(sentence);

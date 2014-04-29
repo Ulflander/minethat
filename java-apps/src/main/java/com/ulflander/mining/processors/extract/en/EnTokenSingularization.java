@@ -1,11 +1,11 @@
 package com.ulflander.mining.processors.extract.en;
 
-import com.ulflander.application.model.Token;
-import com.ulflander.application.model.TokenType;
+import com.ulflander.app.model.Token;
+import com.ulflander.app.model.TokenType;
 import com.ulflander.mining.processors.ILocalizedProcessor;
 import com.ulflander.mining.processors.Processor;
 import com.ulflander.mining.processors.Requires;
-import com.ulflander.application.utils.EnInflector;
+import com.ulflander.utils.EnInflector;
 
 import java.util.ArrayList;
 

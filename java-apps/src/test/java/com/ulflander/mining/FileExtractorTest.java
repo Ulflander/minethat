@@ -23,13 +23,13 @@ public class FileExtractorTest extends AbstractTest {
 
         URL url = Thread.currentThread()
             .getContextClassLoader()
-            .getResource("com/ulflander/application/model/" + filename);
+            .getResource("com/ulflander/app/model/" + filename);
 
         if (url == null) {
             LogManager
                 .getLogger(FileExtractorTest.class)
                 .error("Resource not found: "
-                    + "com/ulflander/application/model/" + filename);
+                    + "com/ulflander/app/model/" + filename);
         }
 
         return new File(url.getPath());

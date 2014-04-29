@@ -1,14 +1,12 @@
 com.cybozu.labs.langdetect
 com.cybozu.labs.langdetect.util
 com.ulflander
-com.ulflander.application
-com.ulflander.application.model
-com.ulflander.application.model.customer
-com.ulflander.application.model.storage
-com.ulflander.application.services
-com.ulflander.application.services.email
-com.ulflander.application.utils
-com.ulflander.application.utils.cache
+com.ulflander.app
+com.ulflander.app.model
+com.ulflander.app.model.customer
+com.ulflander.app.model.storage
+com.ulflander.app.services
+com.ulflander.app.services.email
 com.ulflander.mining
 com.ulflander.mining.nlp
 com.ulflander.mining.processors
@@ -23,3 +21,6 @@ com.ulflander.mining.processors.preset
 com.ulflander.mining.rdf
 com.ulflander.mining.rdf.model
 com.ulflander.mining.rdf.utils
+com.ulflander.mining.services
+com.ulflander.utils
+com.ulflander.utils.cache

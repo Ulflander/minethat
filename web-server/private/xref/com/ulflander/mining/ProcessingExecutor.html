@@ -8,21 +8,21 @@
 <div id="overview"><a href="../../../../apidocs/com/ulflander/mining/ProcessingExecutor.html">View Javadoc</a></div><pre>
 <a class="jxr_linenumber" name="L1" href="#L1">1</a>   <strong class="jxr_keyword">package</strong> com.ulflander.mining;
 <a class="jxr_linenumber" name="L2" href="#L2">2</a>   
-<a class="jxr_linenumber" name="L3" href="#L3">3</a>   <strong class="jxr_keyword">import</strong> com.ulflander.application.Conf;
-<a class="jxr_linenumber" name="L4" href="#L4">4</a>   <strong class="jxr_keyword">import</strong> com.ulflander.application.model.Document;
-<a class="jxr_linenumber" name="L5" href="#L5">5</a>   <strong class="jxr_keyword">import</strong> com.ulflander.application.model.DocumentStatus;
-<a class="jxr_linenumber" name="L6" href="#L6">6</a>   <strong class="jxr_keyword">import</strong> com.ulflander.application.model.Job;
-<a class="jxr_linenumber" name="L7" href="#L7">7</a>   <strong class="jxr_keyword">import</strong> com.ulflander.application.model.JobDocumentType;
-<a class="jxr_linenumber" name="L8" href="#L8">8</a>   <strong class="jxr_keyword">import</strong> com.ulflander.application.model.JobProcessor;
-<a class="jxr_linenumber" name="L9" href="#L9">9</a>   <strong class="jxr_keyword">import</strong> com.ulflander.application.model.JobStatus;
-<a class="jxr_linenumber" name="L10" href="#L10">10</a>  <strong class="jxr_keyword">import</strong> com.ulflander.application.model.JobTarget;
-<a class="jxr_linenumber" name="L11" href="#L11">11</a>  <strong class="jxr_keyword">import</strong> com.ulflander.application.model.Language;
-<a class="jxr_linenumber" name="L12" href="#L12">12</a>  <strong class="jxr_keyword">import</strong> com.ulflander.application.model.storage.DocumentStorage;
-<a class="jxr_linenumber" name="L13" href="#L13">13</a>  <strong class="jxr_keyword">import</strong> com.ulflander.application.utils.UlfTimer;
-<a class="jxr_linenumber" name="L14" href="#L14">14</a>  <strong class="jxr_keyword">import</strong> com.ulflander.mining.processors.ILocalizedProcessor;
-<a class="jxr_linenumber" name="L15" href="#L15">15</a>  <strong class="jxr_keyword">import</strong> com.ulflander.mining.processors.Processor;
-<a class="jxr_linenumber" name="L16" href="#L16">16</a>  <strong class="jxr_keyword">import</strong> com.ulflander.mining.processors.ProcessorFactory;
-<a class="jxr_linenumber" name="L17" href="#L17">17</a>  <strong class="jxr_keyword">import</strong> com.ulflander.mining.processors.preset.BasicTextStatPreset;
+<a class="jxr_linenumber" name="L3" href="#L3">3</a>   <strong class="jxr_keyword">import</strong> com.ulflander.app.Conf;
+<a class="jxr_linenumber" name="L4" href="#L4">4</a>   <strong class="jxr_keyword">import</strong> com.ulflander.app.model.Document;
+<a class="jxr_linenumber" name="L5" href="#L5">5</a>   <strong class="jxr_keyword">import</strong> com.ulflander.app.model.DocumentStatus;
+<a class="jxr_linenumber" name="L6" href="#L6">6</a>   <strong class="jxr_keyword">import</strong> com.ulflander.app.model.Job;
+<a class="jxr_linenumber" name="L7" href="#L7">7</a>   <strong class="jxr_keyword">import</strong> com.ulflander.app.model.JobDocumentType;
+<a class="jxr_linenumber" name="L8" href="#L8">8</a>   <strong class="jxr_keyword">import</strong> com.ulflander.app.model.JobProcessor;
+<a class="jxr_linenumber" name="L9" href="#L9">9</a>   <strong class="jxr_keyword">import</strong> com.ulflander.app.model.JobStatus;
+<a class="jxr_linenumber" name="L10" href="#L10">10</a>  <strong class="jxr_keyword">import</strong> com.ulflander.app.model.JobTarget;
+<a class="jxr_linenumber" name="L11" href="#L11">11</a>  <strong class="jxr_keyword">import</strong> com.ulflander.app.model.Language;
+<a class="jxr_linenumber" name="L12" href="#L12">12</a>  <strong class="jxr_keyword">import</strong> com.ulflander.app.model.storage.DocumentStorage;
+<a class="jxr_linenumber" name="L13" href="#L13">13</a>  <strong class="jxr_keyword">import</strong> com.ulflander.mining.processors.preset.BasicPreset;
+<a class="jxr_linenumber" name="L14" href="#L14">14</a>  <strong class="jxr_keyword">import</strong> com.ulflander.utils.UlfTimer;
+<a class="jxr_linenumber" name="L15" href="#L15">15</a>  <strong class="jxr_keyword">import</strong> com.ulflander.mining.processors.ILocalizedProcessor;
+<a class="jxr_linenumber" name="L16" href="#L16">16</a>  <strong class="jxr_keyword">import</strong> com.ulflander.mining.processors.Processor;
+<a class="jxr_linenumber" name="L17" href="#L17">17</a>  <strong class="jxr_keyword">import</strong> com.ulflander.mining.processors.ProcessorFactory;
 <a class="jxr_linenumber" name="L18" href="#L18">18</a>  <strong class="jxr_keyword">import</strong> com.ulflander.mining.processors.preset.IPreset;
 <a class="jxr_linenumber" name="L19" href="#L19">19</a>  <strong class="jxr_keyword">import</strong> org.apache.logging.log4j.LogManager;
 <a class="jxr_linenumber" name="L20" href="#L20">20</a>  <strong class="jxr_keyword">import</strong> org.apache.logging.log4j.Logger;
@@ -73,7 +73,7 @@
 <a class="jxr_linenumber" name="L65" href="#L65">65</a>  <em class="jxr_javadoccomment">     *</em>
 <a class="jxr_linenumber" name="L66" href="#L66">66</a>  <em class="jxr_javadoccomment">     * @param job Job to be executed.</em>
 <a class="jxr_linenumber" name="L67" href="#L67">67</a>  <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="L68" href="#L68">68</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">void</strong> execute(<strong class="jxr_keyword">final</strong> <a href="../../../com/ulflander/application/model/Job.html">Job</a> job) {
+<a class="jxr_linenumber" name="L68" href="#L68">68</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">void</strong> execute(<strong class="jxr_keyword">final</strong> <a href="../../../com/ulflander/app/model/Job.html">Job</a> job) {
 <a class="jxr_linenumber" name="L69" href="#L69">69</a>          <strong class="jxr_keyword">if</strong> (getVerbose()) {
 <a class="jxr_linenumber" name="L70" href="#L70">70</a>              LOGGER.trace(<span class="jxr_string">"  - Executing model "</span> + job.getId());
 <a class="jxr_linenumber" name="L71" href="#L71">71</a>          }
@@ -110,7 +110,7 @@
 <a class="jxr_linenumber" name="L102" href="#L102">102</a> <em class="jxr_javadoccomment">     * @param job Job to be authorized</em>
 <a class="jxr_linenumber" name="L103" href="#L103">103</a> <em class="jxr_javadoccomment">     * @return True if model is authorized, false otherwise</em>
 <a class="jxr_linenumber" name="L104" href="#L104">104</a> <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="L105" href="#L105">105</a>     <strong class="jxr_keyword">private</strong> Boolean checkCustomerKey(<strong class="jxr_keyword">final</strong> <a href="../../../com/ulflander/application/model/Job.html">Job</a> job) {
+<a class="jxr_linenumber" name="L105" href="#L105">105</a>     <strong class="jxr_keyword">private</strong> Boolean checkCustomerKey(<strong class="jxr_keyword">final</strong> <a href="../../../com/ulflander/app/model/Job.html">Job</a> job) {
 <a class="jxr_linenumber" name="L106" href="#L106">106</a>         <strong class="jxr_keyword">if</strong> (job.getCustomerId() != <strong class="jxr_keyword">null</strong>
 <a class="jxr_linenumber" name="L107" href="#L107">107</a>             &amp;&amp; job.getCustomerId().equals(Conf.getDefaultCID())) {
 <a class="jxr_linenumber" name="L108" href="#L108">108</a>             <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">true</strong>;
@@ -125,10 +125,10 @@
 <a class="jxr_linenumber" name="L117" href="#L117">117</a> <em class="jxr_javadoccomment">     * @param document Document to be processed</em>
 <a class="jxr_linenumber" name="L118" href="#L118">118</a> <em class="jxr_javadoccomment">     * @return True if model succeeded, false otherwise</em>
 <a class="jxr_linenumber" name="L119" href="#L119">119</a> <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="L120" href="#L120">120</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">final</strong> Boolean process(<strong class="jxr_keyword">final</strong> <a href="../../../com/ulflander/application/model/Job.html">Job</a> job, <strong class="jxr_keyword">final</strong> <a href="../../../com/ulflander/application/model/Document.html">Document</a> document) {
+<a class="jxr_linenumber" name="L120" href="#L120">120</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">final</strong> Boolean process(<strong class="jxr_keyword">final</strong> <a href="../../../com/ulflander/app/model/Job.html">Job</a> job, <strong class="jxr_keyword">final</strong> <a href="../../../com/ulflander/app/model/Document.html">Document</a> document) {
 <a class="jxr_linenumber" name="L121" href="#L121">121</a> 
 <a class="jxr_linenumber" name="L122" href="#L122">122</a> 
-<a class="jxr_linenumber" name="L123" href="#L123">123</a>         <a href="../../../com/ulflander/application/utils/UlfTimer.html">UlfTimer</a> timer = <strong class="jxr_keyword">new</strong> <a href="../../../com/ulflander/application/utils/UlfTimer.html">UlfTimer</a>();
+<a class="jxr_linenumber" name="L123" href="#L123">123</a>         <a href="../../../com/ulflander/utils/UlfTimer.html">UlfTimer</a> timer = <strong class="jxr_keyword">new</strong> <a href="../../../com/ulflander/utils/UlfTimer.html">UlfTimer</a>();
 <a class="jxr_linenumber" name="L124" href="#L124">124</a>         <a href="../../../com/ulflander/mining/processors/Processor.html">Processor</a> processor;
 <a class="jxr_linenumber" name="L125" href="#L125">125</a>         ArrayList&lt;JobProcessor&gt; procs = job.getProcessors();
 <a class="jxr_linenumber" name="L126" href="#L126">126</a> 
@@ -136,7 +136,7 @@
 <a class="jxr_linenumber" name="L128" href="#L128">128</a>             LOGGER.warn(<span class="jxr_string">"No processors given with model "</span> + job.getId()
 <a class="jxr_linenumber" name="L129" href="#L129">129</a>                     + <span class="jxr_string">", using default processors stack"</span>);
 <a class="jxr_linenumber" name="L130" href="#L130">130</a> 
-<a class="jxr_linenumber" name="L131" href="#L131">131</a>             <a href="../../../com/ulflander/mining/processors/preset/IPreset.html">IPreset</a> preset = <strong class="jxr_keyword">new</strong> <a href="../../../com/ulflander/mining/processors/preset/BasicTextStatPreset.html">BasicTextStatPreset</a>();
+<a class="jxr_linenumber" name="L131" href="#L131">131</a>             <a href="../../../com/ulflander/mining/processors/preset/IPreset.html">IPreset</a> preset = <strong class="jxr_keyword">new</strong> <a href="../../../com/ulflander/mining/processors/preset/BasicPreset.html">BasicPreset</a>();
 <a class="jxr_linenumber" name="L132" href="#L132">132</a>             procs = preset.getProcessors();
 <a class="jxr_linenumber" name="L133" href="#L133">133</a>         }
 <a class="jxr_linenumber" name="L134" href="#L134">134</a> 
@@ -232,7 +232,7 @@
 <a class="jxr_linenumber" name="L224" href="#L224">224</a> <em class="jxr_javadoccomment">     * @param processor Processor to run on document</em>
 <a class="jxr_linenumber" name="L225" href="#L225">225</a> <em class="jxr_javadoccomment">     * @return True if document was processed, false otherwise</em>
 <a class="jxr_linenumber" name="L226" href="#L226">226</a> <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="L227" href="#L227">227</a>     <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">boolean</strong> runProcessor(<strong class="jxr_keyword">final</strong> <a href="../../../com/ulflander/application/model/Document.html">Document</a> document,
+<a class="jxr_linenumber" name="L227" href="#L227">227</a>     <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">boolean</strong> runProcessor(<strong class="jxr_keyword">final</strong> <a href="../../../com/ulflander/app/model/Document.html">Document</a> document,
 <a class="jxr_linenumber" name="L228" href="#L228">228</a>                                  <strong class="jxr_keyword">final</strong> <a href="../../../com/ulflander/mining/processors/Processor.html">Processor</a> processor) {
 <a class="jxr_linenumber" name="L229" href="#L229">229</a> 
 <a class="jxr_linenumber" name="L230" href="#L230">230</a> 

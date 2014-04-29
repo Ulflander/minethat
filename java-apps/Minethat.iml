@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule="true" type="JAVA_MODULE" version="4">
-  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_6" inherit-compiler-output="false">
+  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_7" inherit-compiler-output="false">
     <output url="file://$MODULE_DIR$/target/classes" />
     <output-test url="file://$MODULE_DIR$/target/test-classes" />
     <content url="file://$MODULE_DIR$">
@@ -38,7 +38,7 @@
     <orderEntry type="library" name="Maven: org.gagravarr:vorbis-java-tika:0.1" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: org.gagravarr:vorbis-java-core:tests:0.1" level="project" />
     <orderEntry type="library" name="Maven: edu.ucar:netcdf:4.2-min" level="project" />
-    <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:1.6.1" level="project" />
+    <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:1.5.6" level="project" />
     <orderEntry type="library" name="Maven: org.apache.james:apache-mime4j-core:0.7.2" level="project" />
     <orderEntry type="library" name="Maven: org.apache.james:apache-mime4j-dom:0.7.2" level="project" />
     <orderEntry type="library" name="Maven: org.apache.commons:commons-compress:1.5" level="project" />
@@ -66,14 +66,17 @@
     <orderEntry type="library" name="Maven: org.gagravarr:vorbis-java-core:0.1" level="project" />
     <orderEntry type="library" name="Maven: com.googlecode.juniversalchardet:juniversalchardet:1.0.3" level="project" />
     <orderEntry type="library" name="Maven: net.sourceforge.nekohtml:nekohtml:1.9.20" level="project" />
+    <orderEntry type="library" name="Maven: org.jsoup:jsoup:1.7.3" level="project" />
+    <orderEntry type="library" name="Maven: com.joestelmach:natty:0.8" level="project" />
+    <orderEntry type="library" name="Maven: org.antlr:antlr-runtime:3.2" level="project" />
+    <orderEntry type="library" name="Maven: org.antlr:stringtemplate:3.2" level="project" />
+    <orderEntry type="library" name="Maven: antlr:antlr:2.7.7" level="project" />
+    <orderEntry type="library" name="Maven: org.mnode.ical4j:ical4j:1.0.2" level="project" />
+    <orderEntry type="library" name="Maven: commons-lang:commons-lang:2.6" level="project" />
+    <orderEntry type="library" name="Maven: backport-util-concurrent:backport-util-concurrent:3.1" level="project" />
     <orderEntry type="library" name="Maven: org.apache.opennlp:opennlp-tools:1.5.3" level="project" />
     <orderEntry type="library" name="Maven: org.apache.opennlp:opennlp-maxent:3.0.3" level="project" />
     <orderEntry type="library" name="Maven: net.sf.jwordnet:jwnl:1.3.3" level="project" />
-    <orderEntry type="library" name="Maven: org.openrdf.sesame:sesame-repository-api:2.7.9" level="project" />
-    <orderEntry type="library" name="Maven: org.openrdf.sesame:sesame-query:2.7.9" level="project" />
-    <orderEntry type="library" name="Maven: org.openrdf.sesame:sesame-model:2.7.9" level="project" />
-    <orderEntry type="library" name="Maven: org.openrdf.sesame:sesame-util:2.7.9" level="project" />
-    <orderEntry type="library" name="Maven: org.openrdf.sesame:sesame-rio-api:2.7.9" level="project" />
     <orderEntry type="library" name="Maven: edu.stanford:stanford-postagger:3.3.1" level="project" />
     <orderEntry type="library" name="Maven: nz.ac.waikato.cms.weka:weka-stable:3.6.10" level="project" />
     <orderEntry type="library" name="Maven: net.sf.squirrel-sql.thirdparty-non-maven:java-cup:0.11a" level="project" />

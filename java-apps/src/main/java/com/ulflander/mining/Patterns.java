@@ -15,9 +15,6 @@ public final class Patterns {
 
     }
 
-    ///////////////////////////////////
-    // EXTRACT
-    ///////////////////////////////////
     /**
      * Pattern that split a text into paragraphs.
      */
@@ -36,6 +33,13 @@ public final class Patterns {
      */
     public static final String ABSTRACT_TEXT_LOWERCASE =
         ".*\\p{javaLowerCase}+.*";
+
+    /**
+     * String usable for a RegExp that checks if there is only uppercase
+     * letters in a text, in any latin language.
+     */
+    public static final Pattern IS_TEXT_UPPERCASE =
+            Pattern.compile("^\\p{javaUpperCase}+$");
 
     /**
      * Pattern to recognize an email address.
@@ -62,7 +66,7 @@ public final class Patterns {
             Pattern.compile("^#[a-zA-Z0-9_]+$");
 
     /**
-     * Pattern to recognize a hashTag.
+     * Pattern to recognize a number.
      */
     public static final Pattern TOKEN_REC_NUMBER =
             Pattern.compile("^[0-9]+$");
@@ -72,6 +76,18 @@ public final class Patterns {
      */
     public static final Pattern TOKEN_REC_MONEY_AMOUNT =
             Pattern.compile("^[0-9\\.,$€£kmb]+$");
+
+    /**
+     * Pattern to recognize an hour.
+     */
+    public static final Pattern TOKEN_REC_HOUR =
+            Pattern.compile("[0-9]{1,2}:[0-9]{1,2}$");
+
+    /**
+     * Pattern to recognize some currency chars.
+     */
+    public static final Pattern TOKEN_REC_MONEY_CURRENCY_CHARS =
+            Pattern.compile("[$€£]+");
 
     /**
      * Pattern to recognize an IPV4 address.
@@ -90,8 +106,5 @@ public final class Patterns {
         Pattern.compile("^(https?|ftp)"
             + "://[-a-zA-Z0-9+&@#/%?=~_|!:,.;]*[-a-zA-Z0-9+&@#/%=~_|]");
 
-    ///////////////////////////////////
-    // AUGMENT
-    ///////////////////////////////////
 
 }

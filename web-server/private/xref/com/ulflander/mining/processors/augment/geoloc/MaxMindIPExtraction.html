@@ -11,9 +11,9 @@
 <a class="jxr_linenumber" name="L3" href="#L3">3</a>   <strong class="jxr_keyword">import</strong> com.maxmind.geoip2.DatabaseReader;
 <a class="jxr_linenumber" name="L4" href="#L4">4</a>   <strong class="jxr_keyword">import</strong> com.maxmind.geoip2.exception.AddressNotFoundException;
 <a class="jxr_linenumber" name="L5" href="#L5">5</a>   <strong class="jxr_keyword">import</strong> com.maxmind.geoip2.model.CityResponse;
-<a class="jxr_linenumber" name="L6" href="#L6">6</a>   <strong class="jxr_keyword">import</strong> com.ulflander.application.model.Token;
-<a class="jxr_linenumber" name="L7" href="#L7">7</a>   <strong class="jxr_keyword">import</strong> com.ulflander.application.model.TokenType;
-<a class="jxr_linenumber" name="L8" href="#L8">8</a>   <strong class="jxr_keyword">import</strong> com.ulflander.application.utils.UlfResourceUtils;
+<a class="jxr_linenumber" name="L6" href="#L6">6</a>   <strong class="jxr_keyword">import</strong> com.ulflander.app.model.Token;
+<a class="jxr_linenumber" name="L7" href="#L7">7</a>   <strong class="jxr_keyword">import</strong> com.ulflander.app.model.TokenType;
+<a class="jxr_linenumber" name="L8" href="#L8">8</a>   <strong class="jxr_keyword">import</strong> com.ulflander.utils.UlfResourceUtils;
 <a class="jxr_linenumber" name="L9" href="#L9">9</a>   <strong class="jxr_keyword">import</strong> com.ulflander.mining.processors.Processor;
 <a class="jxr_linenumber" name="L10" href="#L10">10</a>  <strong class="jxr_keyword">import</strong> com.ulflander.mining.processors.Requires;
 <a class="jxr_linenumber" name="L11" href="#L11">11</a>  <strong class="jxr_keyword">import</strong> org.apache.logging.log4j.LogManager;
@@ -77,7 +77,7 @@
 <a class="jxr_linenumber" name="L69" href="#L69">69</a>  <em class="jxr_javadoccomment">     * @param token Token to run processor on</em>
 <a class="jxr_linenumber" name="L70" href="#L70">70</a>  <em class="jxr_javadoccomment">     */</em>
 <a class="jxr_linenumber" name="L71" href="#L71">71</a>      @Override
-<a class="jxr_linenumber" name="L72" href="#L72">72</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">void</strong> extractToken(<strong class="jxr_keyword">final</strong> <a href="../../../../../../com/ulflander/application/model/Token.html">Token</a> token) {
+<a class="jxr_linenumber" name="L72" href="#L72">72</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">void</strong> extractToken(<strong class="jxr_keyword">final</strong> <a href="../../../../../../com/ulflander/app/model/Token.html">Token</a> token) {
 <a class="jxr_linenumber" name="L73" href="#L73">73</a>          <strong class="jxr_keyword">if</strong> (token.getType() == TokenType.IPV4) {
 <a class="jxr_linenumber" name="L74" href="#L74">74</a>              <strong class="jxr_keyword">try</strong> {
 <a class="jxr_linenumber" name="L75" href="#L75">75</a>                  CityResponse response =

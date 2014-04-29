@@ -152,7 +152,7 @@
             .pipe(gulp.dest('static/'));
     });
 
-    gulp.task('default', ['blog', 'wiki', 'sass',
+    gulp.task('default', ['blog', 'sass',
         'build-css', 'build-js', 'copy']);
 
     gulp.task('watch', function() {

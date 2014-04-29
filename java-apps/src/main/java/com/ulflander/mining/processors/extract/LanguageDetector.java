@@ -2,11 +2,11 @@ package com.ulflander.mining.processors.extract;
 
 import com.cybozu.labs.langdetect.Detector;
 import com.cybozu.labs.langdetect.DetectorFactory;
-import com.ulflander.application.model.Chapter;
-import com.ulflander.application.model.Document;
-import com.ulflander.application.model.Language;
-import com.ulflander.application.model.Paragraph;
-import com.ulflander.application.model.Sentence;
+import com.ulflander.app.model.Chapter;
+import com.ulflander.app.model.Document;
+import com.ulflander.app.model.Language;
+import com.ulflander.app.model.Paragraph;
+import com.ulflander.app.model.Sentence;
 import com.ulflander.mining.processors.Processor;
 import com.ulflander.mining.processors.ProcessorDepthControl;
 import com.ulflander.mining.processors.Requires;
@@ -120,7 +120,7 @@ public class LanguageDetector extends Processor {
      *
      * @param str String to evaluate
      * @return Language found (may be Language.UNKNOWN)
-     * @see com.ulflander.application.model.Language
+     * @see com.ulflander.app.model.Language
      */
     private Language detect(final String str) {
 

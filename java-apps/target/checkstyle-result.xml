@@ -1,126 +1,110 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <checkstyle version="5.6">
-<file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/application/Conf.java">
+<file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/app/Conf.java">
 </file>
-<file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/application/ConfReader.java">
+<file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/app/ConfReader.java">
 </file>
-<file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/application/Env.java">
+<file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/app/Env.java">
 </file>
-<file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/application/model/Chapter.java">
+<file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/app/model/Chapter.java">
 </file>
-<file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/application/model/customer/Customer.java">
+<file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/app/model/customer/Customer.java">
 </file>
-<file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/application/model/customer/package-info.java">
+<file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/app/model/customer/package-info.java">
 </file>
-<file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/application/model/Document.java">
+<file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/app/model/Document.java">
 </file>
-<file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/application/model/DocumentStatus.java">
+<file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/app/model/DocumentStatus.java">
 </file>
-<file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/application/model/Edge.java">
+<file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/app/model/Edge.java">
 </file>
-<file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/application/model/Entity.java">
+<file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/app/model/Entity.java">
 </file>
-<file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/application/model/Heading.java">
+<file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/app/model/Heading.java">
 </file>
-<file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/application/model/HeadingLevel.java">
+<file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/app/model/HeadingLevel.java">
 </file>
-<file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/application/model/Job.java">
+<file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/app/model/Job.java">
 </file>
-<file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/application/model/JobDocumentType.java">
+<file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/app/model/JobDocumentType.java">
 </file>
-<file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/application/model/JobFactory.java">
+<file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/app/model/JobFactory.java">
 </file>
-<file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/application/model/JobGateway.java">
+<file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/app/model/JobGateway.java">
 </file>
-<file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/application/model/JobProcessor.java">
+<file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/app/model/JobProcessor.java">
 </file>
-<file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/application/model/JobProcessorOption.java">
+<file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/app/model/JobProcessorOption.java">
 </file>
-<file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/application/model/JobStatus.java">
+<file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/app/model/JobStatus.java">
 </file>
-<file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/application/model/JobTarget.java">
+<file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/app/model/JobTarget.java">
 </file>
-<file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/application/model/Language.java">
+<file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/app/model/Language.java">
 </file>
-<file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/application/model/ListItem.java">
+<file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/app/model/ListItem.java">
 </file>
-<file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/application/model/package-info.java">
+<file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/app/model/package-info.java">
 </file>
-<file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/application/model/Paragraph.java">
+<file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/app/model/Paragraph.java">
 </file>
-<file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/application/model/Sentence.java">
+<file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/app/model/Sentence.java">
 </file>
-<file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/application/model/Storable.java">
+<file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/app/model/Storable.java">
 </file>
-<file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/application/model/storage/DocumentStorage.java">
+<file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/app/model/storage/DocumentStorage.java">
 </file>
-<file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/application/model/storage/GsonTypeAdapter.java">
+<file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/app/model/storage/GsonTypeAdapter.java">
 </file>
-<file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/application/model/storage/JobStorage.java">
+<file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/app/model/storage/JobStorage.java">
 </file>
-<file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/application/model/storage/package-info.java">
+<file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/app/model/storage/package-info.java">
 </file>
-<file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/application/model/storage/Storage.java">
+<file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/app/model/storage/Storage.java">
 </file>
-<file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/application/model/Text.java">
+<file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/app/model/Text.java">
 </file>
-<file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/application/model/TextLength.java">
+<file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/app/model/TextLength.java">
 </file>
-<file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/application/model/Token.java">
+<file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/app/model/Token.java">
+<error line="297" column="5" severity="error" message="Method &apos;hasUniqueScore&apos; is not designed for extension - needs to be abstract, final or empty." source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck"/>
+<error line="297" column="35" severity="error" message="Parameter tt should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
 </file>
-<file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/application/model/TokenType.java">
+<file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/app/model/TokenConsolidationDirection.java">
 </file>
-<file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/application/package-info.java">
+<file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/app/model/TokenType.java">
 </file>
-<file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/application/services/email/IMAP4Gmail.java">
+<file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/app/package-info.java">
 </file>
-<file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/application/services/email/IMAPConnection.java">
+<file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/app/services/email/IMAP4Gmail.java">
 </file>
-<file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/application/services/email/IMAPEmail.java">
+<file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/app/services/email/IMAPConnection.java">
 </file>
-<file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/application/services/email/package-info.java">
+<file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/app/services/email/IMAPEmail.java">
 </file>
-<file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/application/services/ExtractorService.java">
+<file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/app/services/email/package-info.java">
 </file>
-<file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/application/services/MailInputService.java">
+<file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/app/services/ExtractorService.java">
 </file>
-<file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/application/services/MinerService.java">
+<file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/app/services/MailInputService.java">
 </file>
-<file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/application/services/package-info.java">
+<file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/app/services/MinerService.java">
 </file>
-<file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/application/services/RabbitService.java">
+<file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/app/services/package-info.java">
 </file>
-<file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/application/services/Service.java">
+<file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/app/services/RabbitService.java">
 </file>
-<file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/application/services/ServiceException.java">
+<file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/app/services/Service.java">
 </file>
-<file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/application/utils/cache/Cache.java">
-</file>
-<file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/application/utils/cache/package-info.java">
-</file>
-<file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/application/utils/EnInflector.java">
-</file>
-<file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/application/utils/MongoAccessor.java">
-</file>
-<file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/application/utils/package-info.java">
-</file>
-<file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/application/utils/UlfFileUtils.java">
-</file>
-<file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/application/utils/UlfHashUtils.java">
-</file>
-<file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/application/utils/UlfNetworkUtils.java">
-</file>
-<file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/application/utils/UlfResourceUtils.java">
-</file>
-<file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/application/utils/UlfStringUtils.java">
-</file>
-<file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/application/utils/UlfTimer.java">
+<file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/app/services/ServiceException.java">
 </file>
 <file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/MinethatTestService.java">
 </file>
 <file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/mining/ExtractionException.java">
 </file>
 <file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/mining/FileExtractor.java">
+</file>
+<file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/mining/MetaExtractor.java">
 </file>
 <file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/mining/nlp/BasicTokenizer.java">
 </file>
@@ -150,6 +134,8 @@
 </file>
 <file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/mining/processors/augment/geoloc/package-info.java">
 </file>
+<file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/mining/processors/augment/HashTagGenerator.java">
+</file>
 <file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/mining/processors/augment/package-info.java">
 </file>
 <file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/mining/processors/augment/social/package-info.java">
@@ -165,6 +151,11 @@
 <file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/mining/processors/extract/DocumentTokenizer.java">
 </file>
 <file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/mining/processors/extract/en/EnCommonAcronymsCleaner.java">
+</file>
+<file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/mining/processors/extract/en/EnOperatorBasedConsolidation.java">
+<error line="80" column="9" severity="error" message="&apos;}&apos; should be on the same line." source="com.puppycrawl.tools.checkstyle.checks.blocks.RightCurlyCheck"/>
+<error line="85" column="9" severity="error" message="&apos;}&apos; should be on the same line." source="com.puppycrawl.tools.checkstyle.checks.blocks.RightCurlyCheck"/>
+<error line="96" column="9" severity="error" message="&apos;}&apos; should be on the same line." source="com.puppycrawl.tools.checkstyle.checks.blocks.RightCurlyCheck"/>
 </file>
 <file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/mining/processors/extract/en/EnTokenPOSConsolidation.java">
 </file>
@@ -185,6 +176,8 @@
 <file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/mining/processors/extract/TokenCleaner.java">
 </file>
 <file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/mining/processors/extract/TokenCorpusConsolidation.java">
+<error line="125" column="35" severity="error" message="&apos;/&apos; is not preceded with whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
+<error line="125" column="36" severity="error" message="&apos;/&apos; is not followed by whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
 </file>
 <file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/mining/processors/extract/TokenCorpusGuesser.java">
 </file>
@@ -193,6 +186,10 @@
 <file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/mining/processors/extract/TokenFrequency.java">
 </file>
 <file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/mining/processors/extract/TokenInferConsolidation.java">
+<error line="46" column="9" severity="error" message="&apos;}&apos; should be on the same line." source="com.puppycrawl.tools.checkstyle.checks.blocks.RightCurlyCheck"/>
+<error line="50" column="23" severity="error" message="&apos;4&apos; is a magic number." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
+<error line="51" severity="error" message="Line is longer than 80 characters (found 85)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+<error line="60" column="53" severity="error" message="&apos;&amp;&amp;&apos; should be on a new line." source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
 </file>
 <file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/mining/processors/extract/TokenRegExpGuesser.java">
 </file>
@@ -208,7 +205,7 @@
 </file>
 <file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/mining/processors/package-info.java">
 </file>
-<file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/mining/processors/preset/BasicTextStatPreset.java">
+<file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/mining/processors/preset/BasicPreset.java">
 </file>
 <file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/mining/processors/preset/IPreset.java">
 </file>
@@ -236,11 +233,41 @@
 </file>
 <file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/mining/rdf/utils/package-info.java">
 </file>
-<file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/mining/TextCleaner.java">
+<file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/mining/services/Corpora.java">
+</file>
+<file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/mining/services/CorporaResponse.java">
+</file>
+<file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/mining/services/DBPediaLookupQuery.java">
+<error line="16" severity="error" message="First sentence should end with a period." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocStyleCheck"/>
+</file>
+<file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/mining/services/package-info.java">
 </file>
 <file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/mining/TextExtractor.java">
 </file>
 <file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/package-info.java">
+</file>
+<file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/utils/cache/Cache.java">
+</file>
+<file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/utils/cache/package-info.java">
+</file>
+<file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/utils/EnInflector.java">
+</file>
+<file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/utils/MongoAccessor.java">
+</file>
+<file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/utils/package-info.java">
+</file>
+<file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/utils/UlfFileUtils.java">
+</file>
+<file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/utils/UlfHashUtils.java">
+</file>
+<file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/utils/UlfNetworkUtils.java">
+<error line="69" column="67" severity="error" message="Expected @param tag for &apos;h&apos;." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+</file>
+<file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/utils/UlfResourceUtils.java">
+</file>
+<file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/utils/UlfStringUtils.java">
+</file>
+<file name="/Users/Ulflander/Development/minethat/java-apps/src/main/java/com/ulflander/utils/UlfTimer.java">
 </file>
 <file name="/Users/Ulflander/Development/minethat/java-apps/src/main/resources/com/cybozu/labs/langdetect/messages.properties">
 </file>

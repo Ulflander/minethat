@@ -1,0 +1,3224 @@
+ICBC
+reuters
+China Construction Bank
+JPMorgan Chase
+General Electric
+Exxon Mobil
+HSBC Holdings
+Royal Dutch Shell
+Agricultural Bank of China
+Berkshire Hathaway
+PetroChina
+Bank of China
+Wells Fargo
+Chevron
+Volkswagen Group
+Apple
+Wal-Mart Stores
+Gazprom
+BP
+Citigroup
+Petrobras
+Samsung Electronics
+BNP Paribas
+Total
+AT&T
+Allianz
+Sinopec-China Petroleum
+Mitsubishi UFJ Financial
+Bank of America
+China Mobile
+ENI
+Toyota Motor
+Nestle
+Vodafone
+IBM
+Procter & Gamble
+Daimler
+Pfizer
+Statoil
+AXA Group
+Commonwealth Bank
+Microsoft
+Banco Santander
+BHP Billiton
+Banco Bradesco
+Johnson & Johnson
+Nippon Telegraph & Tel
+Westpac Banking Group
+Goldman Sachs Group
+Royal Bank of Canada
+Siemens
+Sumitomo Mitsui Financial
+Ford Motor
+Bank of Communications
+BMW Group
+Comcast
+Novartis
+National Australia Bank
+Rosneft
+ING Group
+Sberbank
+American International Group
+Telefonica
+Lukoil
+Prudential
+ANZ
+Banco do Brasil
+Google
+BASF
+General Motors
+TD Bank Group
+Sanofi
+ConocoPhillips
+EDF
+Zurich Insurance Group
+Anheuser-Busch InBev
+Intel
+Mizuho Financial
+Coca-Cola
+Cisco Systems
+Munich Re
+Merck & Co
+Ping An Insurance Group
+Bank of Nova Scotia
+Nissan Motor
+Honda Motor
+Vale
+PepsiCo
+Hyundai Motor
+UnitedHealth Group
+BBVA-Banco Bilbao Vizcaya
+United Technologies
+Roche Holding
+Saudi Basic Industries
+GDF Suez
+Boeing
+Caterpillar
+Standard Chartered
+E.ON
+China Merchants Bank
+Oracle
+Unilever
+CVS Caremark
+Tesco
+China Life Insurance
+China Minsheng Banking
+Walt Disney
+American Express
+Mitsubishi Corp
+Cnooc
+GlaxoSmithKline
+Hon Hai Precision
+Ecopetrol
+China Shenhua Energy
+US Bancorp
+Hitachi
+Nordea Bank
+Schlumberger
+Bayer
+Reliance Industries
+MetLife
+Abbott Laboratories
+Iberdrola
+Shanghai Pudong Development
+Mitsui & Co
+Swiss Re
+China Citic Bank
+Home Depot
+Phillips 66
+Bank of Montreal
+Credit Suisse Group
+Verizon Communications
+EADS
+State Bank of India
+News Corp
+Hutchison Whampoa
+China Telecom
+Capital One Financial
+Repsol YPF
+Suncor Energy
+Industrial Bank
+PTT PCL
+ENEL
+Societe Generale
+Target
+Softbank
+AstraZeneca
+AIA Group
+Occidental Petroleum
+Philip Morris International
+Time Warner
+UniCredit Group
+Oil & Natural Gas
+Manulife Financial
+Glencore International
+ABB
+TNK-BP Holding
+British American Tobacco
+Canadian Imperial Bank
+Vinci
+BG Group
+Qualcomm
+PNC Financial Services
+Deere & Co
+SAIC Motor
+Wesfarmers
+France Telecom
+Express Scripts
+EI du Pont de Nemours
+Itochu
+ItaÃºsa
+Travelers Cos
+Renault
+Honeywell International
+RWE Group
+L'OrÃ©al Group
+National Grid
+McDonald's
+Canon
+Mondelez International
+Allstate
+Posco
+Jardine Matheson
+Aflac
+Surgutneftegas
+SABMiller
+Union Pacific
+Deutsche Post
+Japan Tobacco
+Amgen
+3M
+Dow Chemical
+Bank of New York Mellon
+Christian Dior
+Valero Energy
+Duke Energy
+KDDI
+Telstra
+WellPoint
+Xstrata
+Walgreen
+Schneider Electric
+Dell
+China State Construction
+Aegon
+Legal & General Group
+Lockheed Martin
+Volvo Group
+Costco Wholesale
+SAP
+ACE
+JX Holdings
+Sumitomo Corp
+Carrefour
+China Unicom
+Eli Lilly & Co
+DNB
+East Japan Railway
+Seven & I Holdings
+BT Group
+Lowe's Cos
+Old Mutual
+Marathon Petroleum
+People's Insurance Company
+Taiwan Semiconductor
+EMC
+Southern Co
+Danone
+Standard Bank Group
+Altria Group
+VTB Bank
+Teva Pharmaceutical Inds
+Continental
+Hess
+Archer Daniels Midland
+McKesson
+Gas Natural Fenosa
+China Everbright Bank
+BCE
+Diageo
+LyondellBasell Industries
+SEB
+Centrica
+FedEx
+Svenska Handelsbanken
+Bridgestone
+Sumitomo Mitsui Trust
+Time Warner Cable
+Shinhan Financial Group
+Marubeni
+United Parcel Service
+Natixis
+Apache
+BlackRock
+AbbVie
+Medtronic
+Exelon
+Saint-Gobain
+Halliburton
+Bristol-Myers Squibb
+Toshiba
+Denso
+Swedbank
+Brookfield Asset Management
+Anadarko Petroleum
+Kia Motors
+Prudential Financial
+VimpelCom
+Linde
+Woolworths
+Freeport-McMoRan Copper
+Ebay
+DBS Group
+Danaher
+Sun Life Financial
+Hyundai Mobis
+China Pacific Insurance
+China Communications Construction
+Takeda Pharmaceutical
+NextEra Energy
+Ping An Bank
+Air Liquide
+Danske Bank
+TeliaSonera
+Standard Life
+Canadian Natural Resources
+Husky Energy
+Cigna
+Rolls-Royce Holdings
+Ericsson
+State Street
+CNP Assurances
+SingTel
+Imperial Tobacco Group
+National Oilwell Varco
+Oversea-Chinese Banking
+Heineken Holding
+Power Corp of Canada
+Deutsche Bank
+Central Japan Railway
+Mitsubishi Electric
+OMV Group
+Emerson Electric
+Nippon Steel & Sumitomo Metal
+KoÃ§ Holding
+Sun Hung Kai Properties
+Icici Bank
+Directv
+BB&T
+Aetna
+Wilmar International
+Visa
+China Vanke
+China Railway Construction
+Henkel
+Accenture
+Reckitt Benckiser Group
+Sasol
+Inditex
+China Railway Group
+Johnson Controls
+KBC Group
+BAE Systems
+Telenor
+KB Financial Group
+Enbridge
+Fresenius
+Samsung Life Insurance
+Komatsu
+Maybank
+Isbank
+Tata Motors
+Resona Holdings
+Kroger
+SunTrust Banks
+Carnival
+American Electric
+Chubb
+Garanti Bank
+Inpex
+NIKE
+Monsanto
+United Overseas Bank
+MTN Group
+Eaton
+Marathon Oil
+Femsa
+Indian Oil
+Raytheon
+HCA Holdings
+Discover Financial Services
+Kimberly-Clark
+WPP
+Michelin Group
+Cardinal Health
+Thomson Reuters
+Saudi Telecom
+Kraft Foods Group
+Delta Air Lines
+Northrop Grumman
+Fannie Mae
+Illinois Tool Works
+General Mills
+SK Innovation
+Holcim
+Safran
+CenturyLink
+Baoshan Iron & Steel
+Baxter International
+Freddie Mac
+AMP
+Canadian National Railway
+Baker Hughes
+EDP-Energias de Portugal
+Coal India
+PPR
+Hyundai Heavy Industries
+CBS
+Viacom
+Akbank
+Woori Finance Holdings
+NTPC
+Norilsk Nickel
+Alstom
+International Paper
+Sabanci Holding
+PPL
+Pernod Ricard
+Lloyds Banking Group
+Gilead Sciences
+Suncorp Group
+Syngenta
+Mitsubishi Estate
+CSX
+FirstRand
+PG&E
+Mapfre
+Barclays
+Automatic Data
+Colgate-Palmolive
+Deutsche Lufthansa
+Huaneng Power International
+SK Holdings
+TransCanada
+Huaxia Bank
+Texas Instruments
+Ameriprise Financial
+UBS
+QBE Insurance Group
+EXOR
+Lafarge
+Talanx
+Norfolk Southern
+Orix
+Covidien
+FirstEnergy
+Mitsui Fudosan
+Royal Bank of Scotland
+Macy's
+Las Vegas Sands
+Aeon
+Ageas
+Thermo Fisher Scientific
+Bouygues
+Cenovus Energy
+Ahold
+CEZ Group
+Sampo
+Hana Financial Group
+Consolidated Edison
+Deutsche Telekom
+Swisscom
+Rio Tinto
+Generali Group
+CLP Holdings
+Hewlett-Packard
+Novo Nordisk
+Grupo Mexico
+Lincoln National
+Loews
+Morgan Stanley
+Fubon Financial
+Macquarie Group
+Bank Mandiri
+Richemont
+Newmont Mining
+Rogers Communications
+Shin-Etsu Chemical
+Merck
+Fifth Third Bancorp
+Toyota Tsusho
+CRH
+Raiffeisen Bank International
+Bharti Airtel
+Praxair
+Xerox
+Intesa Sanpaolo
+CrÃ©dit Agricole
+Bank Rakyat Indonesia
+Porsche Automobil Holding
+HDFC Bank
+National Bank of Canada
+Magna International
+Humana
+Kirin Holdings
+CIMB Group Holdings
+Keppel Corp
+Lotte Shopping
+Compass Group
+Paccar
+China Coal Energy
+Aon
+EnBW-Energie Baden
+Kinder Morgan
+Siam Commercial Bank
+TJX Cos
+Sysco
+Fortum
+Atlas Copco
+LG Chem
+Woodside Petroleum
+Tatneft
+ArcelorMittal
+H&M
+Suzuki Motor
+Bank of Beijing
+Public Service Enterprise
+Mosaic
+GFNorte
+Kyocera
+Associated British Foods
+Origin Energy
+Otsuka Holding
+Telus
+Potash of Saskatchewan
+Etisalat
+Progressive
+Sempra Energy
+Corning
+Reed Elsevier
+Dongfeng Motor Group
+Tokio Marine Holdings
+Sandvik
+Sony
+Poly Real Estate
+New China Life Insurance
+Agrium
+Cummins
+EOG Resources
+Omnicom Group
+Teck Resources
+Qatar National Bank
+Tenaris
+Tenaga Nasional
+Toyota Industries
+Swire Pacific
+Liberty Interactive
+J Sainsbury
+Aviva
+Anglo American
+Cheung Kong Holdings
+Kasikornbank
+Carlsberg
+Amazon.com
+Larsen & Toubro
+Principal Financial Group
+Saudi Electricity
+Waste Management
+Murphy Oil
+CaixaBank
+TE Connectivity
+Dai-ichi Life Insurance
+Nomura Holdings
+Vivendi
+Fujitsu
+Charles Schwab
+SSE
+Al Rajhi Bank
+Ingersoll-Rand
+Sime Darby
+Halkbank
+Philips
+PPG Industries
+Mitsubishi Heavy Industries
+Transneft
+Korea Electric Power
+Marsh & McLennan
+KT Corp
+Kellogg
+Aisin Seiki
+Entergy
+Astellas Pharma
+SK Telecom
+Simon Property Group
+Panasonic
+AmerisourceBergen
+Goldcorp
+Xcel Energy
+HDFC
+MasterCard
+Sumitomo Realty
+Solvay
+Yara International
+Sumitomo Electric
+Quanta Computer
+Regions Financial
+Falabella
+Adidas
+Western Digital
+CIC Group
+Cencosud
+Sanlam
+MS&AD Insurance
+Veolia Environnement
+Wm Morrison Supermarkets
+Novatek
+Air Products & Chemicals
+PKO Bank Polski
+Tokyo Gas
+Precision Castparts
+Fujifilm Holdings
+Franklin Resources
+SCA
+Williams Cos
+Ecolab
+Telecom Italia
+Dominion Resources
+Tata Steel
+Tencent Holdings
+Sodexo
+Industrial Bank of Korea
+Public Bank
+HeidelbergCement
+Ferrovial
+Cemig
+Swatch Group
+Yum Brands
+Thales
+Unum Group
+Investor
+Annaly Capital Management
+Toray Industries
+Starbucks
+Kubota
+PTT Global Chemical
+BanColombia
+Sprint Nextel
+Cathay Financial
+SLM
+Samsung Fire & Marine
+Bank Central Asia
+Grupo PÃ£o de AÃ§Ãºcar
+Publicis Groupe
+DISH Network
+Kohl's
+Chunghwa Telecom
+T&D Holdings
+Stryker
+Isuzu Motors
+Hartford Financial Services
+Unibail-Rodamco
+Yahoo
+HJ Heinz
+General Dynamics
+MTR
+China National Building
+Abertis
+Westfield Group
+Mitsubishi Chemical
+Virgin Media
+Siam Cement
+M&T Bank
+Daqin Railway
+Tata Consultancy Services
+Fanuc
+China Resources Land
+Datang International Power
+Bangkok Bank
+Seagate Technology
+Ensco
+Kingfisher
+HollyFrontier
+Galp Energia
+George Weston
+Rostelecom
+Evergrande Real Estate
+Japan Airlines
+Jiangxi Copper
+PKN Orlen
+Grupo Aval
+China Shipbuilding Industry
+ThyssenKrupp Group
+Commerzbank
+JBS
+China Resources Power
+Inter Rao
+Barrick Gold
+MOL Hungarian Oil
+Wheelock & Co
+Daiwa House Industry
+Dollar General
+American Capital Agency
+Asahi Group Holdings
+Spectra Energy
+JFE Holdings
+Gree Electric Appliances
+Ooredoo Telecom
+Kao Corp
+CSN
+Asahi Kasei
+Erste Group Bank
+Yanzhou Coal Mining
+Nucor
+Henderson Land
+Parker-Hannifin
+Axis Bank
+Delphi Automotive
+Stanley Black & Decker
+PGE
+NKSJ Holdings
+Fuji Heavy Industries
+Deutsche Boerse
+Idemitsu Kosan
+Telekom Indonesia
+Liberty Global
+Sekisui House
+Nokia
+Metro Group
+National Bank of Abu Dhabi
+Lenovo Group
+National Bank of Kuwait
+San Miguel
+Samsung C&T
+MegaFon
+Bombardier
+Becton
+Celgene
+British Sky Broadcasting
+KPN
+DTE Energy
+Fortescue Metals Group
+ConAgra Foods
+Gap
+RusHydro
+VF
+CME Group
+XL Group
+CSR
+VakifBank
+ALFA
+Fast Retailing
+Noble Group
+Novolipetsk Steel
+Li & Fung
+Punjab National Bank
+Symantec
+Motorola Solutions
+Northern Trust
+KeyCorp
+Chubu Electric Power
+Vienna Insurance Group
+New World Development
+Genting
+Severstal
+Bank of Baroda
+Anhui Conch Cement
+Luxottica Group
+LG Electronics
+RSA Insurance Group
+Adecco
+Technip
+BRF-Brasil Foods
+Krung Thai Bank
+United Continental Holdings
+Industries Qatar
+Osaka Gas
+Asahi Glass
+China Yangtze Power
+West Japan Railway
+SCOR
+ASML Holding
+Daikin Industries
+Newcrest Mining
+Tyson Foods
+Samba Financial Group
+Biogen Idec
+Tokyu
+Grupo ACS
+NRG Energy
+Reynolds American
+Pearson
+Couche Tard
+Bunge
+Antofagasta
+Seadrill
+Atlantia
+Marks & Spencer
+Kansai Electric Power
+Magnit
+S-Oil
+Northeast Utilities
+Formosa Petrochemical
+First Gulf Bank
+Tesoro
+Grupa PZU
+Devon Energy
+Grupo Modelo
+Bharat Heavy Electricals
+Southwest Airlines
+Edison International
+Hyundai Steel
+Sinohydro Group
+Fairfax Financial
+Safeway
+EstÃ©e Lauder Cos
+Cemex
+Zoomlion Heavy Industry
+Republic Services
+LG Corp
+Chesapeake Energy
+Country Garden Holdings
+Akzo Nobel
+KGHM Polska Miedz
+Pgnig Group
+Broadcom
+Infosys
+Citic Pacific
+Sistema
+Noble Energy
+Cameron International
+Mobily
+Alcoa
+Samsung Heavy Industries
+Credicorp
+IDGC Holding
+Citic Securities
+GD Power Development
+China Resources Enterprise
+Bank of East Asia
+Turk Telekom
+L-3 Communications
+Agilent Technologies
+Allergan
+AES
+Axiata Group
+Allied Irish Banks
+TRW Automotive Holdings
+DaVita
+HCP
+Wipro
+Riyad Bank
+All Nippon Airways
+Kuehne + Nagel
+Mahindra & Mahindra
+Transocean
+Grupo Inbursa
+Oi
+Cognizant Technology
+Federal Grid of UES
+Sumitomo Metal Mining
+CF Industries Holdings
+LG Display
+Bed Bath & Beyond
+Unipol Gruppo
+Mega Financial Holding
+Whirlpool
+Hanwha Life Insurance
+Metallurgical Corp of China
+Ajinomoto
+Skanska
+Dover
+Stora Enso
+Resolution
+BÃ¢loise Group
+CPFL Energia
+Priceline.com
+Tokyo Electric Power
+Eisai
+ITC
+Schindler Holding
+Turkcell
+Textron
+Bank Hapoalim
+DSM
+Equity Residential
+Shanghai Electric Group
+Kone
+Essilor International
+Sany Heavy Industry
+Mazda Motor
+Aluminum Corp of China
+Saudi British Bank
+Canadian Pacific Railway
+Swiss Life Holding
+CapitaLand
+Korea Gas
+China Southern Airlines
+SJM Holdings
+Reinsurance Group of America
+Nikon
+China CNR
+CenterPoint Energy
+Intact Financial
+Hankyu Hanshin Holdings
+Asustek Computer
+China Eastern Airlines
+Discovery Communications
+NEC
+Power Assets Holdings
+AutoZone
+Dentsu
+Fluor
+Amcor
+Peugeot
+Banco Popular EspaÃ±ol
+Hong Kong & China Gas
+VMware
+Zijin Mining Group
+SKF Group
+Isetan Mitsukoshi Holdings
+Dexia
+Bank of Yokohama
+Uralkali
+Ricoh
+Belgacom
+L Brands
+Genworth Financial
+Sherwin-Williams
+Galaxy Entertainment
+RTL Group
+Assa Abloy
+Capgemini
+Hindalco Industries
+Chinatrust Financial
+Oneok
+Suning Appliance
+IntercontinentalExchange
+London Stock Exchange
+Leucadia National
+Genuine Parts
+Formosa Plastics
+Uni-President
+OTP Bank
+Nordstrom
+China Steel
+Vornado Realty
+Ross Stores
+Sabesp
+WW Grainger
+International Airlines
+Computer Sciences
+Charoen Pokphand Foods
+SM Investments
+Mylan
+Whole Foods Market
+Grupo Televisa
+American Tower
+Voestalpine
+Canara Bank
+Bank Negara Indonesia
+Evraz Group
+Investec
+Industrias PeÃ±oles
+Campbell Soup
+Banque Saudi Fransi
+Espirito Santo Financial
+Marriott International
+Beiersdorf
+Weatherford International
+Secom
+Daiwa Securities
+Kweichow Moutai
+EletrobrÃ¡s
+AngloGold Ashanti
+Formosa Chemicals
+Antarchile
+Rexel
+Jeronimo Martins
+Petronas Chemicals
+Invesco
+Electrolux Group
+Best Buy
+PartnerRe
+Banco de Sabadell
+Tyco International
+Everest Re Group
+Onex
+Daiichi Sankyo
+SK Hynix
+Sinopharm Group
+Insurance Australia Group
+Chow Tai Fook Jewellery
+Weyerhaeuser
+CSL
+Great Wall Motor
+Banque Nationale de Belgique
+Ryanair Holdings
+Baidu
+HermÃ¨s International
+GAIL India
+Shizuoka Bank
+Advanced Info Service
+Longfor Properties
+Steinhoff International
+Dassault Aviation
+Coca-Cola Enterprises
+Haitong Securities
+Ralph Lauren
+Hershey
+Singapore Airlines
+Bank of India
+RHB Capital
+Mitsubishi Motors
+Finatis
+Lear
+Mechel
+GKN
+Wolseley
+Emirates NBD
+Eastman Chemical
+Shaw Communications
+Huntington Bancshares
+Steel Authority of India
+DP World
+Bidvest Group
+Comerica
+Murata Manufacturing
+Mattel
+Chongqing Rural Bank
+Bank of Ireland
+CA
+TD Ameritrade Holding
+Adobe Systems
+SÃ¼dzucker
+Avnet
+CH Robinson Worldwide
+Land Securities Group
+Yamada Denki
+Nan Ya Plastics
+Mitsubishi UFJ Lease
+NetApp
+Chiba Bank
+Abu Dhabi Commercial Bank
+Johnson Matthey
+Latam Airlines
+Tingyi Holding
+Public Storage
+SGS
+Areva
+Sun Art Retail Group
+Subsea 7
+Santos
+Bankia
+Lend Lease Group
+Norsk Hydro
+Fidelity National Information
+Sears Holdings
+Fosun International
+Delta Lloyd
+UC Rusal
+Sumitomo Chemical
+Banca MPS
+Alleghany
+Hyundai Engineering
+Canadian Tire
+Shanghai International Port
+St Jude Medical
+Eiffage
+Tohoku Electric Power
+Ventas
+Shoppers Drug Mart
+Link REIT
+Air France-KLM
+SembCorp Industries
+Lanxess
+CarMax
+Coach
+Staples
+Hang Lung Group
+Assurant
+Talisman Energy
+Attijariwafa Bank
+Kyushu Electric Power
+China Cosco Holdings
+Lorillard
+Helvetia Holding
+Kintetsu
+BCI-Banco Credito
+NiSource
+Rockwell Automation
+Naspers
+Zain
+SES
+Power Grid of India
+W&W-WÃ¼stenrot
+Nippon Express
+Gjensidige Forsikring
+PLDT
+LeGrand
+Dai Nippon Printing
+Sojitz
+KazMunaiGas Exploration
+Arab National Bank
+Starwood Hotels
+Westfield Retail Trust
+Finmeccanica
+Hertz Global Holdings
+Western Union
+Facebook
+Sharp
+Shimao Property Holdings
+Harley-Davidson
+Cielo
+Vedanta Resources
+Julius Baer Group
+Nintendo
+Daito Trust Construction
+Thai Beverage
+Belle International Holdings
+Cathay Pacific Airways
+Arrow Electronics
+New York Community
+Mediolanum
+Dollar Tree
+Bank of Ayudhya
+Phoenix Group Holdings
+National Bank of Greece
+Quest Diagnostics
+Liberty Media
+Flextronics International
+Aozora Bank
+Nippon Yusen
+WR Berkley
+Shire
+Rakuten
+Schroders
+Intuit
+Coventry Health Care
+Pohjola Bank
+Hormel Foods
+Keyence
+Hong Kong Exchanges
+Terna
+Grupo Bimbo
+T Rowe Price
+Nidec
+Continental Resources
+Emaar Properties
+China Oilfield Services
+Bharat Petroleum
+CMS Energy
+Delhaize Group
+Zimmer Holdings
+Brambles
+Grupo Carso
+Bank of Greece
+O'Reilly Automotive
+Next
+Experian
+Wisconsin Energy
+Lixil Group
+Delek Group
+AmBank Group
+K+S
+Kawasaki Heavy Industries
+Innolux
+Kuwait Finance House
+Canadian Oil Sands
+Valeo
+Brenntag
+Colruyt
+Tullow Oil
+Industrial Alliance Insurance
+Kobe Steel
+JM Smucker
+Dr Pepper Snapple Group
+Alcatel-Lucent
+Cosmo Oil
+AMR
+BPI
+Applied Materials
+Health Care REIT
+Wuliangye Yibin
+Saudi Arabian Fertilizers
+MGM Resorts
+Mercantil Servicios
+Chugoku Electric Power
+Tokyo Electron
+Shoprite Holdings
+Weichai Power
+OHL Group
+El Puerto de Liverpool
+SMC Corp
+Braskem
+Industrivarden
+BM&F Bovespa
+First Quantum Minerals
+General Growth Properties
+SanDisk
+Tokyu Land
+Henan Shuanghui Investment
+Prologis
+ZTE
+EnCana
+Banco Popolare
+Alrosa
+Boston Scientific
+American Financial Group
+Noble
+Prada
+Metalurgica Gerdau
+NMDC
+Storebrand
+Shin Kong Financial
+Hebei Iron & Steel
+US Airways Group
+Regeneron Pharmaceuticals
+Celanese
+Inner Mongolia Yitai
+HTC
+UBI Banca
+Adani Enterprises
+Global Logistic Properties
+Nielsen Holdings
+Bank of Ningbo
+PGN
+Intuitive Surgical
+Dangote Cement
+Greentown China Holdings
+Fresnillo
+Avalonbay Communities
+UPM-Kymmene
+Ameren
+Clorox
+Samsung SDI
+Guangzhou R&F
+IDBI Bank
+Arch Capital Group
+Portugal Telecom
+Petrofac
+GS Holdings
+Metso
+FMC Technologies
+British Land
+Toppan Printing
+Metro Inc
+Yamato Holdings
+Turkish Airlines
+Cosan
+Mitsui OSK Lines
+MBIA
+Ingram Micro
+BorgWarner
+Century Tokyo Leasing
+Hindustan Petroleum
+Qingdao Haier
+E-mart
+Stockland Australia
+Interpublic Group
+Orascom Construction
+Molson Coors Brewing
+Shinsei Bank
+IHI
+Research In Motion
+Want Want China
+Royal Caribbean Cruises
+Charter Communications
+Verbund
+Delta Electronics
+Micron Technology
+FCC
+CCR
+Hyundai Glovis
+Oji Holdings
+Fiserv
+Fidelity National Financial
+Remgro
+HAL Trust
+Synovus Financial
+AGL Energy
+Mitsubishi Materials
+Wendel
+Enka
+Bank of Nanjing
+Wynn Resorts
+Medipal Holdings
+Coca-Cola Amatil
+Kajima
+Power Finance
+Lennar
+SQM
+Qantas Airways
+Arab Bank
+Orica
+CP All
+Valeant Pharmaceuticals
+TUI
+Maxis
+YTL
+Sino-Ocean Land Holdings
+Jacobs Engineering
+Boston Properties
+CIT Group
+Kotak Mahindra Bank
+DR Horton
+Family Dollar Stores
+Analog Devices
+Banco Comercial PortuguÃªs
+Fuji Media Holdings
+Consol Energy
+Cincinnati Financial
+Mead Johnson Nutrition
+Goodyear
+Lotte Chemical
+United Utilities
+CJ Corp
+Yamana Gold
+Pirelli & C
+Randstad Holding
+LabCorp
+Smith & Nephew
+Golden Agri-Resources
+Coca-Cola HBC
+Kerry Group
+Nitto Denko
+Huadian Power International
+Banco Davivienda
+WÃ¤rtsilÃ¤
+IDB Holding
+Actavis
+Polyus Gold International
+Autoliv
+Red ElÃ©ctrica
+Saputo
+Showa Shell Sekiyu
+Mediobanca
+Community Health Sys
+City Developments
+Zoetis
+Hong Leong Financial
+Jupiter Telecommunications
+Crown Holdings
+PVH
+Bank Leumi
+MediaTek
+Manila Electric
+Israel Corp
+Fukuoka Financial Group
+Crown Castle International
+China Merchants Property
+TDC
+AGCO
+Sekisui Chemical
+Obayashi
+IOI Group
+Essar Energy
+Tele2
+Aurubis
+Union Bank of India
+Jiangsu Yanghe Brewery
+Moody's
+Pegatron
+ST Engineering
+Taisei
+Joy Global
+Sun Pharma Industries
+Beijing Enterprises
+Amadeus IT Holdings
+Oil & Gas Development
+Torchmark
+China Longyuan Power
+Infineon Technologies
+Amphenol
+First Republic Bank
+GF Securities
+Shimizu
+Ball
+Zions Bancorp
+Umicore
+Wuhan Iron & Steel
+US Steel
+Odakyu Electric Railway
+Alfresa Holdings
+Atos
+McGraw-Hill Cos
+Agile Property Holdings
+Yuanta Financial Holding
+Eurasian Natural Resources
+Abengoa
+DSME
+Givaudan
+Hyundai Marine & Fire
+Host Hotels & Resorts
+MMI Holdings
+Calpine
+Henry Schein
+Darden Restaurants
+Acciona
+Paychex
+Mitsui Chemicals
+AÃ©roports de Paris
+Supervalu
+Axis Capital Holdings
+Universal Health
+Rockwell Collins
+Thai Oil
+Strabag
+Raymond James Financial
+Soho China
+Uniqa
+Korean Air
+Dongbu Insurance
+UCB
+Samsung Engineering
+BCV Group
+Gudang Garam
+AU Optronics
+Olympus
+Nippon Paper Industries
+Check Point Software
+Far Eastern New Century
+Commercial Bank of Qatar
+Inner Mongolia Rare-Earth
+JGC
+China Taiping Insurance
+GEA Group
+Shenzhen Overseas
+AutoNation
+Hua Nan Financial
+Jabil Circuit
+Caesars Entertainment
+Silver Wheaton
+Scana
+Alfa Laval
+Catamaran
+Altera
+A2A
+Caltex Australia
+TAQA
+Dassault SystÃ¨mes
+SAIC
+Taishin Financial Holdings
+Millicom International
+Peabody Energy
+Taiwan Mobile
+Alpiq Holding
+Fastenal
+Bilfinger
+Vallourec
+Hellenic Telecom
+Aurizon Holdings
+Rexam
+ADT
+Bajaj Auto
+Roper Industries
+Shanghai Construction
+China Merchants Holdings
+Rock-Tenn
+KLA-Tencor
+Suzuken
+Cerner
+First Pacific
+Semen Indonesia
+Empire
+Oriental Land
+Tobu Railway
+Exxaro Resources
+Rural Electrification
+BYD
+Impala Platinum Holdings
+Advanced Semiconductor
+Alliance Data Systems
+Gold Fields
+Angang Steel
+Denbury Resources
+First Financial Holding
+Pioneer Natural Resources
+NYSE Euronext
+Celesio
+KT&G
+Shanxi Taigang Stainless
+Banco BPI
+Hanwha Corp
+Yang Quan Coal Industry
+Hengan International Group
+Petro Rabigh
+Olam International
+Petronas Gas
+Direct Line Insurance
+Melco Crown Entertainment
+Bank Danamon Indonesia
+Life Technologies
+Arca Continental
+Shanghai Pharmaceuticals
+Wyndham Worldwide
+Avon Products
+SNC-Lavalin Group
+GPT Group
+Tasnee
+TPK Holding
+Hysan Development
+Capita
+Grupo Elektra
+Allahabad Bank
+Ashland
+WorleyParsons
+Mexichem
+American Water Works
+Samsung Electro-Mechanics
+Brown-Forman
+Yamaha Motor
+Petsmart
+Electric Power Development
+Nomos Bank
+NHN
+SinoPac Financial
+Daelim Industrial
+Fortis (Canada)
+Tauron Group
+Hoya
+Avago Technologies
+Protective Life
+China National Chemical
+Huntsman
+Crown Ltd
+Mondi
+Bunzl
+Concho Resources
+SK Networks
+Newell Rubbermaid
+Reliance Steel
+Kingdom Holding
+Hutchison Port Holdings
+Petronas Dagangan
+Jindal Steel & Power
+G4S
+Perrigo
+Unicharm
+Nvidia
+Xilinx
+Chang Hwa Bank
+Accor
+Alpha Bank
+Taiwan Cooperative Financial
+New Hope Liuhe
+Samsung Card
+X5 Retail Group
+Ametek
+CBRE Group
+Smurfit Kappa Group
+BBMG
+Bank Audi
+Flowserve
+Orkla
+Embraer
+EasyJet
+Huatai Securities
+BR Malls
+Hexagon
+Lundbergs
+Compal Electronics
+Neste Oil
+STMicroelectronics
+Travis Perkins
+Masraf Al Rayan
+Xiamen C&D
+China International Marine
+Public Power
+Aker Solutions
+Crescent Point Energy
+BS Financial Group
+China Merchants Securities
+Sino Land
+HCL Technologies
+Citrix Systems
+FinanciÃ¨re de l'Odet
+PostNL
+InterContinental Hotels
+Avis Budget Group
+Natura Cosmeticos
+CGI Group
+Hunan Valin Steel
+Sigma-Aldrich
+Saudi Arabian Mining
+NSK
+CR Bard
+Expeditors International
+Union National Bank
+Kinross Gold
+Weir Group
+China Communications Services
+ICAP
+Wistron
+Banca Popolare dell'Emilia
+Hokuhoku Financial Group
+Andritz
+Beam
+Hokkaido Electric Power
+LagardÃ¨re
+Kansas City Southern
+Pall
+Chinese Estates
+Pinnacle West
+BOK Financial
+Yamaguchi Financial
+Dongfang Electric
+Coloplast
+World Fuel Services
+Burberry Group
+Scripps Networks Interactive
+Salzgitter
+Banrisul
+Pentair
+Arkema
+Shangri-La Asia
+Ingredion
+Ahli United Bank
+UNY Group Holdings
+Enagas
+Indian Bank
+Joyo Bank
+Teradata
+Nishi-Nippon City Bank
+Hyosung
+Marfrig Group
+Plains Exploration
+Wolters Kluwer
+77 Bank
+Empresas CMPC
+Inner Mongolia Yili
+Goodman Group
+Grupo Argos
+CVR Energy
+Magnitogorsk Iron & Steel
+TDK
+Bank of Kyoto
+Helmerich & Payne
+McCormick & Co
+Buenaventura
+Smiths Group
+Geberit
+InTouch
+Hatteras Financial
+Gecina
+Sumitomo Rubber
+Kawasaki Kisen Kaisha
+Atco
+Maanshan Iron & Steel
+Quinenco
+Mizrahi Tefahot Bank
+TCL Corp
+Shandong Gold-Mining
+Advance Auto Parts
+E-L Financial
+Western Refining
+Banco de Valencia
+Hiroshima Bank
+NHPC
+Hachijuni Bank
+Doosan Infracore
+Grifols
+Jtekt
+Gunma Bank
+Soriana
+Usiminas
+Chugoku Bank
+Bankinter
+Waters
+Netease
+Jizhong Energy Resources
+Novozymes
+URS
+Banca Popolare di Milano
+ARM Holdings
+Iyo Bank
+Oil India
+Bendigo & Adelaide Bank
+Halyk Bank
+Pacific Rubiales Energy
+Michael Kors Holdings
+Aboitiz Equity Ventures
+Juroku Bank
+Qatar Islamic Bank
+Rite Aid
+Serco Group
+Boliden
+Minmetals Development
+Banca Carige
+Constellation Brands
+CYS Investments
+Hudson City Bancorp
+Tate & Lyle
+Salesforce.com
+Tech Data
+Corporation Bank
+Imperial Holdings
+Tiffany & Co
+Korea Zinc
+Piraeus Bank
+Manpower
+Blom Bank
+Aggreko
+JB Hunt Transport
+Metropolitan Bank & Trust
+Airgas
+Aareal Bank
+Timken
+Senshu Ikeda Holdings
+FirstGroup
+Japan Securities
+Pepco Holdings
+Hero MotoCorp
+Garmin
+Nanto Bank
+Maxim Integrated Products
+Bank Muscat
+Alexion Pharmaceuticals
+Balfour Beatty
+Gemdale
+Daishi Bank
+Thomas Cook Group
+STX Offshore
+Varian Medical Systems
+Macerich
+Mashreq Bank
+Hellenic Petroleum
+Shiga Bank
+Hyakugo Bank
+Permanent TSB Group
+Verisk Analytics
+Israel Discount Bank
+Dubai Islamic Bank
+Lawson
+Shikoku Electric Power
+Volksbank
+FMC
+Ogaki Kyoritsu Bank
+Linear Technology
+Abu Dhabi Islamic Bank
+Windstream
+Orient
+ITV
+Randgold Resources
+Ezdan Holding Group
+Toho Bank
+Central Bank of India
+OPAP
+Vopak
+Aspen Pharmacare Holdings
+San-In Godo Bank
+Higo Bank
+Shanghai Industrial
+Basler Kantonalbank
+RMB Holdings
+JC Penney
+PBF Energy
+Hyakujushi Bank
+Grasim Industries
+Bolsas & Mercados
+Nabors Industries
+E-Trade Financial
+Eutelsat Communications
+LIG Insurance
+Carphone Warehouse
+Hanwa
+DIA
+Syndicate Bank
+Kiyo Holdings
+Juniper Networks
+Masco
+Musashino Bank
+China Gezhouba
+Keiyo Bank
+LinkedIn
+Jyske Bank
+NÃ¼rnberger
+Foot Locker
+CNO Financial Group
+Tim Hortons
+Doosan Heavy Industries
+Cattolica Assicurazioni
+Tronox
+Great Wall Technology
+Kagoshima Bank
+Meiji Holdings
+Terumo
+SL Green Realty
+Indian Overseas Bank
+Invesco Mortgage Capital
+Bank of Queensland
+Renesas Electronics
+Banca Popolare di Sondrio
+OfficeMax
+Suruga Bank
+China National Materials
+Taiwan Business Bank
+OGE Energy
+IKB Deutsche
+Green Mountain Coffee
+CorpBanca
+PhosAgro
+China Agri-Industries
+Vietin Bank
+People's United Financial
+Popular
+AOL
+Gannett
+Hokkoku Bank
+CC Media Holdings
+Quanta Services
+Luzhou Laojiao
+Kimberly-Clark de Mexico
+DLF
+Credito Emiliano
+Konica Minolta
+Whitbread
+AMEC
+Taiheiyo Cement
+Allied World Assurance
+Hugo Boss
+Credito Valtellinese
+Ayala
+Credit Saison
+CJ CheilJedang
+Emirates Integrated Telecom
+Anadolu Efes
+Nagoya Railroad
+ProSiebenSat1 Media
+Bank of Iwate
+Bank of Nagoya
+Saudi Hollandi Bank
+Saras
+E.Sun Financial
+Church & Dwight
+Harbinger Group
+Immofinanz
+J Front Retailing
+Shiseido
+Hanjin Shipping
+Zodiac Aerospace
+Air Canada
+Eurazeo
+DKSH Holding
+First Niagara Financial
+Takashimaya
+Level 3 Communications
+Hokuriku Electric Power
+LG Uplus
+Lojas Americanas
+Vesuvius
+Furukawa Electric
+Sage Group
+Mohawk Industries
+Toyo Seikan Kaisha
+Fuyo General Lease
+UCO Bank
+Incitec Pivot
+Telecom of New Zealand
+China Aviation Oil
+Acer
+DRB-Hicom
+American Equity Investment
+Yamanashi Chuo Bank
+Grupa Lotos
+Oriental Bank of Commerce
+Calloway Real Estate
+DGB Financial Group
+Getinge
+Kimco Realty
+Chicago Bridge & Iron
+Hainan Airlines
+China Hongqiao Group
+CFS Retail Property
+Total Access Communication
+Imerys
+Navistar International
+Laurentian Bank
+LS Corp
+H&R Real Estate
+MISC
+DCC
+Ternium
+Awa Bank
+Inchcape
+Toll Brothers
+Alpha Natural Resources
+Zhongjin Gold
+Oita Bank
+Aichi Bank
+East West Bancorp
+Thanachart Capital
+Willis Group Holdings
+Far EasTone Telecom
+Calsonic Kansei
+Interactive Brokers Group
+Jaccs
+Kuala Lumpur Kepong
+Almarai
+Energizer Holdings
+Swedish Match
+Mirvac Group
+Shanxi Lu'an Environmental
+Doha Bank
+Inventec
+Transurban Group
+Qinghai Salt Lake
+Cabot Oil & Gas
+Monster Beverage
+Banque Centrale Populaire
+Gemalto
+Iliad
+Tomony Holdings
+Teijin
+Shikoku Bank
+BayWa
+Akita Bank
+Andhra Bank
+DVB Bank
+GS Engineering
+Prysmian
+Nokian Tyres
+Tokyo Tomin Bank
+Showa Denko
+Tenet Healthcare
+Sealed Air
+Toho Holdings
+CapitaMall Trust
+H&R Block
+Southwestern Energy
+Dixons Retail
+Edwards Lifesciences
+Seiko Epson
+Luzerner Kantonalbank
+Hillshire Brands
+Smithfield Foods
+Tochigi Bank
+St Galler Kantonalbank
+Penske Automotive
+Yokohama Rubber
+Dragon Oil
+Nippon Steel Trading
+Range Resources
+Eighteenth Bank
+Inner Mongolia Baotou Steel
+Aomori Bank
+Porto Seguro
+Chipotle Mexican Grill
+Lindt & Sprungli
+NCC Group
+Symetra Financial
+CareFusion
+TransDigm Group
+WEG
+Shanghai Material Trading
+Commerce Bancshares
+Metcash
+Kesko
+Motor Oil
+Fraport
+BEKB-BCBE
+Frontier Communications
+City National
+Italmobiliare
+Fidea Holdings
+Dean Foods
+Dick's Sporting Goods
+FIBI Holdings
+Hokuetsu Bank
+Sika
+K's Holdings
+Alliant Energy
+Sacyr Vallehermoso
+Chiba Kogyo Bank
+Ehime Bank
+Lululemon Athletica
+Nippon Meat Packers
+Valiant Holding
+Westlake Chemical
+Severn Trent
+Hyundai Wia
+Aberdeen Asset Management
+Tongling Nonferrous Metals
+SpareBank 1 SR-Bank
+WPG Holdings
+Catlin Group
+Expedia
+Assore
+Hikvision
+Whiting Petroleum
+Finning International
+MeadWestvaco
+Makita
+Kanematsu
+Fukui Bank
+Ambac Financial Group
+Sydbank
+TPV Technology
+James Hardie Industries
+Telekom Malaysia
+Erie Indemnity
+Vestas Wind Systems
+Yamagata Bank
+Nelnet
+Commercial International Bank
+Hakuhodo DY Holdings
+Tsukuba Bank
+Dillard's
+EQT
+Yachiyo Bank
+BIM Birlelik Magazalar
+Boardwalk Real Estate
+Aeroflot-Russian Airlines
+Fuji Electric
+Omron
+Ford Otosan
+Toyota Boshoku
+EFG International
+Miyazaki Bank
+Cliffs Natural Resources
+Kuwait Projects
+First Horizon National
+Reliance Infrastructure
+Cimarex Energy
+Wing Hang Bank
+IMI
+Poly Property Group
+Klabin
+Alexander's
+Two Harbors Investment
+LG International
+Health Net
+Bank of Saga
+Tractor Supply
+San-Ai Oil
+UOL Group
+Interconexion Electrica
+Sulzer Group
+Old Republic International
+New Hampshire Gazette
+Hartford Courant
+Poughkeepsie Journal
+Augusta Chronicle
+Pittsburgh Post-Gazette
+Daily Hampshire Gazette
+Berkshire Eagle
+Recorder
+Rutland Herald
+Norwich Bulletin
+Keene Sentinel
+New York Post
+Post and Courier
+Fayetteville Observer
+Post-Standard
+Sand Mountain Reporter
+Alexander City Outlook
+Andalusia Star-News
+Anniston Star
+News Courier
+Atmore Advance
+Birmingham News
+Birmingham Times
+Brewton Standard
+Clanton Advertiser
+Cullman Times
+Decatur Daily
+Demopolis Times
+Dothan Eagle
+Enterprise Ledger
+TimesDaily
+Times-Journal
+Gadsden Times
+Huntsville Times
+Daily Mountain Eagle
+Valley Times-News
+Press-Register
+Montgomery Advertiser
+Opelika-Auburn News
+Southern Star
+Daily Sentinel
+Selma Times-Journal
+Daily Home
+Troy Messenger
+Tuscaloosa News
+Alaska Daily News
+Anchorage Daily News
+Fairbanks Daily News-Miner
+Juneau Empire
+Ketchikan Daily News
+Kodiak Daily Mirror
+Peninsula Clarion
+Seward City News
+Daily Sitka Sentinel
+Arizona Daily Star
+Arizona Daily Sun
+Arizona Republic
+Daily Courier
+Daily News-Sun
+Daily Territorial
+East Valley Tribune
+Kingman Daily Miner
+Mohave Valley Daily News
+Sierra Vista Herald
+Today's News-Herald
+Tucson Citizen
+Yuma Sun
+Arkansas Democrat-Gazette
+Banner-News
+Batesville Daily Guard
+Baxter Bulletin
+Benton County Daily Record
+Blytheville Courier-News
+Camden News
+Courier
+Daily Citizen
+Daily Siftings Herald
+Daily World
+El Dorado News-Times
+Evening Times
+Harrison Daily Times
+Hope Star
+Jacksonville Patriot
+Jonesboro Sun
+Log Cabin Democrat
+Malvern Daily Record
+Northwest Arkansas Times
+Paragould Daily Press
+Pine Bluff Commercial
+Saline Courier
+Sentinel-Record
+Southwest Times Record
+Springdale Morning News
+Stuttgart Daily Leader
+Texarkana Gazette
+Times-Herald
+Acorn
+Alameda Sun
+Alameda Times-Star
+Modoc County Record
+Atascadero News
+Auburn Journal
+Bakersfield Californian
+Desert Dispatch
+Berkeley Daily Planet
+Daily Californian
+Big Bear Grizzly
+Hellenic Journal
+Camarillo Acorn
+Campus Circle
+Carson/South Bay Community News
+Chico Enterprise-Record
+Chino Champion
+Colusa Sun Herald
+Corning Observer
+Corona Community News
+Daily Pilot
+Daily Triplicate
+Crestline Courier-News
+Davis Enterprise
+San Diego Jewish Times
+Imperial Valley Press
+East Bay Express
+North County Times
+Eureka Reporter
+Times-Standard
+Daily Republic
+Fort Bragg Advocate News
+Mountain Enterprise
+Argus
+Fresno Bee
+Gilroy Dispatch
+Glendale News-Press
+Gonzales Tribune
+Union
+Greenfield News
+Gridley Herald
+Half Moon Bay Review
+Sentinel
+Daily Review
+Hesperia Star
+Hollister Free Lance
+Huntington Beach Independent
+King City Rustler
+Lake Arrowhead Mountain-News
+Lake County Record-Bee
+Lodi News-Sentinel
+Lompoc Record
+Grunion Gazette
+Long Beach Press-Telegram
+Los Altos Town Crier
+Almanac Panorama
+Armenian Observer
+Asbarez
+California Staats-Zeitung
+Century City Patch
+City News Los Angeles
+Daily Bruin
+Daily News
+Ha-meuaker
+Investor's Business Daily
+Kach Nazar
+LA Observed
+La Opinión
+Los Angeles Daily Journal
+Los Angeles Herald-Tribune
+Los Angeles Sentinel
+Los Angeles Times
+Lraper
+Nor Serund
+Pacific Citizen
+Serichon Prachamiti
+Sinhan Minbo
+Watts Star-Review
+Los Gatos Observer
+Los Gatos Weekly Times
+Malibu Times
+Malibu Surfside News
+Manteca Bulletin
+Sun Post
+Appeal-Democrat
+Mendocino Beacon
+Merced Sun-Star
+Milpitas Post
+Modesto Bee
+Monterey County Weekly
+Monterey County Herald
+Moorpark Acorn
+Mount Shasta Herald
+Mountain View Voice
+Napa Valley Register
+Marin Independent Journal
+Oakland Tribune
+Inland Valley Daily Bulletin
+Orland Press Register
+Oroville Mercury-Register
+Desert Sun
+Palm Springs Community News
+Antelope Valley Political Observer
+Antelope Valley Press
+Daily News
+Palo Alto Daily Post
+Palo Verde Valley Times
+Palos Verdes Peninsula News
+Pasadena Community News
+Pasadena Star-News
+Paso Pobles Press
+Petaluma Argus-Courier
+Mountain Democrat
+Tri-Valley Herald
+Porterville Recorder
+Red Bluff Daily News
+Record Searchlight
+Redlands Daily Facts
+Redwood City Daily News
+Daily Independent
+Press-Enterprise
+Humor Times
+Sacramento Bee
+Sacramento Miner
+Sacramento Observer
+El Sol
+Salinas Californian
+Sun
+K'orio Chyonal
+San Diego Union-Tribune
+Union Jack
+Kstati
+Nichi Bei Times
+Philippine News
+Russkaia Zhizn
+San Francisco Chronicle
+San Francisco Daily
+San Francisco Examiner
+Wall Street Journal (Western Edition)
+San Jose Mercury News
+Spartan Daily
+India West
+San Leandro
+Tribune
+Today's Local News
+San Mateo County Times
+San Mateo Daily Journal
+Orange County Register
+Excélsior
+Santa Barbara Daily Sound
+Santa Barbara News-Press
+Santa Clarita Signal
+Santa Cruz Sentinel
+Santa Maria Sun
+Santa Maria Times
+Santa Monica Daily Press
+Press Democrat
+North Bay Business Journal
+Simi Valley Acorn
+Soledad Bee
+Sonoma Valley Sun
+Union-Democrat
+Tahoe Daily Tribune
+Stanford Daily
+Record
+World Sikh News
+Taft Independent
+Taft Midway Driller
+Thousand Oaks Acorn
+Daily Breeze
+Tracy Press
+Tulare Advance-Register
+Turlock Journal
+Upland Community News
+Reporter
+Times-Herald
+Ventura County Star
+Daily Press
+El Mojave
+Visalia Times-Delta
+Walnut Community News
+Contra Costa Times
+Watsonville Register-Pajaronian
+San Gabriel Valley Tribune
+WeHo News
+Willows Journal
+Williams Pioneer Review
+Winters Express
+Daily Democrat
+Yorba Linda Star
+Denver Post
+Gazette
+Daily Camera
+Pueblo Chieftain
+Daily Sentinel
+Daily Times-Call
+Coloradoan
+Reporter-Herald
+Durango Herald
+Cañon City Daily Record
+Advocate
+Ag Journal Online
+Akron News-Reporter
+Aspen Daily News
+Aspen Times
+web site
+Aspen
+Aurora Sentinel
+Bent County Democrat
+Berthoud Weekly Surveyor
+Boulder County Business Report
+Boulder Weekly
+Broomfield Enterprise
+Brush News-Tribune
+Burlington Record
+Campus Press
+Cañon Cafe
+Canyon Courier
+Center Post Dispatch
+Citizen Telegraph
+Colorado Daily
+Colorado Springs Business Journal
+Colorado Springs Independent
+Colorado Statesman
+Cortez Journal
+Craig Daily Press
+Crested Butte News
+Delta County Independent
+Denver Business Journal
+Douglas County Business Magazine
+Douglas County News-Press
+Eagle Valley Enterprise
+El Paso County Advertiser and Fountain Valley News
+Estes Park Trail-Gazette
+Flume
+Fort Morgan Times
+Fowler Tribune
+Glendale Cherry Creek Chronicle
+Gorizont
+Grand Junction Free Press
+Gunnison County Times
+Haxtun-Fleming Herald
+Herald Democrat
+High Country News
+Intermountain Jewish News
+Johnstown Breeze
+Journal-Advocate
+Julesburg Advocate
+Kiowa County Press
+La Junta Tribune Democrat
+La Prensa de Colorado
+La Voz Bilingüe
+Lamar Ledger
+Law Week Colorado
+Leadville Chronicle
+Life on Capitol Hill
+Lyons Recorder
+Meadowlark Herald
+Metropolitan
+Mile High News
+Moffat County News
+Monte Vista Journal
+Montrose Daily Press
+Mountain Ear
+Mountain Jackpot
+Mountain Mail
+My Windsor Now
+North Forty News
+Northern Colorado Business Report
+Out Front Colorado
+Pagosa Free Press
+Pagosa Springs Sun
+Pine River Times
+Post Independent
+Rico Bugle
+Rio Blanco Herald Times
+Saguache Crescent
+Sky-Hi News
+Snowmass Sun
+Steamboat Pilot & Today
+Summit Daily News
+Telluride Daily Planet
+Telluride Watch
+Tribune
+Tri-Lakes Tribune
+Trinidad Times Independent
+UNC Connection
+Vail Daily
+Vail Trail
+Valley Courier
+Villager
+Westside Pioneer
+Westword
+Wet Mountain Tribune
+Yellow Scene Magazine
+Advocate, The
+Bristol Press, The
+Bulletin, The
+Chronicle, The
+Connecticut Mirror, The
+Connecticut Post
+Day, The
+Greenwich Time
+Hartford Courant
+Herald, The
+Hour, The
+Journal Inquirer
+Middletown Press, The
+New Haven Register
+News-Times, The
+Record-Journal
+Register Citizen, The
+Republican-American
+Cape Gazette
+Community News
+Delaware State News
+Delaware Wave
+Dover Post
+Middletown Transcript
+Milford Beacon
+News Journal
+Newark Post
+Smyrna/Clayton Sun-Times
+Sussex Countian
+Alachua County Today
+Bradenton Herald
+Bradenton Times
+Brevard Business News
+Clewiston News
+Coral Gables Gazette
+Daily Commercial
+Daytona Beach News-Journal
+El Nuevo Herald
+El Sentinel
+El Sentinel del Sur de la Florida
+Financial News & Daily Record
+Florida Keys Keynoter
+Florida Sentinel Bulletin
+Florida Times-Union
+Florida Today
+Folio Weekly
+Gainesville Sun
+Hernando Today
+Highlands Today
+Jacksonville Business Journal
+Jacksonville Free Press
+Jax Air News
+Key West Citizen
+La Gaceta
+Lake City Reporter
+Ledger
+Lush For Life
+Miami Herald
+Miami New Times
+Miami SunPost
+Miami Today
+Naples Daily News
+New Times Broward-Palm Beach
+News Chief
+News Herald
+News-Press
+Northwest Florida Daily News
+Orlando Business Journal
+Orlando Sentinel
+Orlando Weekly
+Osceola News-Gazette
+Palatka Daily News
+Palm Beach Daily News
+Palm Beach Post
+Pelican Press
+Pensacola News Journal
+Polk County Democrat
+Press Journal
+St. Augustine Record
+Sarasota Herald-Tribune
+Sarasota Observer
+Star-Banner
+Sun-Sentinel
+Tallahassee Democrat
+Tampa Bay Times
+Tampa Tribune
+Your World Report
+Zephyrhills News
+Advance
+Albany Herald
+Americus Times-Recorder
+Athens Banner-Herald
+Atlanta Daily World
+Atlanta Journal-Constitution
+Augusta Chronicle
+Brunswick News
+Cairo Messenger
+Camilla Enterprise
+Colonnade
+Cordele Dispatch
+Covington News
+Creative Loafing
+Daily Citizen
+Donalsonville News
+Early County News
+Fannin Sentinel
+Georgia Fire News
+Gwinnett Daily Post
+Hartwell Sun
+Henry Daily Herald
+LaGrange Daily News
+Ledger-Enquirer
+Marietta Daily Journal
+Miller County Liberal
+Morgan County Citizen
+Moultrie Observer
+Newnan Times-Herald
+Ocilla Star
+Pelham Journal
+Post-Searchlight
+Red and Black
+Rockdale Citizen
+Rockdale News
+Rome News-Tribune
+Savannah Morning News
+Statesboro Herald
+Technique
+Telegraph
+Thomasville Times-Enterprise
+Tifton Gazette
+Union Recorder
+Valdosta Daily Times
+Waycross Journal Herald
+Wheeler County Eagle
+Wiregrass Farmer
+Garden Island
+Hawaii 24/7
+Hawaii Catholic Herald
+Hawaii Hochi
+Hawaii Island Journal
+Hawaii Tribune-Herald
+Honolulu Star-Advertiser
+Maui News
+Molokai Advertiser-News
+Pacific Business News
+West Hawaii Today
+Blackfoot Morning News
+Bonner County Daily Bee
+Coeur d'Alene Press
+Idaho Press-Tribune
+Idaho State Journal
+Idaho Statesman
+Lewiston Morning Tribune
+Moscow-Pullman Daily News
+Post Register
+Shoshone News Press
+South Idaho Press
+Standard Journal
+Times-News
+Beacon-News
+Belleville News-Democrat
+Belvidere Daily Republican
+Benton Evening News
+Breeze-Courier
+Carmi Times
+Centralia Morning Sentinel
+Chicago Defender
+Chicago Sun-Times
+Chicago Tribune
+Clay County Advocate-Press
+Commercial-News
+Courier-News
+Daily American
+Daily Chronicle
+Daily Gazette
+Daily Herald
+Daily Journal
+Daily Leader
+Daily Ledger
+Daily Record
+Daily Register
+Daily Republican
+Daily Republican Register
+Daily Review Atlas
+Dispatch
+Du Quoin Evening Call
+Edwardsville Intelligencer
+Effingham Daily News
+Herald & Review
+Herald-News
+Journal-Courier
+Journal Gazette & Times-Courier
+Journal Standard
+Journal Star
+Kane County Chronicle
+Lake County News-Sun
+Lincoln Courier
+Lincoln
+McDonough County Voice
+McLeansboro Times-Leader
+Moline Daily Dispatch
+Morris Daily Herald
+Mt. Vernon Register-News
+Naperville Sun
+News-Gazette
+News-Tribune
+Northwest Herald
+Olney Daily Mail
+Pantagraph
+Paris Beacon-News
+Pekin Daily Times
+Quincy Herald-Whig
+Register-Mail
+Robinson Daily News
+Rock Island Argus
+Rockford Register Star
+Shelbyville Daily Union
+Sidell Reporter
+Southern Illinoisan
+SouthtownStar
+Star Courier
+State Journal-Register
+Telegraph
+Telegraph
+Times
+Anderson Herald Bulletin
+Herald Republican
+Star
+Herald Tribune
+Bedford Times-Mail
+Herald-Times
+Bluffton News Banner
+Brazil Times
+Jackson County Banner
+Chesterton Tribune
+Hoosier Topics
+Post & Mail
+Republic
+News Examiner
+Corydon Democrat
+Journal Review
+Paper of Montgomery County
+Decatur Daily Democrat
+News Sun & Evening Star
+Dubois County Herald
+Elkhart Truth
+Evansville Courier & Press
+News 4U
+Journal Gazette
+News-Sentinel
+Times
+Daily Journal of Johnson County
+Goshen News
+Banner-Graphic
+Daily Reporter
+Greensburg Daily News
+Hartford City News-Times
+Herald-Press
+Indianapolis Business Journal
+Indy Outlook
+Indianapolis Recorder
+Indianapolis Star
+Southside Times
+Herald
+Evening News and Tribune
+News Sun
+Kokomo Tribune
+Herald-Argus
+Journal & Courier
+Daily Sun
+Lebanon Reporter
+Greene County Daily World
+Pharos-Tribune
+Madison Courier Online
+Chronicle-Tribune
+Reporter Times
+Post-Tribune
+News-Dispatch
+Paper of Montgomery County
+Herald Journal
+Mooresville Times
+NewsLink Indiana
+Star Press
+Times of Northwest Indiana
+Courier Times
+Farmer's Exchange
+Newburgh Chandler Register
+Noblesville Ledger
+Noblesville Daily Times
+Topics Newspapers
+Plain Dealer & Sun
+Paoli News-Republican
+Peru Tribune
+Flyer Group Newspapers
+Shelbyville News
+Pilot News
+Commercial Review
+Princeton Daily Clarion
+Palladium-Item
+Rochester Sentinel
+Rushville Republican
+Seymour Tribune
+Shelbyville News
+Sheridan News
+South Bend Tribune
+Spencer Evening World
+Journal of Business
+Tribune-Star
+Osgood Journal
+Versailles Republican
+Vincennes Sun-Commercial
+Wabash Plain Dealer
+Times-Union
+Washington Times-Herald
+Times Sentinel
+Ames Tribune
+Atlantic News-Telegraph
+Boone News-Republican
+Carroll Daily Times Herald
+Charles City Press
+Cherokee Chronicle Times
+Clinton Herald
+Council Bluffs Daily Nonpareil
+Creston News Advertiser
+Daily Iowegian
+Des Moines Register
+Estherville Daily News
+Fairfield Daily Ledger
+Fort Madison Daily Democrat
+Gazette
+Globe Gazette
+Hawk Eye
+Iowa City Press-Citizen
+Keokuk Daily Gate City
+Le Mars Daily Sentinel
+Marshalltown Times Republican
+Messenger
+Mount Pleasant News
+Muscatine Journal
+Newton Daily News
+Oelwein Daily Register
+Oskaloosa Herald
+Ottumwa Courier
+Quad-City Times
+Sioux City Journal
+Spencer Daily Reporter
+Telegraph Herald
+Valley News
+Vinton Cedar Valley Daily Times
+Washington Evening Journal
+Waterloo-Cedar Falls Courier
+Webster City Daily Freeman-Journal
+Abilene Reflector-Chronicle
+Arkansas City Traveler
+Atchison Daily Globe
+Augusta Daily Gazette
+Augusta
+Chanute Tribune
+Clay Center Dispatch
+Daily Union
+Dodge City Daily Globe
+El Dorado Times
+Emporia Gazette
+Fort Scott Tribune
+Garden City Telegram
+Great Bend Tribune
+Hays Daily News
+Hutchinson News
+Lawrence Journal-World
+Leavenworth Times
+Manhattan Mercury
+McPherson Sentinel
+Morning Sun
+Newton Kansan
+OlaNews
+Ottawa Herald
+Salina Journal
+Topeka Capital-Journal
+Wellington Daily News
+Wichita Eagle
+Winfield Daily Courier
+Advocate-Messenger
+Anderson News
+Barren County Progress
+Business Lexington
+Cadiz Record
+Commonwealth Journal
+Courier-Journal
+Floyd County Times
+Georgetown News-Graphic
+Glasgow Daily Times
+Harlan Daily Enterprise
+Henderson Gleaner
+Independent
+Kentucky New Era
+Kentucky Standard
+Leader-News
+Lexington Herald-Leader
+Louisville Eccentric Observer
+Mayfield Messenger
+Mayfield
+Messenger-Inquirer
+Mountain Citizen
+News Democrat & Leader
+News-Enterprise
+Oldham Era
+Paducah Sun
+Paintsville Herald
+Pioneer News
+Park City Daily News
+Richmond Register
+Sentinel-Echo
+Sentinel News
+State Journal
+Times-Tribune
+Times-Argus
+Trimble Banner
+Voice-Tribune
+Woodford Sun
+Independent
+Town Talk
+Bastrop Daily Enterprise
+Advocate
+Banner
+Bossier Press-Tribune
+Beauregard Daily News
+Donaldsonville Chief
+Gazette
+Franklinton Era-Leader
+Weekly Citizen
+Daily Star
+Courier
+Daily Advertiser
+American Press
+Leesville Daily Leader
+Minden Press-Herald
+News-Star
+New Orleans Tribune
+Times-Picayune
+Daily World
+Post South
+Ruston Daily Leader
+Times
+Southwest Daily News
+Daily Comet
+Ouachita Citizen
+Bangor Daily News
+Journal Tribune
+Kennebec Journal
+Morning Sentinel
+Portland Daily Sun
+Portland Press Herald
+Sun Journal
+Times Record
+Capital
+Baltimore Afro-American
+Baltimore City Paper
+Baltimore Examiner
+Baltimore Sun
+Bethesda Journal
+Cumberland Times-News
+Daily Record
+(Salisbury) Daily Times
+Las Américas Newspaper
+Frederick News-Post
+Gazette
+Greenbelt News Review
+Herald-Mail
+Kent Island Bay Times
+Record-Observer
+Star Democrat
+Times Record
+Access
+Daily Telegram
+Michigan Christian Advocate
+Allegan County News
+Alpena News
+AnnArbor.com
+Ann Arbor Independent
+Michigan Daily
+Monroe Street Journal
+Washtenaw Jewish News
+Montmorency County Tribune
+Huron Daily Tribune
+Battle Creek Enquirer
+Battle Creek Shopper News
+Senior Times Newspaper
+Bay City Times
+Antrim County News
+Belleville Area Independent
+Belleville Enterprise
+Benton Spirit
+MailMax
+Pioneer
+Observer Eccentric
+Blissfield Advance
+Inside Business Journal
+Bay Mills News
+Exponent
+Berrien County Record
+Cadillac Evening News
+Canton Eagle
+Canton Observer
+Tuscola County Advertiser
+Cedar Springs Post
+Charlevoix Courier
+Community Newspaper
+Eaton Rapids Community News
+Cheboygan Daily Tribune
+Straitsland Resorter
+Chelsea Standard
+Clarkston News
+Clawson Mirror
+Clinton Local
+Daily Reporter
+Dearborn Times-Herald
+Iraq Sun
+Press and Guide
+Sada al-Watan (Arab American News)
+Between Lines
+Building Tradesman
+Crain's Detroit Business
+De Mujer A Mujer
+Detroit Free Press
+Detroit Jewish News
+Detroit Monitor
+Detroit News
+Dziennik Polski
+El Central Hispanic News
+La Prensa
+Latino Press
+Metro Times
+Michigan Chronicle
+Real Detroit Weekly
+Ukrain'ski Visti
+Dexter Leader
+Daily News
+Independent
+State News
+Telegram Newspaper
+Town Meeting
+Daily Press
+Farmington Observer
+Hills Herald
+Tri-County Times
+Flint Journal
+Flushing Observer
+Times Indicator
+Garden City Observer
+Gaylord Herald Times
+Gladwin County Record
+Grand Haven Tribune
+Community News
+Business Update
+El Vocero
+Grand Rapids Business Journal
+Grand Rapids Press
+Latino News
+Lazo Cultural
+Times of Grass Lake
+Crawford County Avalanche
+Daily News
+Ile Camera
+Grosse Pointe News
+Alcona County Review
+Oceana's Herald-Journal
+Montmorency County Tribune
+Hillsdale Daily News
+Collegian
+Holland Sentinel
+Holt Community News
+Homer Index
+Daily Mining Gazette
+Houghton Lake Resorter
+Hudson Post-Gazette
+Straitsland Resorter
+Inkster Ledger Star
+Sentinel-Standard
+Daily News
+Iron County Reporter
+Ironwood Daily Globe
+Jackson Citizen Patriot
+Jackson County Legal News
+Kalamazoo Gazette
+Kalkaskian
+L'Anse Sentinel
+Lake Orion Eccentric
+Lansing State Journal
+County Press
+Leelanau Enterprise
+Livingston County Daily Press & Argus
+Livonia Observer
+Ludington Daily News
+Mackinac Island Town Crier
+Macomb Daily
+Italian Tribune-La Tribuna del Popolo
+Manchester Enterprise
+News Advocate
+Marlette Leader
+Mining Journal
+Midland Daily News
+Milan News
+Milford Times
+Monroe Business Journal
+Monroe Evening News
+Monroe Guardian
+Montmorency County Tribune
+Morenci Observer
+Macomb Daily
+Morning Sun
+Muskegon Chronicle
+Voice
+Harbor Country News
+New Buffalo Times
+Daily Star
+Northville Record
+Current
+Novi News
+Michigan Lawyers Weekly
+Onaway Outlook
+Ontonogan Herald
+Oscoda Press
+Argus-Press
+Oxford Eccentric
+Oxford Leader
+Petoskey News-Review
+Plymouth Observer
+Oakland Press
+Port Austin Times
+Times Herald
+Portland Review & Observer
+Redford Observer
+Richland Express
+Rochester Eccentric
+Presque Isle County Advance
+Romeo Observer
+Detroit Metropolitan Airport News
+Huron River Weekly
+Romulus Roman
+Gazette van Detroit
+Daily Tribune
+Saginaw News
+St. Ignace News
+Herald-Palladium
+Trade Lines
+Saline Reporter
+Evening News
+Newsweekly
+South Lyon Herald
+Southfield Eccentric
+Heritage Sunday
+News-Herald
+Springport Signal
+Town Crier
+Sturgis Journal
+Iosco County News-Herald
+Tecumseh Herald
+South County Gazette
+Grand Traverse Business News
+Grand Traverse Herald
+Northern Express
+Traverse City Record-Eagle
+Nordamerikansiche Wochen-post
+Troy Eccentric
+Source/Advisor Newspaper
+Vanderbiltmich.com
+Pioneer Times
+Spinal Column Newsweekly
+Penasee Globe
+Journal Newspaper
+West Bloomfield Eccentric
+Westland Observer
+White Lake Beacon
+Williamston Enterprise
+Ypsilanti Courier
+Albert Lea Tribune
+Austin Daily Herald
+Bemidji Pioneer
+Brainerd Dispatch
+Breckenridge Daily News
+Crookston Daily Times
+Duluth News Tribune
+Sentinel
+Faribault Daily News
+Daily Journal
+Free Press
+Finance and Commerce
+Minnesota Spokesman-Recorder
+MinnPost.com
+St. Paul Pioneer Press
+Star Tribune
+Journal
+Owatonna People's Press
+Red Wing Republican Eagle
+Post-Bulletin
+St. Cloud Times
+St. Paul Pioneer Press
+Mesabi Daily News
+West Central Tribune
+Winona Daily News
+Daily Globe (Worthington)
+Bolivar Commercial
+Brookhaven Daily Leader
+Clarion-Ledger
+Clarksdale Press Register
+Commercial Dispatch
+Daily Corinthian
+Daily Leader
+Daily Star, The
+Daily Times Leader
+Delta Democrat-Times
+Enterprise-Journal
+Greenwood Commonwealth
+Hattiesburg American
+Laurel Leader-Call
+Meridian Star
+Mississippi Press
+Mississippi Business Journal
+Natchez Democrat
+Neshoba Democrat
+Northeast Mississippi Daily Journal
+Oxford Eagle
+Picayune Item
+Starkville Daily News
+Sun Herald, The
+Vicksburg Post
+Boonville Daily News
+Bowling Green Times
+Camdenton Lake Sun
+Southeast Missourian
+Carthage Press
+Columbia Daily Tribune
+Columbia Missourian
+Constitution Tribune
+Hannibal Courier-Post
+Independence Examiner
+Daily Capital News/Post-Tribune
+Joplin Globe
+Kansas City Star
+Kirksville Daily Express
+Lake Sun Leader
+Lebanon Daily Record
+Chronicle Herald
+Marshall Democrat-News
+Maryville Daily Forum
+Mexico Ledger
+Moberly Monitor Index
+Mound City News
+Neosho Daily News
+News-Leader
+Parkland News
+Rolla Daily News
+St. Joseph News-Press
+St. Louis Globe-Democrat
+St. Louis Post-Dispatch
+Trenton Republican-Times
+Daily Star-Journal
+Daily Guide
+Anaconda Leader
+Fallon   County Times
+Belgrade News
+Big Horn County News
+Bigfork Eagle
+Billings Gazette
+Billings Outpost
+Billings Times
+Blackfoot Valley Dispatch
+Blaine County Journal News-Opinion
+Boulder Monitor
+Bozeman Daily Chronicle
+Carbon County News
+Cascade Courier
+Char-Koosta News
+Choteau Acantha
+Circle Banner
+Clark Fork Valley Press
+Cut Bank Pioneer Press
+Daily Inter Lake
+Daniels County Leader
+Dillon Tribune
+Fairfield Sun Times
+Fallon County Times
+Flathead Beacon
+Glacier-Reporter
+Glasgow Courier
+Glendive Ranger-Review
+Great Falls Tribune
+Havre Daily News
+Hungry Horse News
+Independent Press
+Independent Record
+Jordan Tribune
+Judith Basin Press
+Kootenai Valley Record
+Lake County Leader
+Laurel Outlook
+Lewistown News-Argus
+Liberty County Times
+Livingston Enterprise
+Lone Peak Lookout
+Meagher County News
+Miles City Star
+Mineral Independent
+Montana Kaimin
+Montana Standard
+Phillips County News
+Powder River Examiner
+Ravalli Republic
+Roundup Record-Tribune
+Wall Street Journal
+New York Times
+USA Today
+Los Angeles Times
+Daily News
+New York Post
+Washington Post
+Chicago Sun-Times
+Denver Post
+Chicago Tribune
+Dallas Morning News
+Newsday
+Houston Chronicle
+Orange County Register
+Newark Star-Ledger
+Tampa Bay Times
+Plain Dealer
+Philadelphia Inquirer
+Philadelphia Daily News
+Star Tribune
+Arizona Republic
+Honolulu Star Advertiser
+Las Vegas Review-Journal
+San Diego Union-Tribune
+Boston Globe
+Atlanta Journal-Constitution

@@ -2,10 +2,10 @@ package com.ulflander.mining.processors.load;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.ulflander.application.model.Document;
+import com.ulflander.app.model.Document;
 import com.ulflander.mining.processors.LoadProcessor;
 import com.ulflander.mining.processors.ProcessorDepthControl;
-import com.ulflander.application.utils.UlfFileUtils;
+import com.ulflander.utils.UlfFileUtils;
 
 /**
  * Processor that saves analysis as JSON.

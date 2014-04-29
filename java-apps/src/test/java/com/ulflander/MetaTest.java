@@ -1,6 +1,6 @@
 package com.ulflander;
 
-import com.ulflander.application.model.Language;
+import com.ulflander.app.model.Language;
 import org.junit.Assert;
 import org.junit.Test;
 

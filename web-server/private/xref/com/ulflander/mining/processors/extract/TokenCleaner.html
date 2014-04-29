@@ -9,7 +9,7 @@
 <a class="jxr_linenumber" name="L1" href="#L1">1</a>   <strong class="jxr_keyword">package</strong> com.ulflander.mining.processors.extract;
 <a class="jxr_linenumber" name="L2" href="#L2">2</a>   
 <a class="jxr_linenumber" name="L3" href="#L3">3</a>   <strong class="jxr_keyword">import</strong> com.ulflander.mining.Patterns;
-<a class="jxr_linenumber" name="L4" href="#L4">4</a>   <strong class="jxr_keyword">import</strong> com.ulflander.application.model.Token;
+<a class="jxr_linenumber" name="L4" href="#L4">4</a>   <strong class="jxr_keyword">import</strong> com.ulflander.app.model.Token;
 <a class="jxr_linenumber" name="L5" href="#L5">5</a>   <strong class="jxr_keyword">import</strong> com.ulflander.mining.processors.Processor;
 <a class="jxr_linenumber" name="L6" href="#L6">6</a>   <strong class="jxr_keyword">import</strong> com.ulflander.mining.processors.Requires;
 <a class="jxr_linenumber" name="L7" href="#L7">7</a>   <strong class="jxr_keyword">import</strong> org.apache.commons.lang3.StringUtils;
@@ -51,7 +51,7 @@
 <a class="jxr_linenumber" name="L43" href="#L43">43</a>  <em class="jxr_javadoccomment">     * @param token Token to run processor on</em>
 <a class="jxr_linenumber" name="L44" href="#L44">44</a>  <em class="jxr_javadoccomment">     */</em>
 <a class="jxr_linenumber" name="L45" href="#L45">45</a>      @Override
-<a class="jxr_linenumber" name="L46" href="#L46">46</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">void</strong> extractToken(<strong class="jxr_keyword">final</strong> <a href="../../../../../com/ulflander/application/model/Token.html">Token</a> token) {
+<a class="jxr_linenumber" name="L46" href="#L46">46</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">void</strong> extractToken(<strong class="jxr_keyword">final</strong> <a href="../../../../../com/ulflander/app/model/Token.html">Token</a> token) {
 <a class="jxr_linenumber" name="L47" href="#L47">47</a>          token.setRaw(StringUtils.strip(
 <a class="jxr_linenumber" name="L48" href="#L48">48</a>              token.getRaw(), Patterns.TOKEN_CLEANER_ENDPOINTS));
 <a class="jxr_linenumber" name="L49" href="#L49">49</a>      }
