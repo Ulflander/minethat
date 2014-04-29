@@ -28,6 +28,11 @@ make
 - monit
 - supervisor
 
+## Other repositories requirements
+
+In order to have the whole Minethat system running, you should clone in the main
+directory (this repo) two other repositories: [web](https://github.com/Minethat/web) 
+and [corpora](https://github.com/Minethat/corpora).
 
 ## Content
 
@@ -38,11 +43,15 @@ make
 ~/app/java-apps     # Java services
 ~/app/lib           # Some libs used by makefile
 ~/app/logs          # All logs for all processes and apps
-~/app/scripts       # Handy scripts
-~/app/web-server    # Web server
+~/app/utils         # Handy scripts
 ```
 
 ## Services
+
+### Required services
+
+- Mongo DB
+- RabbitMQ
 
 ### Backend services
 
@@ -53,7 +62,7 @@ make
 
 ### Front end service
 
-- web-server/index.js
+- node web/index.js
 
 ## Web server
 

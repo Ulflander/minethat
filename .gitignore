@@ -6,4 +6,6 @@ datasets/ignored/
 java-apps/.idea/
 java-apps/target/
 java-apps/.surefire*
-
+web/
+corpora/
+logs/*
