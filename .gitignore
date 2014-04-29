@@ -4,5 +4,6 @@ chunk/node_modules/
 web-server/node_modules/
 datasets/ignored/
 java-apps/.idea/
+java-apps/target/
 java-apps/.surefire*
 
