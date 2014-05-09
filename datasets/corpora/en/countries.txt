@@ -1,937 +1,527 @@
 afghanistan
-afghan
-afghans
 kabul
 albania
-albanian
-albanians
 tirana
 algeria
-algerian
-algerians
 algiers
-american-samoa
-american samoan
-american samoans
 american samoa
 samoa
-pago-pago
+pago pago
 andorra
-andorran
-andorrans
-andorra-la-vella
+andorra la vella
 angola
-angolan
-angolans
 luanda
 anguilla
-anguillan
-anguillans
-the-valley
 antarctica
-south-pole
+south pole
 antartica
-antigua-and-barbuda
+antigua and barbuda
 antiguan and barbudan
 antiguans and barbudans
 antigua and barbuda
-saint-johns
+saint johns
 argentina
-argentine
-argentines
-buenos-aires
+buenos aires
 armenia
-armenian
-armenians
 yerevan
 aruba
-aruban
-arubans
 oranjestad
 australia
-australian
-australians
 canberra
 austria
-austrian
-austrians
 vienna
 azerbaijan
-azerbaijani
-azerbaijanis
 baku
-the-bahamas
-bahamian
-bahamians
+bahamas
 the bahamas
 nassau
 bahrain
-bahraini
-bahrainis
 manama
 bangladesh
-bangladeshi
-bangladeshis
 dhaka
 barbados
-barbadian
-barbadians
 bridgetown
 belarus
-belarusian
-belarusians
 minsk
 belgium
-belgian
-belgians
 brussels
 belize
-belizean
-belizeans
 belmopan
 benin
 beninese
-porto-novo
+porto novo
 bermuda
-bermudian
-bermudians
 hamilton
 bhutan
-bhutanese
 thimphu
 bolivia
-bolivian
-bolivians
 sucre
-bosnia-and-herzegovina
-bosnian and herzegovinian
-
+bosnia
+bosnia and herzegovina
+herzegovina
 botswana
 motswana
 batswana
 gaborone
-bouvet-island
 bouvet island
 brazil
-brazilian
-brazilians
 brasilia
-british-virgin-islands
-british virgin islander
-british virgin islanders
+british virgin islands
 the british virgin islands
-road-town
-brunei-darussalam
+road town
+brunei darussalam
 brunei
-bandar-seri-begawan
+bandar seri begawan
 bulgaria
-bulgarian
-bulgarians
 sofia
-burkina-faso
-burkinabe
 burkina faso
 ouagadougou
 myanmar
-burmese
 burma
 naypyidaw
-burundi
-burundians
 bujumbura
 cambodia
-cambodian
-cambodians
-phnom-penh
+phnom penh
 cameroon
-cameroonian
-cameroonians
 yaounde
 canada
 huron
-ontarians
-canadian
-canadians
 montreal
-cape-verde
-cape verdean
-cape verdeans
 cape verde
 praia
-cayman-islands
+cayman islands
 caymans
-caymanian
-caymanians
 the cayman islands
-george-town
-central-african-republic
-central african
-central africans
+george town
+central african republic
 the central african republic
 bangui
 chad
-chadian
-chadians
 ndjamena
 chile
-chilean
-chileans
-santiago-de-chile
+santiago de chile
 china
 beijingers
 hk
-chinese
 beijing
-christmas-island
 christmas island
-christmas islanders
-flying-fish-cove
-cocos-keeling-islands
-cocos islander
-cocos islanders
+flying fish cove
+cocos keeling islands
 the cocos islands
-west-island
+west island
 colombia
-colombians
-colombian
 bogota
 comoros
-comoran
-comorans
 moroni
-congo-rdc
+congo rdc
 dr congo
 democratic republic congo
-congolese
 kinshasa
 congo
 brazzaville
-cook-islands
-cook islander
-cook islanders
+cook islands
 the cook islands
 avarua
-costa-rica
-costa rican
-costa ricans
 costa rica
-san-jose
-ivory-coast
 ivory coast
-ivorian
-ivorians
 abidjan
 croatia
-croatian
-croats
 zagreb
 cuba
 la havanne
 la havane
 la havanna
 cuban
-cubans
-la-habana
+la habana
 cyprus
-cypriot
-cypriots
 nicosia
-czech-republic
-czech
-czechs
+czech republic
 the czech republic
 prague
 denmark
-danish
-danes
 copenhagen
 djibouti
-djiboutian
-djiboutians
 dominica
 roseau
-dominican-republic
-dominican
-dominicans
+dominican republic
 the dominican republic
-santo-domingo
-east-timor
+santo domingo
 east timor
 dili
 ecuador
-ecuadorian
-ecuadorians
 quito
 egypt
 cairo
-egyptian
-egyptians
-el-salvador
-salvadoran
-salvadorans
 el salvador
-san-salvador
-equatorial-guinea
-equatorial guinean
-equatorial guineans
+san salvador
 equatorial guinea
 malabo
 eritrea
-eritrean
-eritreans
 asmara
 estonia
-estonian
-estonians
 tallinn
 ethiopia
-ethiopian
-ethiopians
-addis-abeba
-falkland-islands-islas-malvinas
+addis abeba
+falkland islands islas malvinas
 falkland island
-falkland islanders
 the falkland islands
 falklands
-falklands
-faroe-islands
+faroe islands
 faroese
 the faroe islands
 torshavn
 fiji
-fijian
-fijians
 suva
 finland
-finnish
 finns
 helsinki
 france
 paris
-french
-frenchman
-frenchmen
-french-guiana
-french guianese
 french guiana
 cayenne
-french-polynesia
-french polynesian
-french polynesians
+french polynesia
 french polynesia
 papeete
-french-southern-and-antarctic-lands
+french southern and antarctic lands
 the french southern and antarctic lands
-port-aux-francais
+port aux francais
 gabon
-gabonese
 libreville
-the-gambia
-gambian
-gambians
+gambia
 the gambia
 banjul
-gaza-strip
-gazans
+gaza strip
 the gaza strip
-gazan
 gaza
-gaza
-republic-of-georgia
-georgians
+republic of georgia
 tbilisi
 germany
-deutsche
-german
-germans
 deutschland
 berlin
 ghana
-ghanaian
-ghanaians
 accra
 gibraltar
-gibraltarians
 greece
-greek
-greeks
 athens
 greenland
-greenlandic
-greenlanders
-nuuk-godhab
+nuuk godhab
 grenada
-grenadian
-grenadians
-st-georges
+st georges
 guadeloupe
-guadeloupians
-basse-terre
+basse terre
 guam
-guamanian
-guamanians
 hagatna
 guatemala
-guatemalan
-guatemalans
-guatemala-city
+guatemala city
 guinea
-guinean
-guineans
 conakry
-guinea-bissau
+guinea bissau
 bissau
 guyana
-guyanese
 georgetown
 haiti
-haitian
-haitians
-port-au-prince
-heard-island-and-mcdonald-islands
+port au prince
+heard island and mcdonald islands
 the heard island and mcdonald islands
-vatican-city
+vatican city
 holy see
 the vatican city
 catholic church
 vatican
 honduras
-honduran
-hondurans
 tegucigalpa
-hong-kong
+hong kong
 xianggang
 hungary
-hungarian
-hungarians
 budapest
 iceland
-icelandic
-icelanders
 reykjavik
 india
 hindustan
 konkan
 hindu
-indian
-indians
-new-delhi
+new delhi
 indonesia
-indonesian
-indonesians
 jakarta
 iran
-persian
-iranian
-iranians
 tehran
 iraq
-iraqiyya
-iraqi
-iraqis
 baghdad
 ireland
-irish
-irishmen
 dublin
 israel
-israeli
-israelis
 jerusalem
 italy
-italian
-italians
 italia
 rome
 jamaica
-jamaican
-jamaicans
 kingston
 japan
-toyota
-japanese
 tokyo
 jordan
-jordanian
-jordanians
 amman
 kazakhstan
 nazarbayev
-kazakhstani
-kazakhstanis
 kazakh
-kazakhs
 astana
 kenya
-kenyan
-kenyans
 nairobi
 kiribati
-i-kiribati
+i kiribati
 tarawa
-north-korea
+north korea
 koreas
 rok dprk
 dprk
-north korean
-north koreans
 north korea
 pyongyang
-south-korea
-korean
-koreans
 south korea
 seoul
 kuwait
-kuwaiti
-kuwaitis
 al kuwayt
-kuwait-city
+kuwait city
 kyrgyzstan
-kyrgyz
-kyrgyzstani
-kyrgyzstanis
 bishkek
 laos
 lao
 vientiane
 latvia
-latvian
-latvians
 riga
 lebanon
-lebanese
 beirut
 lesotho
 basotho
 mosotho
 maseru
 liberia
-liberian
-liberians
 monrovia
 libya
-libyan
-libyans
 tripoli
 liechtenstein
-liechtensteiners
 vaduz
 lithuania
-lithuanian
-lithuanians
 vilnius
 luxembourg
-luxembourgers
 macao
-macedonia
-macedonian
 skopje
 madagascar
-malagasy
 antananarivo
 malawi
-malawian
-malawians
 lilongwe
 malaysia
-malaysian
-malaysians
-kuala-lumpur
+kuala lumpur
 maldives
-maldivian
-maldivians
 male
 mali
-malian
-malians
 bamako
 malta
-maltese
 valletta
-marshall-islands
-marshallese
+marshall islands
 the marshall islands
 majuro
 martinique
-martiniquais
-fort-de-france
+fort de france
 mauritania
-mauritanian
-mauritanians
 nouakchott
 mauritius
-mauritian
-mauritians
-port-louis
+port louis
 mayotte
 mahorais
 mamoudzou
 mexico
-mexican
-mexicans
-ciudad-de-mexico
+ciudad de mexico
 micronesia
 oceania
-micronesian
-134597
 palikir
 moldova
-moldovan
-moldovans
 chisinau
 monaco
-monegasque
-monegasques
 mongolia
 inner mongolia
-mongolian
-mongolians
 ulaanbaatar
 montserrat
-montserratian
-montserratians
 brades
 morocco
-moroccan
-moroccans
 rabat
 mozambique
-mozambican
-mozambicans
 maputo
 namibia
-namibian
-namibians
 windhoek
 nauru
-nauruan
-nauruans
 yaren
 nepal
-nepali
-nepalese
 kathmandu
 netherlands
 holland
-dutch
-dutchman
-dutchmen
 the netherlands
-den-hague
-netherlands-antilles
-dutch antillean
-dutch antilleans
+den hague
+netherlands antilles
 the netherlands antilles
 willemstad
-new-caledonia
+new caledonia
 caledonian
-new caledonian
-new caledonians
 new caledonia
 noumea
-new-zealand
 new zealand
-new zealanders
-nz
 wellington
 nicaragua
-nicaraguan
-nicaraguans
 managua
 niger
-nigerien
-nigeriens
 niamey
 nigeria
-nigerian
-nigerians
 abuja
 niue
-niuean
-niueans
 alofi
-norfolk-island
-norfolk islander
-norfolk islanders
 norfolk island
-northern-mariana-islands
-marianas
+northern mariana islands
 the northern mariana islands
 saipan
 norway
-norwegian
-norwegians
 oslo
 oman
-omani
-omanis
 muscat
 pakistan
-pak
-paki
-pakistani
-pakistanis
 islamabad
 palau
-palauan
-palauans
 melekeok
 panama
-panamanian
-panamanians
-panama-city
-papua-new-guinea
-papua new guinean
-papua new guineans
+panama city
 papua new guinea
-port-moresby
+port moresby
 paraguay
-paraguayan
-paraguayans
 asuncion
 peru
-peruvian
-peruvians
 lima
 philippines
 philippine
-filipinos
 the philippines
 manila
-pitcairn-islands
-pitcairn islander
-pitcairn islanders
+pitcairn islands
 the pitcairn islands
 adamstown
 poland
 polish
 warsaw
 portugal
-portuguese
 lisbon
-puerto-rico
-puerto rican
-puerto ricans
 puerto rico
-san-juan
+san juan
 qatar
-qatari
-qataris
 doha
-la-reunion
-reunionese
+la reunion
 reunion
-saint-denis
 romania
-romanian
-romanians
 bucharest
 russia
 kremlin
-russian
-russians
 moscow
 rwanda
 hutu
-rwandan
-rwandans
 kigali
-saint-helena
-saint helenian
-saint helenians
 saint helena
 jamestown
-saint-kitts-and-nevis
-kittitian and nevisian
-kittitians and nevisians
 saint kitts and nevis
 basseterre
-saint-lucia
-saint lucian
-saint lucians
 saint lucia
 castries
-saint-pierre-and-miquelon
 saint pierre and miquelon
-saint-pierre-miquelon
-saint-vincent-and-the-grenadines
-saint vincentian
-saint vincentians
+saint pierre miquelon
 saint vincent and the grenadines
 kingstown
-samoan
-samoans
 apia
-san-marino
-sammarinese
 san marino
-sao-tome-and-principe
-sao tomean
-sao tomeans
 sao tome and principe
-sao-tome
-saudi-arabia
-saudi
-saudi arabian
-saudis
+sao tome
 saudi arabia
 riyadh
 senegal
-senegalese
 dakar
 seychelles
-seychellois
 victoria
-sierra-leone
-sierra leonean
-sierra leoneans
 sierra leone
 freetown
 singapore
-singaporeian
-singaporeans
-singaporean
 slovakia
-slovakian
-slovaks
 bratislava
 slovenia
-slovenian
-slovenes
 ljubljana
-solomon-islands
-solomon islander
-solomon islanders
+solomon islands
 the solomon islands
 honiara
 somalia
-somali
-somalis
 mogadishu
-south-africa
+south africa
 southafrica
-south african
-south africans
 south africa
 johannesburg
-south-georgia-and-the-south-sandwich-islands
+south georgia and the south sandwich islands
 the south georgia and the south sandwich islands
-king-edward-point
+king edward point
 spain
-spaniard
-spanish
-spaniards
 madrid
-spratly-islands
+spratly islands
 the spratly islands
-sri-lanka
-sri lankan
-sri lankans
 sri lanka
-sri-jayawardenapura-kotte
+sri jayawardenapura kotte
 sudan
-darfuri
-sudanese
 khartoum
 suriname
-surinamese
-surinamers
 paramaribo
 svalbard
 longyearbyen
 swaziland
-swazi
-swazis
 mbabane
 sweden
-swedish
-swedes
 stockholm
 switzerland
-swiss
 bern
 syria
-syrian
-syrians
 damascus
 taiwan
-taiwanese
 tajikistan
-tajikistani
-tajikistanis
 dushanbe
 tanzania
-tanzaniain
-tanzanian
-tanzanians
 dodoma
 thailand
-thai
 bangkok
 togo
-togolese
 lome
 tokelau
-tokelauan
-tokelauans
 nukunonu
 tonga
-tongan
-tongans
-nuku-alofa
-trinidad-and-tobago
-trinidadian and tobagonian
-trinidadians and tobagonians
+nuku alofa
 trinidad and tobago
-port-of-spain
+trinidad and tobago
+port of spain
 tunisia
-tunisian
-tunisians
 tunis
 turkey
-turkish
-turks
 istanbul
 turkmenistan
-turkmen
-turkmens
 ashgabat
-turks-and-caicos-islands
+turks and caicos islands
 the turks and caicos islands
-cockburn-town
+cockburn town
 tuvalu
-tuvaluan
-tuvaluans
 funafuti
 uganda
-ugandan
-ugandans
 kampala
 ukraine
-ukrainian
-ukrainians
 the ukraine
 kiev
-united-arab-emirates
+united arab emirates
 uae
-emirati
-emiratis
 the united arab emirates
-abu-dhabi
-united-kingdom
-rolls royce
-briton
+abu dhabi
+united kingdom
 england
 english
 britain
 uk
-british
-britons
 the united kingdom
 northern ireland
 london
-united-states
+united states
 the united states
 alabama
 alaska
@@ -941,7 +531,7 @@ california
 colorado
 connecticut
 delaware
-district-of-columbia
+district of columbia
 florida
 georgia
 hawaii
@@ -956,12 +546,12 @@ maine
 montana
 nebraska
 nevada
-new-hampshire
-new-jersey
-new-mexico
-new-york
-north-carolina
-north-dakota
+new hampshire
+new jersey
+new mexico
+new york
+north carolina
+north dakota
 ohio
 oklahoma
 oregon
@@ -972,138 +562,87 @@ minnesota
 mississippi
 missouri
 pennsylvania
-rhode-island
-south-carolina
-south-dakota
+rhode island
+south carolina
+south dakota
 tennessee
 texas
 utah
 vermont
 virginia
 washington
-west-virginia
+west virginia
 wisconsin
 wyoming
 usa
 north america
-north american
-united-states-minor-outlying-islands
+united states minor outlying islands
 the united states minor outlying islands
 minor outlying islands
 uruguay
-uruguayan
-uruguayans
 montevideo
 uzbekistan
-uzbekistani
-uzbekistanis
-uzbek
-uzbeks
 tashkent
 vanuatu
-ni-vanuatu
-port-vila
+ni vanuatu
+port vila
 venezuela
-venezuelans
 central america and the caribbean
-venezuelan
-23916810
 caracas
 vietnam
 viet nam
-viet
-vietnamese
 hanoi
-virgin-islands
-virgin islander
-virgin islanders
+virgin islands
 the virgin islands
-wallis-and-futuna
-wallis and futuna islander
-wallis and futuna islanders
 wallis and futuna
-mata-utu
-western-sahara
-western saharan
-saharan
-sahrawian
-sahrawis
+mata utu
 western sahara
 polisario
 laayoune
 yemen
-yemeni
-yemenis
 sanaa
 zambia
-zambian
-zambians
 lusaka
 zimbabwe
-zimbabwean
-zimbabweans
 harare
-palestinian-territories
+palestinian territories
 palestine
 palest
-palestinians
-palestinian
 west bank
 ramallah
-european-union
 european union
-european
-europeans
-eu
-european-union-headquarters
 montenegro
 podgorica
 kosovo
 pristina
-kurdistan
 kurdish
 scotland
-scottish
 edinburgh
 antilles
 bosnia
-bosnian
-bosnians
 sarajevo
 serbia
-serbian
-serbians
 belgrade
 balkans
 balkan
 siberia
-siberian
 ulster
 belfast
 arctic
-north-pole
-easter-islands
+north pole
 easter islands
-hanga-roa
-gulf-of-mexico
+hanga roa
+gulf of mexico
 gulf mexico
 jersey
-caribean-area
 caribean area
-lansing
-houston
 dagestan
-northern-ireland
-senkaku-islands
+northern ireland
 senkaku islands
-chechen-republic
 chechen republic
-chechnya
-chechen
-chechens
 grozny
-south-ossetia
+south ossetia
 ossetia
 tskhinvali
-galapagos-islands
+galapagos islands
 galapagos

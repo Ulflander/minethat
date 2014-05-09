@@ -19,7 +19,7 @@ public class ProcessorTest extends AbstractTest {
 
     @Test
     public void LanguageSpecificProcessorTest () {
-        d.setRaw("Ce texte est manifestement en français. L'objectif est que la reconnaissance de langue soit efficace et que ces quelques mots soient considérés étant français.");
+        d.setSurface("Ce texte est manifestement en français. L'objectif est que la reconnaissance de langue soit efficace et que ces quelques mots soient considérés étant français.");
 
         s.addProcessor("extract.DocumentCleaner");
         s.addProcessor("extract.DocumentSplitter");
@@ -37,7 +37,7 @@ public class ProcessorTest extends AbstractTest {
 
     @Test
     public void GoodLanguageSpecificProcessorTest () {
-        d.setRaw("This text is obviously written in english. The goal is that language recognition be efficient and that those few words be considered as english speaking.");
+        d.setSurface("This text is obviously written in english. The goal is that language recognition be efficient and that those few words be considered as english speaking.");
 
         s.addProcessor("extract.DocumentCleaner");
         s.addProcessor("extract.DocumentSplitter");

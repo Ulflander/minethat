@@ -16,27 +16,27 @@ public class DocumentCleanerTest extends AbstractTest {
     @Test
     public void rLineTest () {
 
-        d.setRaw("This got a \r new line");
+        d.setSurface("This got a \r new line");
         s.submit(d);
 
-        Assert.assertEquals("\\r new lines should be replaced by \\n new lines", "This got a \n new line", d.getRaw());
+        Assert.assertEquals("\\r new lines should be replaced by \\n new lines", "This got a \n new line", d.getSurface());
     }
 
     @Test
     public void rnLineTest () {
 
-        d.setRaw("This got a \r\n new line");
+        d.setSurface("This got a \r\n new line");
         s.submit(d);
 
-        Assert.assertEquals("\\r\\n new lines should be replaced by \\n new lines", "This got a \n new line", d.getRaw());
+        Assert.assertEquals("\\r\\n new lines should be replaced by \\n new lines", "This got a \n new line", d.getSurface());
     }
 
     @Test
     public void trimTest () {
 
-        d.setRaw("\n  This got a \r\n new line \n\r \n");
+        d.setSurface("\n  This got a \r\n new line \n\r \n");
         s.submit(d);
 
-        Assert.assertEquals("Triming should remove edge new lines and spaces", "This got a \n new line", d.getRaw());
+        Assert.assertEquals("Triming should remove edge new lines and spaces", "This got a \n new line", d.getSurface());
     }
 }

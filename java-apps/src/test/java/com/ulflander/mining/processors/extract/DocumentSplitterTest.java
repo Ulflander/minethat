@@ -19,7 +19,7 @@ public class DocumentSplitterTest extends AbstractTest {
 
     @Test
     public void SpecialCaseNamesWithUniqueCapitalLetterTest () {
-        d.setRaw("A sentence containing Edward E. Johns name should not count for two sentences.");
+        d.setSurface("A sentence containing Edward E. Johns name should not count for two sentences.");
         s.submit(d);
         Assert.assertEquals("First paragraph should return one sentence", 1, d.getParagraphAt(0,0).getSentencesSize());
 
@@ -28,14 +28,14 @@ public class DocumentSplitterTest extends AbstractTest {
 
     @Test
     public void DocumentTinyLengthTest () {
-        d.setRaw("Tiny text");
+        d.setSurface("Tiny text");
         s.submit(d);
         Assert.assertEquals("Tiny text getTextLength should be tiny", TextLength.TINY, d.getTextLength());
     }
 
     @Test
     public void DocumentShortLengthTest () {
-        d.setRaw("We can consider that this sentence is a rather long sentence out of any other consideration.");
+        d.setSurface("We can consider that this sentence is a rather long sentence out of any other consideration.");
         s.submit(d);
         Assert.assertEquals("Short text getTextLength should be short", TextLength.SHORT, d.getTextLength());
     }
@@ -49,7 +49,7 @@ public class DocumentSplitterTest extends AbstractTest {
             i--;
         }
 
-        d.setRaw(text);
+        d.setSurface(text);
         s.submit(d);
         Assert.assertEquals("Medium text getTextLength should be medium", TextLength.MEDIUM, d.getTextLength());
     }
@@ -64,7 +64,7 @@ public class DocumentSplitterTest extends AbstractTest {
             i--;
         }
 
-        d.setRaw(text);
+        d.setSurface(text);
         s.submit(d);
         Assert.assertEquals("Long text getTextLength should be long", TextLength.LONG, d.getTextLength());
     }
@@ -83,7 +83,7 @@ public class DocumentSplitterTest extends AbstractTest {
     @Test
     public void DocumentSplitterParagraphTest () {
 
-        d.setRaw("This paragraph contains two paragraphs.\n\nHere is the second one.");
+        d.setSurface("This paragraph contains two paragraphs.\n\nHere is the second one.");
         s.submit(d);
 
         Assert.assertEquals("Two paragraph should return only one chapter", 1, d.getChaptersSize());
@@ -96,7 +96,7 @@ public class DocumentSplitterTest extends AbstractTest {
     @Test
     public void DocumentSplitter2SentencesTest () {
 
-        d.setRaw("This paragraph contains two sentences. Here is the second one.");
+        d.setSurface("This paragraph contains two sentences. Here is the second one.");
         s.submit(d);
 
         Assert.assertEquals("Two sentence paragraph should return only one chapter", 1, d.getChaptersSize());
@@ -107,7 +107,7 @@ public class DocumentSplitterTest extends AbstractTest {
     @Test
     public void DocumentSplitter3SentencesTest () {
 
-        d.setRaw("This paragraph contains two sentences. SECOND ONE IS EMPHASIZED!!!!! Here is the third one.");
+        d.setSurface("This paragraph contains two sentences. SECOND ONE IS EMPHASIZED!!!!! Here is the third one.");
         s.submit(d);
 
         Assert.assertEquals("Two sentence paragraph should return only one chapter", 1, d.getChaptersSize());
@@ -120,7 +120,7 @@ public class DocumentSplitterTest extends AbstractTest {
     @Test
     public void SetRawAndProcessingMulitpleTimesTest () {
 
-        d.setRaw("This paragraph contains two paragraphs.\n\nHere is the second one.");
+        d.setSurface("This paragraph contains two paragraphs.\n\nHere is the second one.");
         s.submit(d);
 
         Assert.assertEquals("Two paragraph should return only one chapter", 1, d.getChaptersSize());
@@ -128,7 +128,7 @@ public class DocumentSplitterTest extends AbstractTest {
         Assert.assertEquals("First paragraph should return only one sentence", 1, d.getParagraphAt(0,0).getSentencesSize());
         Assert.assertEquals("Second paragraph should return only one sentence", 1, d.getParagraphAt(0,1).getSentencesSize());
 
-        d.setRaw("This paragraph contains two sentences. Here is the second one.");
+        d.setSurface("This paragraph contains two sentences. Here is the second one.");
         s.submit(d);
 
         Assert.assertEquals("Two sentence paragraph should return only one chapter", 1, d.getChaptersSize());
@@ -139,7 +139,7 @@ public class DocumentSplitterTest extends AbstractTest {
     @Test
     public void ZhCnSentenceTest () {
 
-        d.setRaw("这段文字显然是德国人写的。我们的目标是，语言识别是有效的，而且这些几句话被认为是讲英语。");
+        d.setSurface("这段文字显然是德国人写的。我们的目标是，语言识别是有效的，而且这些几句话被认为是讲英语。");
         s.submit(d);
 
         Assert.assertEquals("Two sentence paragraph should return only one chapter", 1, d.getChaptersSize());

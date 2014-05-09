@@ -39,8 +39,8 @@ public class AbstractTest {
             for (Sentence s: p.getSentences()) {
 
                 for (Token t: s.getTokens()) {
-                    System.out.println("Token " + t.getRaw() + " / " + t.getClean()
-                            + "(" + t.getTag() + "/" + t.getType() + ")");
+                    System.out.println("Token " + t.getSurface() + " / " + t.getClean()
+                            + " (" + t.getTag() + "/" + t.getType() + "/"+t.getWeight()+") " + t.getSingular());
 
                     for (TokenType tt : t.getScores().keySet()) {
                         System.out.println("        " + tt + ": " + t.getScore(tt));
@@ -61,7 +61,7 @@ public class AbstractTest {
 
         if (freq != null) {
             for (Token t: freq.keySet()) {
-                System.out.println(freq.get(t) + " " + t.getRaw() + " (" + t.getTag() + "/" +
+                System.out.println(freq.get(t) + " " + t.getSurface() + " (" + t.getTag() + "/" +
                         t.getType() + ")");
 
                 for (TokenType tt : t.getScores().keySet()) {

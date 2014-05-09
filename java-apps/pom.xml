@@ -150,6 +150,11 @@
             <version>3.3.1</version>
         </dependency>
         <dependency>
+            <groupId>edu.stanford</groupId>
+            <artifactId>stanford-ner</artifactId>
+            <version>3.3.1</version>
+        </dependency>
+        <dependency>
             <groupId>nz.ac.waikato.cms.weka</groupId>
             <artifactId>weka-stable</artifactId>
             <version>3.6.10</version>

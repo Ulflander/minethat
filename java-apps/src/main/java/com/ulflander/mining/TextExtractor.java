@@ -36,9 +36,6 @@ public final class TextExtractor {
 
     }
 
-
-
-
     /**
      * Create a document from given Job, depending of type of Job.
      *

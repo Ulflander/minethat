@@ -18,7 +18,7 @@ public class TokenCleanerTest extends AbstractTest {
         s.addProcessor("extract.TokenCleaner");
         s.submit(d);
 
-        Assert.assertEquals("With TokenCleaner the last token should be clean", "test", d.getTokenAt(0,0,0,3).getRaw( ));
+        Assert.assertEquals("With TokenCleaner the last token should be clean", "test", d.getTokenAt(0,0,0,3).getSurface());
     }
 
 
@@ -26,7 +26,7 @@ public class TokenCleanerTest extends AbstractTest {
     @Test
     public void TokenCleanerComplexTest () {
 
-        d.setRaw("Is this a -&{-&-(test)]!!!?");
+        d.setSurface("Is this a -&{-&-(test)]!!!?");
 
         s.addProcessor("extract.DocumentCleaner");
         s.addProcessor("extract.DocumentSplitter");
@@ -36,6 +36,6 @@ public class TokenCleanerTest extends AbstractTest {
         s.addProcessor("extract.TokenCleaner");
         s.submit(d);
 
-        Assert.assertEquals("With TokenCleaner the last token should be clean", "test", d.getTokenAt(0, 0, 0, 3).getRaw( ));
+        Assert.assertEquals("With TokenCleaner the last token should be clean", "test", d.getTokenAt(0, 0, 0, 3).getSurface());
     }
 }

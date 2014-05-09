@@ -80,7 +80,7 @@ public class EnTokenSingularization extends Processor
             return;
         }
 
-        String raw = token.getRaw().toLowerCase();
+        String raw = token.getSurface().toLowerCase();
 
         if (raw.length() < MIN_TOKEN_LETTERS || except.contains(raw)) {
             return;

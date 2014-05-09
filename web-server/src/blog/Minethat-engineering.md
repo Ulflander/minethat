@@ -43,7 +43,7 @@ Here are the stacks of tools that we currently use for our codebase (that is pri
 
 #### Javascript
 
-* Code linter: JSLint ()
+* Code linter: Google Closure Linter
 * Logging: tracer (we prefered it over winston because of its handy MongoDB appender)
 
 #### Database

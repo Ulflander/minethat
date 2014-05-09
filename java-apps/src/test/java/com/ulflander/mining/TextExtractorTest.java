@@ -25,7 +25,7 @@ public class TextExtractorTest extends AbstractTest {
         Document d = TextExtractor.fromFile(new File(url.getPath()));
 
         Assert.assertEquals("Document raw should be populated with file content",
-           FileExtractorTest.TEST_TEXT, d.getRaw());
+           FileExtractorTest.TEST_TEXT, d.getSurface());
     }
 
     @Test
@@ -34,7 +34,7 @@ public class TextExtractorTest extends AbstractTest {
 
         Assert.assertEquals("Document raw should be populated with URL content",
             "Example Domain\n\n" +
-            "This domain is established to be used for illustrative examples in documents. You may use this domain in examples without prior coordination or asking for permission.", d.getRaw());
+            "This domain is established to be used for illustrative examples in documents. You may use this domain in examples without prior coordination or asking for permission.", d.getSurface());
 
     }
 
@@ -43,7 +43,7 @@ public class TextExtractorTest extends AbstractTest {
         Document d = TextExtractor.fromString(FileExtractorTest.TEST_TEXT);
 
         Assert.assertEquals("Document raw should be populated with file content",
-            FileExtractorTest.TEST_TEXT, d.getRaw());
+            FileExtractorTest.TEST_TEXT, d.getSurface());
     }
 
     @Test (expected = ExtractionException.class)

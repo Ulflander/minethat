@@ -26,7 +26,7 @@ public class EnTokenSingularizationTest extends AbstractTest {
     public void TokenSingularizationSimpleTest () {
 
 
-        d.setRaw("words movies horses uses theses houses wives");
+        d.setSurface("words movies horses uses theses houses wives");
         s.submit(d);
 
         Assert.assertEquals("First token should have singular 'word'", "word", d.getTokenAt(0,0,0,0).getSingular());
@@ -42,7 +42,7 @@ public class EnTokenSingularizationTest extends AbstractTest {
     public void TokenSingularizationIsPluralTest () {
 
 
-        d.setRaw("Word words is plural");
+        d.setSurface("Word words is plural");
         s.submit(d);
 
         Assert.assertEquals("Second token should be considered as plural", true, d.getTokenAt(0,0,0,1).isPlural());
@@ -52,7 +52,7 @@ public class EnTokenSingularizationTest extends AbstractTest {
     public void TokenSingularizationNotPluralTest () {
 
 
-        d.setRaw("Word words is plural");
+        d.setSurface("Word words is plural");
         s.submit(d);
 
         Assert.assertEquals("First token shouldn't be considered as plural", false, d.getTokenAt(0,0,0,0).isPlural());
@@ -62,7 +62,7 @@ public class EnTokenSingularizationTest extends AbstractTest {
     public void TokenSingularizationPeopleTest () {
 
 
-        d.setRaw("People is plural of person");
+        d.setSurface("People is plural of person");
         s.submit(d);
 
         Assert.assertEquals("First token 'People' should have singular 'person'", "person", d.getTokenAt(0,0,0,0).getSingular());

@@ -22,7 +22,7 @@ public class TokenListGuesserTest extends AbstractTest {
         s.addProcessor("extract.TokenCounter");
         s.addProcessor("extract.TokenCleaner");
         s.addProcessor("extract.TokenCorpusGuesser");
-        d.setRaw("My name is Maria Johns and I live in Paris, Texas.");
+        d.setSurface("My name is Maria Johns and I live in Paris, Texas.");
     }
 
 

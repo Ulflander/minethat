@@ -16,3 +16,11 @@ SHAREDCOUNT_API_KEY=7109c0e1ad66351d1b1e8819997e1ed28e56b283
 # Corpora
 CORPORA_HOST=localhost
 CORPORA_PORT=1234
+
+# Web server
+WEB_SERVER_HOST=localhost
+WEB_SERVER_PORT=1235
+
+# Email smtp for web server
+WEB_EMAIL_USER=xav@minethat.co
+WEB_EMAIL_PASS=rhapsody2376

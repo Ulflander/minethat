@@ -9,7 +9,7 @@ public class MetaTest extends AbstractTest {
     @Test
     public void LanguageTest () {
 
-        d.setRaw("Ceci est un test.");
+        d.setSurface("Ceci est un test.");
         d.setLanguage(Language.FR);
         s.addProcessor("extract.DocumentCleaner");
         s.addProcessor("extract.DocumentSplitter");

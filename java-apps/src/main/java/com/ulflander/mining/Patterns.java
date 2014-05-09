@@ -72,6 +72,12 @@ public final class Patterns {
             Pattern.compile("^[0-9]+$");
 
     /**
+     * Pattern to recognize a year representation (mid-2013).
+     */
+    public static final Pattern TOKEN_REC_DATE_YEAR_PREFIXED =
+            Pattern.compile("^[a-zA-Z]+-[0-9]{4}$");
+
+    /**
      * Pattern to recognize a money amount.
      */
     public static final Pattern TOKEN_REC_MONEY_AMOUNT =

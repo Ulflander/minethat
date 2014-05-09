@@ -71,7 +71,7 @@ public class TextCapUpperTest extends AbstractTest {
     @Test
     public void UppercasedDocumentCapUpperTest () {
 
-        d.setRaw("THIS IS AN UPPERCASED SENTENCE.");
+        d.setSurface("THIS IS AN UPPERCASED SENTENCE.");
         s.submit(d);
 
         Assert.assertEquals("Uppercased test sentence should be capitalized", true, d.isCapitalized());
@@ -81,7 +81,7 @@ public class TextCapUpperTest extends AbstractTest {
     @Test
     public void UppercasedChapterCapUpperTest () {
 
-        d.setRaw("THIS IS AN UPPERCASED SENTENCE.");
+        d.setSurface("THIS IS AN UPPERCASED SENTENCE.");
         s.submit(d);
 
         Assert.assertEquals("Uppercased test sentence first chapter should be capitalized", true, d.getChapterAt(0).isCapitalized());
@@ -91,7 +91,7 @@ public class TextCapUpperTest extends AbstractTest {
     @Test
     public void UppercasedParagrapCapUpperTest () {
 
-        d.setRaw("THIS IS AN UPPERCASED SENTENCE.");
+        d.setSurface("THIS IS AN UPPERCASED SENTENCE.");
         s.submit(d);
 
         Assert.assertEquals("Uppercased test sentence first paragraph should be capitalized", true, d.getParagraphAt(0, 0).isCapitalized());
@@ -101,7 +101,7 @@ public class TextCapUpperTest extends AbstractTest {
     @Test
     public void UppercasedSentenceCapUpperTest () {
 
-        d.setRaw("THIS IS AN UPPERCASED SENTENCE.");
+        d.setSurface("THIS IS AN UPPERCASED SENTENCE.");
         s.submit(d);
 
         Assert.assertEquals("Uppercased test sentence first sentence should be capitalized", true, d.getSentenceAt(0, 0, 0).isCapitalized());
@@ -111,7 +111,7 @@ public class TextCapUpperTest extends AbstractTest {
     @Test
     public void UppercasedTokenCapUpperTest () {
 
-        d.setRaw("THIS IS AN UPPERCASED SENTENCE.");
+        d.setSurface("THIS IS AN UPPERCASED SENTENCE.");
         s.submit(d);
 
         Assert.assertEquals("Uppercased test sentence first token should be capitalized", true, d.getTokenAt(0, 0, 0, 0).isCapitalized());
@@ -121,7 +121,7 @@ public class TextCapUpperTest extends AbstractTest {
     @Test
     public void UppercasedSecondTokenCapUpperTest () {
 
-        d.setRaw("THIS IS AN UPPERCASED SENTENCE.");
+        d.setSurface("THIS IS AN UPPERCASED SENTENCE.");
         s.submit(d);
 
         Assert.assertEquals("Uppercased test sentence second token should be capitalized", true, d.getTokenAt(0, 0, 0, 1).isCapitalized());

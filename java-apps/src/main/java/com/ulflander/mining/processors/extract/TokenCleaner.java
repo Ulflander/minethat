@@ -1,8 +1,11 @@
 package com.ulflander.mining.processors.extract;
 
-import com.ulflander.mining.Patterns;
+import com.ulflander.app.model.Language;
+import com.ulflander.app.model.Sentence;
 import com.ulflander.app.model.Token;
+import com.ulflander.mining.Patterns;
 import com.ulflander.mining.processors.Processor;
+import com.ulflander.mining.processors.ProcessorDepthControl;
 import com.ulflander.mining.processors.Requires;
 import org.apache.commons.lang3.StringUtils;
 
@@ -23,6 +26,7 @@ public class TokenCleaner extends Processor {
     @Override
     public final void init() {
         setInitialized(true);
+        setDepthControl(ProcessorDepthControl.SENTENCE);
     }
 
 
@@ -38,15 +42,23 @@ public class TokenCleaner extends Processor {
     }
 
     /**
-     * Run processor on a Token.
+     * Clean all tokens from some endpoint chars, also for english language,
+     * TokenCleaner strips accents from sentences.
      *
-     * @param token Token to run processor on
+     * @see com.ulflander.mining.Patterns
+     * @param sentence Sentence to run processor on
      */
     @Override
-    public final void extractToken(final Token token) {
-        token.setRaw(StringUtils.strip(
-            token.getRaw(), Patterns.TOKEN_CLEANER_ENDPOINTS));
-    }
+    public void extractSentence(Sentence sentence) {
+        for (Token t: sentence.getTokens()) {
 
+            t.setSurface(StringUtils.strip(
+                    t.getSurface(), Patterns.TOKEN_CLEANER_ENDPOINTS));
+
+            if (sentence.getLanguage() == Language.EN) {
+                t.setClean(StringUtils.stripAccents(t.getClean()));
+            }
+        }
+    }
 
 }

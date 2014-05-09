@@ -21,7 +21,7 @@ public class TokenRegExpGuesserTest extends AbstractTest {
         s.addProcessor("extract.TokenCleaner");
         s.addProcessor("extract.TokenCorpusGuesser");
         s.addProcessor("extract.TokenRegExpGuesser");
-        d.setRaw("My IP is 192.168.0.0");
+        d.setSurface("My IP is 192.168.0.0");
     }
 
     @Test
@@ -33,20 +33,20 @@ public class TokenRegExpGuesserTest extends AbstractTest {
         Assert.assertEquals("Simple sentence of 4 words with IP should return only one paragraph from one chapter", 1, d.getChapterAt(0).getParagraphsSize());
         Assert.assertEquals("Simple sentence of 4 words with IP should return only one sentence from one paragraph", 1, d.getParagraphAt(0, 0).getSentencesSize());
         Assert.assertEquals("Simple sentence of 4 words with IP should return four tokens from one sentence", 4, d.getSentenceAt(0, 0, 0).getTokensSize());
-        Assert.assertEquals("Simple sentence of 4 words with IP should return IP as fourth token", "192.168.0.0", d.getTokenAt(0, 0, 0, 3).getRaw());
+        Assert.assertEquals("Simple sentence of 4 words with IP should return IP as fourth token", "192.168.0.0", d.getTokenAt(0, 0, 0, 3).getSurface());
     }
 
     @Test
     public void IPAtEndOfSentenceSplitTest () {
 
-        d.setRaw("My IP is 192.168.0.0.");
+        d.setSurface("My IP is 192.168.0.0.");
         s.submit(d);
 
         Assert.assertEquals("Simple sentence of 4 words with IP should return only one chapter", 1, d.getChaptersSize());
         Assert.assertEquals("Simple sentence of 4 words with IP should return only one paragraph from one chapter", 1, d.getChapterAt(0).getParagraphsSize());
         Assert.assertEquals("Simple sentence of 4 words with IP should return only one sentence from one paragraph", 1, d.getParagraphAt(0, 0).getSentencesSize());
         Assert.assertEquals("Simple sentence of 4 words with IP should return four tokens from one sentence", 4, d.getSentenceAt(0, 0, 0).getTokensSize());
-        Assert.assertEquals("Simple sentence of 4 words with IP should return IP as fourth token", "192.168.0.0", d.getTokenAt(0, 0, 0, 3).getRaw());
+        Assert.assertEquals("Simple sentence of 4 words with IP should return IP as fourth token", "192.168.0.0", d.getTokenAt(0, 0, 0, 3).getSurface());
     }
 
     @Test
@@ -58,7 +58,7 @@ public class TokenRegExpGuesserTest extends AbstractTest {
 
     @Test
     public void Bad1IPTokenTypeTest () {
-        d.setRaw("My IP is 192.196.0");
+        d.setSurface("My IP is 192.196.0");
 
         s.submit(d);
         Assert.assertEquals("Bad IP shouldn't return IP as fourth token kind",
@@ -67,7 +67,7 @@ public class TokenRegExpGuesserTest extends AbstractTest {
 
     @Test
     public void Bad2IPTokenTypeTest () {
-        d.setRaw("My IP is 192.168.0.a");
+        d.setSurface("My IP is 192.168.0.a");
 
         s.submit(d);
         Assert.assertEquals("Bad IP shouldn't return IP as fourth token kind",
@@ -76,7 +76,7 @@ public class TokenRegExpGuesserTest extends AbstractTest {
 
     @Test
     public void Bad3IPTokenTypeTest () {
-        d.setRaw("My IP is 2222.22.22.999");
+        d.setSurface("My IP is 2222.22.22.999");
 
         s.submit(d);
         Assert.assertEquals("Bad IP shouldn't return IP as fourth token kind",
@@ -86,7 +86,7 @@ public class TokenRegExpGuesserTest extends AbstractTest {
 
     @Test
     public void EmailTokenTypeTest () {
-        d.setRaw("My IP is xlaumonier@fmail.com");
+        d.setSurface("My IP is xlaumonier@fmail.com");
         s.submit(d);
         Assert.assertEquals("Simple sentence of 4 words with email" +
                 " should return email as fourth token kind",
@@ -96,7 +96,7 @@ public class TokenRegExpGuesserTest extends AbstractTest {
 
     @Test
     public void HashTagTokenTypeTest () {
-        d.setRaw("My hash is #hash");
+        d.setSurface("My hash is #hash");
         s.submit(d);
         Assert.assertEquals("Simple sentence of 4 words with hashtag" +
                 " should return hashtag as fourth token kind",
@@ -106,7 +106,7 @@ public class TokenRegExpGuesserTest extends AbstractTest {
 
     @Test
     public void HashTagComplexTokenTypeTest () {
-        d.setRaw("My hash is #Hash_08_tag");
+        d.setSurface("My hash is #Hash_08_tag");
         s.submit(d);
         Assert.assertEquals("Simple sentence of 4 words with hashtag" +
                 " should return hashtag as fourth token kind",
@@ -116,7 +116,7 @@ public class TokenRegExpGuesserTest extends AbstractTest {
 
     @Test
     public void twitterUsernameTokenTypeTest () {
-        d.setRaw("My hash is @xav");
+        d.setSurface("My hash is @xav");
         s.submit(d);
         Assert.assertEquals("Simple sentence of 4 words with twitter username" +
                 " should return twitter username as fourth token kind",

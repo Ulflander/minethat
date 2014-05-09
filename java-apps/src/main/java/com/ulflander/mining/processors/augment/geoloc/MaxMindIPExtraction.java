@@ -73,7 +73,7 @@ public class MaxMindIPExtraction extends Processor {
         if (token.getType() == TokenType.IPV4) {
             try {
                 CityResponse response =
-                    reader.city(InetAddress.getByName(token.getRaw()));
+                    reader.city(InetAddress.getByName(token.getSurface()));
                 MaxMindIPExtractionResult res = new MaxMindIPExtractionResult();
                 if (response.getCity() != null) {
                     res.setCity(response.getCity().getName());

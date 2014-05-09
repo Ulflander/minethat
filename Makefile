@@ -20,6 +20,8 @@ help:
 init:
 	@cd java-apps && mvn install:install-file -Dfile=lib/stanford-postagger-3.3.1.jar -DgroupId=edu.stanford \
     -DartifactId=stanford-postagger -Dversion=3.3.1 -Dpackaging=jar
+	@cd java-apps && mvn install:install-file -Dfile=lib/stanford-ner.jar -DgroupId=edu.stanford \
+    -DartifactId=stanford-ner -Dversion=3.3.1 -Dpackaging=jar
 	@cd java-apps && mvn install:install-file -Dfile=lib/boilerpipe-1.2.0.jar -DgroupId=de.l3s.boilerpipe \
     -DartifactId=boilerpipe -Dversion=1.2.0 -Dpackaging=jar
 	@cd java-apps && mvn install
@@ -86,6 +88,7 @@ js-test: .node-lint-test .node-closure-test
 chunky:
 	@cd chunk && gulp
 	@cp chunk/dist/chunk.js chrome/vendors/
+	@cp chunk/dist/chunk.js web/src/client/vendors/js/
 
 # Run all tests
 test: java-test services-test node-test

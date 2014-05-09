@@ -133,7 +133,7 @@
 <a class="jxr_linenumber" name="L125" href="#L125">125</a> <em class="jxr_javadoccomment">     * @param token Token to check</em>
 <a class="jxr_linenumber" name="L126" href="#L126">126</a> <em class="jxr_javadoccomment">     */</em>
 <a class="jxr_linenumber" name="L127" href="#L127">127</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">void</strong> isIPV4(<strong class="jxr_keyword">final</strong> <a href="../../../../../com/ulflander/app/model/Token.html">Token</a> token) {
-<a class="jxr_linenumber" name="L128" href="#L128">128</a>         <strong class="jxr_keyword">if</strong> (test(Patterns.TOKEN_REC_IPADDRESS, token.getRaw())) {
+<a class="jxr_linenumber" name="L128" href="#L128">128</a>         <strong class="jxr_keyword">if</strong> (test(Patterns.TOKEN_REC_IPADDRESS, token.getSurface())) {
 <a class="jxr_linenumber" name="L129" href="#L129">129</a>             token.score(TokenType.IPV4, DEFAULT_REGEXP_SCORE);
 <a class="jxr_linenumber" name="L130" href="#L130">130</a>         }
 <a class="jxr_linenumber" name="L131" href="#L131">131</a>     }
@@ -145,7 +145,7 @@
 <a class="jxr_linenumber" name="L137" href="#L137">137</a> <em class="jxr_javadoccomment">     * @param token Token to check</em>
 <a class="jxr_linenumber" name="L138" href="#L138">138</a> <em class="jxr_javadoccomment">     */</em>
 <a class="jxr_linenumber" name="L139" href="#L139">139</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">void</strong> isHashTag(<strong class="jxr_keyword">final</strong> <a href="../../../../../com/ulflander/app/model/Token.html">Token</a> token) {
-<a class="jxr_linenumber" name="L140" href="#L140">140</a>         <strong class="jxr_keyword">if</strong> (test(Patterns.TOKEN_REC_HASHTAG, token.getRaw())) {
+<a class="jxr_linenumber" name="L140" href="#L140">140</a>         <strong class="jxr_keyword">if</strong> (test(Patterns.TOKEN_REC_HASHTAG, token.getSurface())) {
 <a class="jxr_linenumber" name="L141" href="#L141">141</a>             token.score(TokenType.HASHTAG, DEFAULT_REGEXP_SCORE);
 <a class="jxr_linenumber" name="L142" href="#L142">142</a>         }
 <a class="jxr_linenumber" name="L143" href="#L143">143</a>     }
@@ -158,7 +158,7 @@
 <a class="jxr_linenumber" name="L150" href="#L150">150</a> <em class="jxr_javadoccomment">     */</em>
 <a class="jxr_linenumber" name="L151" href="#L151">151</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">void</strong> isTwitterUsername(<strong class="jxr_keyword">final</strong> <a href="../../../../../com/ulflander/app/model/Token.html">Token</a> token) {
 <a class="jxr_linenumber" name="L152" href="#L152">152</a> 
-<a class="jxr_linenumber" name="L153" href="#L153">153</a>         <strong class="jxr_keyword">if</strong> (test(Patterns.TOKEN_REC_TWITTER_USER, token.getRaw())) {
+<a class="jxr_linenumber" name="L153" href="#L153">153</a>         <strong class="jxr_keyword">if</strong> (test(Patterns.TOKEN_REC_TWITTER_USER, token.getSurface())) {
 <a class="jxr_linenumber" name="L154" href="#L154">154</a>             token.score(TokenType.TWITTER_USERNAME, DEFAULT_REGEXP_SCORE);
 <a class="jxr_linenumber" name="L155" href="#L155">155</a>         }
 <a class="jxr_linenumber" name="L156" href="#L156">156</a>     }
@@ -171,7 +171,7 @@
 <a class="jxr_linenumber" name="L163" href="#L163">163</a> <em class="jxr_javadoccomment">     */</em>
 <a class="jxr_linenumber" name="L164" href="#L164">164</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">void</strong> isEmail(<strong class="jxr_keyword">final</strong> <a href="../../../../../com/ulflander/app/model/Token.html">Token</a> token) {
 <a class="jxr_linenumber" name="L165" href="#L165">165</a> 
-<a class="jxr_linenumber" name="L166" href="#L166">166</a>         <strong class="jxr_keyword">if</strong> (test(Patterns.TOKEN_REC_EMAIL, token.getRaw())) {
+<a class="jxr_linenumber" name="L166" href="#L166">166</a>         <strong class="jxr_keyword">if</strong> (test(Patterns.TOKEN_REC_EMAIL, token.getSurface())) {
 <a class="jxr_linenumber" name="L167" href="#L167">167</a>             token.score(TokenType.EMAIL, DEFAULT_REGEXP_SCORE);
 <a class="jxr_linenumber" name="L168" href="#L168">168</a>         }
 <a class="jxr_linenumber" name="L169" href="#L169">169</a>     }
@@ -187,7 +187,7 @@
 <a class="jxr_linenumber" name="L179" href="#L179">179</a>         <em class="jxr_comment">/*</em>
 <a class="jxr_linenumber" name="L180" href="#L180">180</a> <em class="jxr_comment">            First if only a number, we give a very low score</em>
 <a class="jxr_linenumber" name="L181" href="#L181">181</a> <em class="jxr_comment">         */</em>
-<a class="jxr_linenumber" name="L182" href="#L182">182</a>         <strong class="jxr_keyword">if</strong> (test(Patterns.TOKEN_REC_NUMBER, token.getRaw())
+<a class="jxr_linenumber" name="L182" href="#L182">182</a>         <strong class="jxr_keyword">if</strong> (test(Patterns.TOKEN_REC_NUMBER, token.getSurface())
 <a class="jxr_linenumber" name="L183" href="#L183">183</a>             || token.getType() == TokenType.NUMERIC) {
 <a class="jxr_linenumber" name="L184" href="#L184">184</a>             token.score(TokenType.MONEY_AMOUNT, LOW_REGEXP_SCORE);
 <a class="jxr_linenumber" name="L185" href="#L185">185</a> 
@@ -195,14 +195,14 @@
 <a class="jxr_linenumber" name="L187" href="#L187">187</a> <em class="jxr_comment">            If number + chars that could be some money currencies or</em>
 <a class="jxr_linenumber" name="L188" href="#L188">188</a> <em class="jxr_comment">            quantifiers, a normal score.</em>
 <a class="jxr_linenumber" name="L189" href="#L189">189</a> <em class="jxr_comment">         */</em>
-<a class="jxr_linenumber" name="L190" href="#L190">190</a>         } <strong class="jxr_keyword">else</strong> <strong class="jxr_keyword">if</strong> (test(Patterns.TOKEN_REC_MONEY_AMOUNT, token.getRaw())) {
+<a class="jxr_linenumber" name="L190" href="#L190">190</a>         } <strong class="jxr_keyword">else</strong> <strong class="jxr_keyword">if</strong> (test(Patterns.TOKEN_REC_MONEY_AMOUNT, token.getSurface())) {
 <a class="jxr_linenumber" name="L191" href="#L191">191</a>                 token.score(TokenType.MONEY_AMOUNT, DEFAULT_REGEXP_SCORE);
 <a class="jxr_linenumber" name="L192" href="#L192">192</a> 
 <a class="jxr_linenumber" name="L193" href="#L193">193</a>         <em class="jxr_comment">/*</em>
 <a class="jxr_linenumber" name="L194" href="#L194">194</a> <em class="jxr_comment">            If only a currency char, low score.</em>
 <a class="jxr_linenumber" name="L195" href="#L195">195</a> <em class="jxr_comment">         */</em>
 <a class="jxr_linenumber" name="L196" href="#L196">196</a>         } <strong class="jxr_keyword">else</strong> <strong class="jxr_keyword">if</strong> (test(Patterns.TOKEN_REC_MONEY_CURRENCY_CHARS,
-<a class="jxr_linenumber" name="L197" href="#L197">197</a>                 token.getRaw())) {
+<a class="jxr_linenumber" name="L197" href="#L197">197</a>                 token.getSurface())) {
 <a class="jxr_linenumber" name="L198" href="#L198">198</a>             token.score(TokenType.MONEY_AMOUNT, LOW_REGEXP_SCORE);
 <a class="jxr_linenumber" name="L199" href="#L199">199</a>         }
 <a class="jxr_linenumber" name="L200" href="#L200">200</a>     }
@@ -216,7 +216,7 @@
 <a class="jxr_linenumber" name="L208" href="#L208">208</a> <em class="jxr_javadoccomment">     */</em>
 <a class="jxr_linenumber" name="L209" href="#L209">209</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">void</strong> isCapitalized(<strong class="jxr_keyword">final</strong> <a href="../../../../../com/ulflander/app/model/Token.html">Token</a> token) {
 <a class="jxr_linenumber" name="L210" href="#L210">210</a> 
-<a class="jxr_linenumber" name="L211" href="#L211">211</a>         String str = token.getRaw();
+<a class="jxr_linenumber" name="L211" href="#L211">211</a>         String str = token.getSurface();
 <a class="jxr_linenumber" name="L212" href="#L212">212</a> 
 <a class="jxr_linenumber" name="L213" href="#L213">213</a>         <em class="jxr_comment">/*</em>
 <a class="jxr_linenumber" name="L214" href="#L214">214</a> <em class="jxr_comment">            Capitalization rule can't apply if most of the</em>
@@ -261,9 +261,9 @@
 <a class="jxr_linenumber" name="L253" href="#L253">253</a>         <em class="jxr_comment">/*</em>
 <a class="jxr_linenumber" name="L254" href="#L254">254</a> <em class="jxr_comment">            If a number</em>
 <a class="jxr_linenumber" name="L255" href="#L255">255</a> <em class="jxr_comment">         */</em>
-<a class="jxr_linenumber" name="L256" href="#L256">256</a>         <strong class="jxr_keyword">if</strong> (test(Patterns.TOKEN_REC_NUMBER, token.getRaw())) {
+<a class="jxr_linenumber" name="L256" href="#L256">256</a>         <strong class="jxr_keyword">if</strong> (test(Patterns.TOKEN_REC_NUMBER, token.getSurface())) {
 <a class="jxr_linenumber" name="L257" href="#L257">257</a> 
-<a class="jxr_linenumber" name="L258" href="#L258">258</a>             <strong class="jxr_keyword">int</strong> val = Integer.valueOf(token.getRaw());
+<a class="jxr_linenumber" name="L258" href="#L258">258</a>             <strong class="jxr_keyword">int</strong> val = Integer.valueOf(token.getSurface());
 <a class="jxr_linenumber" name="L259" href="#L259">259</a>             <em class="jxr_comment">/*</em>
 <a class="jxr_linenumber" name="L260" href="#L260">260</a> <em class="jxr_comment">                and could be a month: low score of 1 ( there's a high</em>
 <a class="jxr_linenumber" name="L261" href="#L261">261</a> <em class="jxr_comment">                probability to find numbers between 1 &amp;&amp; 31 for money amounts as</em>
@@ -292,7 +292,7 @@
 <a class="jxr_linenumber" name="L284" href="#L284">284</a>         <em class="jxr_comment">/*</em>
 <a class="jxr_linenumber" name="L285" href="#L285">285</a> <em class="jxr_comment">            If like an hour.</em>
 <a class="jxr_linenumber" name="L286" href="#L286">286</a> <em class="jxr_comment">         */</em>
-<a class="jxr_linenumber" name="L287" href="#L287">287</a>         } <strong class="jxr_keyword">else</strong> <strong class="jxr_keyword">if</strong> (test(Patterns.TOKEN_REC_HOUR, token.getRaw())) {
+<a class="jxr_linenumber" name="L287" href="#L287">287</a>         } <strong class="jxr_keyword">else</strong> <strong class="jxr_keyword">if</strong> (test(Patterns.TOKEN_REC_HOUR, token.getSurface())) {
 <a class="jxr_linenumber" name="L288" href="#L288">288</a>             token.score(TokenType.DATE_PART, 2);
 <a class="jxr_linenumber" name="L289" href="#L289">289</a> 
 <a class="jxr_linenumber" name="L290" href="#L290">290</a>         <em class="jxr_comment">/*</em>

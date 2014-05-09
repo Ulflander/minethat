@@ -24,7 +24,7 @@ public class LoadJSONFileTest extends AbstractTest {
         s.addProcessor("augment.BasicTextStat");
         s.addProcessor("augment.geoloc.MaxMindIPExtraction");
         s.addProcessor("load.JSONFile");
-        d.setRaw("This english test moslty test that my IP 81.2.69.160 is somehow geolocated, and that plurals are " +
+        d.setSurface("This english test moslty test that my IP 81.2.69.160 is somehow geolocated, and that plurals are " +
                 "actually considered as plural. For future tests it contains also sentences.\n\nAnd paragraphs");
         s.submit(d);
 

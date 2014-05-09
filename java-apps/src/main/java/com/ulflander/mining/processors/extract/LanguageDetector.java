@@ -74,7 +74,7 @@ public class LanguageDetector extends Processor {
     @Override
     public final void extractDocument(final Document doc) {
 
-        Language lang = detect(doc.getRaw());
+        Language lang = detect(doc.getSurface());
         HashMap<Language, Integer> languages = new HashMap<Language, Integer>();
 
         if (lang != null) {
@@ -105,7 +105,7 @@ public class LanguageDetector extends Processor {
      */
     public final void detectSentence(final Sentence sentence,
                                final HashMap<Language, Integer> languages) {
-        Language lang = detect(sentence.getRaw());
+        Language lang = detect(sentence.getSurface());
         sentence.setLanguage(lang);
 
         if (languages.containsKey(lang)) {

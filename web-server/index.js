@@ -18,7 +18,11 @@
     app.log = logger;
 
     /**
-     * Setup preprocessors
+     * Setup preprocessors:
+     * - cookie parsing
+     * - session management
+     * - authentication policies
+     * - analytics
      */
     before =before.concat(cookieParser());
     before = before.concat(session({
@@ -37,8 +41,6 @@
     app.use(flatiron.plugins['static'], {
         dir: __dirname + '/static'
     });
-
-
 
     /**
      * Init routing.

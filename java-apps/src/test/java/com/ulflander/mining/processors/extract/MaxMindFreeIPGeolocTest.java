@@ -21,7 +21,7 @@ public class MaxMindFreeIPGeolocTest extends AbstractTest {
     @Test
     public void LocalIPTest () {
 
-        d.setRaw("My IP is 192.168.0.0");
+        d.setSurface("My IP is 192.168.0.0");
         s.submit(d);
 
         //Assert.assertEquals("Local IP shouldn't return a location", 0, d.getTokenAt(0,0,0,3).getResults().size());
@@ -30,7 +30,7 @@ public class MaxMindFreeIPGeolocTest extends AbstractTest {
     @Test
     public void RealIPResponseTest () {
 
-        d.setRaw("My IP is 81.2.69.160");
+        d.setSurface("My IP is 81.2.69.160");
         s.submit(d);
 
         //Assert.assertEquals("Real IP should return a location", 1, d.getTokenAt(0,0,0,3).getResults().size());
@@ -39,7 +39,7 @@ public class MaxMindFreeIPGeolocTest extends AbstractTest {
     @Test
     public void RealIPCityTest () {
 
-        d.setRaw("My IP is 81.2.69.160");
+        d.setSurface("My IP is 81.2.69.160");
         s.submit(d);
 
         //MaxMindIPExtractionResult res = (MaxMindIPExtractionResult) d.getTokenAt(0, 0, 0, 3).getResults().get(0);

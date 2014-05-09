@@ -97,8 +97,9 @@ public class POSTagger extends Processor implements ILocalizedProcessor {
                 + sentence.getLanguage());
             return;
         }
-        String tagged = tagger.tagString(sentence.getRaw());
+        String tagged = tagger.tagString(sentence.getSurface());
         sentence.setRawPartOfSpeech(tagged);
+        System.out.println(tagged);
     }
 
     /**

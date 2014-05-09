@@ -208,7 +208,7 @@ public class ProcessingExecutor {
             LOGGER.trace("  - DOCUMENT ANALYSIS ENDED: Done in " + t + "ms");
         }
 
-        document.setOriginal(document.getRaw());
+        document.setOriginal(document.getSurface());
 
         if (document.getExists()) {
             DocumentStorage.update(document);

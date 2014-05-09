@@ -71,11 +71,13 @@ public class DocumentSplitter extends Processor {
      * @param doc Document to split
      */
     public final void toChapters(final Document doc) {
-        if (doc.getRaw().equals("")) {
+        if (doc.getSurface().equals("")) {
             return;
         }
         // TODO : split to chapter
-        Chapter chapter = new Chapter(doc.getRaw());
+        Chapter chapter = new Chapter(doc.getSurface());
+        chapter.setStartIndex(0);
+        chapter.setEndIndex(doc.getSurface().length() - 1);
         toParagraphs(doc, chapter);
     }
 
@@ -91,21 +93,25 @@ public class DocumentSplitter extends Processor {
      */
     public final void toParagraphs(final Document doc,
                                   final Chapter chapter) {
-        if (chapter.getRaw().equals("")) {
+        if (chapter.getSurface().equals("")) {
             return;
         }
 
         String[] paragraphs =
-            Patterns.CHAPTER_TO_PARAGRAPH.split(chapter.getRaw());
+            Patterns.CHAPTER_TO_PARAGRAPH.split(chapter.getSurface());
         Paragraph prev = null;
-        int total = 0;
+        int index = 0;
 
         for (String s : paragraphs) {
             if (s.equals("")) {
                 continue;
             }
 
+
             Paragraph paragraph = new Paragraph(s);
+            paragraph.setStartIndex(index);
+            index = index + s.length();
+            paragraph.setEndIndex(index);
 
             if (prev != null) {
                 prev.setNext(paragraph);
@@ -135,12 +141,12 @@ public class DocumentSplitter extends Processor {
      */
     public final void toSentences(final Chapter chapter,
                                  final Paragraph paragraph) {
-        if (paragraph.getRaw().equals("")) {
+        if (paragraph.getSurface().equals("")) {
             return;
         }
 
 
-        String raw = paragraph.getRaw();
+        String raw = paragraph.getSurface();
         BreakIterator bi = BreakIterator.getSentenceInstance();
 
         /*
@@ -151,7 +157,7 @@ public class DocumentSplitter extends Processor {
 
         bi.setText(raw);
         int index = 0;
-        int curr = 0;
+        int curr;
         Sentence prev = null;
 
         while (bi.next() != BreakIterator.DONE) {
@@ -173,7 +179,7 @@ public class DocumentSplitter extends Processor {
             Sentence sentence =
                 new Sentence(raw.substring(index, curr));
 
-            if (sentence.getRaw().equals("")) {
+            if (sentence.getSurface().equals("")) {
                 continue;
             }
 
@@ -184,6 +190,10 @@ public class DocumentSplitter extends Processor {
                 prev.setNext(sentence);
                 sentence.setPrevious(prev);
             }
+
+            sentence.setStartIndex(index);
+            sentence.setEndIndex(curr);
+
 
             prev = sentence;
             index = curr;

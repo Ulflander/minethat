@@ -31,19 +31,17 @@ make
 ## Other repositories requirements
 
 In order to have the whole Minethat system running, you should clone in the main
-directory (this repo) two other repositories: [web](https://github.com/Minethat/web) 
+directory (this repo) two other repositories: [web](https://github.com/Minethat/web)
 and [corpora](https://github.com/Minethat/corpora).
 
 ## Content
 
 ```sh
-~/app
-~/app/conf          # Configuration
-~/app/datasets      # Datasets used by java services
-~/app/java-apps     # Java services
-~/app/lib           # Some libs used by makefile
-~/app/logs          # All logs for all processes and apps
-~/app/utils         # Handy scripts
+    /conf          # Configuration
+    /datasets      # Datasets used by java services
+    /java-apps     # Java services
+    /logs          # All logs for all processes and apps
+    /utils         # Libraries
 ```
 
 ## Services
@@ -75,7 +73,7 @@ $ cd web-server
 $ gulp
 ```
 
-Use `gulp watch` while working to refresh files. 
+Use `gulp watch` while working to refresh files.
 
 This module serves:
 
@@ -119,14 +117,14 @@ This module serves:
 
 ### How it works
 
-MailInputService and web-server generate some Jobs, save them in MongoDB, get the ID, 
+MailInputService and web-server generate some Jobs, save them in MongoDB, get the ID,
 and submit ID to queue input service that will run the job and process each document in it.
 
 
 ```
 MailInputService >
                     > ExtractorService > MinerService
-Web-server       > 
+Web-server       >
 ```
 
 
@@ -161,7 +159,7 @@ Sellthat
 We believe that text-mining should be simple and accessible.
 
 Here are a few examples of use:
-* Rate website comments, propositions commerciales 
+* Rate website comments, propositions commerciales
 * Annotate your content
 
 
@@ -275,7 +273,7 @@ Premium support includes:
 
 ### Training service
 
-Startup and business owners 
+Startup and business owners
 
 
 
@@ -313,7 +311,7 @@ Three ways:
 
 ### What is the technical process?
 
-When you submit a document, a Job is automatically created and queued in our stream processing infrastructure. The document will go through different kind of processors, that will split the text into simple analyzable senquences of tokens. Once all processors are done, the job is 
+When you submit a document, a Job is automatically created and queued in our stream processing infrastructure. The document will go through different kind of processors, that will split the text into simple analyzable senquences of tokens. Once all processors are done, the job is
 
 ### Does it implies machine learning?
 

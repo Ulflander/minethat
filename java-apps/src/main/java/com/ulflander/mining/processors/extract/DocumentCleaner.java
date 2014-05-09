@@ -41,7 +41,7 @@ public class DocumentCleaner extends Processor {
     public final void extractDocument(final Document doc) {
 
         // First trim
-        String raw = doc.getRaw();
+        String raw = doc.getSurface();
 
         // \r\n
         raw = raw.replaceAll("\\r\\n", "\n");
@@ -50,7 +50,7 @@ public class DocumentCleaner extends Processor {
         // Vertical tab space char
         raw = raw.replaceAll("[\\x20]", " ");
 
-        doc.setRaw(raw);
+        doc.setSurface(raw);
     }
 
 }

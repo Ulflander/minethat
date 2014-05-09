@@ -25,7 +25,7 @@ public class BasicTextStatTest extends AbstractTest {
     @Test
     public void BasicTest () {
 
-        d.setRaw("Ce texte est manifestement en français. L'objectif est que la reconnaissance de langue soit efficace et que ces quelques mots soient considérés étant français.");
+        d.setSurface("Ce texte est manifestement en français. L'objectif est que la reconnaissance de langue soit efficace et que ces quelques mots soient considérés étant français.");
         s.submit(d);
 
         Assert.assertEquals("Result should be available", true, d.getProperties("basic_stats").size() > 0);
@@ -34,7 +34,7 @@ public class BasicTextStatTest extends AbstractTest {
     @Test
     public void toStringTest () {
 
-        d.setRaw("Ce texte est manifestement en français. L'objectif est que la reconnaissance de langue soit efficace et que ces quelques mots soient considérés étant français.");
+        d.setSurface("Ce texte est manifestement en français. L'objectif est que la reconnaissance de langue soit efficace et que ces quelques mots soient considérés étant français.");
         s.submit(d);
 
         Assert.assertNotSame("Result should be available", "",

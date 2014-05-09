@@ -125,7 +125,7 @@ public class TokenRegExpGuesser extends Processor {
      * @param token Token to check
      */
     public final void isIPV4(final Token token) {
-        if (test(Patterns.TOKEN_REC_IPADDRESS, token.getRaw())) {
+        if (test(Patterns.TOKEN_REC_IPADDRESS, token.getSurface())) {
             token.score(TokenType.IPV4, DEFAULT_REGEXP_SCORE);
         }
     }
@@ -137,7 +137,7 @@ public class TokenRegExpGuesser extends Processor {
      * @param token Token to check
      */
     public final void isHashTag(final Token token) {
-        if (test(Patterns.TOKEN_REC_HASHTAG, token.getRaw())) {
+        if (test(Patterns.TOKEN_REC_HASHTAG, token.getSurface())) {
             token.score(TokenType.HASHTAG, DEFAULT_REGEXP_SCORE);
         }
     }
@@ -150,7 +150,7 @@ public class TokenRegExpGuesser extends Processor {
      */
     public final void isTwitterUsername(final Token token) {
 
-        if (test(Patterns.TOKEN_REC_TWITTER_USER, token.getRaw())) {
+        if (test(Patterns.TOKEN_REC_TWITTER_USER, token.getSurface())) {
             token.score(TokenType.TWITTER_USERNAME, DEFAULT_REGEXP_SCORE);
         }
     }
@@ -163,7 +163,7 @@ public class TokenRegExpGuesser extends Processor {
      */
     public final void isEmail(final Token token) {
 
-        if (test(Patterns.TOKEN_REC_EMAIL, token.getRaw())) {
+        if (test(Patterns.TOKEN_REC_EMAIL, token.getSurface())) {
             token.score(TokenType.EMAIL, DEFAULT_REGEXP_SCORE);
         }
     }
@@ -179,7 +179,7 @@ public class TokenRegExpGuesser extends Processor {
         /*
             First if only a number, we give a very low score
          */
-        if (test(Patterns.TOKEN_REC_NUMBER, token.getRaw())
+        if (test(Patterns.TOKEN_REC_NUMBER, token.getSurface())
             || token.getType() == TokenType.NUMERIC) {
             token.score(TokenType.MONEY_AMOUNT, LOW_REGEXP_SCORE);
 
@@ -187,14 +187,14 @@ public class TokenRegExpGuesser extends Processor {
             If number + chars that could be some money currencies or
             quantifiers, a normal score.
          */
-        } else if (test(Patterns.TOKEN_REC_MONEY_AMOUNT, token.getRaw())) {
+        } else if (test(Patterns.TOKEN_REC_MONEY_AMOUNT, token.getSurface())) {
                 token.score(TokenType.MONEY_AMOUNT, DEFAULT_REGEXP_SCORE);
 
         /*
             If only a currency char, low score.
          */
         } else if (test(Patterns.TOKEN_REC_MONEY_CURRENCY_CHARS,
-                token.getRaw())) {
+                token.getSurface())) {
             token.score(TokenType.MONEY_AMOUNT, LOW_REGEXP_SCORE);
         }
     }
@@ -208,7 +208,7 @@ public class TokenRegExpGuesser extends Processor {
      */
     public final void isCapitalized(final Token token) {
 
-        String str = token.getRaw();
+        String str = token.getSurface();
 
         /*
             Capitalization rule can't apply if most of the
@@ -253,9 +253,9 @@ public class TokenRegExpGuesser extends Processor {
         /*
             If a number
          */
-        if (test(Patterns.TOKEN_REC_NUMBER, token.getRaw())) {
+        if (test(Patterns.TOKEN_REC_NUMBER, token.getSurface())) {
 
-            int val = Integer.valueOf(token.getRaw());
+            int val = Integer.valueOf(token.getSurface());
             /*
                 and could be a month: low score of 1 ( there's a high
                 probability to find numbers between 1 && 31 for money amounts as
@@ -284,7 +284,14 @@ public class TokenRegExpGuesser extends Processor {
         /*
             If like an hour.
          */
-        } else if (test(Patterns.TOKEN_REC_HOUR, token.getRaw())) {
+        } else if (test(Patterns.TOKEN_REC_HOUR, token.getSurface())) {
+            token.score(TokenType.DATE_PART, 2);
+
+        /*
+            mid-2013
+         */
+        } else if (test(Patterns.TOKEN_REC_DATE_YEAR_PREFIXED,
+                token.getSurface())) {
             token.score(TokenType.DATE_PART, 2);
 
         /*

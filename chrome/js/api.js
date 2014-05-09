@@ -10,7 +10,7 @@
         call: function (api_url, content, callback) {
             var xhr = new XMLHttpRequest();
 
-            xhr.open("POST", chunk.conf('api_server') + 
+            xhr.open("POST", chunk.conf('api_server') +
                             "/api/v1/" + api_url, true);
 
             xhr.setRequestHeader("Content-Type", "application/json");
