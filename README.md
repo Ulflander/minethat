@@ -64,8 +64,6 @@ and [corpora](https://github.com/Minethat/corpora).
 
 ## Web server
 
-Based on flatironjs.
-
 Uses gulp.js for build:
 
 ```
@@ -104,8 +102,9 @@ This module serves:
 
 ### Text mining
 
-* NLP: Apache OpenNLP, Stanford POSTagger
-* Text extraction: Apache Tika
+* NLP: Apache OpenNLP, Stanford POSTagger & NER
+* Text extraction: Apache Tika, PDFBox
+* HTML parsing: Jsoup
 
 ### Datasources
 
