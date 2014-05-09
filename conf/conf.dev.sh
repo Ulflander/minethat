@@ -21,6 +21,7 @@ CORPORA_PORT=1234
 # Web server
 WEB_SERVER_HOST=localhost
 WEB_SERVER_PORT=1235
+WEB_SERVER_STATIC_PATH=/home/ubuntu/minethat/web/dist/
 
 # Email smtp for web server
 WEB_EMAIL_USER=xav@minethat.co
