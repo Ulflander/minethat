@@ -50,5 +50,33 @@
                 classes: classes
             }, callback);
         }
+
+
+
+        check_source: function (source, callback) {
+            var xhr = new XMLHttpRequest();
+
+            xhr.open("POST", chunk.conf('api_server') +
+                            "/api/v1/sources/check", true);
+
+            xhr.setRequestHeader("Content-Type", "application/json");
+
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState == 4) {
+                    var resp = JSON.parse(xhr.responseText);
+                    if (typeof callback === 'function') {
+                        if (!!resp && resp.status === "success") {
+                            callback(null, resp.job_id);
+                        } else {
+                            callback(true);
+                        }
+                    }
+                }
+            };
+
+            xhr.send(JSON.stringify({
+                feed_url: source
+            }));
+        },
     });
 }());

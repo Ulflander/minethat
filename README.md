@@ -53,6 +53,7 @@ and [corpora](https://github.com/Minethat/corpora).
 
 ### Backend services
 
+- `node web/src/server/aggregator.js`
 - corpora/corpora -r datasets/corpora
 - java-apps/dist/bin/mail_service
 - java-apps/dist/bin/extractor_service
@@ -60,7 +61,7 @@ and [corpora](https://github.com/Minethat/corpora).
 
 ### Front end service
 
-- node web/index.js
+- `node web/src/server/index.js`
 
 ## Web server
 
