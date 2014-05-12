@@ -12,7 +12,8 @@
   "permissions": [
     "storage",
     "tabs",
-    "http://*/"
+    "http://*/",
+    "https://*/"
   ],
   "options_page": "options.html"
 }

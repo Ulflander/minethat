@@ -49,11 +49,11 @@
                 target: 'TRAIN',
                 classes: classes
             }, callback);
-        }
+        },
 
 
 
-        check_source: function (source, callback) {
+        check_source: function (url, callback) {
             var xhr = new XMLHttpRequest();
 
             xhr.open("POST", chunk.conf('api_server') +
@@ -65,18 +65,14 @@
                 if (xhr.readyState == 4) {
                     var resp = JSON.parse(xhr.responseText);
                     if (typeof callback === 'function') {
-                        if (!!resp && resp.status === "success") {
-                            callback(null, resp.job_id);
-                        } else {
-                            callback(true);
-                        }
+                        callback(resp);
                     }
                 }
             };
 
             xhr.send(JSON.stringify({
-                feed_url: source
+                feed_url: url
             }));
-        },
+        }
     });
 }());
