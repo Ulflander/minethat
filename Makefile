@@ -68,21 +68,6 @@ java-run-miner:
 	@export JAVA_OPTS="-Xms1024m -Xmx1024m -XX:PermSize=256m -XX:MaxPermSize=256m" && \
 		./java-apps/dist/bin/miner_service "$(CURR_ROOT)" local
 
-# Rune Node services tests
-js-test: .node-lint-test .node-closure-test
-
-.node-lint-test:
-	@gjslint -r --strict web-server/index.js || (say "Web server index is not linted" && exit 1)
-	@gjslint -r --strict web-server/gulpfile.js || (say "Gulp file is not linted" && exit 1)
-	@gjslint -r --strict \
-		--jslint_error blank_lines_at_top_level \
-		--jslint_error braces_around_type \
-		--jslint_error optional_type_marker \
-		--jsdoc web-server/src/* || (say "Web server source is not linted" && exit 1)
-
-.node-closure-test:
-	@find $(NODE_SOURCE) -name "*.js" -print0 | xargs -0 java -jar $(GCLOSURE) --js_output_file test.js --js || (say "Web server source compilation failed" && exit 1)
-	@rm test.js
 
 # Build modular and update it in chrome extension and web server
 chunky:

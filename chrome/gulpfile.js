@@ -28,7 +28,7 @@
                 'js/*.js'
             ])
             .pipe(gccompiler({
-              compilerPath: '../lib/gclosure-compiler.jar',
+              compilerPath: '../utils/gclosure-compiler.jar',
               fileName: 'js/*.js'
             }));
     });
