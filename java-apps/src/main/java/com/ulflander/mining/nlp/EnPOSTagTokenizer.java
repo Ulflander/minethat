@@ -8,6 +8,7 @@ import com.ulflander.utils.UlfStringUtils;
 import edu.stanford.nlp.ie.AbstractSequenceClassifier;
 import edu.stanford.nlp.ie.crf.CRFClassifier;
 import edu.stanford.nlp.ling.CoreLabel;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -21,6 +22,13 @@ import java.io.IOException;
  * Created by Ulflander on 4/16/14.
  */
 public final class EnPOSTagTokenizer extends Tokenizer {
+
+    /**
+     * Score to apply to token when an entity has been recognized by Stanford
+     * NER classifier.
+     */
+    public static final int STANFORD_NER_SCORE = 5;
+
 
     /**
      * Classifier.
@@ -41,8 +49,8 @@ public final class EnPOSTagTokenizer extends Tokenizer {
     public EnPOSTagTokenizer() {
         if (classifier == null) {
             try {
-                classifier = CRFClassifier.getClassifier(Conf.getDataPath() +
-                    "ner-classifiers/english.muc.7class.distsim.crf.ser.gz");
+                classifier = CRFClassifier.getClassifier(Conf.getDataPath()
+                    + "ner-classifiers/english.muc.7class.distsim.crf.ser.gz");
             } catch (IOException e) {
                 LOGGER.error("Unable to load NER classifier", e);
             } catch (ClassNotFoundException e) {
@@ -58,32 +66,17 @@ public final class EnPOSTagTokenizer extends Tokenizer {
         String[] tokens = raw.split(" ");
         int i, l = tokens.length;
         Token prev = null;
-        String nerResult = null;
-        String[] nerTokens = null;
 
         // While tokenizing, let's run NER
         // and cleanup the result:
-        if (classifier != null) {
-            nerResult = UlfStringUtils.cleanSpaces(
-                    classifier.classifyToString(sentence.getSurface())
-                        // Normalize result so we got something almost the same
-                        // Than pos tagging in term of number of spaces/tokens
-                        .replaceAll("([^ ]+/MONEY)([0-9]+)", "$1 $2")
-                        .replaceAll("(['][a-zA-Z])/([A-Z]+)", " $1/$2")
-                        .replaceAll("([^A-Za-z0-9]+)/([A-Z]+)", " $1/$2")
-                        .replaceAll("-LRB -/O", "-LRB-/O ")
-                        .replaceAll("-RRB -/O", " -RRB-/O")
-                        .replaceAll(" ([A-Za-z0-9]+) ([^A-Za-z0-9])", " $1$2")
-                        .replaceAll("/O[^R ]", "/O ")
-                        .replaceAll(" - ", " -").trim());
-            nerTokens = nerResult.split(" ");
-        }
+        String[] nerTokens = runNER(sentence);
+
 
         // Validate NER/POS tagging: must have same length
         if (l != nerTokens.length) {
             LOGGER.error("Unable to use NER result: normalization failed:\n"
                         + "POS: " + raw + "\n"
-                        + "NER: " + nerResult);
+                        + "NER: " + StringUtils.join(nerTokens, " "));
 
             nerTokens = null;
         }
@@ -183,24 +176,8 @@ public final class EnPOSTagTokenizer extends Tokenizer {
 
             // If we have NER result, let's apply it now
             if (nerTokens != null && nerTokens[i].indexOf('/') > -1) {
-
-                String[] ner = nerTokens[i].split("/");
-
-                if (ner[1].equals("MONEY")) {
-                    t.score(TokenType.MONEY_AMOUNT, 5);
-                } else if (ner[1].equals("ORGANIZATION")) {
-                    t.score(TokenType.ORGANIZATION, 5);
-                } else if (ner[1].equals("PERSON")) {
-                    t.score(TokenType.PERSON_PART, 5);
-                } else if (ner[1].equals("LOCATION")) {
-                    t.score(TokenType.LOCATION_PART, 5);
-                } else if (ner[1].equals("DATE")) {
-                    t.score(TokenType.DATE_PART, 5);
-                } else if (ner[1].equals("TIME")) {
-                    t.score(TokenType.TIME, 5);
-                }
+                applyNER(nerTokens[i], t);
             }
-
 
             if (prev != null) {
                 prev.setNext(t);
@@ -209,6 +186,63 @@ public final class EnPOSTagTokenizer extends Tokenizer {
 
             sentence.appendToken(t);
             prev = t;
+        }
+    }
+
+    /**
+     * Run Stanford NER classifier, also normalize the result so we have
+     * the same token indexing compared with POSTagger.
+     *
+     * @param s Sentence
+     * @return Array of tokens annotated with NER classifier result
+     */
+    private String[] runNER(final Sentence s) {
+        String nerResult = null;
+        if (classifier != null) {
+            nerResult = UlfStringUtils.cleanSpaces(
+                    classifier.classifyToString(s.getSurface())
+                        // Normalize result so we got something almost the same
+                        // Than pos tagging in term of number of spaces/tokens
+                        .replaceAll("([^ ]+/MONEY)([0-9]+)", "$1 $2 ")
+                        .replaceAll("(['][a-zA-Z])/([A-Z]+)", " $1/$2 ")
+                        .replaceAll("([^A-Za-z0-9]+)/([A-Z]+)", " $1/$2 ")
+                        .replaceAll("-LRB -/O", "-LRB-/O ")
+                        .replaceAll("-RRB -/O", " -RRB-/O")
+                        .replaceAll(" ([A-Za-z0-9]+) ([^A-Za-z0-9])", " $1$2")
+                        .replaceAll("/O[^ ]", "/O ")
+                        .replaceAll("/O GANIZ", "/ORGANIZ")
+                        .replaceAll(" /O", "/O")
+                        .replaceAll(" /MONEY", "/MONEY")
+                        .replaceAll("\\s+", " ")
+                        .replaceAll(" - ", " -").trim());
+            return nerResult.split(" ");
+        }
+
+        return null;
+    }
+
+    /**
+     * Score token given the NER result.
+     *
+     * @param nerToken Token annotated using Stanford NER classifier
+     * @param t Token to apply score to
+     */
+    private void applyNER(final String nerToken, final Token t) {
+
+        String[] ner = nerToken.split("/");
+
+        if (ner[1].equals("MONEY")) {
+            t.score(TokenType.MONEY_AMOUNT, STANFORD_NER_SCORE);
+        } else if (ner[1].equals("ORGANIZATION")) {
+            t.score(TokenType.ORGANIZATION, STANFORD_NER_SCORE);
+        } else if (ner[1].equals("PERSON")) {
+            t.score(TokenType.PERSON_PART, STANFORD_NER_SCORE);
+        } else if (ner[1].equals("LOCATION")) {
+            t.score(TokenType.LOCATION_PART, STANFORD_NER_SCORE);
+        } else if (ner[1].equals("DATE")) {
+            t.score(TokenType.DATE_PART, STANFORD_NER_SCORE);
+        } else if (ner[1].equals("TIME")) {
+            t.score(TokenType.TIME, STANFORD_NER_SCORE);
         }
     }
 

@@ -16,9 +16,15 @@ import java.util.HashMap;
  */
 public class Token extends Text {
 
+    /**
+     * Is aggregated (has been merged to previous).
+     */
+    private Boolean aggregated = false;
 
-
-
+    /**
+     * Sentence.
+     */
+    private Sentence sentence;
 
     /**
      * Previous token.
@@ -77,7 +83,7 @@ public class Token extends Text {
      * @param t Token to compare score to
      * @return True if share a score, false otherwise
      */
-    public boolean shareSomeScore(Token t) {
+    public final boolean shareSomeScore(final Token t) {
         for (TokenType tt : typeScores.keySet()) {
             if (t.hasScore(tt)) {
                 return true;
@@ -310,18 +316,8 @@ public class Token extends Text {
      * @return True if token has the score and has no other score, false
      * otherwise
      */
-    public boolean hasUniqueScore(TokenType tt) {
+    public final boolean hasUniqueScore(final TokenType tt) {
         return typeScores.size() == 1 && hasScore(tt);
-    }
-
-    /**
-     * Get current score for a TokenType.
-     *
-     * @param tt Token type
-     * @return Score for given type
-     */
-    public final boolean hasScore(final TokenType tt) {
-        return typeScores.containsKey(tt);
     }
 
     /**
@@ -334,6 +330,22 @@ public class Token extends Text {
         return typeScores.size() > 0;
     }
 
+
+    /**
+     * Check if token has scores for given token types.
+     *
+     * @param types Token types to check
+     * @return True if at least one token type is found, false otherwise
+     */
+    public final boolean hasScore(final TokenType... types) {
+        for (TokenType tt:types) {
+            if (typeScores.containsKey(tt)) {
+                return true;
+            }
+        }
+
+        return false;
+    }
 
 
     /**
@@ -403,7 +415,12 @@ public class Token extends Text {
         }
         previous.score(getScores());
         previous.append(getSurface());
+        previous.setWeight(getWeight());
         previous.setNext(next);
+        previous.setAggregated(true);
+        if (hasNext()) {
+            next.setPrevious(previous);
+        }
         return previous;
     }
 
@@ -481,4 +498,42 @@ public class Token extends Text {
     public final Boolean isPlural() {
         return !singular.equals("") && !singular.equals(getSurface());
     }
+
+    /**
+     * Get sentence.
+     *
+     * @return Sentence
+     */
+    public final Sentence getSentence() {
+        return sentence;
+    }
+
+    /**
+     * Set sentence.
+     *
+     * @param s Sentence
+     */
+    public final void setSentence(final Sentence s) {
+        this.sentence = s;
+    }
+
+    /**
+     * Get aggregated.
+     *
+     * @return Aggregated
+     */
+    public final Boolean getAggregated() {
+        return aggregated;
+    }
+
+    /**
+     * Set aggregated.
+     *
+     * @param a Aggregated
+     */
+    public final void setAggregated(final Boolean a) {
+        this.aggregated = a;
+    }
+
+
 }

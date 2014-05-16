@@ -21,14 +21,24 @@ import java.util.List;
 })
 public class TokenWeightConsolidation extends Processor {
 
+    /**
+     * Weight to apply on frequent tokens.
+     */
+    public static final float FREQUENT_WEIGHT = 0.9f;
+
+    /**
+     * Weight to apply on important tokens (tokens from Headings, Keywords).
+     */
+    public static final float IS_IMPORTANT = 1f;
+
     @Override
-    public void init() {
+    public final void init() {
         this.setDepthControl(ProcessorDepthControl.TOKEN);
         this.setInitialized(true);
     }
 
     @Override
-    public String describe() {
+    public final String describe() {
         return "";
     }
 
@@ -65,7 +75,7 @@ public class TokenWeightConsolidation extends Processor {
         for (String key: tokens.keySet()) {
             if (tokens.get(key).size() > 1) {
                 for (Token t: tokens.get(key)) {
-                    t.setWeight(0.9f);
+                    t.setWeight(FREQUENT_WEIGHT);
                 }
             }
         }

@@ -77,14 +77,16 @@ public class EnOperatorBasedConsolidation extends Processor
         if (s.equals("on") || s.equals("since")) {
             token.consolidate(TokenType.DATE_PART, DEFAULT_SCORE,
                     DEFAULT_RADIUS, TokenConsolidationDirection.FORWARD);
-        }
 
-        else if (s.equals("by")) {
+
+
+        } else if (s.equals("by")) {
             token.consolidate(TokenType.PERSON_PART, DEFAULT_SCORE,
                     DEFAULT_RADIUS, TokenConsolidationDirection.FORWARD);
-        }
 
-        else if (s.equals("in")) {
+
+
+        } else if (s.equals("in")) {
             token.consolidate(TokenType.LOCATION_PART, DEFAULT_SCORE,
                     DEFAULT_RADIUS, TokenConsolidationDirection.FORWARD);
 
@@ -93,9 +95,10 @@ public class EnOperatorBasedConsolidation extends Processor
 
             token.consolidate(TokenType.DATE_PART, DEFAULT_SCORE,
                     DEFAULT_RADIUS, TokenConsolidationDirection.FORWARD);
-        }
 
-        else if (s.equals("of") || s.equals("to") || s.equals("from")) {
+
+
+        } else if (s.equals("of") || s.equals("to") || s.equals("from")) {
             token.consolidate(TokenType.LOCATION_PART, DEFAULT_SCORE,
                     DEFAULT_RADIUS, TokenConsolidationDirection.FORWARD);
 

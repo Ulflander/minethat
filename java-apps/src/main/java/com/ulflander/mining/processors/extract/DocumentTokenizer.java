@@ -40,6 +40,32 @@ public class DocumentTokenizer extends Processor {
      */
     private static final int HEAVY_WEIGHT_TOKEN_SIZE = 10;
 
+    /**
+     * Light weight (token size < LOW_WEIGHT_TOKEN_SIZE).
+     */
+    public static final float LIGHT_WEIGHT = 0.3f;
+
+    /**
+     * Heavy weight value.
+     */
+    public static final float HEAVY_WEIGHT = 0.8f;
+
+    /**
+     * Capitalized weight.
+     */
+    public static final float CAP_WEIGHT = 0.8f;
+
+    /**
+     * Uppercased.
+     */
+    public static final float UPPERCASED_WEIGHT = 0.6f;
+
+    /**
+     * Weight for a keyword.
+     */
+    public static final float KEYWORD_WEIGHT = 0.9f;
+
+
     @Override
     public final void init() {
         this.setDepthControl(ProcessorDepthControl.SENTENCE);
@@ -64,19 +90,19 @@ public class DocumentTokenizer extends Processor {
 
             int l = tk.size();
             if (l < LOW_WEIGHT_TOKEN_SIZE) {
-                tk.setWeight(0.3f);
+                tk.setWeight(LIGHT_WEIGHT);
             } else if (l > HEAVY_WEIGHT_TOKEN_SIZE) {
-                tk.setWeight(0.8f);
+                tk.setWeight(HEAVY_WEIGHT);
             }
 
             if (tk.isCapitalized()) {
-                tk.setWeight(0.8f);
+                tk.setWeight(CAP_WEIGHT);
             } else if (tk.isUppercased()) {
-                tk.setWeight(0.6f);
+                tk.setWeight(UPPERCASED_WEIGHT);
             }
 
             if (tk.getType() == TokenType.KEYWORD) {
-                tk.setWeight(0.9f);
+                tk.setWeight(KEYWORD_WEIGHT);
             }
         }
     }

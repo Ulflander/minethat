@@ -6,11 +6,17 @@ import com.ulflander.app.model.JobDocumentType;
 import com.ulflander.utils.UlfNetworkUtils;
 import com.ulflander.utils.UlfStringUtils;
 import de.l3s.boilerpipe.BoilerpipeProcessingException;
+import de.l3s.boilerpipe.document.TextBlock;
+import de.l3s.boilerpipe.document.TextDocument;
+import de.l3s.boilerpipe.document.TextDocumentStatistics;
+import de.l3s.boilerpipe.estimators.SimpleEstimator;
+import de.l3s.boilerpipe.extractors.ArticleExtractor;
 import de.l3s.boilerpipe.extractors.CanolaExtractor;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.io.File;
+import java.util.Arrays;
 
 /**
  * Class that create a document given various inputs: URL, raw string, file.
@@ -115,9 +121,15 @@ public final class TextExtractor {
      * Populate a new document with given string -
      * extract content using Boilerpipe.
      *
-     * Extractor used is CanolaExtractor (v1.2.0). Note that v1.2.0 is used
+     * Extractors used are CanolaExtractor and ArticleExtractor from Boilerpipe
+     * version 1.2.0. Note that v1.2.0 is used
      * but is not available on Maven, it's available as local maven library
      * and can be installed using Makefile.
+     *
+     * We apply both extractors, then we compare the results, first by checking
+     * low quality flag from Boilerpipe SimpleEstimator, then by comparing the
+     * average num words if both extractions are considered high quality by
+     * estimator(less being better).
      *
      * Once text is extract, we execute the following:
      * - Clean multiple spaces
@@ -132,7 +144,10 @@ public final class TextExtractor {
      *
      * Doc meta extraction is done using the MetaExtractor class and Jsoup.
      *
+     * @see de.l3s.boilerpipe.extractors.ArticleExtractor
      * @see de.l3s.boilerpipe.extractors.CanolaExtractor
+     * @see de.l3s.boilerpipe.document.TextDocumentStatistics
+     * @see de.l3s.boilerpipe.estimators.SimpleEstimator
      * @see com.ulflander.mining.MetaExtractor
      * @param str String to process
      * @return Document populated with text retrieved from URL
@@ -141,21 +156,75 @@ public final class TextExtractor {
     public static Document fromHTMLString(final String str)
             throws ExtractionException {
 
-        String fullText;
+        TextDocumentStatistics statsBefore = getStatistics(str);
+        String canolaText;
+        String articleText;
+        String chosen;
+        String extractor;
 
         try {
-            fullText = CanolaExtractor.INSTANCE.getText(str);
+            canolaText = CanolaExtractor.INSTANCE.getText(str);
         } catch (BoilerpipeProcessingException e) {
             throw new ExtractionException("Boilerpipe exception: "
                     + e.getMessage());
         }
 
-        fullText = UlfStringUtils.cleanSpaces(fullText);
-        fullText = fullText.replaceAll("\n", "\n\n");
+        try {
+            articleText = ArticleExtractor.INSTANCE.getText(str);
+        } catch (BoilerpipeProcessingException e) {
+            throw new ExtractionException("Boilerpipe exception: "
+                    + e.getMessage());
+        }
 
-        Document doc = fromString(fullText);
+        TextDocumentStatistics canolaStats = getStatistics(canolaText);
+        Boolean canolaLow =
+            SimpleEstimator.INSTANCE.isLowQuality(statsBefore, canolaStats);
+
+        TextDocumentStatistics articleStats = getStatistics(articleText);
+        Boolean articleLow =
+            SimpleEstimator.INSTANCE.isLowQuality(statsBefore, articleStats);
+
+        if (canolaLow && articleLow) {
+            if (articleStats.avgNumWords() > canolaStats.avgNumWords()) {
+                chosen = articleText;
+                extractor = "low_article";
+            } else {
+                chosen = canolaText;
+                extractor = "low_canola";
+            }
+        } else if (canolaLow) {
+            chosen = articleText;
+            extractor = "article";
+        } else if (articleLow) {
+            chosen = canolaText;
+            extractor = "canola";
+        } else if (articleStats.avgNumWords() > canolaStats.avgNumWords()) {
+            chosen = articleText;
+            extractor = "article";
+        } else {
+            chosen = canolaText;
+            extractor = "canola";
+        }
+
+        chosen = UlfStringUtils.cleanSpaces(chosen);
+        chosen = chosen.replaceAll("\n", "\n\n");
+
+        Document doc = fromString(chosen);
         MetaExtractor.extract(doc, str);
+        doc.addProperty("meta", "boilerpipe_extractor", extractor);
         return doc;
+    }
+
+    /**
+     * Get Boilerpipe TextDocumentStatistics from a string.
+     *
+     * @param str String to get statistics from
+     * @return Document statistics as returned by Boilerpipe
+     */
+    private static TextDocumentStatistics getStatistics(final String str) {
+        return new TextDocumentStatistics(new TextDocument(Arrays.asList(
+                new TextBlock(str)
+        )), true);
     }
 
 

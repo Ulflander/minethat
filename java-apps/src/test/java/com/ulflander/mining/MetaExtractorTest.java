@@ -1,9 +1,11 @@
 package com.ulflander.mining;
 
+import com.ulflander.AbstractTest;
 import com.ulflander.app.model.Document;
 import com.ulflander.utils.UlfFileUtils;
 import org.apache.logging.log4j.LogManager;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
 import java.io.File;
@@ -12,7 +14,7 @@ import java.net.URL;
 /**
  * Created by Ulflander on 4/24/14.
  */
-public class MetaExtractorTest {
+public class MetaExtractorTest extends AbstractTest {
 
     private String getTestFile(String filename) {
 
@@ -29,6 +31,44 @@ public class MetaExtractorTest {
 
         return UlfFileUtils.read(new File(url.getPath()));
     }
+
+    @Before
+    public void setupProcessors () {
+        s.addProcessor("extract.DocumentCleaner");
+        s.addProcessor("extract.en.EnCommonAcronymsCleaner");
+        s.addProcessor("extract.DocumentSplitter");
+        s.addProcessor("extract.LanguageDetector");
+        s.addProcessor("extract.POSTagger");
+        s.addProcessor("extract.DocumentTokenizer");
+        s.addProcessor("extract.TokenWeightConsolidation");
+        s.addProcessor("extract.TokenCounter");
+        s.addProcessor("extract.TokenCleaner");
+        s.addProcessor("extract.AcronymExtractor");
+        s.addProcessor("extract.TokenCorpusGuesser");
+        s.addProcessor("extract.TokenRegExpGuesser");
+        s.addProcessor("extract.en.EnTokenPOSConsolidation");
+        s.addProcessor("extract.en.EnTokenSingularization");
+        s.addProcessor("extract.TokenCorpusConsolidation");
+        s.addProcessor("extract.TokenSiblingsConsolidation");
+        s.addProcessor("extract.TokenInferConsolidation");
+        s.addProcessor("extract.en.EnOperatorBasedConsolidation");
+        s.addProcessor("extract.TokenAggregator");
+        s.addProcessor("extract.AggregatedCorpusGuesser");
+        s.addProcessor("extract.TokenFrequency");
+        s.addProcessor("extract.KeywordSelector");
+        s.addProcessor("augment.BasicTextStat");
+        s.addProcessor("augment.QualityEvaluator");
+    }
+
+
+    @Test
+    public void fullTest() throws ExtractionException {
+        String html = getTestFile("test-washpost.html");
+        Document d = TextExtractor.fromHTMLString(html);
+        s.submit(d);
+        trace(d);
+    }
+
 
     @Test
     public void testNytimes() {

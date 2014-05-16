@@ -91,8 +91,8 @@ public class LanguageDetector extends Processor {
             }
         }
 
-        doc.addProperty("language", "multilingual", languages.size() > 1);
-        doc.addProperty("language", "main_language", lang.toString());
+        doc.addProperty("meta", "multilingual", languages.size() > 1);
+        doc.addProperty("meta", "main_language", lang.toString());
 
         doc.setLanguages(languages);
     }

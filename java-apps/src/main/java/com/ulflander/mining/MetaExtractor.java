@@ -54,13 +54,13 @@ public final class MetaExtractor {
      * @param value Value to normalize
      * @return Normalized value
      */
-    private static String normalize(final String key,
+    private static Object normalize(final String key,
                                     final String value) {
         if (value == null) {
             return null;
         }
 
-        String res = value;
+        String res = value.replaceAll("\\\\\"", "\"");
 
         // For authors, we replace some tokens by a good separator
         // and we camelize words if they are mostly uppercased
@@ -80,7 +80,7 @@ public final class MetaExtractor {
             List<DateGroup> groups = parser.parse(value);
 
             if (groups.size() > 0 && groups.get(0).getDates().size() > 0) {
-                res = "" + groups.get(0).getDates().get(0).getTime();
+                return groups.get(0).getDates().get(0).getTime();
             } else {
                 LOGGER.warn("Unable to parse date '" + value + "'");
                 return null;
@@ -120,7 +120,7 @@ public final class MetaExtractor {
                 // get meta data given type and
                 // break this tag loop for this meta
                 Element e = es.get(0);
-                String val = null;
+                Object val = null;
 
                 if (t.getType().equals("content")) {
                     val = normalize(key, e.text());

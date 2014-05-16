@@ -5,6 +5,8 @@ EMAIL_SERVICE_PASS=rhapsody2376
 
 # Rabbit
 RABBIT_HOST=localhost
+RABBIT_PORT=5672
+RABBIT_EXTRACT_QUEUE=extract
 
 # Mongo
 MONGO_HOST=localhost

@@ -12,6 +12,11 @@ import java.util.ArrayList;
 public class Sentence extends Text {
 
     /**
+     * Paragraph.
+     */
+    private Paragraph paragraph;
+
+    /**
      * Previous sentence in paragraph.
      */
     private Sentence previous;
@@ -100,6 +105,7 @@ public class Sentence extends Text {
      */
     public final void appendToken(final Token token) {
         tokens.add(token);
+        token.setSentence(this);
     }
 
     /**
@@ -166,6 +172,37 @@ public class Sentence extends Text {
     public final void setRawPartOfSpeech(final String pos) {
         this.rawPartOfSpeech = pos;
     }
+
+    /**
+     * Merge a token with the previous one.
+     *
+     * @param t Token to merge with its previous one.
+     */
+    public final void mergeToPrevious(final Token t) {
+        if (t != null && t.hasPrevious()) {
+            t.mergeToPrevious();
+            tokens.remove(t);
+        }
+    }
+
+    /**
+     * Get paragraph.
+     *
+     * @return Paragraph
+     */
+    public final Paragraph getParagraph() {
+        return paragraph;
+    }
+
+    /**
+     * Set paragraph.
+     *
+     * @param p Paragraph
+     */
+    public final void setParagraph(final Paragraph p) {
+        this.paragraph = p;
+    }
+
 
 
 }

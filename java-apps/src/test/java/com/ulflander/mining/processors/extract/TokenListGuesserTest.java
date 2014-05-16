@@ -33,11 +33,11 @@ public class TokenListGuesserTest extends AbstractTest {
         s.submit(d);
         trace (d);
 
-        Assert.assertEquals("Fourth token should have a score of two for token type PERSON_PART",
-                2, d.getTokenAt(0, 0, 0, 3).getScore(TokenType.PERSON_PART));
+        Assert.assertTrue("Fourth token should have a score of two for token type PERSON_PART",
+                d.getTokenAt(0, 0, 0, 3).getScore(TokenType.PERSON_PART) >= 2);
 
-        Assert.assertEquals("Fifth token should have a score of two for token type PERSON_PART",
-                2, d.getTokenAt(0,0,0,4).getScore(TokenType.PERSON_PART));
+        Assert.assertTrue("Fifth token should have a score of two for token type PERSON_PART",
+                d.getTokenAt(0,0,0,4).getScore(TokenType.PERSON_PART) >= 2);
     }
 
 }

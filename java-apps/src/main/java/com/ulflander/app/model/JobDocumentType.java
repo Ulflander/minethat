@@ -20,6 +20,11 @@ public enum JobDocumentType {
     URL("url"),
 
     /**
+     * JobDocument value is an URL from a feed.
+     */
+    FEED_URL("feed_url"),
+
+    /**
      * JobDocument value is a path to a file.
      */
     FILE("file"),

@@ -14,7 +14,7 @@ public final class DbPediaLookupQuery {
             "http://10.255.0.24:1111/";
 
     /**
-     * API path
+     * API path.
      */
     private static String path = "api/search.asmx/KeywordSearch?";
 

@@ -23,14 +23,21 @@ import java.util.regex.Pattern;
 public class AcronymExtractor extends Processor {
 
     /**
+     * Score applied to a token when some candidates are found
+     * for acronym definition.
+     */
+    public static final int ACRONYM_SCORE = 4;
+
+
+    /**
      * Maximum length for an acronym.
      */
-    private final static int MAX_TEST_LENGTH = 8;
+    private static final int MAX_TEST_LENGTH = 8;
 
     /**
      * Minimum length for an acronym.
      */
-    private final static int MIN_TEST_LENGTH = 1;
+    private static final int MIN_TEST_LENGTH = 1;
 
     @Override
     public final void init() {
@@ -79,7 +86,7 @@ public class AcronymExtractor extends Processor {
 
             int amount = candidates.size();
             if (amount == 1) {
-                token.score(TokenType.ACRONYM, 4);
+                token.score(TokenType.ACRONYM, ACRONYM_SCORE);
             } else if (candidates.size() > 0) {
                 token.score(TokenType.ACRONYM, 1);
             }

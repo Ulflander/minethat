@@ -1,6 +1,10 @@
 package com.ulflander.mining.processors.extract;
 
 import com.ulflander.app.model.Document;
+import com.ulflander.app.model.Heading;
+import com.ulflander.app.model.HeadingLevel;
+import com.ulflander.app.model.KeywordList;
+import com.ulflander.app.model.Paragraph;
 import com.ulflander.app.model.Token;
 import com.ulflander.app.model.TokenType;
 import com.ulflander.mining.processors.Processor;
@@ -63,17 +67,39 @@ public class TokenFrequency extends Processor {
 
         Token nt;
         String clean = token.getSingular();
+        int score = 1;
+
+
+        Paragraph p = token.getSentence().getParagraph();
+        if (Heading.class.isInstance(p)) {
+            score *= 2;
+            if (((Heading) p).getLevel() == HeadingLevel.IMPORTANT) {
+                score *= 2;
+            }
+        } else if (KeywordList.class.isInstance(p)) {
+            score *= 2;
+        }
+
+        if (token.hasScore(
+                TokenType.ACRONYM,
+                TokenType.LOCATION_PART,
+                TokenType.PERSON_PART,
+                TokenType.ORGANIZATION
+        )) {
+            score *= 2;
+        }
 
         if (!tokens.containsKey(clean)) {
             nt = new Token();
             nt.setSurface(clean);
             nt.setType(token.getType());
             nt.setTag(token.getTag());
+            nt.setAbsoluteWeight(token.getWeight());
             tokens.put(clean, nt);
-            frequency.put(nt, 1);
+            frequency.put(nt, score);
         } else {
             nt = tokens.get(clean);
-            frequency.put(nt, frequency.get(nt) + 1);
+            frequency.put(nt, frequency.get(nt) + score);
         }
 
         total += 1;
@@ -84,7 +110,7 @@ public class TokenFrequency extends Processor {
     @Override
     public final void onProcessed(final Document doc) {
         doc.setFrequency(frequency);
-        doc.addProperty("meta", "avg_token_frequency",
+        doc.addProperty("basic_stats", "avg_token_frequency",
                 ((float) total / frequency.size()));
     }
 }

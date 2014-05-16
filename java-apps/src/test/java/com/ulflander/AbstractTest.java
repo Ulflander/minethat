@@ -5,7 +5,6 @@ import com.ulflander.app.model.Paragraph;
 import com.ulflander.app.model.Sentence;
 import com.ulflander.app.model.Token;
 import com.ulflander.app.model.TokenType;
-import org.junit.Assert;
 import org.junit.Before;
 
 import java.util.HashMap;
@@ -36,6 +35,7 @@ public class AbstractTest {
         System.out.println();
         System.out.println();
         for (Paragraph p : d.getChapterAt(0).getParagraphs()) {
+            System.out.println(p.getSurface());
             for (Sentence s: p.getSentences()) {
 
                 for (Token t: s.getTokens()) {
@@ -49,10 +49,10 @@ public class AbstractTest {
                     System.out.println();
                 }
 
-                Assert.assertTrue("Sentence should have a raw part of speech",
-                        d.getSentenceAt(0, 0, 0).getRawPartOfSpeech() != null);
+                System.out.println("POS: " + s.getRawPartOfSpeech());
                 System.out.println("---");
             }
+            System.out.println(" ******** ");
         }
         System.out.println();
         System.out.println();

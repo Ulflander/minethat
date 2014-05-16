@@ -7,7 +7,11 @@ import com.ulflander.mining.processors.Processor;
 import com.ulflander.mining.processors.ProcessorDepthControl;
 import com.ulflander.mining.processors.Requires;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
+import java.util.List;
 
 /**
  * Select some keywords based on tokens frequency.
@@ -18,6 +22,12 @@ import java.util.HashMap;
         "extract.TokenFrequency"
 })
 public class KeywordSelector extends Processor {
+
+    /**
+     * Minimum weight of a token to be considered as a keyword.
+     */
+    public static final float MIN_WEIGHT = 0.6f;
+
 
     @Override
     public final void init() {
@@ -32,22 +42,37 @@ public class KeywordSelector extends Processor {
 
     @Override
     public final void extractDocument(final Document doc) {
-        Float avg = (Float) doc.getProperty("meta", "avg_token_frequency");
+        Float avg =
+                (Float) doc.getProperty("basic_stats", "avg_token_frequency");
         HashMap<Token, Integer> freq = doc.getFrequency();
-        HashMap<String, Integer> result = new HashMap<String, Integer>();
-        String st;
+        final HashMap<Token, Integer> result = new HashMap<Token, Integer>();
+
+        Token st;
         for (Token t: freq.keySet()) {
-            st = t.getClean();
-            if (freq.get(t) > avg
+            st = t;
+            int score = freq.get(t);
+
+            if ((score > avg || t.getAggregated())
                     && t.getType() == TokenType.KEYWORD
-                    && st.length() > 1) {
-                result.put(st, freq.get(t));
+                    && t.getWeight() > MIN_WEIGHT
+                    && st.getClean().length() > 1) {
+
+
+                result.put(st, score);
             }
         }
 
+        List<Token> keywords = new ArrayList<Token>(result.keySet());
+        Collections.sort(keywords, new Comparator<Token>() {
+            @Override
+            public int compare(final Token s1, final Token s2) {
+                return result.get(s1).compareTo(result.get(s2));
+            }
+        });
+
         int idx = 0;
-        for (String s: result.keySet()) {
-            doc.addProperty("keywords", "keyword_" + idx, s);
+        for (Token t: keywords) {
+            doc.addProperty("keywords", "keyword_" + idx, t.getSurface());
             idx += 1;
         }
     }

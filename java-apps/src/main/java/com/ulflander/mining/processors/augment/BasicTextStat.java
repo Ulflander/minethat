@@ -23,7 +23,7 @@ public class BasicTextStat extends Processor {
     /**
      * Number of tokens one can read in one second in average.
      */
-    public static final Integer TOKENS_READ_PER_SECOND = 3;
+    public static final Integer TOKENS_READ_PER_SECOND = 4;
 
 
     /**
@@ -77,9 +77,9 @@ public class BasicTextStat extends Processor {
         doc.addProperty("basic_stats", "total_paragraphs", totalParagraph);
         doc.addProperty("basic_stats", "total_sentences", totalSentence);
         doc.addProperty("basic_stats", "ave_sent_per_par",
-                                        totalSentence / totalParagraph);
+                1f * totalSentence / totalParagraph);
         doc.addProperty("basic_stats", "ave_tok_per_sent",
-                                        doc.getTotalToken() / totalSentence);
+                doc.getTotalToken() / totalSentence);
 
         doc.addProperty("basic_stats", "read_time_est",
                 Math.round(

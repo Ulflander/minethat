@@ -1,6 +1,10 @@
 package com.ulflander.mining.processors.preset;
 
 import com.ulflander.app.model.JobProcessor;
+import com.ulflander.mining.processors.augment.QualityEvaluator;
+import com.ulflander.mining.processors.extract.AggregatedCorpusGuesser;
+import com.ulflander.mining.processors.extract.KeywordSelector;
+import com.ulflander.mining.processors.extract.en.EnTokenPOSConsolidation;
 
 import java.util.ArrayList;
 
@@ -54,17 +58,20 @@ public final class BasicPreset implements IPreset {
         procs.add(new JobProcessor("extract.en.EnTokenSingularization"));
         procs.add(new JobProcessor("extract.TokenCorpusGuesser"));
         procs.add(new JobProcessor("extract.TokenRegExpGuesser"));
-        procs.add(new JobProcessor("extract.en.ENTokenPOSConsolidation"));
+        procs.add(new JobProcessor(EnTokenPOSConsolidation.class));
         procs.add(new JobProcessor("extract.TokenCorpusConsolidation"));
         procs.add(new JobProcessor("extract.TokenSiblingsConsolidation"));
         procs.add(new JobProcessor("extract.TokenInferConsolidation"));
         procs.add(new JobProcessor("extract.en.EnOperatorBasedConsolidation"));
         procs.add(new JobProcessor("extract.TokenFrequency"));
         procs.add(new JobProcessor("extract.TokenAggregator"));
+        procs.add(new JobProcessor(AggregatedCorpusGuesser.class));
+        procs.add(new JobProcessor(KeywordSelector.class));
 
         procs.add(new JobProcessor("augment.BasicTextStat"));
         procs.add(new JobProcessor("augment.social.SocialStats"));
         procs.add(new JobProcessor("augment.geoloc.MaxMindIPExtraction"));
+        procs.add(new JobProcessor(QualityEvaluator.class));
 
 
         return procs;

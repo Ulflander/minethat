@@ -139,12 +139,22 @@ public class ProcessingExecutor {
 
         for (JobProcessor jobProcessor : procs) {
 
-            try {
-                processor = ProcessorFactory.get(jobProcessor.getName());
-            } catch (Exception e) {
-                LOGGER.error("Processor not found: "
-                    + jobProcessor.getName(), e);
-                continue;
+            if (jobProcessor.hasClazz()) {
+                try {
+                    processor = ProcessorFactory.get(jobProcessor.getClazz());
+                } catch (Exception e) {
+                    LOGGER.error("Processor not valid: "
+                            + jobProcessor.getName(), e);
+                    continue;
+                }
+            } else {
+                try {
+                    processor = ProcessorFactory.get(jobProcessor.getName());
+                } catch (Exception e) {
+                    LOGGER.error("Processor not found: "
+                        + jobProcessor.getName(), e);
+                    continue;
+                }
             }
 
             if (!ProcessorFactory.requirements().areMet(

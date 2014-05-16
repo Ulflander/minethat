@@ -9,6 +9,7 @@ import com.ulflander.app.model.Document;
 import com.ulflander.app.model.storage.DocumentStorage;
 import com.ulflander.mining.ExtractionException;
 import com.ulflander.mining.TextExtractor;
+import com.ulflander.utils.UlfHashUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -119,6 +120,7 @@ public class ExtractorService extends RabbitService {
 
         try {
             doc = TextExtractor.fromJobDocument(job);
+            doc.addProperty("meta", "fingerprint", UlfHashUtils.sha256(doc.getSurface()));
             DocumentStorage.insert(doc);
         } catch (ExtractionException e) {
             job.setStatus(JobStatus.FAILED);

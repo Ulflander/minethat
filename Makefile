@@ -55,6 +55,19 @@ java-build: java-doc
 	@chmod +x java-apps/dist/bin/miner_service
 	@if [ "$(U_NAME)" = "Darwin" ]; then say "Java build completed"; fi
 
+# Build java tools without doc generation and tests running
+java-build-skip:
+	@cd java-apps && export JAVA_HOME="$(JAVA_H)" \
+		&& export JAVA_TOOL_OPTIONS=-Dfile.encoding=UTF-8 \
+		&& mvn clean package \
+		-Dmaven.test.skip=true \
+		-Dlog4j.configuration=../conf/log4j.local.xml || (if [ "$(U_NAME)" = "Darwin" ]; \
+		then say "Java build failed"; fi; exit 1)
+	@chmod +x java-apps/dist/bin/mail_service
+	@chmod +x java-apps/dist/bin/extractor_service
+	@chmod +x java-apps/dist/bin/miner_service
+	@if [ "$(U_NAME)" = "Darwin" ]; then say "Java build completed"; fi
+
 # Run mail service (gather jobs sent by email)
 java-run-mail:
 	@./java-apps/dist/bin/mail_service "$(CURR_ROOT)" local

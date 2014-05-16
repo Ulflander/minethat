@@ -20,6 +20,12 @@ import com.ulflander.mining.processors.Requires;
 })
 public class TokenInferConsolidation extends Processor {
 
+    /**
+     * Radius of the inference.
+     */
+    public static final int RADIUS = 4;
+
+
     @Override
     public final void init() {
         this.setInitialized(true);
@@ -45,7 +51,7 @@ public class TokenInferConsolidation extends Processor {
                 && token.getPrevious().getType() == TokenType.KEYWORD) {
 
             for (TokenType tt: token.getPrevious().getScores().keySet()) {
-                token.infer(tt, token.getPrevious().getScore(tt) / 3);
+                token.infer(tt, token.getPrevious().getScore(tt) / 2);
             }
 
         }
@@ -62,8 +68,10 @@ public class TokenInferConsolidation extends Processor {
 
         if (token.hasNext()) {
             Token next = token.getNext();
-            int max = 4;
-            while (next != null && max > 0 && next.getType() == TokenType.OPERATOR) {
+            int max = RADIUS;
+            while (next != null && max > 0
+                    && next.getType() == TokenType.OPERATOR) {
+
                 next = next.getNext();
                 max--;
             }
@@ -72,8 +80,8 @@ public class TokenInferConsolidation extends Processor {
                 return;
             }
 
-            if (next.getType() == TokenType.KEYWORD &&
-                next.getTag() == PennPOSTag.NOUN_PROPER_SINGULAR) {
+            if (next.getType() == TokenType.KEYWORD
+                    && next.getTag() == PennPOSTag.NOUN_PROPER_SINGULAR) {
 
                 if (token.hasUniqueScore(TokenType.PERSON_DESCRIPTOR)) {
                     next.infer(TokenType.PERSON_PART,

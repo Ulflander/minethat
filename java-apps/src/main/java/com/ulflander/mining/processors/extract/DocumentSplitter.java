@@ -2,6 +2,9 @@ package com.ulflander.mining.processors.extract;
 
 import com.ulflander.app.model.Chapter;
 import com.ulflander.app.model.Document;
+import com.ulflander.app.model.Heading;
+import com.ulflander.app.model.HeadingLevel;
+import com.ulflander.app.model.KeywordList;
 import com.ulflander.app.model.Paragraph;
 import com.ulflander.app.model.Sentence;
 import com.ulflander.mining.Patterns;
@@ -97,16 +100,63 @@ public class DocumentSplitter extends Processor {
             return;
         }
 
-        String[] paragraphs =
-            Patterns.CHAPTER_TO_PARAGRAPH.split(chapter.getSurface());
         Paragraph prev = null;
         int index = 0;
+
+        // If doc has some meta like title and description, we add these
+        if (doc.hasProperty("meta", "doc_title")) {
+            String surface = (String) doc.getProperty("meta", "doc_title");
+            Heading h = new Heading();
+            h.setLevel(HeadingLevel.IMPORTANT);
+            h.setSurface(surface);
+
+            chapter.appendParagraph(h);
+            prev = h;
+            index += surface.length();
+            toSentences(chapter, h);
+        }
+
+        if (doc.hasProperty("meta", "doc_description")) {
+            String surface =
+                    (String) doc.getProperty("meta", "doc_description");
+            Paragraph p = new Paragraph();
+            p.setSurface(surface);
+
+            if (prev != null) {
+                prev.setNext(p);
+                p.setPrevious(prev);
+            }
+            prev = p;
+            chapter.appendParagraph(p);
+            index += surface.length();
+            toSentences(chapter, p);
+        }
+
+        if (doc.hasProperty("meta", "doc_keywords")) {
+            String surface =
+                    (String) doc.getProperty("meta", "doc_keywords");
+            KeywordList p = new KeywordList();
+            p.setSurface(surface);
+
+            if (prev != null) {
+                prev.setNext(p);
+                p.setPrevious(prev);
+            }
+            prev = p;
+            chapter.appendParagraph(p);
+            index += surface.length();
+            toSentences(chapter, p);
+        }
+
+
+
+        String[] paragraphs =
+                Patterns.CHAPTER_TO_PARAGRAPH.split(chapter.getSurface());
 
         for (String s : paragraphs) {
             if (s.equals("")) {
                 continue;
             }
-
 
             Paragraph paragraph = new Paragraph(s);
             paragraph.setStartIndex(index);
@@ -168,9 +218,11 @@ public class DocumentSplitter extends Processor {
                 letter before the breack iterator. It's very likely
                 a kind of reduction like in "John E. Adams".
              */
-            String s = raw.substring(curr - FOUR, curr - THREE);
-            if ((s.equals(" ") || s.equals(".")) && curr < raw.length()) {
-                continue;
+            if (curr > FOUR) {
+                String s = raw.substring(curr - FOUR, curr - THREE);
+                if ((s.equals(" ") || s.equals(".")) && curr < raw.length()) {
+                    continue;
+                }
             }
 
             /*

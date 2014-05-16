@@ -63,6 +63,7 @@ public final class UlfNetworkUtils {
      * Get content as string from URL given headers.
      *
      * @param u URL of webpage to retrieve
+     * @param h Hashmap of key/value headers
      * @return Webpage as a string
      */
     public static String getContent(final URL u,

@@ -49,12 +49,18 @@ public class SocialStats extends Processor {
     @Override
     public final void extractDocument(final Document doc) {
 
-        if (!doc.hasProperty("meta", "url")) {
+        if (!doc.hasProperty("meta", "url")
+            && !doc.hasProperty("meta", "doc_url")) {
             LOGGER.debug("Document has no URL: " + doc.getId());
             return;
         }
-
-        String url = (String) doc.getProperty("meta", "url");
+        // Prefer legacy URL
+        String url;
+        if (doc.hasProperty("meta", "doc_url")) {
+            url = (String) doc.getProperty("meta", "doc_url");
+        } else {
+            url = (String) doc.getProperty("meta", "url");
+        }
         URL urlObj;
 
         // Validate URL
@@ -133,5 +139,7 @@ public class SocialStats extends Processor {
 
         doc.addProperty("social_stats", "fb_total",
                 result.getFacebook().getTotalCount());
+
+        doc.addProperty("social_stats", "total", result.getGrandTotal());
     }
 }

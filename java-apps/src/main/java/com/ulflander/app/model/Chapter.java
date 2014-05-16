@@ -13,6 +13,11 @@ import java.util.ArrayList;
 public class Chapter extends Text {
 
     /**
+     * Document.
+     */
+    private Document document;
+
+    /**
      * Previous chapter in document.
      */
     private Chapter previous;
@@ -112,6 +117,7 @@ public class Chapter extends Text {
         }
 
         paragraphs.add(p);
+        p.setChapter(this);
     }
 
     /**
@@ -158,5 +164,25 @@ public class Chapter extends Text {
                 .getSentenceAt(sentencePos)
                 .getTokenAt(pos);
     }
+
+    /**
+     * Get document.
+     *
+     * @return Document
+     */
+    public final Document getDocument() {
+        return document;
+    }
+
+    /**
+     * Set document.
+     *
+     * @param d Document
+     */
+    public final void setDocument(final Document d) {
+        this.document = d;
+    }
+
+
 
 }

@@ -18,8 +18,7 @@ import java.util.ArrayList;
 @Requires(processors = {
     "extract.DocumentSplitter",
     "extract.LanguageDetector",
-    "extract.TokenCleaner",
-    "extract.TokenRegExpGuesser"
+    "extract.TokenCleaner"
 })
 public class EnTokenSingularization extends Processor
     implements ILocalizedProcessor {

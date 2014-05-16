@@ -73,6 +73,32 @@ public final class ProcessorFactory {
     }
 
     /**
+     * Get a processor instance by class.
+     *
+     * @param clazz Classe of the processor
+     * @return Processor instance
+     * @throws java.lang.IllegalAccessException If processor not accessible
+     * @throws java.lang.InstantiationException If processor not instanciable
+     */
+    public static Processor get(final Class clazz) throws
+            InstantiationException,
+            IllegalAccessException {
+
+        String n = clazz.getCanonicalName();
+        System.out.println(n);
+        if (processors.containsKey(n)) {
+            return processors.get(n);
+        }
+
+        Processor processor = (Processor) clazz.newInstance();
+        processor.init();
+
+        processors.put(n, processor);
+
+        return processor;
+    }
+
+    /**
      * Returns full class name (including packages) from simple name.
      * <p/>
      * <code>

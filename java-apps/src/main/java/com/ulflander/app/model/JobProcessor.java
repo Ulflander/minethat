@@ -17,6 +17,11 @@ public class JobProcessor implements Serializable {
     private String name;
 
     /**
+     * Processor class.
+     */
+    private Class clazz = null;
+
+    /**
      * Processor options.
      */
     private ArrayList<JobProcessorOption> options;
@@ -28,6 +33,16 @@ public class JobProcessor implements Serializable {
      */
     public JobProcessor(final String n) {
         this(n, null);
+    }
+
+    /**
+     * Create a new JobProcessor for given processor name.
+     *
+     * @param c Class
+     */
+    public JobProcessor(final Class c) {
+        this.clazz = c;
+        this.name = c.getSimpleName();
     }
 
     /**
@@ -79,5 +94,30 @@ public class JobProcessor implements Serializable {
     }
 
 
+    /**
+     * Get clazz.
+     *
+     * @return Clazz
+     */
+    public final Class getClazz() {
+        return clazz;
+    }
 
+    /**
+     * Set clazz.
+     *
+     * @param c Clazz
+     */
+    public final void setClazz(final Class c) {
+        this.clazz = c;
+    }
+
+    /**
+     * Has class.
+     *
+     * @return True if a class is set, false otherwise
+     */
+    public final boolean hasClazz() {
+        return this.clazz != null;
+    }
 }

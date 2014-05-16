@@ -31,6 +31,15 @@
             xhr.send(JSON.stringify(content));
         },
 
+        submit_url: function (url, callback) {
+            chunk('api').call('submit/url', {
+                url: url,
+                meta: {
+                    url: url
+                }
+            }, callback);
+        },
+
         submit: function (html_string, url, callback) {
             chunk('api').call('submit/html_string', {
                 content: html_string,

@@ -6,6 +6,9 @@ import com.ulflander.app.model.TokenType;
 import com.ulflander.mining.processors.Processor;
 import com.ulflander.mining.processors.ProcessorDepthControl;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Aggregates tokens.
  *
@@ -14,27 +17,29 @@ import com.ulflander.mining.processors.ProcessorDepthControl;
 public class TokenAggregator extends Processor {
 
     @Override
-    public void init() {
+    public final void init() {
         this.setDepthControl(ProcessorDepthControl.SENTENCE);
         this.setInitialized(true);
     }
 
     @Override
-    public String describe() {
+    public final String describe() {
         return "Aggregates tokens";
     }
 
     @Override
-    public void extractSentence(Sentence sentence) {
+    public final void extractSentence(final Sentence sentence) {
 
         int i = 0;
+        List<Token> toMerge = new ArrayList<Token>();
         Token prev;
         for (Token t: sentence.getTokens()) {
+            prev = t.getPrevious();
 
             // Basic, try to merge with previous:
             // must have a score and share a score with previous
             if (t.hasScore()
-                && (prev = t.getPrevious()) != null
+                && prev != null
                 && t.shareSomeScore(prev)) {
 
                 // Check descriptor score versus other scores.
@@ -57,10 +62,13 @@ public class TokenAggregator extends Processor {
                     continue;
                 }
 
-                System.out.println("Would merge " + t.getPrevious().getClean()
-                        + " with " + t.getClean());
-            }
 
+                toMerge.add(t);
+            }
+        }
+
+        for (Token t: toMerge) {
+            sentence.mergeToPrevious(t);
         }
 
     }

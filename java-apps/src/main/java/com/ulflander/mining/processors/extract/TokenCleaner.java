@@ -49,7 +49,7 @@ public class TokenCleaner extends Processor {
      * @param sentence Sentence to run processor on
      */
     @Override
-    public void extractSentence(Sentence sentence) {
+    public final void extractSentence(final Sentence sentence) {
         for (Token t: sentence.getTokens()) {
 
             t.setSurface(StringUtils.strip(

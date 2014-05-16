@@ -185,6 +185,7 @@ public abstract class Text {
         this.size = this.clean.length();
     }
 
+
     /**
      * Reset lowercase, uppercase... statuses when surface form is updated.
      */
@@ -313,6 +314,16 @@ public abstract class Text {
     public final void setWeight(final Float w) {
         this.weight += w;
         weightTotal += 1;
+    }
+
+
+    /**
+     * Set weight.
+     *
+     * @param w Weight of token
+     */
+    public final void setAbsoluteWeight(final Float w) {
+        this.weight = w;
     }
 
     /**

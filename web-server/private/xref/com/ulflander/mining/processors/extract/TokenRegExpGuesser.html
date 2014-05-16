@@ -296,33 +296,40 @@
 <a class="jxr_linenumber" name="L288" href="#L288">288</a>             token.score(TokenType.DATE_PART, 2);
 <a class="jxr_linenumber" name="L289" href="#L289">289</a> 
 <a class="jxr_linenumber" name="L290" href="#L290">290</a>         <em class="jxr_comment">/*</em>
-<a class="jxr_linenumber" name="L291" href="#L291">291</a> <em class="jxr_comment">            AM/PM</em>
+<a class="jxr_linenumber" name="L291" href="#L291">291</a> <em class="jxr_comment">            mid-2013</em>
 <a class="jxr_linenumber" name="L292" href="#L292">292</a> <em class="jxr_comment">         */</em>
-<a class="jxr_linenumber" name="L293" href="#L293">293</a>         } <strong class="jxr_keyword">else</strong> <strong class="jxr_keyword">if</strong> (current().getLanguage() == Language.EN) {
-<a class="jxr_linenumber" name="L294" href="#L294">294</a>             String c = token.getClean();
-<a class="jxr_linenumber" name="L295" href="#L295">295</a> 
-<a class="jxr_linenumber" name="L296" href="#L296">296</a>             <strong class="jxr_keyword">if</strong> (c.equals(<span class="jxr_string">"am"</span>) || c.equals(<span class="jxr_string">"pm"</span>)) {
-<a class="jxr_linenumber" name="L297" href="#L297">297</a>                 token.score(TokenType.DATE_PART, 2);
-<a class="jxr_linenumber" name="L298" href="#L298">298</a>             }
-<a class="jxr_linenumber" name="L299" href="#L299">299</a>         }
-<a class="jxr_linenumber" name="L300" href="#L300">300</a> 
-<a class="jxr_linenumber" name="L301" href="#L301">301</a> 
-<a class="jxr_linenumber" name="L302" href="#L302">302</a>     }
-<a class="jxr_linenumber" name="L303" href="#L303">303</a> 
-<a class="jxr_linenumber" name="L304" href="#L304">304</a> 
-<a class="jxr_linenumber" name="L305" href="#L305">305</a>     <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L306" href="#L306">306</a> <em class="jxr_javadoccomment">     * Test a pattern onto a string.</em>
-<a class="jxr_linenumber" name="L307" href="#L307">307</a> <em class="jxr_javadoccomment">     *</em>
-<a class="jxr_linenumber" name="L308" href="#L308">308</a> <em class="jxr_javadoccomment">     * @param p Pattern</em>
-<a class="jxr_linenumber" name="L309" href="#L309">309</a> <em class="jxr_javadoccomment">     * @param raw String to test</em>
-<a class="jxr_linenumber" name="L310" href="#L310">310</a> <em class="jxr_javadoccomment">     * @return True if pattern has matches, false otherwise</em>
-<a class="jxr_linenumber" name="L311" href="#L311">311</a> <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="L312" href="#L312">312</a>     <strong class="jxr_keyword">private</strong> Boolean test(<strong class="jxr_keyword">final</strong> Pattern p, <strong class="jxr_keyword">final</strong> String raw) {
-<a class="jxr_linenumber" name="L313" href="#L313">313</a>         <strong class="jxr_keyword">return</strong> p.matcher(raw).matches();
-<a class="jxr_linenumber" name="L314" href="#L314">314</a>     }
-<a class="jxr_linenumber" name="L315" href="#L315">315</a> 
-<a class="jxr_linenumber" name="L316" href="#L316">316</a> 
-<a class="jxr_linenumber" name="L317" href="#L317">317</a> }
+<a class="jxr_linenumber" name="L293" href="#L293">293</a>         } <strong class="jxr_keyword">else</strong> <strong class="jxr_keyword">if</strong> (test(Patterns.TOKEN_REC_DATE_YEAR_PREFIXED,
+<a class="jxr_linenumber" name="L294" href="#L294">294</a>                 token.getSurface())) {
+<a class="jxr_linenumber" name="L295" href="#L295">295</a>             token.score(TokenType.DATE_PART, 2);
+<a class="jxr_linenumber" name="L296" href="#L296">296</a> 
+<a class="jxr_linenumber" name="L297" href="#L297">297</a>         <em class="jxr_comment">/*</em>
+<a class="jxr_linenumber" name="L298" href="#L298">298</a> <em class="jxr_comment">            AM/PM</em>
+<a class="jxr_linenumber" name="L299" href="#L299">299</a> <em class="jxr_comment">         */</em>
+<a class="jxr_linenumber" name="L300" href="#L300">300</a>         } <strong class="jxr_keyword">else</strong> <strong class="jxr_keyword">if</strong> (current().getLanguage() == Language.EN) {
+<a class="jxr_linenumber" name="L301" href="#L301">301</a>             String c = token.getClean();
+<a class="jxr_linenumber" name="L302" href="#L302">302</a> 
+<a class="jxr_linenumber" name="L303" href="#L303">303</a>             <strong class="jxr_keyword">if</strong> (c.equals(<span class="jxr_string">"am"</span>) || c.equals(<span class="jxr_string">"pm"</span>)) {
+<a class="jxr_linenumber" name="L304" href="#L304">304</a>                 token.score(TokenType.DATE_PART, 2);
+<a class="jxr_linenumber" name="L305" href="#L305">305</a>             }
+<a class="jxr_linenumber" name="L306" href="#L306">306</a>         }
+<a class="jxr_linenumber" name="L307" href="#L307">307</a> 
+<a class="jxr_linenumber" name="L308" href="#L308">308</a> 
+<a class="jxr_linenumber" name="L309" href="#L309">309</a>     }
+<a class="jxr_linenumber" name="L310" href="#L310">310</a> 
+<a class="jxr_linenumber" name="L311" href="#L311">311</a> 
+<a class="jxr_linenumber" name="L312" href="#L312">312</a>     <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L313" href="#L313">313</a> <em class="jxr_javadoccomment">     * Test a pattern onto a string.</em>
+<a class="jxr_linenumber" name="L314" href="#L314">314</a> <em class="jxr_javadoccomment">     *</em>
+<a class="jxr_linenumber" name="L315" href="#L315">315</a> <em class="jxr_javadoccomment">     * @param p Pattern</em>
+<a class="jxr_linenumber" name="L316" href="#L316">316</a> <em class="jxr_javadoccomment">     * @param raw String to test</em>
+<a class="jxr_linenumber" name="L317" href="#L317">317</a> <em class="jxr_javadoccomment">     * @return True if pattern has matches, false otherwise</em>
+<a class="jxr_linenumber" name="L318" href="#L318">318</a> <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="L319" href="#L319">319</a>     <strong class="jxr_keyword">private</strong> Boolean test(<strong class="jxr_keyword">final</strong> Pattern p, <strong class="jxr_keyword">final</strong> String raw) {
+<a class="jxr_linenumber" name="L320" href="#L320">320</a>         <strong class="jxr_keyword">return</strong> p.matcher(raw).matches();
+<a class="jxr_linenumber" name="L321" href="#L321">321</a>     }
+<a class="jxr_linenumber" name="L322" href="#L322">322</a> 
+<a class="jxr_linenumber" name="L323" href="#L323">323</a> 
+<a class="jxr_linenumber" name="L324" href="#L324">324</a> }
 </pre>
 <hr/>
 <div id="footer">Copyright &#169; 2014. All rights reserved.</div>

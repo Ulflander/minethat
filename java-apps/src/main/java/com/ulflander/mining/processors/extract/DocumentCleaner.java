@@ -43,12 +43,17 @@ public class DocumentCleaner extends Processor {
         // First trim
         String raw = doc.getSurface();
 
-        // \r\n
-        raw = raw.replaceAll("\\r\\n", "\n");
-        // \r
-        raw = raw.replaceAll("\\r", "\n");
-        // Vertical tab space char
-        raw = raw.replaceAll("[\\x20]", " ");
+            // \r\n
+        raw = raw.replaceAll("\\r\\n", "\n")
+            // \r
+            .replaceAll("\\r", "\n")
+            // Vertical tab space char
+            .replaceAll("[\\x20]", " ")
+            // Vertical |
+            .replaceAll(" \\| ", ". ")
+            // Untokenizable
+            .replaceAll("\\uFFFD", " ");
+
 
         doc.setSurface(raw);
     }

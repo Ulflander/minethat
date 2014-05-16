@@ -95,7 +95,7 @@ public final class DocumentStorage extends Storage {
 
         // Document
         DBObject doc = new BasicDBObject();
-        doc.put("raw", document.getSurface());
+        doc.put("surface", document.getSurface());
         doc.put("history", document.getHistory());
         doc.put("status", document.getStatus().toString());
 

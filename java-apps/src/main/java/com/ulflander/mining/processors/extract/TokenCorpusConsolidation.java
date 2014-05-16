@@ -126,7 +126,7 @@ public class TokenCorpusConsolidation extends Processor
             // And we infer that location parts around may not be
             // location parts
             token.consolidate(TokenType.LOCATION_PART, -DEFAULT_SCORE,
-                    DEFAULT_RADIUS/2);
+                    DEFAULT_RADIUS / 2);
         }
 
         if (c.contains("en/places-cxt")) {

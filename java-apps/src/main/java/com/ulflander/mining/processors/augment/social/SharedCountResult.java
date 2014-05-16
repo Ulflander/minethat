@@ -10,6 +10,23 @@ import com.google.gson.annotations.SerializedName;
 public class SharedCountResult {
 
     /**
+     * Get number of social interactions across all social platforms.
+     *
+     * @return Number of total interactions.
+     */
+    public final int getGrandTotal() {
+        return stumbleUpon
+                + reddit
+                + delicious
+                + googlePlusOne
+                + twitter
+                + pinterest
+                + linkedIn
+                + facebook.totalCount;
+    }
+
+
+    /**
      * StumbleUpon.
      */
     @SerializedName("StumbleUpon")

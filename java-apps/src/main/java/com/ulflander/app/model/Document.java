@@ -1,6 +1,8 @@
 package com.ulflander.app.model;
 
 import com.google.gson.annotations.Expose;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -17,6 +19,12 @@ import java.util.Set;
  * @see Job
  */
 public class Document extends Text implements Storable {
+
+    /**
+     * Logger.
+     */
+    private static final Logger LOGGER =
+        LogManager.getLogger(Document.class);
 
     /**
      * Minimum content length to create an excerpt.
@@ -129,6 +137,7 @@ public class Document extends Text implements Storable {
 
         if (!(obj instanceof String)
             && !(obj instanceof Integer)
+            && !(obj instanceof Long)
             && !(obj instanceof Boolean)
             && !(obj instanceof Float)) {
             throw new IllegalArgumentException("Document properties "
@@ -169,6 +178,9 @@ public class Document extends Text implements Storable {
      */
     public final Object getProperty(final String group, final String name) {
         if (!properties.containsKey(group)) {
+            LOGGER.warn("Attempt to access unknown property group " + group
+                    + ". Please double check group name, use hasProperty() or "
+                    + "setup properly processor requirements.");
             return null;
         }
 
@@ -191,6 +203,42 @@ public class Document extends Text implements Storable {
         }
 
         return (String) properties.get(group).get(name);
+    }
+
+    /**
+     * Get a property by group and name, providing a fallback.
+     *
+     * @param group Property group
+     * @param name Property name
+     * @param fallback Fallback string
+     * @return Property value if found, fallback otherwise
+     */
+    public final Long getProperty(final String group,
+                                    final String name,
+                                    final Long fallback) {
+        if (!hasProperty(group, name)) {
+            return fallback;
+        }
+
+        return (Long) properties.get(group).get(name);
+    }
+
+    /**
+     * Get a property by group and name, providing a fallback.
+     *
+     * @param group Property group
+     * @param name Property name
+     * @param fallback Fallback string
+     * @return Property value if found, fallback otherwise
+     */
+    public final Integer getProperty(final String group,
+                                    final String name,
+                                    final Integer fallback) {
+        if (!hasProperty(group, name)) {
+            return fallback;
+        }
+
+        return (Integer) properties.get(group).get(name);
     }
 
     /**
@@ -284,6 +332,7 @@ public class Document extends Text implements Storable {
         }
 
         chapters.add(c);
+        c.setDocument(this);
     }
 
     /**
