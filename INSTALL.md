@@ -3,13 +3,17 @@ Install minethat
 
 ## Setup DBPedia lookup
 
-Go into your home folder. Follow instructions here: https://github.com/dbpedia/lookup#running-a-local-mirror-of-the-webservice.
+Go into your home folder.
+
+Create a folder like `lookup-install`.
+
+Follow instructions here: https://github.com/dbpedia/lookup#running-a-local-mirror-of-the-webservice.
 
 Let's now create a supervisor wrapper. Go into `lookup` folder that you created earlier. Create this new file `start.sh`:
 
 ```
 #!/bin/sh
-/home/ubuntu/dbp-lookup/lookup/run Server ../dbpedia-lookup-index-3.8
+/home/ubuntu/lookup-install/lookup/run Server ../dbpedia-lookup-index-3.8
 ```
 
 Make it executable:
