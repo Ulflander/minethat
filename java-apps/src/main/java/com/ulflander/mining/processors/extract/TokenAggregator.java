@@ -34,7 +34,12 @@ public class TokenAggregator extends Processor {
         List<Token> toMerge = new ArrayList<Token>();
         Token prev;
         for (Token t: sentence.getTokens()) {
+
             prev = t.getPrevious();
+
+            if (isSkipable(t) || isSkipable(prev)) {
+                continue;
+            }
 
             // Basic, try to merge with previous:
             // must have a score and share a score with previous
@@ -68,8 +73,33 @@ public class TokenAggregator extends Processor {
         }
 
         for (Token t: toMerge) {
+            prev = t.getPrevious();
             sentence.mergeToPrevious(t);
+
+            if (prev.hasScore(TokenType.PERSON_PART)) {
+                prev.score(TokenType.PERSON,
+                        prev.getScore(TokenType.PERSON_PART));
+                prev.discriminate(TokenType.PERSON_PART);
+            }
         }
+    }
+
+    /**
+     * Check if a token must be skipped (token like parenthesis).
+     *
+     * @param t Token
+     * @return True if token should be skipped, false otherwise
+     */
+    private boolean isSkipable(final Token t) {
+
+        // Check for special types to skip
+        return t == null
+                || t.getType() == TokenType.OPEN_PARENTHESIS
+                || t.getType() == TokenType.CLOSE_PARENTHESIS
+                || t.getType() == TokenType.OPEN_PARENTHESIS
+                || t.getType() == TokenType.CLOSE_PARENTHESIS
+                || t.getType() == TokenType.OPEN_PARENTHESIS
+                || t.getType() == TokenType.CLOSE_PARENTHESIS;
 
     }
 }

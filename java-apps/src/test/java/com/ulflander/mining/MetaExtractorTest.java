@@ -43,9 +43,9 @@ public class MetaExtractorTest extends AbstractTest {
         s.addProcessor("extract.TokenWeightConsolidation");
         s.addProcessor("extract.TokenCounter");
         s.addProcessor("extract.TokenCleaner");
-        s.addProcessor("extract.AcronymExtractor");
         s.addProcessor("extract.TokenCorpusGuesser");
         s.addProcessor("extract.TokenRegExpGuesser");
+        s.addProcessor("extract.AcronymExtractor");
         s.addProcessor("extract.en.EnTokenPOSConsolidation");
         s.addProcessor("extract.en.EnTokenSingularization");
         s.addProcessor("extract.TokenCorpusConsolidation");
@@ -54,6 +54,10 @@ public class MetaExtractorTest extends AbstractTest {
         s.addProcessor("extract.en.EnOperatorBasedConsolidation");
         s.addProcessor("extract.TokenAggregator");
         s.addProcessor("extract.AggregatedCorpusGuesser");
+        s.addProcessor("extract.EntityLookup");
+        s.addProcessor("extract.EntityBasedAggregator");
+        s.addProcessor("extract.EntityConsolidation");
+        s.addProcessor("extract.EntityCleaner");
         s.addProcessor("extract.TokenFrequency");
         s.addProcessor("extract.KeywordSelector");
         s.addProcessor("augment.BasicTextStat");

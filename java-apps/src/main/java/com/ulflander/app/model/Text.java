@@ -20,15 +20,21 @@ public abstract class Text {
     private static final Logger LOGGER =
         LogManager.getLogger(Text.class);
 
+
+    /**
+     * Full weight.
+     */
+    protected static final Float FULL_WEIGHT = 1.0f;
+
     /**
      * Default weight.
      */
-    private static final Float DEFAULT_HEIGHT = 0.5f;
+    protected static final Float DEFAULT_WEIGHT = 0.5f;
 
     /**
      * Weight (from token to chapter level) from 0 to 1.x.
      */
-    private Float weight = DEFAULT_HEIGHT;
+    private Float weight = DEFAULT_WEIGHT;
 
     /**
      * Weight total use.
@@ -361,6 +367,5 @@ public abstract class Text {
     public final void setEndIndex(final int i) {
         this.endIndex = i;
     }
-
 
 }

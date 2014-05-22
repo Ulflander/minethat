@@ -69,14 +69,17 @@ public final class EnPOSTagTokenizer extends Tokenizer {
 
         // While tokenizing, let's run NER
         // and cleanup the result:
-        String[] nerTokens = runNER(sentence);
+        String nerSurface = runNER(sentence);
+        String[] nerTokens = normalizeNER(nerSurface);
 
 
         // Validate NER/POS tagging: must have same length
         if (l != nerTokens.length) {
             LOGGER.error("Unable to use NER result: normalization failed:\n"
                         + "POS: " + raw + "\n"
-                        + "NER: " + StringUtils.join(nerTokens, " "));
+                    + "NER (raw): " + nerSurface + "\n"
+                    + "NER (normalized): "
+                    + StringUtils.join(nerTokens, " "));
 
             nerTokens = null;
         }
@@ -190,35 +193,43 @@ public final class EnPOSTagTokenizer extends Tokenizer {
     }
 
     /**
-     * Run Stanford NER classifier, also normalize the result so we have
-     * the same token indexing compared with POSTagger.
+     * Run Stanford NER classifier and return resulting string.
      *
      * @param s Sentence
-     * @return Array of tokens annotated with NER classifier result
+     * @return Result of NER classifier
      */
-    private String[] runNER(final Sentence s) {
-        String nerResult = null;
+    private String runNER(final Sentence s) {
         if (classifier != null) {
-            nerResult = UlfStringUtils.cleanSpaces(
-                    classifier.classifyToString(s.getSurface())
-                        // Normalize result so we got something almost the same
-                        // Than pos tagging in term of number of spaces/tokens
-                        .replaceAll("([^ ]+/MONEY)([0-9]+)", "$1 $2 ")
-                        .replaceAll("(['][a-zA-Z])/([A-Z]+)", " $1/$2 ")
-                        .replaceAll("([^A-Za-z0-9]+)/([A-Z]+)", " $1/$2 ")
-                        .replaceAll("-LRB -/O", "-LRB-/O ")
-                        .replaceAll("-RRB -/O", " -RRB-/O")
-                        .replaceAll(" ([A-Za-z0-9]+) ([^A-Za-z0-9])", " $1$2")
-                        .replaceAll("/O[^ ]", "/O ")
-                        .replaceAll("/O GANIZ", "/ORGANIZ")
-                        .replaceAll(" /O", "/O")
-                        .replaceAll(" /MONEY", "/MONEY")
-                        .replaceAll("\\s+", " ")
-                        .replaceAll(" - ", " -").trim());
-            return nerResult.split(" ");
+            return UlfStringUtils.cleanSpaces(
+                    classifier.classifyToString(s.getSurface()));
         }
 
         return null;
+    }
+
+    /**
+     * Normalize an NER classifier result so we have
+     * the same token indexing compared with POSTagger.
+     *
+     * @param nerSurface Result of NER classifier
+     * @return Array of tokens annotated with NER classifier result
+     */
+    private String[] normalizeNER(final String nerSurface) {
+        return nerSurface
+                // Normalize result so we got something almost the same
+                // Than pos tagging in term of number of spaces/tokens
+                .replaceAll("([^ ]+/MONEY)([0-9]+)", "$1 $2 ")
+                .replaceAll("(['][a-zA-Z])/([A-Z]+)", " $1/$2 ")
+                .replaceAll("([^A-Za-z0-9]+)/([A-Z]+)", " $1/$2 ")
+                .replaceAll("-LRB -/O", "-LRB-/O ")
+                .replaceAll("-RRB -/O", " -RRB-/O")
+                .replaceAll(" ([A-Za-z0-9]+) ([^A-Za-z0-9])", " $1$2")
+                .replaceAll("/O[^ ]", "/O ")
+                .replaceAll("/O GANIZ", "/ORGANIZ")
+                .replaceAll(" /O", "/O")
+                .replaceAll(" /MONEY", "/MONEY")
+                .replaceAll("\\s+", " ")
+                .replaceAll(" - ", " -").trim().split(" ");
     }
 
     /**

@@ -55,7 +55,7 @@ public class TokenCleaner extends Processor {
             t.setSurface(StringUtils.strip(
                     t.getSurface(), Patterns.TOKEN_CLEANER_ENDPOINTS));
 
-            if (sentence.getLanguage() == Language.EN) {
+            if (current().getLanguage() == Language.EN) {
                 t.setClean(StringUtils.stripAccents(t.getClean()));
             }
         }

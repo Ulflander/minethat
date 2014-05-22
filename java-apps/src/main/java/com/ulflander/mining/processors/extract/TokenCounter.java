@@ -34,8 +34,8 @@ public class TokenCounter extends Processor {
     @Override
     public final void extractDocument(final Document doc) {
         int docCount = 0;
-        int chapCount = 0;
-        int paragraphCount = 0;
+        int chapCount;
+        int paragraphCount;
         int t;
 
         for (Chapter c : doc.getChapters()) {

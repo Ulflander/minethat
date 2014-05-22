@@ -2,7 +2,6 @@ package com.ulflander.mining;
 
 import com.ulflander.app.Conf;
 import com.ulflander.app.model.Document;
-import com.ulflander.app.model.DocumentStatus;
 import com.ulflander.app.model.Job;
 import com.ulflander.app.model.JobDocumentType;
 import com.ulflander.app.model.JobProcessor;
@@ -123,6 +122,7 @@ public class ProcessingExecutor {
         UlfTimer timer = new UlfTimer();
         Processor processor;
         ArrayList<JobProcessor> procs = job.getProcessors();
+        int i = 0;
 
         if (procs == null) {
             LOGGER.warn("No processors given with model " + job.getId()
@@ -133,11 +133,15 @@ public class ProcessingExecutor {
         }
 
         if (getVerbose()) {
-            LOGGER.trace("  - DOCUMENT ANALYSIS STARTED: "
+            LOGGER.trace("DOCUMENT ANALYSIS STARTED: "
                     + document.getExcerpt());
         }
 
-        for (JobProcessor jobProcessor : procs) {
+        ensureMeta(job, document);
+
+        for (JobProcessor jobProcessor: procs) {
+
+            i++;
 
             if (jobProcessor.hasClazz()) {
                 try {
@@ -164,43 +168,8 @@ public class ProcessingExecutor {
                     + jobProcessor.getName()
                     + "] called but requirements not met");
 
-                document.setStatus(DocumentStatus.FAILED);
+                job.setStatus(JobStatus.FAILED);
                 break;
-            }
-
-            // Start populating document with job data
-            document.ensureProperty("meta", "customer_id",
-                    job.getCustomerId());
-
-            document.ensureProperty("meta", "job_id",
-                    job.getId());
-
-            document.ensureProperty("meta", "job_type",
-                    job.getType().toString());
-
-            document.ensureProperty("meta", "job_target",
-                    job.getTarget().toString());
-
-            if (job.getTarget() == JobTarget.TRAIN) {
-                document.ensureProperty("meta", "job_training_classes",
-                        job.getClasses());
-            }
-
-            if (job.getType() == JobDocumentType.URL) {
-                document.ensureProperty("meta", "url", job.getValue());
-            }
-
-            // Populate with meta data from job
-            HashMap<String, Object> meta = job.getMeta();
-            if (meta != null) {
-                for (String key : meta.keySet()) {
-                    try {
-                        document.ensureProperty("meta", key, meta.get(key));
-                    } catch (IllegalArgumentException e) {
-                        LOGGER.warn("A metadata information is invalid: "
-                        + "job " + job.getId() + ", key " + key, e);
-                    }
-                }
             }
 
             // Run
@@ -214,8 +183,11 @@ public class ProcessingExecutor {
 
         long t = timer.end();
 
+        document.addProperty("meta", "job_processors_applied", i);
+        document.addProperty("meta", "job_duration_ms", t);
+
         if (getVerbose()) {
-            LOGGER.trace("  - DOCUMENT ANALYSIS ENDED: Done in " + t + "ms");
+            LOGGER.trace("DOCUMENT ANALYSIS ENDED: Done in " + t + "ms");
         }
 
         document.setOriginal(document.getSurface());
@@ -226,6 +198,55 @@ public class ProcessingExecutor {
 
         return true;
     }
+
+
+    /**
+     * Set some document meta data based on job data.
+     *
+     * @param job Job
+     * @param document Document to be processed
+     */
+    private void ensureMeta(final Job job, final Document document) {
+
+        // Start populating document with job data
+        document.ensureProperty("meta", "customer_id",
+                job.getCustomerId());
+
+        document.ensureProperty("meta", "job_id",
+                job.getId());
+
+        document.ensureProperty("meta", "job_type",
+                job.getType().toString());
+
+        document.ensureProperty("meta", "job_target",
+                job.getTarget().toString());
+
+        document.ensureProperty("meta", "job_start_date",
+                System.currentTimeMillis());
+
+        if (job.getTarget() == JobTarget.TRAIN) {
+            document.ensureProperty("meta", "job_training_classes",
+                    job.getClasses());
+        }
+
+        if (job.getType() == JobDocumentType.URL) {
+            document.ensureProperty("meta", "url", job.getValue());
+        }
+
+        // Populate with meta data from job
+        HashMap<String, Object> meta = job.getMeta();
+        if (meta != null) {
+            for (String key : meta.keySet()) {
+                try {
+                    document.ensureProperty("meta", key, meta.get(key));
+                } catch (IllegalArgumentException e) {
+                    LOGGER.warn("A metadata information is invalid: "
+                            + "job " + job.getId() + ", key " + key, e);
+                }
+            }
+        }
+    }
+
 
     /**
      * Run one processor on the document.
@@ -242,7 +263,7 @@ public class ProcessingExecutor {
         if (processor instanceof ILocalizedProcessor) {
             // First check if language is set for the document
             if (document.getLanguage() == Language.UNKNOWN) {
-                LOGGER.warn("  |  Language specific processor "
+                LOGGER.warn("Language specific processor "
                     + "but document language unknown");
                 return false;
             }
@@ -260,16 +281,15 @@ public class ProcessingExecutor {
             }
 
             if (!found) {
-                LOGGER.warn("Processor" + processor.getClass().getSimpleName()
-                    + "language specific but no language found");
+                LOGGER.warn(processor.getClass().getSimpleName()
+                    + " is language specific but no language found");
                 return false;
             }
         }
 
 
         if (getVerbose()) {
-            LOGGER.trace("  |  Processing "
-                + processor.getClass().getSimpleName() + ": "
+            LOGGER.trace(processor.getClass().getSimpleName() + ": "
                 + processor.describe());
         }
 

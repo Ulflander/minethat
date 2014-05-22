@@ -1,6 +1,7 @@
 package com.ulflander.mining.processors.extract;
 
 import com.ulflander.app.model.Document;
+import com.ulflander.app.model.KeywordList;
 import com.ulflander.app.model.Token;
 import com.ulflander.app.model.TokenType;
 import com.ulflander.mining.processors.Processor;
@@ -20,6 +21,11 @@ import java.util.List;
         "extract.DocumentTokenizer"
 })
 public class TokenWeightConsolidation extends Processor {
+
+    /**
+     * Weight to apply on keyword tokens.
+     */
+    public static final float KEYWORDS_WEIGHT = 1f;
 
     /**
      * Weight to apply on frequent tokens.
@@ -58,6 +64,10 @@ public class TokenWeightConsolidation extends Processor {
         if (tt != TokenType.KEYWORD
                 && tt != TokenType.WORD) {
             return;
+        }
+
+        if (KeywordList.class.isInstance(token.getSentence().getParagraph())) {
+            token.setWeight(KEYWORDS_WEIGHT);
         }
 
         String clean = token.getClean();

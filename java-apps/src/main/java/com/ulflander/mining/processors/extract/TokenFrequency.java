@@ -15,7 +15,7 @@ import java.util.HashMap;
 
 /**
  * Creates a list of tokens based on their frequency, populates document
- * "meta.avg_token_frequency" property.
+ * "meta.avg_token_frequency" property. Also populates average weight.
  *
  * Created by Ulflander on 4/17/14.
  */
@@ -50,23 +50,37 @@ public class TokenFrequency extends Processor {
      */
     private int total;
 
+    /**
+     * Total weight for all tokens.
+     */
+    private float totalWeight;
+
     @Override
     public final void extractDocument(final Document doc) {
         frequency = new HashMap<Token, Integer>();
         tokens = new HashMap<String, Token>();
         total = 0;
+        totalWeight = 0;
     }
 
     @Override
     public final void extractToken(final Token token) {
         TokenType tt = token.getType();
         if (tt != TokenType.KEYWORD
-            && tt != TokenType.WORD) {
+            && tt != TokenType.WORD
+            && tt != TokenType.VERB) {
             return;
         }
 
+        totalWeight += token.getWeight();
+
+        String clean;
         Token nt;
-        String clean = token.getSingular();
+        if (tt == TokenType.WORD) {
+            clean = token.getSingular();
+        } else {
+            clean = token.getClean();
+        }
         int score = 1;
 
 
@@ -77,6 +91,10 @@ public class TokenFrequency extends Processor {
                 score *= 2;
             }
         } else if (KeywordList.class.isInstance(p)) {
+            score *= 2;
+        }
+
+        if (token.hasEntity()) {
             score *= 2;
         }
 
@@ -110,6 +128,8 @@ public class TokenFrequency extends Processor {
     @Override
     public final void onProcessed(final Document doc) {
         doc.setFrequency(frequency);
+        doc.addProperty("basic_stats", "avg_token_weight",
+                ((float) totalWeight / total));
         doc.addProperty("basic_stats", "avg_token_frequency",
                 ((float) total / frequency.size()));
     }

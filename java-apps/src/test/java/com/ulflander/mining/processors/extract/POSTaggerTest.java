@@ -9,8 +9,8 @@ public class POSTaggerTest extends AbstractTest {
 
     @Before
     public void setupProcessors () {
-        s.addProcessor("extract.DocumentCleaner");
         s.addProcessor("extract.en.EnCommonAcronymsCleaner");
+        s.addProcessor("extract.DocumentCleaner");
         s.addProcessor("extract.DocumentSplitter");
         s.addProcessor("extract.LanguageDetector");
         s.addProcessor("extract.POSTagger");
@@ -18,9 +18,9 @@ public class POSTaggerTest extends AbstractTest {
         s.addProcessor("extract.TokenWeightConsolidation");
         s.addProcessor("extract.TokenCounter");
         s.addProcessor("extract.TokenCleaner");
-        s.addProcessor("extract.AcronymExtractor");
         s.addProcessor("extract.TokenCorpusGuesser");
         s.addProcessor("extract.TokenRegExpGuesser");
+        s.addProcessor("extract.AcronymExtractor");
         s.addProcessor("extract.en.EnTokenPOSConsolidation");
         s.addProcessor("extract.en.EnTokenSingularization");
         s.addProcessor("extract.TokenCorpusConsolidation");
@@ -28,9 +28,15 @@ public class POSTaggerTest extends AbstractTest {
         s.addProcessor("extract.TokenInferConsolidation");
         s.addProcessor("extract.en.EnOperatorBasedConsolidation");
         s.addProcessor("extract.TokenAggregator");
+        s.addProcessor("extract.AggregatedCorpusGuesser");
+        s.addProcessor("extract.EntityLookup");
+        s.addProcessor("extract.EntityBasedAggregator");
+        s.addProcessor("extract.EntityConsolidation");
+        s.addProcessor("extract.EntityCleaner");
         s.addProcessor("extract.TokenFrequency");
         s.addProcessor("extract.KeywordSelector");
         s.addProcessor("augment.BasicTextStat");
+        s.addProcessor("augment.QualityEvaluator");
     }
 
     @Test
@@ -80,6 +86,84 @@ public class POSTaggerTest extends AbstractTest {
                 "“If the Kiev regime has started to use the army against the population inside the country, it beyond any doubt is a very serious crime,” Putin said at a media forum in St. Petersburg. He added that if Ukrainian authorities escalated the confrontation, there would be “consequences.”\n" +
                 "\n" +
                 "After a day of increasingly dire reports from the ground, the Obama administration struck back, at least verbally. “If Russia continues in this direction, it will not just be a grave mistake, it will be an expensive mistake,” Kerry said in Washington. Although he announced no new sanctions, Kerry said, “The window [for Russia] to change course is closing. . . . We are ready to act.”");
+
+        s.submit(d);
+        trace (d);
+    }
+
+    @Test
+    public void archeoTest() {
+        d.setSurface("Stanford Archaeologist Laura Jones celebrated as an innovative professional and trusted partner\n" +
+                "Laura Jones, one of this year's Amy J. Blue Award winners, is director of heritage services and special projects, and university archaeologist. She has earned a reputation as a \"champion of all things Stanford\" and for setting a high ethical standard in the care of tribal remains.\n" +
+                "\n" +
+                "BY KATHLEEN J. SULLIVAN\n" +
+                "\n" +
+                "Laura Jones\n" +
+                "Laura Jones, university archaeologist, was honored with an Amy J. Blue Award for her work preserving archaeological sites and historic buildings and being 'a champion of all things Stanford.\n" +
+                "\n" +
+                "Like children who watched the old game show Where in the World Is Carmen Sandiego?, faculty, staff and students at Stanford could play \"Where on the Farm is Laura Jones?\"\n" +
+                "\n" +
+                "Jones, university archaeologist, could be in her cubicle in Land, Buildings and Real Estate's headquarters on Porter Drive. Or in the Stanford Archaeology Center just off the Main Quad on Escondido Mall. Or in the Field Conservation Facility, a brown modular bedecked with succulents on Oak Road on the west side of campus.\n" +
+                "\n" +
+                "Or, these days, she could be traipsing around Jasper Ridge Biological Preserve with a coterie of students on a carefully planned search for the labor camp associated with the construction of Searsville Dam, which was built in 1892 by 100 men for the Spring Valley Water District.\n" +
+                "\n" +
+                "\"We suspect there will be a very large archaeological deposit from the labor camp,\" Jones said. \"It's somewhere inside Jasper Ridge. We have to be careful while we're looking for it, because there are poison oak plants, ticks and rattlesnakes. Archaeology is a field science and there are hazards. It's a good thing to teach students. I'm the only one that's been bitten by a tick yet this year.\"\n" +
+                "\n" +
+                "Jones is teaching the four undergraduates and three graduate students enrolled in Archaeological Field Survey Methods how to lay out 10-meter transect grids with tape and walk the grid while closely scrutinizing the ground.\n" +
+                "\n" +
+                "\"We don't dig,\" she said. \"We go out and look for sites out there in the hinterlands. We know where the 65 prehistoric Native American sites are on Stanford lands. But we've been working to catch up on historic archaeological sites, like the house of Henry P. Coon, who served as mayor of San Francisco during the American Civil War.\"\n" +
+                "\n" +
+                "An earlier class found the Coon house, which was built at a site near today's Interstate 280 and collapsed during the 1906 earthquake. Another class found the house of Denis Martin, a California pioneer whose land holdings included the Jasper Ridge Biological Preserve.\n" +
+                "\n" +
+                "\"It's enormous fun,\" Jones said. \"I can't tell you how much fun it is. We spent three hours on Monday afternoon tramping around in our little grids. I get a huge amount of energy from doing that with students.\"\n" +
+                "\n" +
+                "Jones is one of this year's recipients of the Amy J. Blue Award.\n" +
+                "\n" +
+                "A rural childhood\n" +
+                "\n" +
+                "Jones spent part of her childhood in South Carolina, and a lot of time on the farm where her grandparents grew cotton and tobacco when she was little, and grew corn, wheat and soybeans, and raised hogs when she was older. When Jones was in grade school, her family moved to Iowa City, where her father taught education at the University of Iowa.\n" +
+                "\n" +
+                "\"Growing up in rural states, I was certainly aware of dirt – of soil,\" she said. \"I had a foot in academia and in the outdoors. I enjoyed the seasons and working with my hands. My grandmother canned, tatted, knitted and quilted, so I had the sense there was a kind of dignity in that work. My family also was very interested in South Carolina history.\"\n" +
+                "\n" +
+                "After earning a bachelor's degree in anthropology at the University of California, San Diego, Jones headed north to Stanford, where she earned a master's degree (1985) and a doctorate (1991) in material culture and applied anthropology studies.\n" +
+                "\n" +
+                "Soon, she was working for the Ohlone Tribe, which was excavating hundreds of bodies of tribal members discovered near construction sites in San Jose and Milpitas to be reburied.\n" +
+                "\n" +
+                "\"It was really an important moment in Native American cemetery protection, because the tribe insisted that they be in charge of handling the human remains and caring for the graves,\" Jones said. \"I was their employee. Traditionally, it had been the other way around. Archaeologists would hire Native Americans to observe cemetery work. So I trained Native Americans in excavation techniques. Descendents of the Ohlone Tribe excavated all of the bodies. I was there to support their work – I wrote reports and attended meetings – and served as the liaison with the landowners.\"\n" +
+                "\n" +
+                "In 1994, when Stanford was looking for a campus archaeologist, Jones didn't bother applying for the job, because she'd been rejected for the same post three years earlier for being \"unsupervisable.\" This time, Stanford called her, and hired her part-time under a six-month probation to work on the Sand Hill Road expansion project.\n" +
+                "\n" +
+                "\"At the end of six months, they decided I was agreeable enough to stay, and they offered to make me a full-time campus archaeologist if I would take on historic preservation as well,\" Jones said. \"So in 1995, I took charge of the Loma Prieta Earthquake Recovery Projects funded by the Federal Emergency Management Agency.\"\n" +
+                "\n" +
+                "She handled the negotiations with county, state and federal officials as Stanford set about repairing, restoring or renovating buildings damaged in the 1989 earthquake, including the Stanford Museum, which reopened in 1999 as the Cantor Arts Center; Green Library; Hanna House, a Frank Lloyd Wright masterpiece; and several buildings on the Main Quad.\n" +
+                "\n" +
+                "Preserving archaeological sites, historic buildings and Stanford's leadership as a world-class university\n" +
+                "\n" +
+                "In a joint letter nominating Jones for an Amy J. Blue Award, the program staff of the Native American Cultural Center (Karen Biestman, associate dean and director; Denni Woodward, assistant director; and Greg Graves, graduate recruitment and retention coordinator), wrote that Jones has left a \"deep and widespread footprint\" at Stanford that began when she was in graduate school.\n" +
+                "\n" +
+                "A year before the passage of the Native American Grave Protection and Repatriation Act of 1990, leaders from the Muwekma Ohlone Tribe appealed to the university to repatriate 550 skeletal remains of their ancestors. Jones, working with Stanford's archaeologist, was central to those discussions. When Stanford decided to repatriate the remains, Jones personally delivered the Ohlone ancestors to the Coyote Hills in Fremont for reburial.\n" +
+                "\n" +
+                "\"This event was groundbreaking on many fronts,\" they wrote. \"In fact, it earned her much criticism from museum professionals and archaeology peers across the country that feared Stanford's action would signal the removal of osteological research materials from teaching collection shelves. In the end, not only were their concerns unfounded, but also it became apparent it was the right thing to do. The decision earned Stanford a reputation for setting a high ethical standard in the discipline, and earned Laura a reputation as an innovative professional, and trusted tribal and Native Community partner – all of which persist today.\"\n" +
+                "\n" +
+                "Describing Jones as \"a champion of all things Stanford,\" they cited her work overseeing the excavation of the Men's Gymnasium, the repair of the Angel of Grief historic memorial and the restoration of the Arizona Cactus Garden near the Stanford Family Mausoleum.\n" +
+                "\n" +
+                "Currently, Jones reviews historic preservation issues for faculty/staff housing and leased properties, including the Research Park, Webb Ranch and the Palo Alto Train Depot. Her job is to identify Stanford's historical assets and analyze their historic importance.\n" +
+                "\n" +
+                "\"Stanford has a value, which is we should preserve archaeological sites and historic buildings,\" she said. \"But we also have a goal, which is preserving our leadership as a world-class university. To achieve that goal we want to build a new hospital, to build a new chemistry building or to be better stewards of the creek. It's my role to see that we respect important archaeological and historic sites and that our stewardship of those sites is rewarded when we get permits for our construction projects. I work in Stanford's Land, Buildings and Real Estate organization, and we're really in the business of getting permission for the university to do things. I work on getting that permission.\"\n" +
+                "\n" +
+                "For instance, Jones said, Stanford had to ask for – and won – permission from Santa Clara County to gut the Old Chemistry Building and transform it into a center devoted to undergraduate science education. The design will incorporate some of the building's key historic features, including its cast-iron stairs, wood wainscot and trim. The rest of the building will be transformed, with a library, auditorium, classrooms and laboratories.\n" +
+                "\n" +
+                "\"Part of my role is to show that we've thought about the historic issues related to the Old Chemistry Building and have presented a thoughtful response about remodeling it,\" she said. \"Our preservation approach to Old Chem is that you should know you're in a building that was built in 1903 and that was remodeled in 2014 – a place where you will be able to see both the old and the modern at the same time.\"\n" +
+                "\n" +
+                "Jones said her favorite excavation was the Stanford Family Mansion, which collapsed during the 1906 earthquake, was demolished to the basement and covered with a lawn.\n" +
+                "\n" +
+                "\"Every spring for about six years, I would take a class out there, and we would dig up the basement,\" she said.\n" +
+                "\n" +
+                "One of the treasures they unearthed was Jane Stanford's ceramic pink and white toilet set – a pitcher, bowl, sponge tray and footbath. All told, the family mementos filled 75 boxes.\n" +
+                "\n" +
+                "\"It was huuugely fun, because it connected students to Stanford's history, and because they found treasure every day,\" Jones said. \"In archaeology, there is usually a lot of sifting of dirt and then a few tiny clues. But the mansion's basement was full of treasures. You couldn't plan it better as an archaeology class.\"\n" +
+                "\n" +
+                "An awards ceremony will be held on Wednesday, May 21, at 3:30 p.m. in Lagunita Courtyard to honor Jones and this year's other Amy J. Blue Award winners – Laurette Beeson, assistant dean in the Graduate Life Office, and Mark Urbanek, technical manager in the Film & Media Studies Program.  President John Hennessy will present the awards. The ceremony is open to friends, family members and colleagues of the recipients. ");
 
         s.submit(d);
         trace (d);

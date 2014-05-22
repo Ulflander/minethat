@@ -2,11 +2,11 @@ package com.ulflander.app.services;
 
 import com.rabbitmq.client.QueueingConsumer;
 import com.ulflander.app.Conf;
+import com.ulflander.app.model.Document;
 import com.ulflander.app.model.Job;
 import com.ulflander.app.model.JobStatus;
-import com.ulflander.app.model.storage.JobStorage;
-import com.ulflander.app.model.Document;
 import com.ulflander.app.model.storage.DocumentStorage;
+import com.ulflander.app.model.storage.JobStorage;
 import com.ulflander.mining.ExtractionException;
 import com.ulflander.mining.TextExtractor;
 import com.ulflander.utils.UlfHashUtils;
@@ -120,7 +120,18 @@ public class ExtractorService extends RabbitService {
 
         try {
             doc = TextExtractor.fromJobDocument(job);
-            doc.addProperty("meta", "fingerprint", UlfHashUtils.sha256(doc.getSurface()));
+
+            // URL fingerprint
+            if (doc.hasProperty("meta", "doc_url")) {
+                doc.addProperty("meta", "url_fingerprint",
+                        UlfHashUtils.sha256(
+                                (String) doc.getProperty("meta", "doc_url")));
+
+            } else if (doc.hasProperty("meta", "url")) {
+                doc.addProperty("meta", "url_fingerprint",
+                        UlfHashUtils.sha256(
+                                (String) doc.getProperty("meta", "url")));
+            }
             DocumentStorage.insert(doc);
         } catch (ExtractionException e) {
             job.setStatus(JobStatus.FAILED);

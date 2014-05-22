@@ -16,7 +16,7 @@ import java.net.Socket;
  * Send a message via a socket to services service.
  * It's no more than a socket client call handler.
  *
- * Created by Ulflander on 4/23/14.
+ * @author Ulflander <xlaumonier@gmail.com>
  */
 public final class Corpora {
 

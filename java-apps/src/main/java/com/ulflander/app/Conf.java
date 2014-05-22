@@ -91,6 +91,11 @@ public final class Conf {
     private static int corporaPort;
 
     /**
+     * DBPedia lookup server.
+     */
+    private static String dbPediaLookupHost;
+
+    /**
      * Configuration initialized (loaded at least once).
      */
     private static Boolean initialized = false;
@@ -327,6 +332,24 @@ public final class Conf {
      */
     public static void setCorporaPort(final String o) {
         corporaPort =  Integer.valueOf(o);
+    }
+
+    /**
+     * Get DBPedia lookup host.
+     *
+     * @return DBPedia lookup host
+     */
+    public static String getDbPediaLookupHost() {
+        return dbPediaLookupHost;
+    }
+
+    /**
+     * Set DBPedia lookup host.
+     *
+     * @param d DBPedia lookup host
+     */
+    public static void setDbPediaLookupHost(final String d) {
+        dbPediaLookupHost = d;
     }
 
 

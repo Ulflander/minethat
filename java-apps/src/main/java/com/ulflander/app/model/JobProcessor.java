@@ -42,7 +42,18 @@ public class JobProcessor implements Serializable {
      */
     public JobProcessor(final Class c) {
         this.clazz = c;
-        this.name = c.getSimpleName();
+        String[] nArray = c.getName().split("\\.");
+        String n = "";
+        for (String s: nArray) {
+            if (s.equals("com") || s.equals("ulflander")
+                    || s.equals("mining") || s.equals("processors")) {
+                continue;
+            }
+
+            n += "." + s;
+        }
+
+        this.name = n.substring(1);
     }
 
     /**

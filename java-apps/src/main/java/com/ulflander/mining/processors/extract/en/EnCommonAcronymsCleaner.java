@@ -3,7 +3,6 @@ package com.ulflander.mining.processors.extract.en;
 import com.ulflander.app.model.Document;
 import com.ulflander.mining.processors.Processor;
 import com.ulflander.mining.processors.ProcessorDepthControl;
-import com.ulflander.mining.processors.Requires;
 
 import java.util.HashMap;
 import java.util.Iterator;
@@ -14,9 +13,6 @@ import java.util.Iterator;
  *
  * Created by Ulflander on 4/16/14.
  */
-@Requires(processors = {
-        "extract.DocumentCleaner"
-})
 public class EnCommonAcronymsCleaner extends Processor {
 
     /**

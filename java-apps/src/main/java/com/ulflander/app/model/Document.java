@@ -57,12 +57,6 @@ public class Document extends Text implements Storable {
      */
     private ArrayList<Chapter> chapters;
 
-
-    /**
-     * Document processing status.
-     */
-    private DocumentStatus status = DocumentStatus.VOID;
-
     /**
      * Document processing history: list of names of processors run on the
      * document.
@@ -457,24 +451,6 @@ public class Document extends Text implements Storable {
      */
     public final void setLanguages(final HashMap<Language, Integer> l) {
         this.languages = l;
-    }
-
-    /**
-     * Get document processing status value.
-     *
-     * @return Document processing status
-     */
-    public final DocumentStatus getStatus() {
-        return status;
-    }
-
-    /**
-     * Set document processing status value.
-     *
-     * @param s Document processing status
-     */
-    public final void setStatus(final DocumentStatus s) {
-        this.status = s;
     }
 
     /**

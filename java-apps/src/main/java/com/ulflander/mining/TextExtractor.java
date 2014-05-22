@@ -3,6 +3,7 @@ package com.ulflander.mining;
 import com.ulflander.app.model.Document;
 import com.ulflander.app.model.Job;
 import com.ulflander.app.model.JobDocumentType;
+import com.ulflander.utils.UlfHashUtils;
 import com.ulflander.utils.UlfNetworkUtils;
 import com.ulflander.utils.UlfStringUtils;
 import de.l3s.boilerpipe.BoilerpipeProcessingException;
@@ -185,7 +186,7 @@ public final class TextExtractor {
             SimpleEstimator.INSTANCE.isLowQuality(statsBefore, articleStats);
 
         if (canolaLow && articleLow) {
-            if (articleStats.avgNumWords() > canolaStats.avgNumWords()) {
+            if (articleStats.avgNumWords() < canolaStats.avgNumWords()) {
                 chosen = articleText;
                 extractor = "low_article";
             } else {
@@ -270,7 +271,18 @@ public final class TextExtractor {
             throw new ExtractionException("Content is empty");
         }
 
-        return new Document(s);
+        Document d = new Document(s);
+
+        // Add aggregated date
+        d.addProperty("meta", "doc_aggregated_date",
+                System.currentTimeMillis());
+
+        // Doc fingerprint
+        d.addProperty("meta", "doc_fingerprint",
+                UlfHashUtils.sha256(d.getSurface()));
+
+
+        return d;
     }
 
     /**

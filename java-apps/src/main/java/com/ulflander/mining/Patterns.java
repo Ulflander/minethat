@@ -42,6 +42,12 @@ public final class Patterns {
             Pattern.compile("^\\p{javaUpperCase}+$");
 
     /**
+     * Pattern to check and replace one letter words in a string.
+     */
+    public static final Pattern ONE_LETTER_WORDS =
+            Pattern.compile(" \\w ");
+
+    /**
      * Pattern to recognize an email address.
      */
     public static final Pattern TOKEN_REC_EMAIL =
@@ -93,7 +99,7 @@ public final class Patterns {
      * Pattern to recognize some currency chars.
      */
     public static final Pattern TOKEN_REC_MONEY_CURRENCY_CHARS =
-            Pattern.compile("[$€£]+");
+            Pattern.compile("[$€£]");
 
     /**
      * Pattern to recognize an IPV4 address.

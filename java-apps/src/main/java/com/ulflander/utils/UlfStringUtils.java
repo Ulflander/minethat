@@ -133,4 +133,75 @@ public final class UlfStringUtils {
     public static String cleanSpaces(final String str) {
         return str.replaceAll(" +", " ");
     }
+
+    /**
+     * Computes Levenshtein distance between two strings.
+     *
+     * @param s0 First string
+     * @param s1 Second string
+     * @return Number of operations needed to transpose first string to
+     * second string
+     */
+    public static int distance(final String s0,
+                                final String s1) {
+
+        if (s0 == null || s1 == null) {
+            return Integer.MAX_VALUE;
+        }
+
+        if (s0.equals(s1)) {
+            return 0;
+        }
+
+        int len0 = s0.length() + 1,
+            len1 = s1.length() + 1,
+            i, j;
+
+        // the array of distances
+        int[] cost = new int[len0],
+            newcost = new int[len0];
+
+        // initial cost of skipping prefix in String s0
+        for (i = 0; i < len0; i++) {
+            cost[i] = i;
+        }
+
+        // dynamically computing the array of distances
+
+        // transformation cost for each letter in s1
+        for (j = 1; j < len1; j++) {
+
+            // initial cost of skipping prefix in String s1
+            newcost[0] = j - 1;
+
+            // transformation cost for each letter in s0
+            for (i = 1; i < len0; i++) {
+
+                // matching current letters in both strings
+                int match;
+                if (s0.charAt(i - 1) == s1.charAt(j - 1)) {
+                    match = 0;
+                } else {
+                    match = 1;
+                }
+
+                // computing cost for each transformation
+                // and keep minimum cost
+                newcost[i] = Math.min(
+                        Math.min(
+                            cost[i] + 1,
+                            newcost[i - 1] + 1),
+                        cost[i - 1] + match);
+            }
+
+            // swap cost/newcost arrays
+            int[] swap = cost;
+            cost = newcost;
+            newcost = swap;
+        }
+
+        // the distance is the cost for
+        // transforming all letters in both strings
+        return cost[len0 - 1];
+    }
 }

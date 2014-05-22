@@ -3,6 +3,7 @@ package com.ulflander.mining.nlp;
 import com.ulflander.app.model.Sentence;
 import com.ulflander.app.model.Token;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -15,12 +16,13 @@ public class BasicTokenizer extends Tokenizer {
     @Override
     public final void tokenize(final Sentence sentence) {
 
-        Scanner tokenize = new Scanner(sentence.getSurface());
+        String[] result = tokenize(sentence.getSurface());
         Token prev = null;
-        int total = 0;
+        int i,
+            l = result.length;
 
-        while (tokenize.hasNext()) {
-            Token t = new Token(tokenize.next());
+        for (i = 0; i < l; i++) {
+            Token t = new Token(result[i]);
             sentence.appendToken(t);
 
             if (prev != null) {
@@ -29,7 +31,26 @@ public class BasicTokenizer extends Tokenizer {
             }
 
             prev = t;
-            total += 1;
         }
+    }
+
+
+    /**
+     * Tokenize a string.
+     *
+     * @param sentence String to tokenize
+     * @return Array of String tokens
+     */
+    public final String[] tokenize(final String sentence) {
+
+        Scanner tokenize = new Scanner(sentence);
+
+        ArrayList<String> res = new ArrayList<String>();
+
+        while (tokenize.hasNext()) {
+            res.add(tokenize.next());
+        }
+
+        return (String[]) res.toArray(new String[0]);
     }
 }

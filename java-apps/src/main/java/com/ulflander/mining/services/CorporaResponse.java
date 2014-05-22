@@ -5,7 +5,7 @@ import java.util.ArrayList;
 /**
  * CorporaResponse from a query.
  *
- * Created by Ulflander on 4/23/14.
+ * @author Ulflander <xlaumonier@gmail.com>
  */
 public class CorporaResponse {
 

@@ -81,31 +81,56 @@
 <a class="jxr_linenumber" name="L73" href="#L73">73</a>      }
 <a class="jxr_linenumber" name="L74" href="#L74">74</a>  
 <a class="jxr_linenumber" name="L75" href="#L75">75</a>      <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L76" href="#L76">76</a>  <em class="jxr_javadoccomment">     * Returns full class name (including packages) from simple name.</em>
-<a class="jxr_linenumber" name="L77" href="#L77">77</a>  <em class="jxr_javadoccomment">     * &lt;p/&gt;</em>
-<a class="jxr_linenumber" name="L78" href="#L78">78</a>  <em class="jxr_javadoccomment">     * &lt;code&gt;</em>
-<a class="jxr_linenumber" name="L79" href="#L79">79</a>  <em class="jxr_javadoccomment">     * String full = ProcessorFactory.getFullName("extract.DocumentCleaner");</em>
-<a class="jxr_linenumber" name="L80" href="#L80">80</a>  <em class="jxr_javadoccomment">     * // full == "com.ulflander.mining.processors.extract.DocumentCleaner"</em>
-<a class="jxr_linenumber" name="L81" href="#L81">81</a>  <em class="jxr_javadoccomment">     * &lt;/code&gt;</em>
-<a class="jxr_linenumber" name="L82" href="#L82">82</a>  <em class="jxr_javadoccomment">     *</em>
-<a class="jxr_linenumber" name="L83" href="#L83">83</a>  <em class="jxr_javadoccomment">     * @param name Simple name of the name</em>
-<a class="jxr_linenumber" name="L84" href="#L84">84</a>  <em class="jxr_javadoccomment">     * @return Full name of processor class simple name</em>
-<a class="jxr_linenumber" name="L85" href="#L85">85</a>  <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="L86" href="#L86">86</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> String getFullName(<strong class="jxr_keyword">final</strong> String name) {
-<a class="jxr_linenumber" name="L87" href="#L87">87</a>          <strong class="jxr_keyword">return</strong> <span class="jxr_string">"com.ulflander.mining.processors."</span> + name;
-<a class="jxr_linenumber" name="L88" href="#L88">88</a>      }
-<a class="jxr_linenumber" name="L89" href="#L89">89</a>  
-<a class="jxr_linenumber" name="L90" href="#L90">90</a>  
-<a class="jxr_linenumber" name="L91" href="#L91">91</a>      <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L92" href="#L92">92</a>  <em class="jxr_javadoccomment">     * Get requirements for given processor name.</em>
-<a class="jxr_linenumber" name="L93" href="#L93">93</a>  <em class="jxr_javadoccomment">     *</em>
-<a class="jxr_linenumber" name="L94" href="#L94">94</a>  <em class="jxr_javadoccomment">     * @param name Name of processor</em>
-<a class="jxr_linenumber" name="L95" href="#L95">95</a>  <em class="jxr_javadoccomment">     * @return Requirements of given processor</em>
-<a class="jxr_linenumber" name="L96" href="#L96">96</a>  <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="L97" href="#L97">97</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> String[] getRequirements(<strong class="jxr_keyword">final</strong> String name) {
-<a class="jxr_linenumber" name="L98" href="#L98">98</a>          <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">null</strong>;
-<a class="jxr_linenumber" name="L99" href="#L99">99</a>      }
-<a class="jxr_linenumber" name="L100" href="#L100">100</a> }
+<a class="jxr_linenumber" name="L76" href="#L76">76</a>  <em class="jxr_javadoccomment">     * Get a processor instance by class.</em>
+<a class="jxr_linenumber" name="L77" href="#L77">77</a>  <em class="jxr_javadoccomment">     *</em>
+<a class="jxr_linenumber" name="L78" href="#L78">78</a>  <em class="jxr_javadoccomment">     * @param clazz Classe of the processor</em>
+<a class="jxr_linenumber" name="L79" href="#L79">79</a>  <em class="jxr_javadoccomment">     * @return Processor instance</em>
+<a class="jxr_linenumber" name="L80" href="#L80">80</a>  <em class="jxr_javadoccomment">     * @throws java.lang.IllegalAccessException If processor not accessible</em>
+<a class="jxr_linenumber" name="L81" href="#L81">81</a>  <em class="jxr_javadoccomment">     * @throws java.lang.InstantiationException If processor not instanciable</em>
+<a class="jxr_linenumber" name="L82" href="#L82">82</a>  <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="L83" href="#L83">83</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> <a href="../../../../com/ulflander/mining/processors/Processor.html">Processor</a> get(<strong class="jxr_keyword">final</strong> Class clazz) <strong class="jxr_keyword">throws</strong>
+<a class="jxr_linenumber" name="L84" href="#L84">84</a>              InstantiationException,
+<a class="jxr_linenumber" name="L85" href="#L85">85</a>              IllegalAccessException {
+<a class="jxr_linenumber" name="L86" href="#L86">86</a>  
+<a class="jxr_linenumber" name="L87" href="#L87">87</a>          String n = clazz.getCanonicalName();
+<a class="jxr_linenumber" name="L88" href="#L88">88</a>          <strong class="jxr_keyword">if</strong> (processors.containsKey(n)) {
+<a class="jxr_linenumber" name="L89" href="#L89">89</a>              <strong class="jxr_keyword">return</strong> processors.get(n);
+<a class="jxr_linenumber" name="L90" href="#L90">90</a>          }
+<a class="jxr_linenumber" name="L91" href="#L91">91</a>  
+<a class="jxr_linenumber" name="L92" href="#L92">92</a>          <a href="../../../../com/ulflander/mining/processors/Processor.html">Processor</a> processor = (Processor) clazz.newInstance();
+<a class="jxr_linenumber" name="L93" href="#L93">93</a>          processor.init();
+<a class="jxr_linenumber" name="L94" href="#L94">94</a>  
+<a class="jxr_linenumber" name="L95" href="#L95">95</a>          processors.put(n, processor);
+<a class="jxr_linenumber" name="L96" href="#L96">96</a>  
+<a class="jxr_linenumber" name="L97" href="#L97">97</a>          <strong class="jxr_keyword">return</strong> processor;
+<a class="jxr_linenumber" name="L98" href="#L98">98</a>      }
+<a class="jxr_linenumber" name="L99" href="#L99">99</a>  
+<a class="jxr_linenumber" name="L100" href="#L100">100</a>     <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L101" href="#L101">101</a> <em class="jxr_javadoccomment">     * Returns full class name (including packages) from simple name.</em>
+<a class="jxr_linenumber" name="L102" href="#L102">102</a> <em class="jxr_javadoccomment">     * &lt;p/&gt;</em>
+<a class="jxr_linenumber" name="L103" href="#L103">103</a> <em class="jxr_javadoccomment">     * &lt;code&gt;</em>
+<a class="jxr_linenumber" name="L104" href="#L104">104</a> <em class="jxr_javadoccomment">     * String full = ProcessorFactory.getFullName("extract.DocumentCleaner");</em>
+<a class="jxr_linenumber" name="L105" href="#L105">105</a> <em class="jxr_javadoccomment">     * // full == "com.ulflander.mining.processors.extract.DocumentCleaner"</em>
+<a class="jxr_linenumber" name="L106" href="#L106">106</a> <em class="jxr_javadoccomment">     * &lt;/code&gt;</em>
+<a class="jxr_linenumber" name="L107" href="#L107">107</a> <em class="jxr_javadoccomment">     *</em>
+<a class="jxr_linenumber" name="L108" href="#L108">108</a> <em class="jxr_javadoccomment">     * @param name Simple name of the name</em>
+<a class="jxr_linenumber" name="L109" href="#L109">109</a> <em class="jxr_javadoccomment">     * @return Full name of processor class simple name</em>
+<a class="jxr_linenumber" name="L110" href="#L110">110</a> <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="L111" href="#L111">111</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> String getFullName(<strong class="jxr_keyword">final</strong> String name) {
+<a class="jxr_linenumber" name="L112" href="#L112">112</a>         <strong class="jxr_keyword">return</strong> <span class="jxr_string">"com.ulflander.mining.processors."</span> + name;
+<a class="jxr_linenumber" name="L113" href="#L113">113</a>     }
+<a class="jxr_linenumber" name="L114" href="#L114">114</a> 
+<a class="jxr_linenumber" name="L115" href="#L115">115</a> 
+<a class="jxr_linenumber" name="L116" href="#L116">116</a>     <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L117" href="#L117">117</a> <em class="jxr_javadoccomment">     * Get requirements for given processor name.</em>
+<a class="jxr_linenumber" name="L118" href="#L118">118</a> <em class="jxr_javadoccomment">     *</em>
+<a class="jxr_linenumber" name="L119" href="#L119">119</a> <em class="jxr_javadoccomment">     * @param name Name of processor</em>
+<a class="jxr_linenumber" name="L120" href="#L120">120</a> <em class="jxr_javadoccomment">     * @return Requirements of given processor</em>
+<a class="jxr_linenumber" name="L121" href="#L121">121</a> <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="L122" href="#L122">122</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> String[] getRequirements(<strong class="jxr_keyword">final</strong> String name) {
+<a class="jxr_linenumber" name="L123" href="#L123">123</a>         <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">null</strong>;
+<a class="jxr_linenumber" name="L124" href="#L124">124</a>     }
+<a class="jxr_linenumber" name="L125" href="#L125">125</a> }
 </pre>
 <hr/>
 <div id="footer">Copyright &#169; 2014. All rights reserved.</div>

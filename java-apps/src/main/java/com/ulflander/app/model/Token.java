@@ -3,6 +3,7 @@ package com.ulflander.app.model;
 import com.google.gson.annotations.Expose;
 import com.ulflander.mining.nlp.PennPOSTag;
 
+import java.util.Collection;
 import java.util.HashMap;
 
 /**
@@ -62,6 +63,17 @@ public class Token extends Text {
 
 
     /**
+     * Eligible entities for this token.
+     */
+    private HashMap<String, Entity> entities =
+            new HashMap<String, Entity>();
+
+    /**
+     * Entity linked to token.
+     */
+    private Entity entity;
+
+    /**
      * Instanciate a token with an empty string.
      */
     public Token() {
@@ -75,6 +87,42 @@ public class Token extends Text {
      */
     public Token(final String raw) {
         super(raw);
+    }
+
+
+    /**
+     * Get best score that this token has - won't return any score if result
+     * is ambiguous (e.g. two types have the same score).
+     *
+     * @param exclude List of types to exclude from search
+     * @return Token type that has the best score
+     */
+    public final TokenType getBestScore(final TokenType... exclude) {
+        int max = 0;
+        boolean ambiguous = false;
+        TokenType t = null;
+
+        for (TokenType tt : typeScores.keySet()) {
+            for (TokenType tte: exclude) {
+                if (tte == tt) {
+                    continue;
+                }
+            }
+
+            if (typeScores.get(tt) > max) {
+                max = typeScores.get(tt);
+                ambiguous = false;
+                t = tt;
+            } else if (typeScores.get(tt) == max) {
+                ambiguous = true;
+            }
+        }
+
+        if (ambiguous) {
+            return null;
+        }
+
+        return t;
     }
 
     /**
@@ -347,6 +395,19 @@ public class Token extends Text {
         return false;
     }
 
+    /**
+     * Check if token is likely an entity (based on token type).
+     *
+     * @return True if token is likely an entity, false otherwise.
+     */
+    public final boolean isLikelyEntity() {
+        return hasScore(TokenType.PERSON,
+                TokenType.LOCATION,
+                TokenType.LOCATION_PART,
+                TokenType.NATIONALITY,
+                TokenType.ORGANIZATION
+            ) && !hasScore(TokenType.LOCATION_DESCRIPTOR);
+    }
 
     /**
      * Get previous token value.
@@ -413,14 +474,23 @@ public class Token extends Text {
         if (!hasPrevious()) {
             return this;
         }
+        String clean = previous.getClean();
         previous.score(getScores());
         previous.append(getSurface());
         previous.setWeight(getWeight());
+        previous.setWeight(Text.FULL_WEIGHT);
         previous.setNext(next);
         previous.setAggregated(true);
+        for (Entity e: entities.values()) {
+            previous.addEntity(e);
+        }
+
         if (hasNext()) {
             next.setPrevious(previous);
         }
+
+
+        previous.setClean(clean + " " + getClean());
         return previous;
     }
 
@@ -535,5 +605,98 @@ public class Token extends Text {
         this.aggregated = a;
     }
 
+    /**
+     * Get entity linked to this token.
+     *
+     * @return Entity linked to this token
+     */
+    public final Entity getEntity() {
+        return entity;
+    }
 
+    /**
+     * Set entity linked to this token.
+     *
+     * @param e Entity linked to this token
+     */
+    public final void setEntity(final Entity e) {
+        this.entity = e;
+    }
+
+    /**
+     * Add an entity to eligible entities.
+     *
+     * @param e Entity
+     */
+    public final void addEntity(final Entity e) {
+        if (!entities.containsKey(e.getId())) {
+            entities.put(e.getId(), e);
+        }
+    }
+
+    /**
+     * Remove an entity from eligible entities.
+     *
+     * @param e Entity
+     */
+    public final void removeEntity(final Entity e) {
+        if (entities.containsKey(e.getId())) {
+            entities.remove(e.getId());
+        }
+    }
+
+    /**
+     * Return first found entity for a given entity type (use this method when
+     * you can safely assume there is only one entity for given type).
+     *
+     * @param et Entity type
+     * @return Entity if found, null otherwise
+     */
+    public final Entity getFirstEntityByType(final EntityType et) {
+        for (Entity e: entities.values()) {
+            if (et == e.getType()) {
+                return e;
+            }
+        }
+
+        return null;
+    }
+
+    /**
+     * Return entity that has the highest confidence score from entities list.
+     *
+     * @return Entity with the highest confidence score, null of no entity
+     */
+    public final Entity getMostConfidentEntity() {
+        float max = 0;
+        Entity res = null;
+
+        for (Entity e: entities.values()) {
+            if (max < e.getConfidence()) {
+                max = e.getConfidence();
+                res = e;
+            }
+        }
+
+        return res;
+    }
+
+    /**
+     * Get all eligible entities.
+     *
+     * @return Eligible entities as a collection
+     */
+    public final Collection<Entity> getEntities() {
+        return entities.values();
+    }
+
+    /**
+     * Check if has any eligible or chosen entity.
+     *
+     * @return True if any entity is eligible or associated to this token, false
+     * otherwise
+     */
+    public final boolean hasEntity() {
+        return entities.size() > 0 || entity != null;
+    }
 }

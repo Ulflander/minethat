@@ -90,6 +90,7 @@ public class TokenRegExpGuesser extends Processor {
             "isIPV4",
             "isEmail",
             "isCapitalized",
+            "isUppercased",
             "isHashTag",
             "isTwitterUsername",
             "isDate",
@@ -103,10 +104,6 @@ public class TokenRegExpGuesser extends Processor {
      */
     @Override
     public final void extractToken(final Token token) {
-
-        if (token.getType() == TokenType.COMMA) {
-            return;
-        }
 
         for (int i = 0, l = methods.length; i < l; i++) {
             try {
@@ -195,7 +192,7 @@ public class TokenRegExpGuesser extends Processor {
          */
         } else if (test(Patterns.TOKEN_REC_MONEY_CURRENCY_CHARS,
                 token.getSurface())) {
-            token.score(TokenType.MONEY_AMOUNT, LOW_REGEXP_SCORE);
+            token.score(TokenType.MONEY_AMOUNT, DEFAULT_REGEXP_SCORE);
         }
     }
 
@@ -240,6 +237,27 @@ public class TokenRegExpGuesser extends Processor {
             token.consolidate(TokenType.LOCATION, -LOW_REGEXP_SCORE);
             token.consolidate(TokenType.LOCATION_PART, -LOW_REGEXP_SCORE);
             token.consolidate(TokenType.ORGANIZATION, -LOW_REGEXP_SCORE);
+        }
+    }
+
+    /**
+     * Check whether given token is capitalized. If it is then it increase
+     * some token type scores (mainly named entities: persons, organizations...)
+     *
+     * @param token Token to check
+     */
+    public final void isUppercased(final Token token) {
+
+        String str = token.getSurface();
+
+        /*
+            Capitalization rule can't apply if most of the
+            token is uppercased: it has no meaning anymore, we seek
+            here strict capitalization.
+         */
+        if (UlfStringUtils.isMostlyUppercase(str)) {
+            token.consolidate(TokenType.ORGANIZATION, LOW_REGEXP_SCORE);
+            token.score(TokenType.ACRONYM, LOW_REGEXP_SCORE);
         }
     }
 

@@ -102,8 +102,6 @@ public class AbstractCorpusGuesser extends Processor
             return;
         }
 
-
-
         if (c.contains("companies")) {
             t.score(TokenType.ORGANIZATION, score);
         } else if (c.contains("tech-companies")) {
@@ -115,7 +113,7 @@ public class AbstractCorpusGuesser extends Processor
         }
 
         if (c.contains("en/countries")) {
-            t.score(TokenType.LOCATION_PART, score);
+            t.score(TokenType.LOCATION, score);
         }
 
         if (c.contains("en/nats")) {

@@ -81,12 +81,11 @@ java-run-miner:
 	@export JAVA_OPTS="-Xms1024m -Xmx1024m -XX:PermSize=256m -XX:MaxPermSize=256m" && \
 		./java-apps/dist/bin/miner_service "$(CURR_ROOT)" local
 
-
-# Build modular and update it in chrome extension and web server
-chunky:
-	@cd chunk && gulp
-	@cp chunk/dist/chunk.js chrome/vendors/
-	@cp chunk/dist/chunk.js web/src/client/vendors/js/
+# Build hunk and copy it into web/ and chrome/
+hunk:
+	@cd hunk.js && gulp
+	@cp hunk.js/dist/hunk.js chrome/vendors/
+	@cp hunk.js/dist/hunk.js web/src/client/vendors/js/
 
 # Run all tests
 test: java-test services-test node-test

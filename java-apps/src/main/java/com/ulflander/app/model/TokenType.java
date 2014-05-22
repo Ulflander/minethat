@@ -82,12 +82,12 @@ public enum TokenType {
     /**
      * A date (30/06/1982, 12-30-2014, November 1974...).
      */
-    DATE,
+    DATE_PART,
 
     /**
      * A date (30/06/1982, 12-30-2014, November 1974...).
      */
-    DATE_PART,
+    DATE,
 
     /**
      * A time (13h37, 12pm...).
@@ -158,7 +158,7 @@ public enum TokenType {
     /**
      * A file path (C://my/file.pdf, /usr/home/stuff.gif...).
      */
-    FILEPATH,
+    FILE_PATH,
 
     /**
      * A social security number.

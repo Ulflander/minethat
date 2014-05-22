@@ -33,18 +33,13 @@ public class AggregatedCorpusGuesser extends AbstractCorpusGuesser {
             return;
         }
 
-        String s = token.getClean();
-        int l = s.length();
-        int score = DEFAULT_SCORE;
-
-        CorporaResponse res = Corpora.query(s, CORPORA);
+        CorporaResponse res = Corpora.query(token.getClean(), CORPORA);
         if (res == null) {
             LOGGER.warn("Corpora returned a null response");
             return;
         }
 
-        score(res.getCorpora(), token, score * 2);
-
+        score(res.getCorpora(), token, DEFAULT_SCORE * 2);
     }
 
 

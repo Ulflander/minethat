@@ -141,5 +141,7 @@ public class SocialStats extends Processor {
                 result.getFacebook().getTotalCount());
 
         doc.addProperty("social_stats", "total", result.getGrandTotal());
+
+        doc.addProperty("social_stats", "date", System.currentTimeMillis());
     }
 }

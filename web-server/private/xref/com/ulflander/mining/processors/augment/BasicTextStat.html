@@ -31,7 +31,7 @@
 <a class="jxr_linenumber" name="L23" href="#L23">23</a>      <em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="L24" href="#L24">24</a>  <em class="jxr_javadoccomment">     * Number of tokens one can read in one second in average.</em>
 <a class="jxr_linenumber" name="L25" href="#L25">25</a>  <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="L26" href="#L26">26</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> Integer TOKENS_READ_PER_SECOND = 3;
+<a class="jxr_linenumber" name="L26" href="#L26">26</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> Integer TOKENS_READ_PER_SECOND = 4;
 <a class="jxr_linenumber" name="L27" href="#L27">27</a>  
 <a class="jxr_linenumber" name="L28" href="#L28">28</a>  
 <a class="jxr_linenumber" name="L29" href="#L29">29</a>      <em class="jxr_javadoccomment">/**</em>
@@ -85,9 +85,9 @@
 <a class="jxr_linenumber" name="L77" href="#L77">77</a>          doc.addProperty(<span class="jxr_string">"basic_stats"</span>, <span class="jxr_string">"total_paragraphs"</span>, totalParagraph);
 <a class="jxr_linenumber" name="L78" href="#L78">78</a>          doc.addProperty(<span class="jxr_string">"basic_stats"</span>, <span class="jxr_string">"total_sentences"</span>, totalSentence);
 <a class="jxr_linenumber" name="L79" href="#L79">79</a>          doc.addProperty(<span class="jxr_string">"basic_stats"</span>, <span class="jxr_string">"ave_sent_per_par"</span>,
-<a class="jxr_linenumber" name="L80" href="#L80">80</a>                                          totalSentence / totalParagraph);
+<a class="jxr_linenumber" name="L80" href="#L80">80</a>                  1f * totalSentence / totalParagraph);
 <a class="jxr_linenumber" name="L81" href="#L81">81</a>          doc.addProperty(<span class="jxr_string">"basic_stats"</span>, <span class="jxr_string">"ave_tok_per_sent"</span>,
-<a class="jxr_linenumber" name="L82" href="#L82">82</a>                                          doc.getTotalToken() / totalSentence);
+<a class="jxr_linenumber" name="L82" href="#L82">82</a>                  doc.getTotalToken() / totalSentence);
 <a class="jxr_linenumber" name="L83" href="#L83">83</a>  
 <a class="jxr_linenumber" name="L84" href="#L84">84</a>          doc.addProperty(<span class="jxr_string">"basic_stats"</span>, <span class="jxr_string">"read_time_est"</span>,
 <a class="jxr_linenumber" name="L85" href="#L85">85</a>                  Math.round(

@@ -11,10 +11,11 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 
 /**
- * Select some keywords based on tokens frequency.
+ * Select some keywords based on tokens frequency and weight.
  *
  * Created by Ulflander on 4/17/14.
  */
@@ -28,6 +29,11 @@ public class KeywordSelector extends Processor {
      */
     public static final float MIN_WEIGHT = 0.6f;
 
+    /**
+     * Maximum amount of keywords to set as doc meta.
+     */
+    public static final int MAX_KEYWORDS = 30;
+
 
     @Override
     public final void init() {
@@ -37,7 +43,7 @@ public class KeywordSelector extends Processor {
 
     @Override
     public final String describe() {
-        return "Select some document keywords based on tokens frequency";
+        return "Select some keywords based on tokens frequency and weight";
     }
 
     @Override
@@ -47,17 +53,20 @@ public class KeywordSelector extends Processor {
         HashMap<Token, Integer> freq = doc.getFrequency();
         final HashMap<Token, Integer> result = new HashMap<Token, Integer>();
 
+        Float avgWeight =
+                (Float) doc.getProperty("basic_stats", "avg_token_weight");
+
         Token st;
         for (Token t: freq.keySet()) {
             st = t;
             int score = freq.get(t);
 
             if ((score > avg || t.getAggregated())
-                    && t.getType() == TokenType.KEYWORD
+                    && t.getWeight() > avgWeight
+                    && (t.getType() == TokenType.KEYWORD
+                    || t.getType() == TokenType.VERB)
                     && t.getWeight() > MIN_WEIGHT
                     && st.getClean().length() > 1) {
-
-
                 result.put(st, score);
             }
         }
@@ -66,12 +75,15 @@ public class KeywordSelector extends Processor {
         Collections.sort(keywords, new Comparator<Token>() {
             @Override
             public int compare(final Token s1, final Token s2) {
-                return result.get(s1).compareTo(result.get(s2));
+                return result.get(s2).compareTo(result.get(s1));
             }
         });
 
+
         int idx = 0;
-        for (Token t: keywords) {
+        Iterator<Token> tokens = keywords.iterator();
+        while (tokens.hasNext() && idx < MAX_KEYWORDS) {
+            Token t = tokens.next();
             doc.addProperty("keywords", "keyword_" + idx, t.getSurface());
             idx += 1;
         }

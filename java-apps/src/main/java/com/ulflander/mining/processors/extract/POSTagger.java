@@ -99,7 +99,6 @@ public class POSTagger extends Processor implements ILocalizedProcessor {
         }
         String tagged = tagger.tagString(sentence.getSurface());
         sentence.setRawPartOfSpeech(tagged);
-        System.out.println(tagged);
     }
 
     /**

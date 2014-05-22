@@ -85,7 +85,6 @@ public final class ProcessorFactory {
             IllegalAccessException {
 
         String n = clazz.getCanonicalName();
-        System.out.println(n);
         if (processors.containsKey(n)) {
             return processors.get(n);
         }

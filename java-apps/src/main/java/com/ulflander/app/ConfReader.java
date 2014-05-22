@@ -139,5 +139,9 @@ public final class ConfReader {
         if (map.containsKey("CORPORA_PORT")) {
             Conf.setCorporaPort(map.get("CORPORA_PORT"));
         }
+
+        if (map.containsKey("DBPEDIA_LOOKUP_HOST")) {
+            Conf.setDbPediaLookupHost(map.get("DBPEDIA_LOOKUP_HOST"));
+        }
     }
 }

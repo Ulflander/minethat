@@ -1,6 +1,7 @@
 package com.ulflander;
 
 import com.ulflander.app.model.Document;
+import com.ulflander.app.model.Entity;
 import com.ulflander.app.model.Paragraph;
 import com.ulflander.app.model.Sentence;
 import com.ulflander.app.model.Token;
@@ -43,7 +44,11 @@ public class AbstractTest {
                             + " (" + t.getTag() + "/" + t.getType() + "/"+t.getWeight()+") " + t.getSingular());
 
                     for (TokenType tt : t.getScores().keySet()) {
-                        System.out.println("        " + tt + ": " + t.getScore(tt));
+                        System.out.println(" (tt)       " + tt + ": " + t.getScore(tt));
+                    }
+
+                    for (Entity e : t.getEntities()) {
+                        System.out.println(" (en)       " + e.toString());
                     }
 
                     System.out.println();
