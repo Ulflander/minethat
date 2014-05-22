@@ -15,19 +15,6 @@ To get started, run `make` in your terminal:
 make
 ```
 
-## Requirements
-
-- MongoDB
-- RabbitMQ
-- Java 1.7 + Maven
-- Node.js latest + npm
-- Nginx
-- Git + gitflow
-- ImageMagick
-- Cube.js
-- monit
-- supervisor
-
 ## Other repositories requirements
 
 In order to have the whole Minethat system running, you should clone in the main

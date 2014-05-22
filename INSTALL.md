@@ -1,7 +1,23 @@
 Install minethat
 ================
 
-## Setup DBPedia lookup
+# Dependencies
+
+Make sure you have these dependencies ibnstalled on your system:
+
+- MongoDB
+- RabbitMQ
+- Java 1.7 + Maven
+- Node.js latest + npm
+- Nginx
+- Git + gitflow
+- ImageMagick
+- Cube.js
+- monit
+- supervisor
+- pm2
+
+# DBPedia lookup install
 
 Go into your home folder.
 
@@ -40,7 +56,9 @@ Now you can start DbPedia lookup using:
 
 `supervisorctl start dbp-lookup`
 
-## Get the repos
+# Minethat install
+
+### Get the repos
 
 Go into your home folder. Clone main repo.
 
