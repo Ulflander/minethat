@@ -87,6 +87,10 @@ hunk:
 	@cp hunk.js/dist/hunk.js chrome/vendors/
 	@cp hunk.js/dist/hunk.js web/src/client/vendors/js/
 
+# Copy css from web server to chrome
+web2chrome:
+	@cp web/dist/css/chrome.css chrome/css/
+
 # Run all tests
 test: java-test services-test node-test
 
