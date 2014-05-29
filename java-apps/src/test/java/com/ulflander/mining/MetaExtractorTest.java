@@ -58,6 +58,7 @@ public class MetaExtractorTest extends AbstractTest {
         s.addProcessor("extract.EntityBasedAggregator");
         s.addProcessor("extract.EntityConsolidation");
         s.addProcessor("extract.EntityCleaner");
+        s.addProcessor("extract.EntitySelector");
         s.addProcessor("extract.TokenFrequency");
         s.addProcessor("extract.KeywordSelector");
         s.addProcessor("augment.BasicTextStat");

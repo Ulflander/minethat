@@ -26,7 +26,7 @@ public class AbstractCorpusGuesser extends Processor
     /**
      * Token length minimum for score to not be decreased.
      */
-    protected static final int MIN_TOKEN_LENGTH = 5;
+    protected static final int MIN_TOKEN_LENGTH = 2;
 
     /**
      * Default score.

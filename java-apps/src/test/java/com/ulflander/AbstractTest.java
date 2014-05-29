@@ -6,6 +6,7 @@ import com.ulflander.app.model.Paragraph;
 import com.ulflander.app.model.Sentence;
 import com.ulflander.app.model.Token;
 import com.ulflander.app.model.TokenType;
+import com.ulflander.mining.services.DbPediaLookupResult;
 import org.junit.Before;
 
 import java.util.HashMap;
@@ -42,13 +43,19 @@ public class AbstractTest {
                 for (Token t: s.getTokens()) {
                     System.out.println("Token " + t.getSurface() + " / " + t.getClean()
                             + " (" + t.getTag() + "/" + t.getType() + "/"+t.getWeight()+") " + t.getSingular());
+                    System.out.println(t.getEntity());
+
+                    System.out.println();
 
                     for (TokenType tt : t.getScores().keySet()) {
                         System.out.println(" (tt)       " + tt + ": " + t.getScore(tt));
                     }
 
                     for (Entity e : t.getEntities()) {
-                        System.out.println(" (en)       " + e.toString());
+                        System.out.println(" (en)       " + e.toString() + " " + (
+                                DbPediaLookupResult.class.isInstance(e) ?
+                                        ((DbPediaLookupResult) e).getRefCount() : ""
+                                ));
                     }
 
                     System.out.println();

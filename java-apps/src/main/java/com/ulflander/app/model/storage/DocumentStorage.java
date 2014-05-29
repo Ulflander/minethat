@@ -2,8 +2,15 @@ package com.ulflander.app.model.storage;
 
 import com.mongodb.BasicDBObject;
 import com.mongodb.DBObject;
+import com.ulflander.app.model.Chapter;
 import com.ulflander.app.model.Document;
+import com.ulflander.app.model.Entity;
+import com.ulflander.app.model.Paragraph;
+import com.ulflander.app.model.Sentence;
+import com.ulflander.app.model.Token;
+import com.ulflander.mining.rdf.RDFUtil;
 import com.ulflander.utils.MongoAccessor;
+import com.ulflander.utils.UlfHashUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -111,6 +118,35 @@ public final class DocumentStorage extends Storage {
         }
 
         doc.put("properties", properties);
+
+        DBObject entities = new BasicDBObject();
+        int ent = 0;
+
+        for (Chapter c: document.getChapters()) {
+            for (Paragraph p: c.getParagraphs()) {
+                for (Sentence s: p.getSentences()) {
+                    for (Token t: s.getTokens()) {
+                        Entity e = t.getEntity();
+                        if (e != null) {
+                            DBObject obj = new BasicDBObject();
+                            obj.put("id", e.getId());
+                            obj.put("confidence", e.getConfidence());
+                            obj.put("label", e.getLabel());
+                            obj.put("desc", e.getDescription());
+                            obj.put("class",
+                                    RDFUtil.getMainClass(e.getClasses()));
+
+                            entities.put(UlfHashUtils.sha1(e.getId()), obj);
+                            ent++;
+                        }
+                    }
+                }
+            }
+        }
+
+        if (ent > 0) {
+            doc.put("entities", entities);
+        }
 
         return doc;
     }

@@ -26,6 +26,19 @@ import java.text.BreakIterator;
 public class DocumentSplitter extends Processor {
 
     /**
+     * Mininmum size for a sentence to be considered as is.
+     */
+    public static final int MIN_SENTENCE_SIZE = 8;
+
+    /**
+     * Minimum length of an uppercased word at the end of a sentence
+     * (including terminator).
+     */
+    public static final int LAST_WORD_UPPERCASED_MIN_LENGTH = 5;
+
+
+
+    /**
      * Three.
      */
     private static final int THREE = 3;
@@ -225,11 +238,34 @@ public class DocumentSplitter extends Processor {
                 }
             }
 
+
+            String surface = raw.substring(index, curr);
+
+            /*
+                If sentence is less than four chars, it's
+                likely not a sentence.
+             */
+            if (surface.length() < MIN_SENTENCE_SIZE) {
+                continue;
+            }
+
+            /*
+                If last word is less than 4 chars and starts with an uppercase,
+                it's likely a descriptor.
+             */
+            String[] surfaceSplitted = surface.split(" ");
+            String last = surfaceSplitted[surfaceSplitted.length - 1];
+
+            if (last.length() < LAST_WORD_UPPERCASED_MIN_LENGTH
+                && last.matches("\\p{javaUpperCase}\\p{javaLowerCase}+\\.")) {
+                continue;
+            }
+
             /*
                 Create the sentence
              */
             Sentence sentence =
-                new Sentence(raw.substring(index, curr));
+                new Sentence(surface);
 
             if (sentence.getSurface().equals("")) {
                 continue;

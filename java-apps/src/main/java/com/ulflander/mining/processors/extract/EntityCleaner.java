@@ -39,7 +39,7 @@ public class EntityCleaner extends Processor {
 
     @Override
     public final String describe() {
-        return "Lookup various services (DBPedia..) and check for entities.";
+        return "Removes entities whose confidence is under threshold.";
     }
 
     @Override

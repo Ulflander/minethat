@@ -1,6 +1,7 @@
 package com.ulflander.mining.processors.extract;
 
 import com.ulflander.app.model.Document;
+import com.ulflander.app.model.Entity;
 import com.ulflander.app.model.Heading;
 import com.ulflander.app.model.HeadingLevel;
 import com.ulflander.app.model.KeywordList;
@@ -15,7 +16,9 @@ import java.util.HashMap;
 
 /**
  * Creates a list of tokens based on their frequency, populates document
- * "meta.avg_token_frequency" property. Also populates average weight.
+ * "basic_stats.avg_token_frequency" property, also populates average weight in
+ * "basic_stats.avg_token_weight", and entity frequency in
+ * "basic_stats.avg_entity_frequency".
  *
  * Created by Ulflander on 4/17/14.
  */
@@ -46,9 +49,19 @@ public class TokenFrequency extends Processor {
     private HashMap<Token, Integer> frequency;
 
     /**
+     * Map frequency object/score.
+     */
+    private HashMap<String, Integer> frequencyEntity;
+
+    /**
      * Total citations for all tokens.
      */
     private int total;
+
+    /**
+     * Total citations for all tokens.
+     */
+    private int totalEntities;
 
     /**
      * Total weight for all tokens.
@@ -58,9 +71,11 @@ public class TokenFrequency extends Processor {
     @Override
     public final void extractDocument(final Document doc) {
         frequency = new HashMap<Token, Integer>();
+        frequencyEntity = new HashMap<String, Integer>();
         tokens = new HashMap<String, Token>();
         total = 0;
         totalWeight = 0;
+        totalEntities = 0;
     }
 
     @Override
@@ -120,6 +135,18 @@ public class TokenFrequency extends Processor {
             frequency.put(nt, frequency.get(nt) + score);
         }
 
+        if (token.getEntity() != null) {
+            totalEntities += 1;
+
+            Entity e = token.getEntity();
+            if (!frequencyEntity.containsKey(e.getId())) {
+                frequencyEntity.put(e.getId(), 1);
+            } else {
+                frequencyEntity.put(e.getId(),
+                        frequencyEntity.get(e.getId() + 1));
+            }
+        }
+
         total += 1;
 
         nt.score(token.getScores());
@@ -132,5 +159,7 @@ public class TokenFrequency extends Processor {
                 ((float) totalWeight / total));
         doc.addProperty("basic_stats", "avg_token_frequency",
                 ((float) total / frequency.size()));
+        doc.addProperty("basic_stats", "avg_entity_frequency",
+                ((float) totalEntities / frequencyEntity.size()));
     }
 }

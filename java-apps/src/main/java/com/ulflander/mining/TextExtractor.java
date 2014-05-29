@@ -186,7 +186,7 @@ public final class TextExtractor {
             SimpleEstimator.INSTANCE.isLowQuality(statsBefore, articleStats);
 
         if (canolaLow && articleLow) {
-            if (articleStats.avgNumWords() < canolaStats.avgNumWords()) {
+            if (articleText.length() < canolaText.length()) {
                 chosen = articleText;
                 extractor = "low_article";
             } else {
@@ -199,7 +199,7 @@ public final class TextExtractor {
         } else if (articleLow) {
             chosen = canolaText;
             extractor = "canola";
-        } else if (articleStats.avgNumWords() > canolaStats.avgNumWords()) {
+        } else if (articleText.length() < canolaText.length()) {
             chosen = articleText;
             extractor = "article";
         } else {

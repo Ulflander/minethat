@@ -104,6 +104,7 @@ public class DocumentSplitterTest extends AbstractTest {
         Assert.assertEquals("Two sentence paragraph should return two sentences", 2, d.getParagraphAt(0,0).getSentencesSize());
     }
 
+
     @Test
     public void DocumentSplitter3SentencesTest () {
 
@@ -113,6 +114,18 @@ public class DocumentSplitterTest extends AbstractTest {
         Assert.assertEquals("Two sentence paragraph should return only one chapter", 1, d.getChaptersSize());
         Assert.assertEquals("Two sentence paragraph should return only one paragraph", 1, d.getChapterAt(0).getParagraphsSize());
         Assert.assertEquals("Two sentence paragraph should return three sentences", 3, d.getParagraphAt(0,0).getSentencesSize());
+    }
+
+
+    @Test
+    public void DocumentSplitter4SentencesTest () {
+
+        d.setSurface("This is not the fault of Sen. John Mac Cain.");
+        s.submit(d);
+
+        Assert.assertEquals("Two sentence paragraph should return only one chapter", 1, d.getChaptersSize());
+        Assert.assertEquals("Two sentence paragraph should return only one paragraph", 1, d.getChapterAt(0).getParagraphsSize());
+        Assert.assertEquals("Two sentence paragraph should return one sentences", 1, d.getParagraphAt(0,0).getSentencesSize());
     }
 
 

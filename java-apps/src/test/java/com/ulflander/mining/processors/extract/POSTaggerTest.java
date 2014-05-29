@@ -32,12 +32,16 @@ public class POSTaggerTest extends AbstractTest {
         s.addProcessor("extract.EntityLookup");
         s.addProcessor("extract.EntityBasedAggregator");
         s.addProcessor("extract.EntityConsolidation");
+        s.addProcessor("extract.UnknownPersonToEntity");
         s.addProcessor("extract.EntityCleaner");
+        s.addProcessor("extract.EntitySelector");
         s.addProcessor("extract.TokenFrequency");
         s.addProcessor("extract.KeywordSelector");
         s.addProcessor("augment.BasicTextStat");
         s.addProcessor("augment.QualityEvaluator");
     }
+
+
 
     @Test
     public void basic2Test () {
@@ -201,6 +205,68 @@ public class POSTaggerTest extends AbstractTest {
     }
 
 
+    @Test
+    public void evenMoarTest() {
+        Document d = new Document();
+        d.setSurface("MAY 6, 2014\n" +
+                "\n" +
+                "“We are here fighting, and they are sitting around stuffing themselves,” Mr. Ponomaryov said by telephone from the city, which has been surrounded by Ukrainian military checkpoints and is in a region where shelling and shootouts have occurred in recent weeks. “It’s not a difference of opinion,” he said. “We have fundamentally opposing views.”\n" +
+                "\n" +
+                "Ukraine Crisis in Maps\n" +
+                "\n" +
+                "Mr. Ponomaryov’s statements suggested open hostility between Donetsk, where the Donetsk People’s Republic declared autonomy from Kiev after organizing a referendum this month, and several heavily armed stronghold cities to the northwest.\n" +
+                "\n" +
+                "But with armed groups in Slovyansk and elsewhere under the control of a shadowy military commander named Igor Strelkov, it was not immediately clear that Mr. Ponomaryov’s denunciation of his fellow revolutionaries carried any real weight.\n" +
+                "\n" +
+                "The separatist groups were knocked off balance earlier this month when President Vladimir V. Putin of Russia announced his intention to withdraw tens of thousands of Russian troops from the Ukrainian border, recommended that Ukraine solve its political problems through dialogue, and even gave tacit backing to the presidential election. Whether they can maintain their previous momentum without the implicit military and political backing of the Kremlin remains to be seen.\n" +
+                "\n" +
+                "Mr. Ponomaryov’s statements came as Ukraine’s provisional government has tried to cobble together support and improve the chances of a legitimate vote on Sunday. At a round-table session in the southern city of Mykolaiv, representatives of the Kiev government received a generally warm reception amid what seemed to be broad support for the talks, which are intended to help resolve the political crisis.\n" +
+                "\n" +
+                "Mykola P. Romanchuk, the governor of the Mykolaiv region, praised the effort at dialogue. “The right way to solve any problems — economic, judicial and, today, political,” Mr. Romanchuk said, “we need to solve at the round table.”\n" +
+                "\n" +
+                "The atmosphere was notably lighter than at the previous session in the eastern city of Kharkiv, where officials from the embattled region at times openly questioned the motives and even the legitimacy of the provisional government.\n" +
+                "\n" +
+                "Officials described Sunday’s presidential election as critical to Ukraine’s moving forward after the recent months of unrest. The acting prime minister, Arseniy P. Yatsenyuk, said the government was working steadily to carry out a series of structural changes, including constitutional amendments, and a decentralization plan that will give greater budget authority to local officials.\n" +
+                "\n" +
+                "Continue reading the main story\n" +
+                "\n" +
+                "Advertisement\n" +
+                "\n" +
+                "Mr. Yatsenyuk said the government was also committed to tightening ties with Europe through formal political and trade agreements. “We have no other way,” he said. Mr. Yatsenyuk also sounded optimistic about the east, collectively known as Donbass, where he said separatist groups were clearly weakened.\n" +
+                "\n" +
+                "“In the last few days, the situation in Donbass has turned around,” Mr. Yatsenyuk said. “The self-proclaimed Donbass republics will control neither Donbass nor Ukraine. I can call it an achievement of our common efforts.”\n" +
+                "\n" +
+                "In a visit to a military base located near the city of Slovyansk, Oleksandr V. Turchynov, Ukraine’s acting president, told local news media that Kiev’s military campaign against the rebel groups was entering its “final phase” and vowed to “cleanse the Donetsk and Lugansk regions of terrorists.”\n" +
+                "\n" +
+                "Denis Pushilin, the speaker for the revolutionary republic’s parliament based in Donetsk, denounced the military campaign and said that if it continued it could provoke a military response from Russia.\n" +
+                "\n" +
+                "Speaking in his office on the 10th floor of the seized regional administration building in Donetsk, Mr. Pushilin on Wednesday denied any rift between himself and Mr. Ponomaryov.\n" +
+                "\n" +
+                "He said that Mr. Ponomaryov had received “incorrect information” because the military blockade of the city had hampered communications, which could be monitored by the Ukrainian military.\n" +
+                "\n" +
+                "But Mr. Pushilin said that relations remained strong with Mr. Strelkov, who he said controlled all the paramilitary groups in the region.\n" +
+                "\n" +
+                "Ukrainian media outlets, many of them openly hostile to anti-Kiev forces in the east, have reported that heightened tensions have led to arguments and even armed clashes among rebel commanders in several cities.\n" +
+                "\n" +
+                "Both Mr. Pushilin and Mr. Ponomaryov denied that serious fighting had taken place.\n" +
+                "\n" +
+                "On Tuesday, several military trucks with armed men bearing a Russian flag sped into Donetsk from the north and surrounded the headquarters of the Ukrainian Security Service, which has been occupied by members of a Donetsk-based militia.\n" +
+                "\n" +
+                "Sentries dressed in military fatigues and armed with automatic rifles were posted at crossroads leading to the building, and city police officers prevented pedestrians from entering the area.\n" +
+                "\n" +
+                "A guard, who did not give his name but identified himself as a second lieutenant in the army of the Donetsk People’s Republic, said they had come from the city of Horlivka, which is located to the north of Donetsk, in order to “instill order” among members of a local militia.\n" +
+                "\n" +
+                "“There is no discipline” among them, he said, adding that the local militias were “unprofessional” and had not been registered. “Horlivka made the revolution.”\n" +
+                "\n" +
+                "Andrew Roth reported from Donetsk, and David M. Herszenhorn from Kiev, Ukraine.\n" +
+                "\n" +
+                "A version of this article appears in print on May 22, 2014, on page A12 of the New York edition with the headline: Solidarity Eludes Ukraine Separatist Groups as Presidential Election Nears. Order Reprints. Today\\'s Paper. Subscribe\n" +
+                "\n" +
+                "Next in Europe',\n" +
+                " ");
+        s.submit(d);
+        trace(d);
+    }
 
 
 
