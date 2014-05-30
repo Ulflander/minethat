@@ -6,33 +6,18 @@
         <link type="text/css" rel="stylesheet" href="css/chrome.css" media="all">
     </head>
     <body>
-        <div class="popup_wrapper" id="loading">
-            <span>Loading...</span>
+        <div class="popup_wrapper">
+
+            <div id="status"></div>
+
+            <a href="#" id="minethat_page">Mine that page</a>
+
+
+            <h3>Feeds</h3>
+            <ul id="feed_list">
+            </ul>
+
         </div>
-        <div id="status"></div>
-
-        <div class="popup_wrapper" id="main">
-            <button id="minethat_page">Mine that page</button>
-            <button id="trainthat_page">Train that page</button>
-
-            <input type = "radio"
-                name = "train_type"
-                id = "facts"
-                value = "facts"
-                checked = "checked" />
-
-            <label for = "facts">Facts</label>
-
-            <input type = "radio"
-                name = "train_type"
-                id = "analysis"
-                value = "analysis" />
-            <label for = "analysis">Analysis</label>
-        </div>
-
-        <h3>Feeds</h3>
-        <ul id="feed_list">
-        </ul>
     </body>
 
     <script src="vendors/jquery-1.10.2.min.js"></script>

@@ -37,6 +37,11 @@ public class Document extends Text implements Storable {
     private String id;
 
     /**
+     * Status.
+     */
+    private DocumentStatus status = DocumentStatus.VOID;
+
+    /**
      * Date created.
      */
     private Date created;
@@ -132,6 +137,7 @@ public class Document extends Text implements Storable {
         if (!(obj instanceof String)
             && !(obj instanceof Integer)
             && !(obj instanceof Long)
+            && !(obj instanceof Double)
             && !(obj instanceof Boolean)
             && !(obj instanceof Float)) {
             throw new IllegalArgumentException("Document properties "
@@ -579,6 +585,24 @@ public class Document extends Text implements Storable {
      */
     public final void setFrequency(final HashMap<Token, Integer> tf) {
         this.frequency = tf;
+    }
+
+    /**
+     * Get status.
+     *
+     * @return Status
+     */
+    public final DocumentStatus getStatus() {
+        return status;
+    }
+
+    /**
+     * Set status.
+     *
+     * @param s Status
+     */
+    public final void setStatus(final DocumentStatus s) {
+        this.status = s;
     }
 
 

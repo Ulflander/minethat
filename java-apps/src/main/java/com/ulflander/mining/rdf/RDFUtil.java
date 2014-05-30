@@ -1,5 +1,7 @@
 package com.ulflander.mining.rdf;
 
+import org.apache.commons.lang3.StringUtils;
+
 import java.util.List;
 
 /**
@@ -39,7 +41,9 @@ public final class RDFUtil {
             return "http://schema.org/Place";
         }
 
-        return null;
+
+
+        return StringUtils.join(classes, ",");
     }
 
 }

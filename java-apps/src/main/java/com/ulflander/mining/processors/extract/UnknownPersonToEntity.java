@@ -16,17 +16,21 @@ import java.util.HashMap;
 import java.util.List;
 
 /**
- * If some token may be an entity, let's lookup various services and retrieve
- * entities.
+ * Attempt to link name parts with already found entities.
  *
  * Created by Ulflander on 5/18/14.
  */
 public class UnknownPersonToEntity extends Processor {
 
+    /**
+     * Parts of person names.
+     */
+    private HashMap<String, Collection<Entity>> personParts;
 
-    HashMap<String, Collection<Entity>> personParts;
-
-    List<String> ambiguous;
+    /**
+     * List of ambiguous parts.
+     */
+    private List<String> ambiguous;
 
     @Override
     public final void init() {
@@ -36,17 +40,21 @@ public class UnknownPersonToEntity extends Processor {
 
     @Override
     public final String describe() {
-        return "Lookup various services (DBPedia..) and check for entities.";
+        return "Try to link name parts with already found entities";
     }
 
     @Override
-    public void extractDocument(Document doc) {
+    public final void extractDocument(final Document doc) {
         personParts = new HashMap<String, Collection<Entity>>();
         ambiguous = new ArrayList<String>();
     }
 
     @Override
     public final void extractToken(final Token token) {
+
+        if (!token.hasScore(TokenType.PERSON)) {
+            return;
+        }
 
         Collection<Entity> ents = token.getEntities();
 
@@ -72,7 +80,7 @@ public class UnknownPersonToEntity extends Processor {
     }
 
     @Override
-    public void onProcessed(Document doc) {
+    public final void onProcessed(final Document doc) {
         for (Chapter chap : doc.getChapters()) {
             for (Paragraph paragraph : chap.getParagraphs()) {
                 for (Sentence sentence : paragraph.getSentences()) {
@@ -106,7 +114,5 @@ public class UnknownPersonToEntity extends Processor {
                 t.addEntity(e);
             }
         }
-
-        // TODO: manage ambiguity
     }
 }

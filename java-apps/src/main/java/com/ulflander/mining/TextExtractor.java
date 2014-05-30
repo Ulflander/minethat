@@ -18,6 +18,7 @@ import org.apache.logging.log4j.Logger;
 
 import java.io.File;
 import java.util.Arrays;
+import java.util.HashMap;
 
 /**
  * Class that create a document given various inputs: URL, raw string, file.
@@ -60,6 +61,10 @@ public final class TextExtractor {
             return null;
         }
 
+        if (job.getType() == JobDocumentType.FEED_URL) {
+            return fromFeedURL(job);
+        }
+
         if (job.getType() == JobDocumentType.FILE) {
             return fromFile(new File(job.getValue()));
         }
@@ -81,7 +86,9 @@ public final class TextExtractor {
     }
 
     /**
-     * Should get meta.excerpt as text if URL retrieving didn't work.
+     * Should mine meta.description as text if URL retrieving didn't work - in
+     * some cases description is already full text, so extraction run only
+     * for metadata.
      *
      * @param job Job to extract text from
      * @return Document populated with URL content of feed article
@@ -90,7 +97,50 @@ public final class TextExtractor {
      */
     public static Document fromFeedURL(final Job job)
             throws ExtractionException {
-        return fromString("");
+
+        HashMap<String, Object> meta = job.getMeta();
+
+        Document d;
+        String url = job.getValue();
+
+        try {
+            d = fromURL(url);
+        } catch (ExtractionException e) {
+            LOGGER.info("Unable to get content for feed URL " + url, e);
+            return feedDescFallback(job);
+        }
+
+        if (meta.containsKey("doc_description_quality")
+                && meta.get("doc_description_quality").equals("FULL")
+                && meta.containsKey("doc_description")) {
+
+            d.setSurface((String) meta.get("doc_description"));
+        }
+
+        d.addProperty("meta", "extractor", "feed_url");
+
+        return d;
+    }
+
+    /**
+     * Fallback for feed URL if URL returned no content to analyze.
+     *
+     * @param job Job to extract text from
+     * @return Document populated with feed description content
+     * @throws ExtractionException If no description available
+     */
+    private static Document feedDescFallback(final Job job)
+            throws ExtractionException {
+        HashMap<String, Object> meta = job.getMeta();
+
+        if (!meta.containsKey("doc_description")) {
+            throw new ExtractionException("Feed extraction exception: "
+                    + " job doesn't have meta 'description'");
+        }
+
+        String desc = (String) meta.get("doc_description");
+
+        return fromString(desc);
     }
 
     /**
@@ -114,7 +164,9 @@ public final class TextExtractor {
         }
 
         // Then use HTML String extraction
-        return fromHTMLString(content);
+        Document d = fromHTMLString(content);
+        d.addProperty("meta", "extractor", "url");
+        return d;
     }
 
 
@@ -186,7 +238,7 @@ public final class TextExtractor {
             SimpleEstimator.INSTANCE.isLowQuality(statsBefore, articleStats);
 
         if (canolaLow && articleLow) {
-            if (articleText.length() < canolaText.length()) {
+            if (articleText.length() > canolaText.length()) {
                 chosen = articleText;
                 extractor = "low_article";
             } else {
@@ -199,7 +251,7 @@ public final class TextExtractor {
         } else if (articleLow) {
             chosen = canolaText;
             extractor = "canola";
-        } else if (articleText.length() < canolaText.length()) {
+        } else if (articleText.length() > canolaText.length()) {
             chosen = articleText;
             extractor = "article";
         } else {
@@ -212,6 +264,7 @@ public final class TextExtractor {
 
         Document doc = fromString(chosen);
         MetaExtractor.extract(doc, str);
+        doc.addProperty("meta", "extractor", "boilerpipe");
         doc.addProperty("meta", "boilerpipe_extractor", extractor);
         return doc;
     }
@@ -273,6 +326,8 @@ public final class TextExtractor {
 
         Document d = new Document(s);
 
+        d.addProperty("meta", "extractor", "string");
+
         // Add aggregated date
         d.addProperty("meta", "doc_aggregated_date",
                 System.currentTimeMillis());
@@ -300,7 +355,9 @@ public final class TextExtractor {
 
         FileExtractor extractor = new FileExtractor();
         extractor.extract(f);
-        return fromString(extractor.getContent());
+        Document d = fromString(extractor.getContent());
+        d.addProperty("meta", "extractor", "file");
+        return d;
     }
 
 }

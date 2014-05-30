@@ -1,5 +1,6 @@
 package com.ulflander.app.model.storage;
 
+import com.mongodb.BasicDBList;
 import com.mongodb.BasicDBObject;
 import com.mongodb.DBObject;
 import com.ulflander.app.model.Chapter;
@@ -103,6 +104,7 @@ public final class DocumentStorage extends Storage {
         // Document
         DBObject doc = new BasicDBObject();
         doc.put("surface", document.getSurface());
+        doc.put("status", document.getStatus().toString());
 
         // Meta
         Set<String> groups = document.getPropertyGroups();
@@ -119,7 +121,7 @@ public final class DocumentStorage extends Storage {
 
         doc.put("properties", properties);
 
-        DBObject entities = new BasicDBObject();
+        BasicDBList entities = new BasicDBList();
         int ent = 0;
 
         for (Chapter c: document.getChapters()) {
@@ -135,8 +137,9 @@ public final class DocumentStorage extends Storage {
                             obj.put("desc", e.getDescription());
                             obj.put("class",
                                     RDFUtil.getMainClass(e.getClasses()));
+                            obj.put("uid", UlfHashUtils.sha1(e.getId()));
 
-                            entities.put(UlfHashUtils.sha1(e.getId()), obj);
+                            entities.add(obj);
                             ent++;
                         }
                     }

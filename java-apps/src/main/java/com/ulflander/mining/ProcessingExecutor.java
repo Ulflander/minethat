@@ -2,6 +2,7 @@ package com.ulflander.mining;
 
 import com.ulflander.app.Conf;
 import com.ulflander.app.model.Document;
+import com.ulflander.app.model.DocumentStatus;
 import com.ulflander.app.model.Job;
 import com.ulflander.app.model.JobDocumentType;
 import com.ulflander.app.model.JobProcessor;
@@ -9,12 +10,12 @@ import com.ulflander.app.model.JobStatus;
 import com.ulflander.app.model.JobTarget;
 import com.ulflander.app.model.Language;
 import com.ulflander.app.model.storage.DocumentStorage;
-import com.ulflander.mining.processors.preset.BasicPreset;
-import com.ulflander.utils.UlfTimer;
 import com.ulflander.mining.processors.ILocalizedProcessor;
 import com.ulflander.mining.processors.Processor;
 import com.ulflander.mining.processors.ProcessorFactory;
+import com.ulflander.mining.processors.preset.BasicPreset;
 import com.ulflander.mining.processors.preset.IPreset;
+import com.ulflander.utils.UlfTimer;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -137,6 +138,8 @@ public class ProcessingExecutor {
                     + document.getExcerpt());
         }
 
+
+
         ensureMeta(job, document);
 
         for (JobProcessor jobProcessor: procs) {
@@ -164,11 +167,11 @@ public class ProcessingExecutor {
             if (!ProcessorFactory.requirements().areMet(
                     jobProcessor.getName(),
                     document.getHistory())) {
-                LOGGER.error("Processor ["
-                    + jobProcessor.getName()
+                LOGGER.error("Processor [" + jobProcessor.getName()
                     + "] called but requirements not met");
 
                 job.setStatus(JobStatus.FAILED);
+                document.setStatus(DocumentStatus.FAILED);
                 break;
             }
 
@@ -177,6 +180,19 @@ public class ProcessingExecutor {
 
                 // And append to history
                 document.appendHistory(jobProcessor.getName());
+            }
+
+            // Validate if we have some paragraphs
+            if (processor.getClass()
+                    .getSimpleName().equals("DocumentSplitter")
+                    && document.getChapterAt(0).getParagraphsSize() == 0) {
+
+                LOGGER.warn("Document [" + document.getId()
+                        + "] split returned no paragraph, failing.");
+
+                document.setStatus(DocumentStatus.FAILED);
+                break;
+
             }
 
         }
@@ -191,6 +207,10 @@ public class ProcessingExecutor {
         }
 
         document.setOriginal(document.getSurface());
+
+        if (document.getStatus() != DocumentStatus.FAILED) {
+            document.setStatus(DocumentStatus.MINED);
+        }
 
         if (document.getExists()) {
             DocumentStorage.update(document);

@@ -52,9 +52,6 @@ public class EntitySelector extends Processor {
             for (Entity e: entities) {
                 chosen = e;
             }
-        } else {
-            // TODO: get types, check if a type is particularly proeminent,
-            // create entity
         }
 
         token.setEntity(chosen);

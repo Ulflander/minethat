@@ -3,6 +3,7 @@ package com.ulflander.app.services;
 import com.rabbitmq.client.QueueingConsumer;
 import com.ulflander.app.Conf;
 import com.ulflander.app.model.Document;
+import com.ulflander.app.model.DocumentStatus;
 import com.ulflander.app.model.Job;
 import com.ulflander.app.model.JobStatus;
 import com.ulflander.app.model.storage.DocumentStorage;
@@ -14,6 +15,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.io.IOException;
+import java.util.HashMap;
 
 /**
  * This service takes as input jobs coming from MailInputService or web API,
@@ -121,6 +123,12 @@ public class ExtractorService extends RabbitService {
         try {
             doc = TextExtractor.fromJobDocument(job);
 
+            HashMap<String, Object> meta = job.getMeta();
+
+            for (String key: meta.keySet()) {
+                doc.addProperty("job_meta", key, meta.get(key));
+            }
+
             // URL fingerprint
             if (doc.hasProperty("meta", "doc_url")) {
                 doc.addProperty("meta", "url_fingerprint",
@@ -132,6 +140,7 @@ public class ExtractorService extends RabbitService {
                         UlfHashUtils.sha256(
                                 (String) doc.getProperty("meta", "url")));
             }
+            doc.setStatus(DocumentStatus.EXTRACTED);
             DocumentStorage.insert(doc);
         } catch (ExtractionException e) {
             job.setStatus(JobStatus.FAILED);

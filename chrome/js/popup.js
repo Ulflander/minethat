@@ -51,8 +51,12 @@
     };
 
     popup.check_feed = function(title, url) {
-        var el = $('<li></li>').text(title);
-        $('#feed_list').append(el);
+        var li = $('<li></li>'),
+            icon = $('<i class="fa fa-circle-o-notch fa-spin"></i>'),
+            el = $('<span></span>').text(title);
+
+        li.append(el).append(icon);
+        $('#feed_list').append(li);
 
         hunk.api.check_source(url, function(result) {
             if (result.status === 'exists') {

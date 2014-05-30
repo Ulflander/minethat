@@ -78,10 +78,12 @@ public class EntityBasedAggregator extends Processor {
         for (Token t: toMergeForward.keySet()) {
             int i = toMergeForward.get(t);
             while (i > 0) {
-                for (Entity e: t.getNext().getEntities()) {
-                    e.setConfidence(e.getConfidence() / 2);
+                if (t.getNext() != null) {
+                    for (Entity e: t.getNext().getEntities()) {
+                        e.setConfidence(e.getConfidence() / 2);
+                    }
+                    t.getSentence().mergeToPrevious(t.getNext());
                 }
-                t.getSentence().mergeToPrevious(t.getNext());
                 i--;
             }
         }

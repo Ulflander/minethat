@@ -104,7 +104,10 @@ public class EntityConsolidation extends Processor {
                     for (Token t: s.getTokens()) {
                         Entity most = t.getMostConfidentEntity();
                         for (Entity e: t.getEntities()) {
-                            if (top.contains(e.getId()) && !most.equals(e)) {
+                            if (top.contains(e.getId())
+                                    && most != null
+                                    && !most.equals(e)) {
+
                                 e.setConfidence(e.getConfidence()
                                         + CONFIDENCE_INCREMENT);
                             }

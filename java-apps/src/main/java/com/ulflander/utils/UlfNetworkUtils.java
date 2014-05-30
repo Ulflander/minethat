@@ -5,11 +5,10 @@ import org.apache.logging.log4j.Logger;
 
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.HashMap;
+import java.net.URLConnection;
 
 /**
  * @author Ulflander <xlaumonier@gmail.com>
@@ -56,16 +55,66 @@ public final class UlfNetworkUtils {
      * @return Webpage as a string
      */
     public static String getContent(final URL u) {
-        return getContent(u, null);
+        String out = "";
+        String line = "";
+        URLConnection urlc;
+        try {
+            urlc = u.openConnection();
+        } catch (IOException e) {
+            LOGGER.error("URL " + u.toString()
+                    + " didn't accept opening connection", e);
+            return "";
+        }
+
+        /*
+            Google Chrome headers
+         */
+        urlc.setRequestProperty("Accept", "text/html,application/xhtml+xml,"
+                + "application/xml;q=0.9,image/webp,*/*;q=0.8");
+        urlc.setRequestProperty("Host", u.getHost());
+        urlc.setRequestProperty("Accept-Language", "en-US,en;q=0.8,fr;q=0.6");
+        urlc.setRequestProperty("User-Agent", "Mozilla/5.0 "
+                + "(Macintosh; Intel Mac OS X 10_9_3) AppleWebKit/537.36 "
+                + "(KHTML, like Gecko) Chrome/35.0.1916.114 Safari/537.36");
+        urlc.setRequestProperty("Cache-Control", "no-cache");
+        urlc.setRequestProperty("Pragma", "no-cache");
+
+        BufferedReader in = null;
+
+        try {
+            in = new BufferedReader(new InputStreamReader(
+                    urlc.getInputStream()));
+
+            line = in.readLine();
+            while (line != null) {
+                out += line + "\n";
+                line = in.readLine();
+            }
+        } catch (IOException e) {
+            LOGGER.error("URL " + u.toString()
+                    + " unable to be read", e);
+            return "";
+        } finally {
+            if (in != null) {
+                try {
+                    in.close();
+                } catch (IOException e) {
+                    LOGGER.error("URL " + u.toString() + " unable to close"
+                            + " buffered readed.");
+                }
+            }
+        }
+
+        return out;
     }
 
-    /**
+
+    /*
      * Get content as string from URL given headers.
      *
      * @param u URL of webpage to retrieve
      * @param h Hashmap of key/value headers
      * @return Webpage as a string
-     */
     public static String getContent(final URL u,
                                     final HashMap<String, String> h) {
         String out = "";
@@ -102,4 +151,5 @@ public final class UlfNetworkUtils {
 
         return out;
     }
+     */
 }
