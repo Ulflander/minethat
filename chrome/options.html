@@ -1,28 +1,59 @@
 <html>
-    <head><title>Minethat options</title></head>
+    <head>
+
+        <title>Minethat options</title>
+        <link type="text/css" rel="stylesheet" href="css/chrome.css" media="all">
+        <link type="text/css" rel="stylesheet" href="css/options.css" media="all">
+
+    </head>
     <body>
+        <section class="content">
+            <header>
+                <h1><img src="img/logo.png" alt="Minethat" title="Minethat" /></h1>
+                <h4>Chrome extension settings</h4>
+            </header>
 
-    <h2>Minethat</h2>
-    <h3>Chrome extension settings</h3>
+            <p></p>
 
-    <p id="status"></p>
+            <div class="input-wrap">
+                <label for="private_key">Private key</label>
+                <input class="input" type="text" id="private_key" name="private_key" />
+                <div class="little">
+                    This private key is available on
+                    <a href="http://minethat.co/app/profile" target="_blank">minethat.co</a>,
+                    in your profile page.
 
-    <div>
-        Private key
-        <input type="text" id="private_key" name="private_key" />
-    </div>
-    <div>
-        Server
-        <input type="text" id="server" name="server" />
-    </div>
-    <br>
-    <div id="status"></div>
-    <button id="save">Save</button>
+                    <h4>Why do I need to set my private key here?</h4>
+                    By using the key when sending documents to mine,
+                    we avoid asking you to login on minethat.co, so your global
+                    experience is as seamless as possible.
+                </div>
+
+
+            </div>
+
+            <div class="input-wrap">
+                <label for="server">Minethat API endpoint</label>
+                <input class="input" type="text" id="server" name="server" />
+                <div class="little">
+                    You usually don't have to change this field, unless you have a dedicated Minethat instance.
+                </div>
+            </div>
+
+            <div id="status"></div>
+
+            <div class="input-wrap cta">
+                <button class="button" id="save">Save</button>
+            </div>
+
+        </section>
     </body>
 
 
+    <script src="vendors/jquery-1.10.2.min.js"></script>
     <script src="vendors/hunk.js"></script>
     <script src="js/api.js"></script>
+    <script src="js/message.js"></script>
     <script src="js/options.js"></script>
 
 </html>

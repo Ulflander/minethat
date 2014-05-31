@@ -1,9 +1,35 @@
 
 .popup_wrapper {
-    width: 350px;
-    margin: 20px 30px;
+    width: 360px;
+    margin: 20px 60px;
 }
 
-.initing {
-    display: none;
+header {
+    text-align: center;
+}
+
+#loading {
+    padding: 100px 0;
+    text-align: center;
+}
+
+#feed_list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+#feed_list a {
+    float: right;
+}
+
+#feed_list .little {
+    font-size: 0.8em;
+}
+
+.color-success {
+    color: #0aaa19;
+}
+.color-warning {
+    color: #f7941d;
 }

@@ -22,7 +22,7 @@
 
         chrome.extension.onMessage.addListener(function(request, sender) {
             if (request.action == "getSource") {
-                popup.status("Source retrieved");
+                console.log("Source retrieved");
                 source = request.source;
                 if (request.meta && request.meta.feeds) {
 
@@ -36,12 +36,13 @@
         chrome.tabs.executeScript(null, {
             file: "js/injected.js"
         }, function() {
+            $('#loading').hide();
+
             if (chrome.extension.lastError) {
-                popup.status(
-                    'There was an error injecting script : \n' +
-                    chrome.extension.lastError.message);
+                console.log('Error: ' + chrome.extension.lastError.message);
+                popup.status('Page not minable');
             } else {
-                popup.status('Script injected');
+                $('#content').show();
             }
         });
 
@@ -50,21 +51,47 @@
         $('#trainthat_page').on('click', popup.onTrainClick);
     };
 
-    popup.check_feed = function(title, url) {
-        var li = $('<li></li>'),
-            icon = $('<i class="fa fa-circle-o-notch fa-spin"></i>'),
-            el = $('<span></span>').text(title);
+    popup.add_feed = function(url, li) {
+        console.log('add feed');
+    };
 
-        li.append(el).append(icon);
+    popup.check_feed = function(title, url) {
+
+        var li = $('<li></li>'),
+            link = $('<a></a>').attr('href', '#'),
+            icon = $('<i class="fa fa-circle-o-notch fa-spin"></i>'),
+            el = $('<span></span>').html('<i class="fa fa-rss"></i> ' + title),
+            span = $('<span class="little"></span>');
+
+        link.append(icon);
+        li.append(el)
+          .append(link)
+          .append($('<br />'))
+          .append(span);
+
         $('#feed_list').append(li);
 
         hunk.api.check_source(url, function(result) {
+            icon.removeClass('fa-circle-o-notch fa-spin');
+
             if (result.status === 'exists') {
-                el.text('Exists: ' + title);
+                icon.addClass('fa-check color-success');
+                span.text('All good, this feed is already mined!');
             } else if (result.status === 'success') {
-                el.text('Can be added: ' + title);
+                icon.addClass('fa-plus color-success');
+                span.html('This feed is still not mined by Minethat. <a href="#" class="add_feed">Add it now</a>?');
+
+                $('a', span).on('click', function() {
+                    popup.add_feed(url, li);
+                });
+
+                link.on('click', function() {
+                    popup.add_feed(url, li);
+                });
+
             } else if (result.status === 'error') {
-                el.text('Error: ' + title);
+                icon.addClass('fa-warning color-warning');
+                span.text('An error occured with this feed. It\'s probably invalid.');
             }
         });
     };
@@ -93,7 +120,7 @@
             if (!!tab_url) {
                 hunk.api.submit(source, tab_url);
             } else {
-                popup.status('Didnt got URL');
+                console.log('Didnt got URL');
             }
         });
     };
@@ -101,7 +128,7 @@
     popup.onTrainClick = function () {
         popup.submit(function (tab_url) {
             if (!tab_url) {
-                popup.status('Didnt got URL');
+                console.log('Didnt got URL');
                 return;
             }
 
@@ -111,7 +138,7 @@
     },
 
     popup.status = function (msg) {
-        $('#status').text(msg);
+        $('#messages').text(msg);
     }
 
 

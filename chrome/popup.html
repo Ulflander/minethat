@@ -7,16 +7,25 @@
     </head>
     <body>
         <div class="popup_wrapper">
+            <header>
+                <h1><img src="img/logo-square.png" alt="Minethat" title="Minethat" /></h1>
+            </header>
 
-            <div id="status"></div>
+            <div id="messages"></div>
 
-            <a href="#" id="minethat_page">Mine that page</a>
+            <div id="loading">
+                <i class="fa fa-circle-o-notch fa-spin"></i>
+            </div>
 
+            <div id="content" style="display: none;">
 
-            <h3>Feeds</h3>
-            <ul id="feed_list">
-            </ul>
+                <a href="#" id="minethat_page">Mine that page</a>
 
+                <h3>Sources</h3>
+                <ul id="feed_list">
+                </ul>
+
+            </div>
         </div>
     </body>
 

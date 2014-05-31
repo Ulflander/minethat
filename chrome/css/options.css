@@ -1,0 +1,17 @@
+
+.content {
+    width: 700px;
+    margin: 30px auto;
+}
+
+header h1 {
+    text-align: center;
+    margin-bottom: 0;
+}
+
+header h4 {
+    text-align: center;
+    font-weight: 200;
+    text-transform: capitalize;
+    margin-bottom: 40px;
+}
