@@ -65,12 +65,17 @@ public class EntityBasedAggregator extends Processor {
             initial = t;
             int i = toMergeBackward.get(t);
             while (i > 0) {
+                if (initial.getPrevious() == null) {
+                    break;
+                }
+
                 other = initial.getPrevious();
                 for (Entity e: other.getEntities()) {
                     e.setConfidence(e.getConfidence() / 2);
                 }
                 t.getSentence().mergeToPrevious(initial);
                 initial = other;
+
                 i--;
             }
         }
@@ -78,12 +83,15 @@ public class EntityBasedAggregator extends Processor {
         for (Token t: toMergeForward.keySet()) {
             int i = toMergeForward.get(t);
             while (i > 0) {
-                if (t.getNext() != null) {
-                    for (Entity e: t.getNext().getEntities()) {
-                        e.setConfidence(e.getConfidence() / 2);
-                    }
-                    t.getSentence().mergeToPrevious(t.getNext());
+                if (t.getNext() == null) {
+                    break;
                 }
+
+                for (Entity e: t.getNext().getEntities()) {
+                    e.setConfidence(e.getConfidence() / 2);
+                }
+                t.getSentence().mergeToPrevious(t.getNext());
+
                 i--;
             }
         }

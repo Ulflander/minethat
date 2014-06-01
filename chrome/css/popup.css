@@ -4,8 +4,12 @@
     margin: 20px 60px;
 }
 
-header {
+header, .cta {
     text-align: center;
+}
+
+h3 {
+    margin: 20px 0 30px 0;
 }
 
 #loading {

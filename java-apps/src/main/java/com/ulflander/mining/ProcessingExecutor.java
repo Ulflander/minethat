@@ -212,8 +212,8 @@ public class ProcessingExecutor {
             document.setStatus(DocumentStatus.MINED);
         }
 
-        if (document.getExists()) {
-            DocumentStorage.update(document);
+        if (document.getExists() && DocumentStorage.update(document) == null) {
+            return false;
         }
 
         return true;

@@ -107,8 +107,18 @@ public final class TextExtractor {
             d = fromURL(url);
         } catch (ExtractionException e) {
             LOGGER.info("Unable to get content for feed URL " + url, e);
-            return feedDescFallback(job);
+            d = null;
         }
+
+        if (d == null) {
+            try {
+                d = feedDescFallback(job);
+            } catch (ExtractionException e) {
+                LOGGER.info("Unable to fallback for feed URL " + url, e);
+                return null;
+            }
+        }
+
 
         if (meta.containsKey("doc_description_quality")
                 && meta.get("doc_description_quality").equals("FULL")

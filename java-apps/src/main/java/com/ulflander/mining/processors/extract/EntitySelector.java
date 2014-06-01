@@ -16,6 +16,12 @@ import java.util.Collection;
  */
 public class EntitySelector extends Processor {
 
+
+    /**
+     * Threshold of confidence for selection.
+     */
+    public static final float CONFIDENCE_THRESHOLD = 0.35f;
+
     /**
      * DBPedia lookup service.
      */
@@ -43,7 +49,8 @@ public class EntitySelector extends Processor {
         if (entities.size() > 1) {
             for (Entity e: entities) {
 
-                if (e.getConfidence() > max) {
+                if (e.getConfidence() > max
+                        && e.getConfidence() > CONFIDENCE_THRESHOLD) {
                     max = e.getConfidence();
                     chosen = e;
                 }
@@ -52,6 +59,9 @@ public class EntitySelector extends Processor {
             for (Entity e: entities) {
                 chosen = e;
             }
+        }
+        if (chosen != null) {
+            token.setClean(chosen.getLabel());
         }
 
         token.setEntity(chosen);

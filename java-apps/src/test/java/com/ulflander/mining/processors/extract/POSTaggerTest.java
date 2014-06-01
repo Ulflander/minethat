@@ -42,6 +42,15 @@ public class POSTaggerTest extends AbstractTest {
     }
 
 
+    @Test
+    public void anotherTest() {
+        d.setSurface("Halep to Face Stephens in French Open’s Fourth Round\n" +
+                "\n" +
+                "Simona Halep reached the fourth round at a third consecutive Grand Slam tournament, beating 55th-ranked Maria-Teresa Torro-Flor of Spain at the French Open on Saturday.");
+
+        s.submit(d);
+        trace(d);
+    }
 
     @Test
     public void basic2Test () {

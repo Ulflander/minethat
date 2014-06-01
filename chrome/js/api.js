@@ -82,4 +82,26 @@
         }));
     };
 
+
+
+    api.add_source = function (source, callback) {
+        var xhr = new XMLHttpRequest();
+
+        xhr.open("POST", hunk.conf('api_server') +
+                        "/api/v1/sources/import", true);
+
+        xhr.setRequestHeader("Content-Type", "application/json");
+
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState == 4) {
+                var resp = JSON.parse(xhr.responseText);
+                if (typeof callback === 'function') {
+                    callback(resp);
+                }
+            }
+        };
+
+        xhr.send(JSON.stringify(source));
+    };
+
 }(hunk('api')));

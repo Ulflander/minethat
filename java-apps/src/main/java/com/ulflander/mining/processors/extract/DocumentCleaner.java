@@ -48,6 +48,8 @@ public class DocumentCleaner extends Processor {
             // \r
             .replaceAll("\\r", "\n")
             // Vertical tab space char
+            .replaceAll("([\\w])-([\\w])", "$1 $2")
+            // Vertical tab space char
             .replaceAll("[\\x20]", " ")
             // Vertical |
             .replaceAll(" \\| ", ". ")

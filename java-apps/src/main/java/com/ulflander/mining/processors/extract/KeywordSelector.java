@@ -64,8 +64,7 @@ public class KeywordSelector extends Processor {
             if ((score > avg || t.getAggregated())
                     && t.getWeight() > avgWeight
                     && !t.hasScore(TokenType.PERSON_PART)
-                    && (t.getType() == TokenType.KEYWORD
-                    || t.getType() == TokenType.VERB)
+                    && t.getType() == TokenType.KEYWORD
                     && t.getWeight() > MIN_WEIGHT
                     && st.getClean().length() > 1) {
                 result.put(st, score);

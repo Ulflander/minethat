@@ -9,8 +9,11 @@
         url = a.href; // get qualified url
         return url;
     }
-
-    console.log('Minethat injected');
+console.log('checking for hunk', window);
+    if (!!window.hunk) {
+        console.log('injected hunk conf');
+        window.hunk.conf('minethat_extension_installed', true);
+    }
 
     /**
      * Send page source and description to popup.
@@ -26,18 +29,22 @@
                 l = metas.length,
                 url,
                 result = {
+                    title: document.getElementsByTagName('title')[0].innerText,
                     feeds: {}
                 };
 
             for (i = 0; i < l; i += 1) {
                 o = metas[i];
-                console.log(metas[i]);
+                if (o.getAttribute('name') === 'twitter:title') {
+                    result.title = o.getAttribute('content');
+                } else if (o.getAttribute('property') === 'og:title') {
+                    result.title = o.getAttribute('content');
+                }
             }
 
             l = links.length;
             for (i = 0; i < l; i += 1) {
                 o = links[i];
-                console.log(o);
                 if (o.getAttribute('rel') === 'alternate'
                     && o.getAttribute('type') === 'application/rss+xml') {
                     url = qualifyURL(o.getAttribute('href'));

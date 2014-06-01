@@ -71,7 +71,13 @@ public final class DocumentStorage extends Storage {
 
         DBObject idObj = getDBObject(document.getId(),
                                         MongoAccessor.getDocuments());
-        MongoAccessor.getDocuments().update(idObj, obj);
+
+        try {
+            MongoAccessor.getDocuments().update(idObj, obj);
+        } catch (Exception e) {
+            LOGGER.error("Document not saved", e);
+            return null;
+        }
 
         return idObj.get("_id").toString();
     }

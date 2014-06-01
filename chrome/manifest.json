@@ -2,7 +2,7 @@
   "manifest_version": 2,
 
   "name": "Minethat Chrome extension",
-  "description": "This extension sends a web page or text selection to Minethat web service",
+  "description": "Gather content on the web with Minethat Chrome extension (requires a Minethat account)",
   "version": "1.0",
   "browser_action": {
     "default_icon": "img/icon.png",
@@ -15,5 +15,10 @@
     "http://*/",
     "https://*/"
   ],
+  "icons": {
+    "16": "img/icon-16.png",
+    "48": "img/icon-48.png",
+    "128": "img/icon-128.png"
+  },
   "options_page": "options.html"
 }
