@@ -2,11 +2,13 @@ package com.ulflander.mining;
 
 import com.ulflander.AbstractTest;
 import com.ulflander.app.model.Document;
+import com.ulflander.app.model.Job;
 import org.junit.Assert;
 import org.junit.Test;
 
 import java.io.File;
 import java.net.URL;
+import java.util.HashMap;
 
 /**
  * @author Ulflander <xlaumonier@gmail.com>
@@ -54,5 +56,19 @@ public class TextExtractorTest extends AbstractTest {
     @Test (expected = ExtractionException.class)
     public void fromNullStringTest() throws ExtractionException {
         TextExtractor.fromString(null);
+    }
+
+    @Test
+    public void feedDescFallbackHTMLTest() throws ExtractionException {
+
+        HashMap<String, Object> meta = new HashMap<String, Object>();
+        meta.put("doc_description", "Some description with <img src /> in it");
+
+        Job j = new Job();
+        j.setMeta(meta);
+
+        Document d = TextExtractor.feedDescFallback(j);
+
+        Assert.assertEquals("Description should be clean", "Some description with   in it", d.getSurface());
     }
 }

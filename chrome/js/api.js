@@ -104,4 +104,24 @@
         xhr.send(JSON.stringify(source));
     };
 
+
+
+    api.get_recent = function (callback) {
+        var xhr = new XMLHttpRequest();
+
+        xhr.open("GET", hunk.conf('api_server') +
+                        "/api/v1/documents/recent", true);
+
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState == 4) {
+                var resp = JSON.parse(xhr.responseText);
+                if (typeof callback === 'function') {
+                    callback(resp);
+                }
+            }
+        };
+
+        xhr.send();
+    };
+
 }(hunk('api')));

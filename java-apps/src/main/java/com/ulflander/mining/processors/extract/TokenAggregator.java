@@ -94,6 +94,7 @@ public class TokenAggregator extends Processor {
 
         // Check for special types to skip
         return t == null
+                || t.getType() == TokenType.VERB
                 || t.getType() == TokenType.OPEN_PARENTHESIS
                 || t.getType() == TokenType.CLOSE_PARENTHESIS
                 || t.getType() == TokenType.OPEN_PARENTHESIS

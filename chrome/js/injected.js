@@ -21,7 +21,20 @@ console.log('checking for hunk', window);
     chrome.extension.sendMessage({
         action: "getSource",
 
+        domain: (function(){
+            var a = document.createElement('a');
+            a.href = '/';
+            return a.hostname;
+        }()),
+
+        valid: document.getElementsByTagName('title').length > 0,
+
         meta: (function () {
+            // Check for title (mandatory)
+            if (document.getElementsByTagName('title').length === 0) {
+                return;
+            }
+
             var metas = document.getElementsByTagName('meta'),
                 links = document.getElementsByTagName('link'),
                 o,

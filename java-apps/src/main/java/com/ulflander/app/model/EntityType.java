@@ -21,6 +21,11 @@ public enum EntityType {
     GOV_ORGANIZATION,
 
     /**
+     * Any kind of organization.
+     */
+    ORGANIZATION,
+
+    /**
      * A group of people.
      */
     GROUP,
@@ -29,6 +34,11 @@ public enum EntityType {
      * A person.
      */
     PERSON,
+
+    /**
+     * Any kind of place.
+     */
+    PLACE,
 
     /**
      * A country.

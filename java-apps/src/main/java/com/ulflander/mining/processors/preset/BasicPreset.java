@@ -6,6 +6,7 @@ import com.ulflander.mining.processors.augment.QualityEvaluator;
 import com.ulflander.mining.processors.augment.geoloc.MaxMindIPExtraction;
 import com.ulflander.mining.processors.augment.social.SocialStats;
 import com.ulflander.mining.processors.extract.AggregatedCorpusGuesser;
+import com.ulflander.mining.processors.extract.AggregatedTypeInferenceToEntity;
 import com.ulflander.mining.processors.extract.DocumentCleaner;
 import com.ulflander.mining.processors.extract.DocumentSplitter;
 import com.ulflander.mining.processors.extract.DocumentTokenizer;
@@ -28,6 +29,8 @@ import com.ulflander.mining.processors.extract.TokenInferConsolidation;
 import com.ulflander.mining.processors.extract.TokenRegExpGuesser;
 import com.ulflander.mining.processors.extract.TokenSiblingsConsolidation;
 import com.ulflander.mining.processors.extract.TokenWeightConsolidation;
+import com.ulflander.mining.processors.extract.TwitterSpecificsToEntity;
+import com.ulflander.mining.processors.extract.TypeInferenceToEntity;
 import com.ulflander.mining.processors.extract.UnknownPersonToEntity;
 import com.ulflander.mining.processors.extract.en.EnCommonAcronymsCleaner;
 import com.ulflander.mining.processors.extract.en.EnOperatorBasedConsolidation;
@@ -142,9 +145,18 @@ public final class BasicPreset implements IPreset {
         // Entity consolidation.
         procs.add(new JobProcessor(EntityConsolidation.class));
 
+        // Infer entity based on type
+        procs.add(new JobProcessor(AggregatedTypeInferenceToEntity.class));
+
         // Link person parts "... Jack is...." with
         // potential persons "Jack Bauer"
         procs.add(new JobProcessor(UnknownPersonToEntity.class));
+
+        // Infer entity based on type
+        procs.add(new JobProcessor(TypeInferenceToEntity.class));
+
+        // Twitter user names
+        procs.add(new JobProcessor(TwitterSpecificsToEntity.class));
 
         // Cleanup entities under threshold or with insufficient data
         procs.add(new JobProcessor(EntityCleaner.class));

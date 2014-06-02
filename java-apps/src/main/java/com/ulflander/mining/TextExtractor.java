@@ -139,7 +139,7 @@ public final class TextExtractor {
      * @return Document populated with feed description content
      * @throws ExtractionException If no description available
      */
-    private static Document feedDescFallback(final Job job)
+    public static Document feedDescFallback(final Job job)
             throws ExtractionException {
         HashMap<String, Object> meta = job.getMeta();
 
@@ -149,6 +149,9 @@ public final class TextExtractor {
         }
 
         String desc = (String) meta.get("doc_description");
+
+        // Cleanup HTML
+        desc = desc.replaceAll("<[^>]*>", " ");
 
         return fromString(desc);
     }

@@ -11,7 +11,6 @@ import com.ulflander.mining.processors.Processor;
 import com.ulflander.mining.processors.ProcessorDepthControl;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 
@@ -25,12 +24,22 @@ public class UnknownPersonToEntity extends Processor {
     /**
      * Parts of person names.
      */
-    private HashMap<String, Collection<Entity>> personParts;
+    private HashMap<String, Entity> personParts;
+
+    /**
+     * Parts of person names.
+     */
+    private HashMap<String, String> surfaces;
 
     /**
      * List of ambiguous parts.
      */
     private List<String> ambiguous;
+
+    /**
+     * Increment confidence in case of finding.
+     */
+    public static final float CONFIDENCE_INCREMENT = 0.1f;
 
     @Override
     public final void init() {
@@ -45,8 +54,9 @@ public class UnknownPersonToEntity extends Processor {
 
     @Override
     public final void extractDocument(final Document doc) {
-        personParts = new HashMap<String, Collection<Entity>>();
+        personParts = new HashMap<String, Entity>();
         ambiguous = new ArrayList<String>();
+        surfaces = new HashMap<String, String>();
     }
 
     @Override
@@ -56,9 +66,10 @@ public class UnknownPersonToEntity extends Processor {
             return;
         }
 
-        Collection<Entity> ents = token.getEntities();
 
-        if (ents == null || ents.size() == 0) {
+        Entity e = token.getMostConfidentEntity();
+
+        if (e == null) {
             return;
         }
 
@@ -69,13 +80,15 @@ public class UnknownPersonToEntity extends Processor {
                 continue;
             }
 
-            if (!personParts.containsKey(part)) {
-                personParts.put(part, ents);
-
+            if (!surfaces.containsKey(part)
+                    || surfaces.get(part).equals(token.getClean())) {
+                personParts.put(part, e);
                 // Manage ambiguity
             } else {
                 ambiguous.add(part);
             }
+
+            surfaces.put(part, token.getClean());
         }
     }
 
@@ -99,9 +112,7 @@ public class UnknownPersonToEntity extends Processor {
      */
     private void reprocess(final Token t) {
 
-        // Need to have PERSON_PART but not PERSON
-        if (!t.hasScore(TokenType.PERSON_PART)
-                || t.hasScore(TokenType.PERSON)) {
+        if (t.getType() != TokenType.KEYWORD) {
             return;
         }
 
@@ -109,10 +120,7 @@ public class UnknownPersonToEntity extends Processor {
         if (personParts.containsKey(t.getClean())
                 && !ambiguous.contains(t.getClean())) {
 
-            Collection<Entity> ents = personParts.get(t.getClean());
-            for (Entity e: ents) {
-                t.addEntity(e);
-            }
+            t.addEntity(personParts.get(t.getClean()));
         }
     }
 }

@@ -57,11 +57,10 @@ public class EntitySelector extends Processor {
             }
         } else if (entities.size() == 1) {
             for (Entity e: entities) {
-                chosen = e;
+                if (e.getConfidence() > CONFIDENCE_THRESHOLD) {
+                    chosen = e;
+                }
             }
-        }
-        if (chosen != null) {
-            token.setClean(chosen.getLabel());
         }
 
         token.setEntity(chosen);

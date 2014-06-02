@@ -94,6 +94,10 @@ public final class UlfNetworkUtils {
             LOGGER.error("URL " + u.toString()
                     + " unable to be read", e);
             return "";
+        } catch (IllegalArgumentException e) {
+            LOGGER.error("URL " + u.toString()
+                    + " unable to be read", e);
+            return "";
         } finally {
             if (in != null) {
                 try {

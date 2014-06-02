@@ -128,6 +128,7 @@ public final class DocumentStorage extends Storage {
         doc.put("properties", properties);
 
         BasicDBList entities = new BasicDBList();
+        HashMap<String, DBObject> added = new HashMap<String, DBObject>();
         int ent = 0;
 
         for (Chapter c: document.getChapters()) {
@@ -135,19 +136,40 @@ public final class DocumentStorage extends Storage {
                 for (Sentence s: p.getSentences()) {
                     for (Token t: s.getTokens()) {
                         Entity e = t.getEntity();
-                        if (e != null) {
-                            DBObject obj = new BasicDBObject();
-                            obj.put("id", e.getId());
-                            obj.put("confidence", e.getConfidence());
-                            obj.put("label", e.getLabel());
-                            obj.put("desc", e.getDescription());
-                            obj.put("class",
-                                    RDFUtil.getMainClass(e.getClasses()));
-                            obj.put("uid", UlfHashUtils.sha1(e.getId()));
-
-                            entities.add(obj);
-                            ent++;
+                        if (e == null) {
+                            continue;
                         }
+
+                        DBObject obj;
+
+                        if (added.containsKey(e.getId())) {
+                            obj = added.get(e.getId());
+                            obj.put("citations",
+                                    1 + (Integer) obj.get("citations"));
+
+                            if (!(((String) obj.get("surface"))
+                                    .equals(t.getSurface()))) {
+                                obj.put("surface_alt", t.getSurface());
+                            }
+                            continue;
+                        }
+
+                        obj = new BasicDBObject();
+                        obj.put("id", e.getId());
+                        obj.put("surface", t.getSurface());
+                        obj.put("confidence", e.getConfidence());
+                        obj.put("label", e.getLabel());
+                        obj.put("desc", e.getDescription());
+                        if (e.getType() != null) {
+                            obj.put("type", e.getType().toString());
+                        }
+                        obj.put("class",
+                                RDFUtil.getMainClass(e.getClasses()));
+                        obj.put("uid", UlfHashUtils.sha1(e.getId()));
+                        obj.put("citations", 1);
+                        added.put(e.getId(), obj);
+                        entities.add(obj);
+                        ent++;
                     }
                 }
             }

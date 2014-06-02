@@ -203,5 +203,53 @@ public enum TokenType {
     /**
      * Close brace "}".
      */
-    CLOSE_BRACE
+    CLOSE_BRACE;
+
+    /**
+     * Return RDF classe equivalent of a token type.
+     *
+     * @param tt Token type
+     * @return RDF classe
+     */
+    public static String toRDFClasse(final TokenType tt) {
+        if (tt == TokenType.ORGANIZATION) {
+            return "http://schema.org/Organization";
+        } else if (tt == TokenType.PERSON) {
+            return "http://schema.org/Person";
+        } else if (tt == TokenType.LOCATION || tt == TokenType.LOCATION_PART) {
+            return "http://schema.org/Place";
+        }
+
+        return "http://schema.org/Thing";
+    }
+
+    /**
+     * Return RDF classe equivalent of a token type.
+     *
+     * @param tt Token type
+     * @return EntityType
+     */
+    public static EntityType toEntityType(final TokenType tt) {
+        if (tt == TokenType.ORGANIZATION) {
+            return EntityType.ORGANIZATION;
+        } else if (tt == TokenType.PERSON) {
+            return EntityType.PERSON;
+        } else if (tt == TokenType.LOCATION || tt == TokenType.LOCATION_PART) {
+            return EntityType.PLACE;
+        } else if (tt == TokenType.TWITTER_USERNAME) {
+            return EntityType.TWITTER_USERNAME;
+        } else if (tt == TokenType.MONEY_AMOUNT) {
+            return EntityType.MONEY_AMOUNT;
+        } else if (tt == TokenType.DATE) {
+            return EntityType.DATE;
+        } else if (tt == TokenType.DATETIME) {
+            return EntityType.DATETIME;
+        } else if (tt == TokenType.HASHTAG) {
+            return EntityType.HASHTAG;
+        } else if (tt == TokenType.HOST) {
+            return EntityType.HOST;
+        }
+
+        return null;
+    }
 }

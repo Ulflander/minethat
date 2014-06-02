@@ -31,8 +31,10 @@ public class POSTaggerTest extends AbstractTest {
         s.addProcessor("extract.AggregatedCorpusGuesser");
         s.addProcessor("extract.EntityLookup");
         s.addProcessor("extract.EntityBasedAggregator");
-        s.addProcessor("extract.EntityConsolidation");
+        s.addProcessor("extract.AggregatedTypeInferenceToEntity");
         s.addProcessor("extract.UnknownPersonToEntity");
+        s.addProcessor("extract.TypeInferenceToEntity");
+        s.addProcessor("extract.EntityConsolidation");
         s.addProcessor("extract.EntityCleaner");
         s.addProcessor("extract.EntitySelector");
         s.addProcessor("extract.TokenFrequency");
@@ -41,6 +43,42 @@ public class POSTaggerTest extends AbstractTest {
         s.addProcessor("augment.QualityEvaluator");
     }
 
+    @Test
+    public void again() {
+        d.setSurface("“I am big. It’s the pictures that got small.”\n" +
+                "\n" +
+                "Now, to state the obvious: Angelina Jolie is about as distant from a washed-up Norma Desmond as it is possible to be on the celebrity-relevance spectrum. And her new vehicle, Maleficent, is not small in the traditional sense, but rather in the increasingly common contemporary sense: yet another in a string of gazillion-dollar special-effects extravaganzas grafted onto flimsy, nonsensical scripts and featuring an array of two-dimensional performances.\n" +
+                "\n" +
+                "Related Story\n" +
+                "\n" +
+                "The Cyclical Darkness of Fairy Tales\n" +
+                "Still, the old line from Sunset Boulevard can’t help but resonate. Jolie is, after all, big in the way that silent film stars were big before the talkies swept them away. And as one of a tiny number of female stars who can open a major movie herself, she all too often finds her charisma swallowed up by the hubbub of blockbuster filmmaking: the stunts, the effects, the desperate pursuit of scale and velocity.\n" +
+                "\n" +
+                "What was Jolie’s last genuinely memorable role? The Tourist? Salt? Changeling? She sauntered through her effortless brand of sexual cool in Mr. & Mrs. Smith as well as in supporting roles in Wanted, Beowulf, and Sky Captain and the World of Tomorrow. And of course she voices a tiger in the Kung Fu Panda movies. For an indisputably A-list actress, it adds up to an awful lot of B-list roles. Indeed, unlike fellow cinematic icons such as her quasi-spouse Brad Pitt and his pal George Clooney, Jolie seems almost to have transcended her film career altogether. Acting often looks as though it's an occasional sideline to her day job, the no doubt taxing business of being Angelina Jolie.\n" +
+                "\n" +
+                "Maleficent was intended to remedy this, to reestablish Jolie center-stage, playing a villainess as iconic as herself. Alas, Disney’s subversive retelling of its own 1959 animated classic Sleeping Beauty is an utter mess. At once overblown and under-baked, the movie is a morally and tonally confused collection of sequences that never cohere into a compelling story.\n" +
+                "\n" +
+                "Robert Stromberg makes his directorial debut with the film, and it will surprise precisely no one who sees it that he comes from the world of special effects. (Stromberg won art direction Oscars for Avatar and Alice in Wonderland, and worked on last year’s Oz the Great and Powerful, among others.) From its opening frames, Maleficent is crammed with CGI wonders: Ent-like warrior-trees, mushroomy gnomes, acre after acre of blossoming Technicolor jungle. There are beautiful elements here and there, but they are piled so thick upon one another that they quickly become visually exhausting. Moreover, a sameness seems to be creeping into even the most accomplished CGI artistry: Do I recognize that particular magical forest creature from the Lord of the Rings? Narnia? Snow White and the Huntsman? I’m not certain, but I know I've seen it somewhere before.\n" +
+                "\n" +
+                "The tale that unfolds in front of this backdrop is an inversion of Charles Perrault’s classic folk tale, told from the perspective of its antagonist, a la Wicked or John Gardner’s novel Grendel. It begins with a young Maleficent, already the most powerful of the fairies—her magnificent wings are a sight to behold, half-bat, half-eagle—becoming friends with a human boy, Stefan. Their fates are complicated, however, when the human king declares war on the land of the fairies—cue the requisite effects-laden battle between armored soldiers and fantastical woodland beasts—and then promises his throne to any man who will destroy Maleficent (now played, in adulthood, by Jolie).\n" +
+                "\n" +
+                "Stefan has always been an ambitious fellow. (We know this because we’ve been told so in voiceover—more on this later.) So the young man, now played by South African actor Sharlto Copley, visits his old friend Maleficent to reminisce over old times and then dose her with a potion that renders her unconscious (yes: a fairy-tale roofie). When the moment comes to kill her, however, he relents, instead severing her beautiful wings and taking them with him as an offering to the king. Maleficent awakes screaming: betrayed, defiled, mutilated, her most wondrous gift torn from her. (Have I mentioned yet that this is not really a kids’ film?)\n" +
+                "\n" +
+                "From here, the story unfolds along more familiar lines: Years later, Stefan, now the king, and his wife have a beautiful baby daughter, Aurora; at her christening, Maleficent shows up, wreathed in green flame, to curse the child that on her 16th birthday she will prick her finger on the spindle of a spinning wheel and fall into a deathlike sleep from which she can be awakened only by the kiss of true love; in fear for her safety, the king sends Aurora away to be raised incognito by three dim but gentle fairies (Imelda Staunton, Juno Temple, and Lesley Manville as, respectively, Flora Knotgrass, Fauna Thistlewit, and Merryweather Flittle).\n" +
+                "\n" +
+                "This middle section of the film abandons its dark early vision almost entirely, instead offering heavy doses of feeble fairy slapstick. Maleficent mellows, too, playing practical jokes on her fairy cousins and gradually warming to Aurora as she grows into girlhood (and is now played by Elle Fanning). Unlike Disney’s earlier telling, in this version, far from losing track of Aurora, Maleficent watches over her as a kind of Bizarro fairy godmother. But as the girl reaches her 16th birthday, darkness again encroaches….\n" +
+                "\n" +
+                "The plot is frequently nudged forward by long bouts of expository narration, suggesting that considerable stretches of footage may have wound up on the cutting room floor.\n" +
+                "There were reports of difficulties during Maleficent’s production (tension between Jolie and Stromberg; late reshoots that brought in John Lee Hancock, director of The Blind Side and Saving Mr. Banks), and the final product feels like a grab bag of disjointed ideas awkwardly stitched together. The rape/revenge theme that sets the plot in motion is exceedingly grim, and coexists uneasily with the stabs at comedy that punctuate the middle third. The result is neither a brooding, arty, grown-up fairy tale (like, say, Neil Jordan’s The Company of Wolves) nor a particularly kid-friendly one, but instead an uncomfortable commingling of the two. By would-be blockbuster standards, the film is rather short (just 96 minutes) and its plot is frequently nudged forward by long bouts of expository narration, suggesting that considerable stretches of footage may have wound up on the cutting room floor. Perhaps most peculiar of all, a central twist of the film—I won’t say what it is, but you’ll recognize it if you see it—is virtually identical to that of another, better Disney film that was released only last year.\n" +
+                "\n" +
+                "Jolie does what she can in the title role, flashing wicked grins and sporting cheekbones so sharp and jutting that one could juice oranges on them. But the script (by Linda Woolverton) complicates Maleficent without deepening her. As a cameo, Jolie’s performance might have proven spectacular; but as a protagonist, she doesn’t give us enough to hold onto. For all her efforts, she remains yet another special effect, however spectacular.\n" +
+                "\n" +
+                "The rest of the cast fares far worse. Fanning is pretty but forgettable as Aurora, and Copley’s Stefan is even more testily over-the-top than the assassin played by the actor in last summer’s Elysium. And the less said of Staunton, Temple, and Manville’s bumbling, CGI-ified fairies, the happier all three actresses will no doubt be. Of the supporting players, only Sam Riley (Control), who plays the humanoid version of Maleficent’s raven familiar, Diaval, comes out of the film looking better than he did going in.\n" +
+                "\n" +
+                "So what’s next for Jolie? Kung Fu Panda 3 is due out next year. And Salt 2 (c'mon, guys, at least have the ironic sense to title it SALT II) is scheduled to follow sometime on its heels. Jolie will always be big. But, if anything, her pictures seem to be getting ever smaller.");
+        s.submit(d);
+        trace(d);
+    }
 
     @Test
     public void anotherTest() {

@@ -214,22 +214,29 @@ public final class EnPOSTagTokenizer extends Tokenizer {
      * @param nerSurface Result of NER classifier
      * @return Array of tokens annotated with NER classifier result
      */
-    private String[] normalizeNER(final String nerSurface) {
+    public String[] normalizeNER(final String nerSurface) {
         return nerSurface
                 // Normalize result so we got something almost the same
                 // Than pos tagging in term of number of spaces/tokens
                 .replaceAll("([^ ]+/MONEY)([0-9]+)", "$1 $2 ")
-                .replaceAll("(['][a-zA-Z])/([A-Z]+)", " $1/$2 ")
-                .replaceAll("([^A-Za-z0-9]+)/([A-Z]+)", " $1/$2 ")
+                .replaceAll("(['][a-zA-Z]+)/([A-Z]+)", " $1/$2 ")
+                .replaceAll("([^A-Za-z0-9]+)/(TIME)", " $1/$2 ")
+                .replaceAll("([^A-Za-z0-9]+)/(LOCATION)", " $1/$2 ")
+                .replaceAll("([^A-Za-z0-9]+)/(ORGANIZATION)", " $1/$2 ")
+                .replaceAll("([^A-Za-z0-9]+)/(PERSON)", " $1/$2 ")
+                .replaceAll("([^A-Za-z0-9]+)/(MONEY)", " $1/$2 ")
+                .replaceAll("([^A-Za-z0-9]+)/(PERCENT)", " $1/$2 ")
+                .replaceAll("([^A-Za-z0-9]+)/(DATE)", " $1/$2 ")
+                .replaceAll("([\\.,;\"”‘`:?!\\-']+)/O", " $1/O ")
                 .replaceAll("-LRB -/O", "-LRB-/O ")
+                .replaceAll("-RRB-/O", " -RRB-/O")
                 .replaceAll("-RRB -/O", " -RRB-/O")
                 .replaceAll(" ([A-Za-z0-9]+) ([^A-Za-z0-9])", " $1$2")
-                .replaceAll("/O[^ ]", "/O ")
-                .replaceAll("/O GANIZ", "/ORGANIZ")
                 .replaceAll(" /O", "/O")
                 .replaceAll(" /MONEY", "/MONEY")
-                .replaceAll("\\s+", " ")
-                .replaceAll(" - ", " -").trim().split(" ");
+                .replaceAll("-LRB-/O", "-LRB-/O ")
+                .replaceAll("/0([a-z])]", "/O $1")
+                .replaceAll("\\s+", " ").trim().split(" ");
     }
 
     /**

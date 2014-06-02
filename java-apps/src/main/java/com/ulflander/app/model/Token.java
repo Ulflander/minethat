@@ -401,7 +401,8 @@ public class Token extends Text {
      * @return True if token is likely an entity, false otherwise.
      */
     public final boolean isLikelyEntity() {
-        return hasScore(TokenType.PERSON,
+        return getType() == TokenType.KEYWORD
+            && hasScore(TokenType.PERSON,
                 TokenType.LOCATION,
                 TokenType.LOCATION_PART,
                 TokenType.NATIONALITY,

@@ -7,6 +7,7 @@ import org.apache.logging.log4j.Logger;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -153,6 +154,30 @@ public class Document extends Text implements Storable {
         properties.get(group).put(name, obj);
     }
 
+
+    /**
+     * Add a list document property. Won't accept null value or empty lists.
+     *
+     * @param group Property group
+     * @param name Property name
+     * @param list Property list
+     */
+    public final void addProperty(final String group,
+                                  final String name,
+                                  final List list) {
+
+        if (list == null) {
+            throw new IllegalArgumentException("Document properties "
+                    + "cant be null. "
+                    + "Property " + group + "." + name);
+        }
+
+        if (!properties.containsKey(group)) {
+            properties.put(group, new HashMap<String, Object>());
+        }
+
+        properties.get(group).put(name, list);
+    }
     /**
      * Add document property only if not already set.
      *
@@ -167,6 +192,28 @@ public class Document extends Text implements Storable {
         if (!hasProperty(group, name)) {
             addProperty(group, name, obj);
         }
+    }
+
+    /**
+     * Get a list property by group and name.
+     *
+     * @param group Property group
+     * @param name Property name
+     * @return Property value if found, null otherwise
+     */
+    public final List getListProperty(final String group, final String name) {
+        if (!properties.containsKey(group)) {
+            LOGGER.warn("Attempt to access unknown property group " + group
+                    + ". Please double check group name, use hasProperty() or "
+                    + "setup properly processor requirements.");
+            return null;
+        }
+        if (!(properties.get(group).get(name) instanceof List)) {
+            LOGGER.warn("Property " + group + "." + name + " is not a list");
+            return null;
+        }
+
+        return (List) properties.get(group).get(name);
     }
 
     /**

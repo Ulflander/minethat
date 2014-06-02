@@ -34,6 +34,11 @@ public class TokenRegExpGuesser extends Processor {
     private static final int LOW_REGEXP_SCORE = 2;
 
     /**
+     * Minor score for token types found by regexps.
+     */
+    private static final int MINOR_REGEXP_SCORE = 1;
+
+    /**
      * Maximum value of a decimal that could be a month.
      */
     private static final int MAX_MONTH = 31;
@@ -178,7 +183,7 @@ public class TokenRegExpGuesser extends Processor {
          */
         if (test(Patterns.TOKEN_REC_NUMBER, token.getSurface())
             || token.getType() == TokenType.NUMERIC) {
-            token.score(TokenType.MONEY_AMOUNT, LOW_REGEXP_SCORE);
+            token.score(TokenType.MONEY_AMOUNT, MINOR_REGEXP_SCORE);
 
         /*
             If number + chars that could be some money currencies or
@@ -280,7 +285,7 @@ public class TokenRegExpGuesser extends Processor {
                 well or any other quantification).
              */
             if (val > 0 && val <= MAX_MONTH) {
-                token.score(TokenType.DATE_PART, 1);
+                token.score(TokenType.DATE_PART, LOW_REGEXP_SCORE);
             }
 
             /*
@@ -288,7 +293,7 @@ public class TokenRegExpGuesser extends Processor {
                 1901 and 2050 are actually a year.
              */
             if (val >= MIN_YEAR && val <= MAX_YEAR) {
-                token.score(TokenType.DATE_PART, 2);
+                token.score(TokenType.DATE_PART, LOW_REGEXP_SCORE);
             }
 
             /*
@@ -296,21 +301,21 @@ public class TokenRegExpGuesser extends Processor {
                 1901 and 2050 are actually a year.
              */
             if (val >= MIN_PROBABLE_YEAR && val <= MAX_PROBABLE_YEAR) {
-                token.score(TokenType.DATE_PART, 2);
+                token.score(TokenType.DATE_PART, LOW_REGEXP_SCORE);
             }
 
         /*
             If like an hour.
          */
         } else if (test(Patterns.TOKEN_REC_HOUR, token.getSurface())) {
-            token.score(TokenType.DATE_PART, 2);
+            token.score(TokenType.DATE_PART, DEFAULT_REGEXP_SCORE);
 
         /*
             mid-2013
          */
         } else if (test(Patterns.TOKEN_REC_DATE_YEAR_PREFIXED,
                 token.getSurface())) {
-            token.score(TokenType.DATE_PART, 2);
+            token.score(TokenType.DATE_PART, DEFAULT_REGEXP_SCORE);
 
         /*
             AM/PM
@@ -319,7 +324,7 @@ public class TokenRegExpGuesser extends Processor {
             String c = token.getClean();
 
             if (c.equals("am") || c.equals("pm")) {
-                token.score(TokenType.DATE_PART, 2);
+                token.score(TokenType.DATE_PART, LOW_REGEXP_SCORE);
             }
         }
 

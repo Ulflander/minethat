@@ -27,21 +27,35 @@
                 return;
             }
 
-            var k;
+            var k, sourceFound = false;
+
+            if (!request.valid) {
+                $('#loading').hide();
+                popup.status('Page not minable');
+                return;
+            }
 
             source = request.source;
             if (request.meta && request.meta.title) {
-                $('#title').text(request.meta.title);
+                $('#title').html(request.meta.title);
             }
 
             if (request.meta && request.meta.feeds) {
                 for (k in request.meta.feeds) {
-                    popup.check_feed(k, request.meta.feeds[k])
+                    popup.check_feed(k, request.meta.feeds[k]);
+                    sourceFound = true;
                 }
             }
 
+            if (!sourceFound) {
+                $('#feed_list').append(
+                    $('<li></li>')
+                        .text('No source found')
+                );
+            }
+
             // Gather URL if not found in meta
-            if (request.meta && request.meta.url) {
+            if (request.meta && !request.meta.url) {
                 chrome.tabs.query ({
                     'active': true,
                     'windowId': chrome.windows.WINDOW_ID_CURRENT
@@ -50,19 +64,33 @@
 
                     // All good
                     if(!!tabs[0].url) {
+                        curr_url = tabs[0].url;
+
+                        if (hunk.blacklist.blacklisted(request.domain)) {
+                            $('#loading').hide();
+                            popup.status('Domain blacklisted');
+                            return;
+                        }
+
                         $('#loading').hide();
                         $('#content').show();
-
-                        curr_url = tabs[0].url;
+                        popup.get_recent();
                     } else {
                         popup.status('Page not minable');
                     }
                 });
             } else {
+                curr_url = request.meta.url;
+
+                if (hunk.blacklist.blacklisted(request.domain)) {
+                    $('#loading').hide();
+                    popup.status('Domain blacklisted');
+                    return;
+                }
+
                 $('#loading').hide();
                 $('#content').show();
-
-                curr_url = request.meta.url;
+                popup.get_recent();
             }
         });
 
@@ -80,6 +108,28 @@
 
         $('#minethat_page').on('click', popup.onMineClick);
         $('#trainthat_page').on('click', popup.onTrainClick);
+    };
+
+    popup.get_recent = function() {
+        hunk.api.get_recent(function(response) {
+            if (!response || !response.docs) {
+                return;
+            }
+
+            var i, l = response.docs.length;
+            for (i = 0; i < l; i += 1) {
+                var doc = response.docs[i],
+                    li = $('<li></li>'),
+                    a = $('<a></a>')
+                        .attr('href', hunk.conf('api_server') + '/app/doc/' + doc._id)
+                        .attr('target', '_blank')
+                        .text(doc.properties.meta.doc_title);
+
+                li.append(a);
+                $('#recent_docs').append(li);
+            }
+            $('#recent').show();
+        });
     };
 
     popup.add_feed = function(url, li) {
@@ -155,14 +205,14 @@
 
     popup.onMineClick = function () {
         if (!!curr_url) {
-            hunk.api.submit(source, tab_url);
+            hunk.api.submit(source, curr_url);
         } else {
             console.log('Didnt got URL');
         }
     };
 
     popup.status = function (msg) {
-        $('#messages').text(msg);
+        $('#messages').html('<span>' + msg + '</span>');
     }
 
 

@@ -91,7 +91,7 @@ public class POSTagger extends Processor implements ILocalizedProcessor {
      */
     @Override
     public final void extractSentence(final Sentence sentence) {
-        MaxentTagger tagger = getTagger(sentence.getLanguage());
+        MaxentTagger tagger = getTagger(current().getLanguage());
         if (tagger == null) {
             LOGGER.error("POSTagger doesnt supports "
                 + sentence.getLanguage());

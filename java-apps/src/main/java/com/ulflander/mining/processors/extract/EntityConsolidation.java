@@ -45,12 +45,12 @@ public class EntityConsolidation extends Processor {
     /**
      * Low distance confidence score.
      */
-    public static final float MEDIUM_DISTANCE_SCORE = -0.1f;
+    public static final float MEDIUM_DISTANCE_SCORE = -0.2f;
 
     /**
      * High distance confidence score.
      */
-    public static final float HIGH_DISTANCE_SCORE = -0.4f;
+    public static final float HIGH_DISTANCE_SCORE = -0.5f;
 
 
 
@@ -59,6 +59,11 @@ public class EntityConsolidation extends Processor {
      * Confidence increment.
      */
     public static final Float CONFIDENCE_INCREMENT = 0.1f;
+
+    /**
+     * High confidence increment.
+     */
+    public static final Float HIGH_CONFIDENCE_INCREMENT = 0.2f;
 
     @Override
     public final void init() {
@@ -201,15 +206,20 @@ public class EntityConsolidation extends Processor {
                     e.setConfidence(e.getConfidence() - CONFIDENCE_INCREMENT);
                 }
 
-                // One for definition being equals to label (acronyms)
+                // TWO for definition being equals to label (acronyms)
                 if (definition != null && ee.getLabel().equals(definition)) {
                     e.setConfidence(e.getConfidence() + CONFIDENCE_INCREMENT);
 
                     // One for surface token being equals to label
                 } else if (ee.getLabel().equals(token.getSurface())) {
-                    e.setConfidence(e.getConfidence() + CONFIDENCE_INCREMENT);
+                    e.setConfidence(e.getConfidence()
+                            + HIGH_CONFIDENCE_INCREMENT);
+                } else if (ee.getLabel().indexOf(token.getSurface()) > -1) {
+                    e.setConfidence(e.getConfidence()
+                            + HIGH_CONFIDENCE_INCREMENT);
                 } else {
-                    e.setConfidence(e.getConfidence() - CONFIDENCE_INCREMENT);
+                    e.setConfidence(e.getConfidence()
+                            - HIGH_CONFIDENCE_INCREMENT);
                 }
 
                 int l;
@@ -228,6 +238,8 @@ public class EntityConsolidation extends Processor {
                     e.setConfidence(e.getConfidence() + HIGH_DISTANCE_SCORE);
                 }
             }
+
+
         }
     }
 }
