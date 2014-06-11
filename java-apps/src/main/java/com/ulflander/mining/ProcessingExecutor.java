@@ -185,7 +185,8 @@ public class ProcessingExecutor {
             // Validate if we have some paragraphs
             if (processor.getClass()
                     .getSimpleName().equals("DocumentSplitter")
-                    && document.getChapterAt(0).getParagraphsSize() == 0) {
+                    && (document.getChaptersSize() == 0
+                    || document.getChapterAt(0).getParagraphsSize() == 0)) {
 
                 LOGGER.warn("Document [" + document.getId()
                         + "] split returned no paragraph, failing.");
