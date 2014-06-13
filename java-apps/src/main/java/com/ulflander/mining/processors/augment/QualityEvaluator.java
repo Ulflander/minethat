@@ -1,7 +1,6 @@
 package com.ulflander.mining.processors.augment;
 
 import com.ulflander.app.model.Document;
-import com.ulflander.app.model.TextLength;
 import com.ulflander.app.model.Token;
 import com.ulflander.mining.processors.Processor;
 import com.ulflander.mining.processors.ProcessorDepthControl;
@@ -24,20 +23,9 @@ public class QualityEvaluator extends Processor {
 
 
     /**
-     * Initial score.
-     */
-    public static final int INITIAL_SCORE = 100;
-
-    /**
      * Max score.
      */
-    public static final int MAX_SCORE = 200;
-
-    /**
-     * Score if specific props are given in meta
-     * (always better to have an author, title..).
-     */
-    public static final int HAS_META_SCORE = 10;
+    public static final int MAX_SCORE = 100;
 
     /**
      * Low average sentence/paragraph - it means that less than 3 sentences
@@ -51,21 +39,6 @@ public class QualityEvaluator extends Processor {
     public static final int LOW_SENTENCE_PARAGRAPH_RATIO_SCORE = -20;
 
     /**
-     * More tokens are frequents (repeated), more text is considered as poor.
-     */
-    public static final float HIGH_TOKEN_FREQUENCY = 2.5f;
-
-    /**
-     * Score when tokens frequency average is high.
-     */
-    public static final int HIGH_TOKEN_FREQUENCY_SCORE = -20;
-
-    /**
-     * Score when document is long.
-     */
-    public static final int LONG_TEXT_BONUS_SCORE = 20;
-
-    /**
      * Fake flag.
      */
     public static final int HAS_FAKE_FLAG = -50;
@@ -74,6 +47,17 @@ public class QualityEvaluator extends Processor {
      * Godwin point score.
      */
     public static final int GODWIN_POINT_SCORE = -20;
+
+    /**
+     * One hundred.
+     */
+    public static final int ONE_HUNDRED = 100;
+
+    /**
+     * Max frequency.
+     */
+    public static final int MAX_FREQUENCY = 4;
+
 
 
     /**
@@ -109,52 +93,31 @@ public class QualityEvaluator extends Processor {
      */
     private int score;
 
+    /**
+     * Number of entities.
+     */
+    private int entities = 0;
+
     @Override
     public final void extractDocument(final Document doc) {
         float f = (float) doc.getProperty("basic_stats", "ave_sent_per_par");
+
         float tokenAveFreq =
                 (float) doc.getProperty("basic_stats", "avg_token_frequency");
-        score = INITIAL_SCORE;
+        float entityAveFreq =
+                (float) doc.getProperty("basic_stats", "avg_token_frequency");
 
-        if ((int) doc.getProperty("basic_stats", "text_length")
-                >= TextLength.MEDIUM) {
-
-            score += LONG_TEXT_BONUS_SCORE;
-        }
+        score = (int) ((entityAveFreq * ONE_HUNDRED / MAX_FREQUENCY)
+                        + (tokenAveFreq * ONE_HUNDRED / MAX_FREQUENCY)) / 2;
 
         if (f < LOW_SENTENCE_PARAGRAPH_RATIO) {
             score += LOW_SENTENCE_PARAGRAPH_RATIO_SCORE;
-        } else {
-            score -= LOW_SENTENCE_PARAGRAPH_RATIO_SCORE;
-        }
-
-        if (tokenAveFreq > HIGH_TOKEN_FREQUENCY) {
-            score += HIGH_TOKEN_FREQUENCY_SCORE;
-        } else {
-            score -= HIGH_TOKEN_FREQUENCY_SCORE;
-        }
-
-        if (doc.hasProperty("meta", "doc_author")) {
-            score += HAS_META_SCORE;
-        } else {
-            score -= HAS_META_SCORE;
-        }
-
-        if (doc.hasProperty("meta", "doc_title")) {
-            score += HAS_META_SCORE;
-        } else {
-            score -= HAS_META_SCORE;
-        }
-
-        if (doc.hasProperty("meta", "doc_source")) {
-            score += HAS_META_SCORE;
-        } else {
-            score -= HAS_META_SCORE;
         }
 
         if (doc.hasProperty("flags", "fake")) {
             score += HAS_FAKE_FLAG;
         }
+
     }
 
     @Override
@@ -162,16 +125,22 @@ public class QualityEvaluator extends Processor {
         if (!current().hasProperty("flag", "godwin")) {
             score += evaluateGodwinPoint(token);
         }
+
+        if (token.hasEntity()) {
+            entities += 1;
+        }
     }
 
     @Override
     public final void onProcessed(final Document doc) {
+
+
         if (score > MAX_SCORE) {
             score = MAX_SCORE;
         } else if (score < 0) {
             score = 0;
         }
-        doc.addProperty("basic_stats", "quality_score", score / 2);
+        doc.addProperty("basic_stats", "quality_score", score);
     }
 
     /**

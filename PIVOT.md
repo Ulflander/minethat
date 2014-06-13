@@ -41,3 +41,9 @@ I have a mission: make sense of all this information,
 then extract the worthy 1% to read.
 
 
+1. Find the top bloggers in your niche or industry
+2. Subscribe to their email alerts or RSS feeds
+3. Read them over several weeks
+4. Get a sense for what interests them and their own voice
+5. Send them useful links that have nothing to do with your business
+6. When it comes time to invite them to a press call or embargo or get a press release you aren't a stranger, you reference them personally and they are more likely to be interested in you

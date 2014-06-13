@@ -32,7 +32,7 @@ public class KeywordSelector extends Processor {
     /**
      * Maximum amount of keywords to set as doc meta.
      */
-    public static final int MAX_KEYWORDS = 30;
+    public static final int MAX_KEYWORDS = 100;
 
 
     @Override
@@ -61,7 +61,7 @@ public class KeywordSelector extends Processor {
             st = t;
             int score = freq.get(t);
 
-            if ((score > avg || t.getAggregated())
+            if ((score > avg / 2 || t.getAggregated())
                     && t.getWeight() > avgWeight
                     && !t.hasScore(TokenType.PERSON_PART)
                     && t.getType() == TokenType.KEYWORD
