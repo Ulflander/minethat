@@ -101,6 +101,10 @@ public final class MongoAccessor {
         j.ensureIndex(new BasicDBObject("customerId", 1));
         j.ensureIndex(new BasicDBObject("status", 1));
         j.ensureIndex(new BasicDBObject("gateway", 1));
+
+        DBCollection d = db.getCollection("documents");
+        d.ensureIndex(new BasicDBObject("properties.meta.doc_published_date",
+                        1));
     }
 
 

@@ -42,6 +42,12 @@ public enum JobStatus {
     SUCCESSFULL,
 
     /**
+     * Job successfully finished but document was already existing, mining
+     * cancelled.
+     */
+    DUPLICATE,
+
+    /**
      * Job didn't finish very well.
      */
     FAILED

@@ -41,6 +41,41 @@ public final class DocumentStorage extends Storage {
     }
 
     /**
+     * Find by URL fingerprint.
+     * @param urlFingerprint URL fingerprint
+     * @return Document if found, null otherwise
+     */
+    public static Document getByUrlFingerprint(final String urlFingerprint) {
+        BasicDBObject fields = new BasicDBObject().append("status", 1);
+        Document d = (Document) get("properties.meta.url_fingerprint",
+                urlFingerprint, fields, Document.class,
+                MongoAccessor.getDocuments());
+
+        if (d != null) {
+            d.setExists(true);
+        }
+        return d;
+    }
+
+
+    /**
+     * Find by text fingerprint.
+     * @param docFingerprint Doc text fingerprint
+     * @return Document if found, null otherwise
+     */
+    public static Object getByDocFingerprint(final String docFingerprint) {
+        BasicDBObject fields = new BasicDBObject().append("status", 1);
+        Document d = (Document) get("properties.meta.doc_fingerprint",
+                docFingerprint, fields, Document.class,
+                MongoAccessor.getDocuments());
+
+        if (d != null) {
+            d.setExists(true);
+        }
+        return d;
+    }
+
+    /**
      * Save a document in MongoDB.
      *
      * @param document Document

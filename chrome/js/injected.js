@@ -9,10 +9,17 @@
         url = a.href; // get qualified url
         return url;
     }
-console.log('checking for hunk', window);
-    if (!!window.hunk) {
-        console.log('injected hunk conf');
-        window.hunk.conf('minethat_extension_installed', true);
+
+    function domain(){
+        var a = document.createElement('a');
+        a.href = '/';
+        return a.hostname;
+    }
+
+    function path(){
+        var a = document.createElement('a');
+        a.href = '';
+        return a.pathname;
     }
 
     /**
@@ -21,13 +28,10 @@ console.log('checking for hunk', window);
     chrome.extension.sendMessage({
         action: "getSource",
 
-        domain: (function(){
-            var a = document.createElement('a');
-            a.href = '/';
-            return a.hostname;
-        }()),
+        domain: domain(),
 
-        valid: document.getElementsByTagName('title').length > 0,
+        valid: document.getElementsByTagName('title').length > 0
+                || document.getElementsByTagName('rss').length > 0,
 
         meta: (function () {
             // Check for title (mandatory)
@@ -41,6 +45,10 @@ console.log('checking for hunk', window);
                 i,
                 l = metas.length,
                 url,
+                found = [],
+                notFound = function(u) {
+                    return found.indexOf(u) === -1;
+                },
                 result = {
                     title: document.getElementsByTagName('title')[0].innerText,
                     feeds: {}
@@ -59,11 +67,43 @@ console.log('checking for hunk', window);
             for (i = 0; i < l; i += 1) {
                 o = links[i];
                 if (o.getAttribute('rel') === 'alternate'
-                    && o.getAttribute('type') === 'application/rss+xml') {
+                    && o.getAttribute('type') === 'application/rss+xml'
+                    && notFound(url)) {
                     url = qualifyURL(o.getAttribute('href'));
                     result.feeds[o.getAttribute('title') || url] = url;
+                    found.push(url);
                 }
             }
+
+            links = document.getElementsByTagName('a');
+
+            l = links.length;
+            for (i = 0; i < l; i += 1) {
+                o = links[i];
+                url = qualifyURL(o.getAttribute('href'));
+                if (((url.indexOf('rss') > -1 && url.indexOf('xml') > -1)
+                    || (url.indexOf('/feed.') > -1
+                        || url.indexOf('/feeds.') > -1)
+                    || (url.indexOf('/feed/') > -1
+                        || url.indexOf('/feeds/') > -1))
+                     && notFound(url)) {
+
+                    found.push(url);
+                    result.feeds[o.getAttribute('title') ||
+                                o.innerText || url] = url;
+                }
+            }
+
+            // Special cases
+            if (domain() === 'medium.com') {
+                url = path().split('/')[1];
+                if (!!url && notFound(url)) {
+                    result.feeds[result.title] =
+                    'https://medium.com/feed/' + url;
+                    found.push(url);
+                }
+            }
+
             return result;
         }()),
 

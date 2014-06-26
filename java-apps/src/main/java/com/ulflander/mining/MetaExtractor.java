@@ -129,8 +129,12 @@ public final class MetaExtractor {
                     val = normalize(key, e.attr(t.getAttr()));
                 }
 
-                if (val != null) {
-                    doc.addProperty("meta", key, val);
+                if (val != null && !val.equals("Null") && !val.equals("")) {
+                    if (doc.hasProperty("meta", key)) {
+                        doc.addProperty("meta", key + "_official", val);
+                    } else {
+                        doc.addProperty("meta", key, val);
+                    }
                     break;
                 }
             }
@@ -211,7 +215,7 @@ public final class MetaExtractor {
         ));
 
 
-        meta.put("doc_source_name", Arrays.asList(
+        meta.put("doc_publisher_name", Arrays.asList(
                 new Tag("meta[name=cre]", "attr", "content"),
                 new Tag("meta[itemprop=sourceOrganization]", "attr", "content"),
                 new Tag("meta[property=og:site_name]", "attr", "content"),

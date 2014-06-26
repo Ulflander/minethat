@@ -109,5 +109,9 @@ public class MinerService extends RabbitService {
         ProcessingExecutor executor = new ProcessingExecutor();
         executor.setVerbose(getVerbose());
         executor.execute(job);
+
+
+        publish(Conf.FILTER_QUEUE_NAME, job.getDocument(),
+                MSG_PUBLICATION_TRIES);
     }
 }

@@ -160,7 +160,11 @@
             el = $('<span></span>').html('<i class="fa fa-rss"></i> ' + title),
             span = $('<span class="little"></span>').text('Checking source...'),
 
-            add = function() {
+            add = function(e) {
+                if (!!e) {
+                    e.preventDefault();
+                }
+
                 icon.removeClass('fa-download')
                     .addClass('fa-circle-o-notch fa-spin');
                 span.text('Adding source...');

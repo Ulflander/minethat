@@ -85,7 +85,7 @@ public class KeywordSelector extends Processor {
         Iterator<Token> tokens = keywords.iterator();
         while (tokens.hasNext() && idx < MAX_KEYWORDS) {
             Token t = tokens.next();
-            finalList.add(t.getSurface());
+            finalList.add(t.getClean());
             idx += 1;
         }
 

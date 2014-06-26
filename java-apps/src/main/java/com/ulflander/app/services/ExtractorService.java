@@ -5,6 +5,7 @@ import com.ulflander.app.Conf;
 import com.ulflander.app.model.Document;
 import com.ulflander.app.model.DocumentStatus;
 import com.ulflander.app.model.Job;
+import com.ulflander.app.model.JobDocumentType;
 import com.ulflander.app.model.JobStatus;
 import com.ulflander.app.model.storage.DocumentStorage;
 import com.ulflander.app.model.storage.JobStorage;
@@ -124,9 +125,12 @@ public class ExtractorService extends RabbitService {
             doc = TextExtractor.fromJobDocument(job);
 
             HashMap<String, Object> meta = job.getMeta();
-
             for (String key: meta.keySet()) {
-                doc.addProperty("job_meta", key, meta.get(key));
+                doc.ensureProperty("meta", key, meta.get(key));
+            }
+
+            if (job.getType() == JobDocumentType.FEED_URL) {
+                doc.ensureProperty("meta", "doc_url", job.getValue());
             }
 
             // URL fingerprint
@@ -140,12 +144,30 @@ public class ExtractorService extends RabbitService {
                         UlfHashUtils.sha256(
                                 (String) doc.getProperty("meta", "url")));
             }
+
+
+            if (findDuplicates(
+                    (String) doc.getProperty("meta", "doc_fingerprint"),
+                    (String) doc.getProperty("meta", "url_fingerprint"))) {
+
+                job.setStatus(JobStatus.DUPLICATE);
+                JobStorage.update(job);
+                LOGGER.info("Extraction of job " + jobId
+                        + " stopped: duplicate.");
+                return;
+            }
+
             doc.setStatus(DocumentStatus.EXTRACTED);
             DocumentStorage.insert(doc);
         } catch (ExtractionException e) {
             job.setStatus(JobStatus.FAILED);
             JobStorage.update(job);
-            LOGGER.error("Extraction of model " + jobId + " failed.", e);
+            LOGGER.warn("Extraction of model " + jobId + " failed.", e);
+            return;
+        } catch (Exception e) {
+            job.setStatus(JobStatus.FAILED);
+            JobStorage.update(job);
+            LOGGER.error("Bad failure on extraction " + jobId, e);
             return;
         }
 
@@ -160,9 +182,23 @@ public class ExtractorService extends RabbitService {
             return;
         }
 
-        LOGGER.debug("[ExtractorService] Document stored ["
-                + job.getDocument() + "]");
+        LOGGER.debug("Document extracted and stored: "
+                + job.getDocument() + "");
 
         publish(Conf.EXECUTOR_QUEUE_NAME, jobId, MSG_PUBLICATION_TRIES);
+    }
+
+    /**
+     * Attempt to find some existing documents with this URL.
+     *
+     * @param docFingerprint Document text fingerprint
+     * @param urlFingerprint Document URL fingerprint
+     * @return True if a document exists with that URL, false otherwise
+     */
+    private boolean findDuplicates(final String docFingerprint,
+                                   final String urlFingerprint) {
+        return DocumentStorage.getByDocFingerprint(docFingerprint) != null
+            && (urlFingerprint == null
+                || DocumentStorage.getByUrlFingerprint(urlFingerprint) != null);
     }
 }

@@ -27,6 +27,11 @@ public final class Conf {
      */
     public static final String EXECUTOR_QUEUE_NAME = "exec";
 
+    /**
+     * Name of queue used by Filter service.
+     */
+    public static final String FILTER_QUEUE_NAME = "filter";
+
 
     /**
      * Private constructor.

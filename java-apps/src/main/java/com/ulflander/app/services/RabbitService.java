@@ -4,6 +4,7 @@ import com.rabbitmq.client.AMQP;
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.ConnectionFactory;
+import com.rabbitmq.client.MessageProperties;
 import com.ulflander.app.Conf;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -78,26 +79,26 @@ public abstract class RabbitService extends Service {
             return false;
         }
 
-        AMQP.Queue.DeclareOk res;
+        AMQP.Queue.DeclareOk res, res2;
 
         try {
             res = getRabbitChannel().queueDeclare(Conf.EXTRACTOR_QUEUE_NAME,
                     true, false, false, new HashMap<String, Object>());
 
-            res = getRabbitChannel().queueDeclare(Conf.EXECUTOR_QUEUE_NAME,
+            res2 = getRabbitChannel().queueDeclare(Conf.EXECUTOR_QUEUE_NAME,
                     true, false, false, new HashMap<String, Object>());
 
             LOGGER.debug("[" + this.getClass().getSimpleName() + "] "
-                        + "connected on channel and declared queues "
-                        + Conf.EXTRACTOR_QUEUE_NAME + "and"
-                        + Conf.EXECUTOR_QUEUE_NAME);
+                        + "connected on channel and declared queues '"
+                        + Conf.EXTRACTOR_QUEUE_NAME + "' and '"
+                        + Conf.EXECUTOR_QUEUE_NAME + "'");
 
         } catch (IOException e) {
             LOGGER.error("Unable to declare queue for RabbitMQ", e);
             return false;
         }
 
-        if (res == null) {
+        if (res == null || res2 == null) {
             LOGGER.error("Unable to declare queue for RabbitMQ: "
                     + "DeclareOK response is null");
             return false;
@@ -141,7 +142,8 @@ public abstract class RabbitService extends Service {
 
             try {
                 rabbitChannel.basicPublish("", queue,
-                        null, msg.getBytes(Charset.forName("UTF-8")));
+                        MessageProperties.PERSISTENT_TEXT_PLAIN,
+                        msg.getBytes(Charset.forName("UTF-8")));
 
                 LOGGER.debug("Message ["
                         + msg + "] sent on [" + queue + "]");

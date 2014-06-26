@@ -3,8 +3,6 @@ package com.ulflander.mining.processors.preset;
 import com.ulflander.app.model.JobProcessor;
 import com.ulflander.mining.processors.augment.BasicTextStat;
 import com.ulflander.mining.processors.augment.QualityEvaluator;
-import com.ulflander.mining.processors.augment.geoloc.MaxMindIPExtraction;
-import com.ulflander.mining.processors.augment.social.SocialStats;
 import com.ulflander.mining.processors.extract.AggregatedCorpusGuesser;
 import com.ulflander.mining.processors.extract.AggregatedTypeInferenceToEntity;
 import com.ulflander.mining.processors.extract.DocumentCleaner;
@@ -178,10 +176,10 @@ public final class BasicPreset implements IPreset {
         procs.add(new JobProcessor(BasicTextStat.class));
 
         // How many times this web page has been shared?
-        procs.add(new JobProcessor(SocialStats.class));
+        // procs.add(new JobProcessor(SocialStats.class));
 
         // If some IPs found, try to geolocate them
-        procs.add(new JobProcessor(MaxMindIPExtraction.class));
+        // procs.add(new JobProcessor(MaxMindIPExtraction.class));
 
         // Evaluates quality of document and extraction based on various
         // variables
