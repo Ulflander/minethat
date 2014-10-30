@@ -3,6 +3,8 @@ Minethat
 
 Minethat is a new kind of [ETL](http://fr.wikipedia.org/wiki/Extract_Transform_Load) dedicated to text mining.
 
+This project has been discontinued, but feel free to contact me if you wish to use some of the code!
+
 It contains a web server (in Node.js) and some background services (update of data, mining services... in Java).
 
 ## Basics
